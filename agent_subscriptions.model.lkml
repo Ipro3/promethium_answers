@@ -1,6 +1,5 @@
 
 connection: "pmdevpresto"
-include: "/views/*.view.lkml"
 
 
 explore: FACT_SUBSCRIPTION_ACTIVITY__88eb8cef_a439_4972_b59a_21a0c9fbc41b {
