@@ -2,16 +2,16 @@
 connection: "pmdevpresto"
 
 
-explore: ACCOUNTCLEANINFO__2fc86785_6570_4ce5_8664_f1738e868185 {
+explore: ACCOUNTCLEANINFO__61b7a6ea_2f96_4188_b849_0be56f509eb5 {
 
-join: ACCOUNT__18e330e3_23eb_44b7_af0b_baee204f98c4 {
+join: ACCOUNT__c32b6785_6d40_4850_83ac_f12de2fd39c8 {
  relationship: one_to_one
- sql_on: ${ACCOUNT__18e330e3_23eb_44b7_af0b_baee204f98c4.ID} = ${ACCOUNTCLEANINFO__2fc86785_6570_4ce5_8664_f1738e868185.ID} ;;
+ sql_on: ${ACCOUNT__c32b6785_6d40_4850_83ac_f12de2fd39c8.ID} = ${ACCOUNTCLEANINFO__61b7a6ea_2f96_4188_b849_0be56f509eb5.ID} ;;
 }
 }
 
 
-view: ACCOUNT__18e330e3_23eb_44b7_af0b_baee204f98c4 {
+view: ACCOUNT__c32b6785_6d40_4850_83ac_f12de2fd39c8 {
 sql_table_name:sforce.SFORCE.ACCOUNT ;;
 dimension: ID {
  type: string
@@ -272,7 +272,7 @@ dimension: SEGMENT__C {
 }
 
 
-view: ACCOUNTCLEANINFO__2fc86785_6570_4ce5_8664_f1738e868185 {
+view: ACCOUNTCLEANINFO__61b7a6ea_2f96_4188_b849_0be56f509eb5 {
 sql_table_name:sforce.SFORCE.ACCOUNTCLEANINFO ;;
 dimension: ID {
  type: string
