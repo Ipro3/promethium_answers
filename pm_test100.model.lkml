@@ -2,20 +2,20 @@
 connection: "pmdevpresto"
 
 
-explore: ACCOUNT__22aeac09_5e5d_4e13_b4ac_d4a7accb420b {
+explore: ACCOUNT__558a06cf_59a7_4e60_a564_21b4b7f03dae {
 
-join: ACCOUNTHISTORY__abbcf0eb_9152_4a9b_9d85_17f753906f0b {
+join: ACCOUNTHISTORY__e7a67db2_3b7d_4445_8946_7f24d3a53df7 {
  relationship: one_to_one
- sql_on: ${ACCOUNT__22aeac09_5e5d_4e13_b4ac_d4a7accb420b.ID} = ${ACCOUNTHISTORY__abbcf0eb_9152_4a9b_9d85_17f753906f0b.ACCOUNTID} ;;
+ sql_on: ${ACCOUNT__558a06cf_59a7_4e60_a564_21b4b7f03dae.ID} = ${ACCOUNTHISTORY__e7a67db2_3b7d_4445_8946_7f24d3a53df7.ACCOUNTID} ;;
 }
-join: ACCOUNTCLEANINFO__480fec36_4d0a_4808_85d4_6e93145412c1 {
+join: ACCOUNTCLEANINFO__d430ba3a_d2df_477c_bc74_36a8f8a9e7ba {
  relationship: one_to_one
- sql_on: ${ACCOUNT__22aeac09_5e5d_4e13_b4ac_d4a7accb420b.ID} = ${ACCOUNTCLEANINFO__480fec36_4d0a_4808_85d4_6e93145412c1.ACCOUNTID} ;;
+ sql_on: ${ACCOUNT__558a06cf_59a7_4e60_a564_21b4b7f03dae.ID} = ${ACCOUNTCLEANINFO__d430ba3a_d2df_477c_bc74_36a8f8a9e7ba.ACCOUNTID} ;;
 }
 }
 
 
-view: ACCOUNTCLEANINFO__480fec36_4d0a_4808_85d4_6e93145412c1 {
+view: ACCOUNTCLEANINFO__d430ba3a_d2df_477c_bc74_36a8f8a9e7ba {
 sql_table_name:sforce.SFORCE.ACCOUNTCLEANINFO ;;
 dimension: ID {
  type: string
@@ -464,7 +464,7 @@ dimension: DATADOTCOMID {
 }
 
 
-view: ACCOUNTHISTORY__abbcf0eb_9152_4a9b_9d85_17f753906f0b {
+view: ACCOUNTHISTORY__e7a67db2_3b7d_4445_8946_7f24d3a53df7 {
 sql_table_name:sforce_direct.SFORCE.ACCOUNTHISTORY ;;
 dimension: ID {
  type: string
@@ -501,7 +501,7 @@ dimension: NEWVALUE {
 }
 
 
-view: ACCOUNT__22aeac09_5e5d_4e13_b4ac_d4a7accb420b {
+view: ACCOUNT__558a06cf_59a7_4e60_a564_21b4b7f03dae {
 sql_table_name:sforce_direct.SFORCE.ACCOUNT ;;
 dimension: ID {
  type: string
