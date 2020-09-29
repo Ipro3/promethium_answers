@@ -2,78 +2,20 @@
 connection: "pmdevpresto"
 
 
-explore: CONTRACT__1ff2ab6d_37a3_4223_8fb1_fbaf4d43322d {
+explore: CONTRACT__3d3abae4_a471_4e40_9482_d3b8206da0b8 {
 
-join: Orders__0964827e_f839_4693_ac42_d7f7b0da025a {
+join: Orders__01ff06bf_5291_44dd_9c8a_42500a7f2292 {
  relationship: one_to_one
- sql_on: ${Orders__0964827e_f839_4693_ac42_d7f7b0da025a.Orders.order_id} = ${CONTRACT__1ff2ab6d_37a3_4223_8fb1_fbaf4d43322d.CONTRACT.CONTRACTTERM} ;;
+ sql_on: ${Orders__01ff06bf_5291_44dd_9c8a_42500a7f2292.Orders.order_id} = ${CONTRACT__3d3abae4_a471_4e40_9482_d3b8206da0b8.CONTRACT.CONTRACTTERM} ;;
 }
-join: pharma_sales_fact__db3afb0b_7032_4683_a47d_dd55611a04b3 {
+join: pharma_sales_fact__f01a1295_b71d_407a_9e0c_825bcc9bfd79 {
  relationship: one_to_one
- sql_on: ${CONTRACT__1ff2ab6d_37a3_4223_8fb1_fbaf4d43322d.CONTRACT.CONTRACTTERM} = ${pharma_sales_fact__db3afb0b_7032_4683_a47d_dd55611a04b3.pharma_sales_fact.customer_id} ;;
+ sql_on: ${CONTRACT__3d3abae4_a471_4e40_9482_d3b8206da0b8.CONTRACT.CONTRACTTERM} = ${pharma_sales_fact__f01a1295_b71d_407a_9e0c_825bcc9bfd79.pharma_sales_fact.customer_id} ;;
 }
 }
 
 
-view: Orders__0964827e_f839_4693_ac42_d7f7b0da025a {
-sql_table_name:ds_mysql.promethium.Orders ;;
-dimension: order_id {
- type: string
- sql: ${TABLE}.order_id;;
-}
-dimension: customer_id {
- type: string
- sql: ${TABLE}.customer_id;;
-}
-dimension: order_status_code {
- type: string
- sql: ${TABLE}.order_status_code;;
-}
-dimension: order_details {
- type: string
- sql: ${TABLE}.order_details;;
-}
-}
-
-
-view: pharma_sales_fact__db3afb0b_7032_4683_a47d_dd55611a04b3 {
-sql_table_name:ds_mysql.promethium.pharma_sales_fact ;;
-dimension: fact_id {
- type: string
- sql: ${TABLE}.fact_id;;
-}
-dimension: customer_id {
- type: string
- sql: ${TABLE}.customer_id;;
-}
-dimension: day_number {
- type: string
- sql: ${TABLE}.day_number;;
-}
-dimension: geographic_area {
- type: string
- sql: ${TABLE}.geographic_area;;
-}
-dimension: product_code {
- type: string
- sql: ${TABLE}.product_code;;
-}
-dimension: sales_amount {
- type: string
- sql: ${TABLE}.sales_amount;;
-}
-dimension: sales_volume {
- type: string
- sql: ${TABLE}.sales_volume;;
-}
-dimension: other_sales_details {
- type: string
- sql: ${TABLE}.other_sales_details;;
-}
-}
-
-
-view: CONTRACT__1ff2ab6d_37a3_4223_8fb1_fbaf4d43322d {
+view: CONTRACT__3d3abae4_a471_4e40_9482_d3b8206da0b8 {
 sql_table_name:sforce_direct.SFORCE.CONTRACT ;;
 dimension: ID {
  type: string
@@ -226,5 +168,63 @@ dimension: LASTVIEWEDDATE {
 dimension: LASTREFERENCEDDATE {
  type: string
  sql: ${TABLE}.LASTREFERENCEDDATE;;
+}
+}
+
+
+view: pharma_sales_fact__f01a1295_b71d_407a_9e0c_825bcc9bfd79 {
+sql_table_name:ds_mysql.promethium.pharma_sales_fact ;;
+dimension: fact_id {
+ type: string
+ sql: ${TABLE}.fact_id;;
+}
+dimension: customer_id {
+ type: string
+ sql: ${TABLE}.customer_id;;
+}
+dimension: day_number {
+ type: string
+ sql: ${TABLE}.day_number;;
+}
+dimension: geographic_area {
+ type: string
+ sql: ${TABLE}.geographic_area;;
+}
+dimension: product_code {
+ type: string
+ sql: ${TABLE}.product_code;;
+}
+dimension: sales_amount {
+ type: string
+ sql: ${TABLE}.sales_amount;;
+}
+dimension: sales_volume {
+ type: string
+ sql: ${TABLE}.sales_volume;;
+}
+dimension: other_sales_details {
+ type: string
+ sql: ${TABLE}.other_sales_details;;
+}
+}
+
+
+view: Orders__01ff06bf_5291_44dd_9c8a_42500a7f2292 {
+sql_table_name:ds_mysql.promethium.Orders ;;
+dimension: order_id {
+ type: string
+ sql: ${TABLE}.order_id;;
+}
+dimension: customer_id {
+ type: string
+ sql: ${TABLE}.customer_id;;
+}
+dimension: order_status_code {
+ type: string
+ sql: ${TABLE}.order_status_code;;
+}
+dimension: order_details {
+ type: string
+ sql: ${TABLE}.order_details;;
 }
 }
