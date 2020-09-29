@@ -2,12 +2,12 @@
 connection: "pmdevpresto"
 
 
-explore: customers__e3664b20_4b6a_4b44_a5bf_7029418faa92 {
+explore: customers__137f9883_1b91_42a9_acfb_275002012d7c {
 
 }
 
 
-view: customers__e3664b20_4b6a_4b44_a5bf_7029418faa92 {
+view: customers__137f9883_1b91_42a9_acfb_275002012d7c {
 sql_table_name:ds_mysql.promethium.customers ;;
 dimension: customer_id {
  type: string
