@@ -2,16 +2,16 @@
 connection: "pmdevpresto"
 
 
-explore: DIM_AGENT__2ee5cddb_0473_4d30_850b_c5e654eb8819 {
+explore: DIM_AGENT__63835adc_32e1_41c4_9c29_5b68a73c673d {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__d1e83f3a_db19_432c_b1be_5d86399c7b9e {
+join: FACT_SUBSCRIPTION_ACTIVITY__0c1fe5cb_ddd8_4889_b5c1_1801de9ed145 {
  relationship: one_to_one
- sql_on: ${DIM_AGENT__2ee5cddb_0473_4d30_850b_c5e654eb8819.DIM_AGENT.AGENT_RECORD_KEY} > ${FACT_SUBSCRIPTION_ACTIVITY__d1e83f3a_db19_432c_b1be_5d86399c7b9e.FACT_SUBSCRIPTION_ACTIVITY.SBSCRN_ACTVTY_KEY} ;;
+ sql_on: ${DIM_AGENT__63835adc_32e1_41c4_9c29_5b68a73c673d.DIM_AGENT.AGENT_RECORD_KEY} > ${FACT_SUBSCRIPTION_ACTIVITY__0c1fe5cb_ddd8_4889_b5c1_1801de9ed145.FACT_SUBSCRIPTION_ACTIVITY.SBSCRN_ACTVTY_KEY} ;;
 }
 }
 
 
-view: FACT_SUBSCRIPTION_ACTIVITY__d1e83f3a_db19_432c_b1be_5d86399c7b9e {
+view: FACT_SUBSCRIPTION_ACTIVITY__0c1fe5cb_ddd8_4889_b5c1_1801de9ed145 {
 sql_table_name:ds_mysql.promethium.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  type: string
@@ -276,7 +276,7 @@ dimension: Save_Opportunity_Activity {
 }
 
 
-view: DIM_AGENT__2ee5cddb_0473_4d30_850b_c5e654eb8819 {
+view: DIM_AGENT__63835adc_32e1_41c4_9c29_5b68a73c673d {
 sql_table_name:oracle.RDSORACLEFORPRESTO.DIM_AGENT ;;
 dimension: AGENT_RECORD_KEY {
  type: string
