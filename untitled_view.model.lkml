@@ -2,37 +2,16 @@
 connection: "pmdevpresto"
 
 
-explore: customer_dimension__8b670318_5a59_4d8c_833e_c01791726719 {
+explore: customer_dimension__0d7f7bf9_68e7_417f_93f5_996d31c16f99 {
 
-join: dim_channel__5bd3571c_2be3_43db_b9aa_fe2329eeb5c4 {
+join: dim_channel__3e78cd45_5d50_4864_8b29_50c4b3f1df26 {
  relationship: one_to_one
- sql_on: ${customer_dimension__8b670318_5a59_4d8c_833e_c01791726719.customer_dimension.customer_name} = ${dim_channel__5bd3571c_2be3_43db_b9aa_fe2329eeb5c4.dim_channel.col0} ;;
+ sql_on: ${customer_dimension__0d7f7bf9_68e7_417f_93f5_996d31c16f99.customer_dimension.customer_name} = ${dim_channel__3e78cd45_5d50_4864_8b29_50c4b3f1df26.dim_channel.col0} ;;
 }
 }
 
 
-view: customer_dimension__8b670318_5a59_4d8c_833e_c01791726719 {
-sql_table_name:hivepublic.promethium.customer_dimension ;;
-dimension: customer_id {
- type: number
- sql: ${TABLE}.customer_id;;
-}
-dimension: customer_name {
- type: string
- sql: ${TABLE}.customer_name;;
-}
-dimension: customer_address {
- type: string
- sql: ${TABLE}.customer_address;;
-}
-dimension: other_details {
- type: string
- sql: ${TABLE}.other_details;;
-}
-}
-
-
-view: dim_channel__5bd3571c_2be3_43db_b9aa_fe2329eeb5c4 {
+view: dim_channel__3e78cd45_5d50_4864_8b29_50c4b3f1df26 {
 sql_table_name:hive.isaktest.dim_channel ;;
 dimension: col0 {
  type: string
@@ -105,5 +84,26 @@ dimension: col16 {
 dimension: col17 {
  type: string
  sql: ${TABLE}.col17;;
+}
+}
+
+
+view: customer_dimension__0d7f7bf9_68e7_417f_93f5_996d31c16f99 {
+sql_table_name:hivepublic.promethium.customer_dimension ;;
+dimension: customer_id {
+ type: number
+ sql: ${TABLE}.customer_id;;
+}
+dimension: customer_name {
+ type: string
+ sql: ${TABLE}.customer_name;;
+}
+dimension: customer_address {
+ type: string
+ sql: ${TABLE}.customer_address;;
+}
+dimension: other_details {
+ type: string
+ sql: ${TABLE}.other_details;;
 }
 }
