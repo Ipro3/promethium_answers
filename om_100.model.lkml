@@ -2,89 +2,16 @@
 connection: "pmdevpresto"
 
 
-explore: DIM_AGENT__50b4718f_7280_4027_a703_911d852d9cc2 {
+explore: DIM_AGENT__2ee5cddb_0473_4d30_850b_c5e654eb8819 {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__ed6aa175_9000_423d_a3cf_9ce22110b4df {
+join: FACT_SUBSCRIPTION_ACTIVITY__d1e83f3a_db19_432c_b1be_5d86399c7b9e {
  relationship: one_to_one
- sql_on: ${DIM_AGENT__50b4718f_7280_4027_a703_911d852d9cc2.DIM_AGENT.AGENT_RECORD_KEY} > ${FACT_SUBSCRIPTION_ACTIVITY__ed6aa175_9000_423d_a3cf_9ce22110b4df.FACT_SUBSCRIPTION_ACTIVITY.SBSCRN_ACTVTY_KEY} ;;
+ sql_on: ${DIM_AGENT__2ee5cddb_0473_4d30_850b_c5e654eb8819.DIM_AGENT.AGENT_RECORD_KEY} > ${FACT_SUBSCRIPTION_ACTIVITY__d1e83f3a_db19_432c_b1be_5d86399c7b9e.FACT_SUBSCRIPTION_ACTIVITY.SBSCRN_ACTVTY_KEY} ;;
 }
 }
 
 
-view: DIM_AGENT__50b4718f_7280_4027_a703_911d852d9cc2 {
-sql_table_name:oracle.RDSORACLEFORPRESTO.DIM_AGENT ;;
-dimension: AGENT_RECORD_KEY {
- type: string
- sql: ${TABLE}.AGENT_RECORD_KEY;;
-}
-dimension: AGENT_ID {
- type: string
- sql: ${TABLE}.AGENT_ID;;
-}
-dimension: CSR_ID {
- type: string
- sql: ${TABLE}.CSR_ID;;
-}
-dimension: AGENT_SUPERVISOR_RECORD_KEY {
- type: string
- sql: ${TABLE}.AGENT_SUPERVISOR_RECORD_KEY;;
-}
-dimension: AGENT_SUPERVISOR_CSR_ID {
- type: string
- sql: ${TABLE}.AGENT_SUPERVISOR_CSR_ID;;
-}
-dimension: AGENT_STATUS {
- type: string
- sql: ${TABLE}.AGENT_STATUS;;
-}
-dimension: AGENT_ROLE_START_DATE {
- type: string
- sql: ${TABLE}.AGENT_ROLE_START_DATE;;
-}
-dimension: AGENT_ROLE_END_DATE {
- type: string
- sql: ${TABLE}.AGENT_ROLE_END_DATE;;
-}
-dimension: AGENT_ROLE_SMS {
- type: string
- sql: ${TABLE}.AGENT_ROLE_SMS;;
-}
-dimension: AGENT_ROLE_MARKETING {
- type: string
- sql: ${TABLE}.AGENT_ROLE_MARKETING;;
-}
-dimension: AGENT_LOCATION {
- type: string
- sql: ${TABLE}.AGENT_LOCATION;;
-}
-dimension: AGENT_VENDOR {
- type: string
- sql: ${TABLE}.AGENT_VENDOR;;
-}
-dimension: AGENT_SITE {
- type: string
- sql: ${TABLE}.AGENT_SITE;;
-}
-dimension: AGENT_LOB {
- type: string
- sql: ${TABLE}.AGENT_LOB;;
-}
-dimension: ACTIVATION_SOURCE {
- type: string
- sql: ${TABLE}.ACTIVATION_SOURCE;;
-}
-dimension: CURRENT_RECORD_FLAG {
- type: string
- sql: ${TABLE}.CURRENT_RECORD_FLAG;;
-}
-dimension: DELETED_RECORD_FLAG {
- type: string
- sql: ${TABLE}.DELETED_RECORD_FLAG;;
-}
-}
-
-
-view: FACT_SUBSCRIPTION_ACTIVITY__ed6aa175_9000_423d_a3cf_9ce22110b4df {
+view: FACT_SUBSCRIPTION_ACTIVITY__d1e83f3a_db19_432c_b1be_5d86399c7b9e {
 sql_table_name:ds_mysql.promethium.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  type: string
@@ -345,5 +272,78 @@ dimension: Conversion_Activity_By_Save_Agent {
 dimension: Save_Opportunity_Activity {
  type: string
  sql: ${TABLE}.Save_Opportunity_Activity;;
+}
+}
+
+
+view: DIM_AGENT__2ee5cddb_0473_4d30_850b_c5e654eb8819 {
+sql_table_name:oracle.RDSORACLEFORPRESTO.DIM_AGENT ;;
+dimension: AGENT_RECORD_KEY {
+ type: string
+ sql: ${TABLE}.AGENT_RECORD_KEY;;
+}
+dimension: AGENT_ID {
+ type: string
+ sql: ${TABLE}.AGENT_ID;;
+}
+dimension: CSR_ID {
+ type: string
+ sql: ${TABLE}.CSR_ID;;
+}
+dimension: AGENT_SUPERVISOR_RECORD_KEY {
+ type: string
+ sql: ${TABLE}.AGENT_SUPERVISOR_RECORD_KEY;;
+}
+dimension: AGENT_SUPERVISOR_CSR_ID {
+ type: string
+ sql: ${TABLE}.AGENT_SUPERVISOR_CSR_ID;;
+}
+dimension: AGENT_STATUS {
+ type: string
+ sql: ${TABLE}.AGENT_STATUS;;
+}
+dimension: AGENT_ROLE_START_DATE {
+ type: string
+ sql: ${TABLE}.AGENT_ROLE_START_DATE;;
+}
+dimension: AGENT_ROLE_END_DATE {
+ type: string
+ sql: ${TABLE}.AGENT_ROLE_END_DATE;;
+}
+dimension: AGENT_ROLE_SMS {
+ type: string
+ sql: ${TABLE}.AGENT_ROLE_SMS;;
+}
+dimension: AGENT_ROLE_MARKETING {
+ type: string
+ sql: ${TABLE}.AGENT_ROLE_MARKETING;;
+}
+dimension: AGENT_LOCATION {
+ type: string
+ sql: ${TABLE}.AGENT_LOCATION;;
+}
+dimension: AGENT_VENDOR {
+ type: string
+ sql: ${TABLE}.AGENT_VENDOR;;
+}
+dimension: AGENT_SITE {
+ type: string
+ sql: ${TABLE}.AGENT_SITE;;
+}
+dimension: AGENT_LOB {
+ type: string
+ sql: ${TABLE}.AGENT_LOB;;
+}
+dimension: ACTIVATION_SOURCE {
+ type: string
+ sql: ${TABLE}.ACTIVATION_SOURCE;;
+}
+dimension: CURRENT_RECORD_FLAG {
+ type: string
+ sql: ${TABLE}.CURRENT_RECORD_FLAG;;
+}
+dimension: DELETED_RECORD_FLAG {
+ type: string
+ sql: ${TABLE}.DELETED_RECORD_FLAG;;
 }
 }
