@@ -2,344 +2,320 @@
 connection: "pmdevpresto"
 
 
-explore: DIM_AGENT__23d4c721_fea7_417d_a39c_8b46b07291eb {
+explore: ACCOUNTCONTACTROLE__71c4b0f0_f4e4_48d4_a09c_92bf4cff0c3c {
 
-}
-
-
-view: FACT_SUBSCRIPTION_ACTIVITY__ebbed380_e04f_4c10_b118_bc18ad619431 {
-sql_table_name:ds_mysql.promethium.FACT_SUBSCRIPTION_ACTIVITY ;;
-dimension: SBSCRN_ACTVTY_KEY {
- type: string
- sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
-}
-dimension: SBSCRN_ID {
- type: string
- sql: ${TABLE}.SBSCRN_ID;;
-}
-dimension: ACTVTY_TYPE_ID {
- type: string
- sql: ${TABLE}.ACTVTY_TYPE_ID;;
-}
-dimension: USED_ACTVTY_TYPE_ID {
- type: string
- sql: ${TABLE}.USED_ACTVTY_TYPE_ID;;
-}
-dimension: ACTVTY_DT {
- type: string
- sql: ${TABLE}.ACTVTY_DT;;
-}
-dimension: ACTVTY_TS {
- type: string
- sql: ${TABLE}.ACTVTY_TS;;
-}
-dimension: HHLD_ID {
- type: string
- sql: ${TABLE}.HHLD_ID;;
-}
-dimension: PRTY_KEY {
- type: string
- sql: ${TABLE}.PRTY_KEY;;
-}
-dimension: PRTY_ID {
- type: string
- sql: ${TABLE}.PRTY_ID;;
-}
-dimension: PARNT_ACCT_KEY {
- type: string
- sql: ${TABLE}.PARNT_ACCT_KEY;;
-}
-dimension: PARNT_ACCT_ID {
- type: string
- sql: ${TABLE}.PARNT_ACCT_ID;;
-}
-dimension: PARNT_ACCT_NUM {
- type: string
- sql: ${TABLE}.PARNT_ACCT_NUM;;
-}
-dimension: CHILD_ACCT_KEY {
- type: string
- sql: ${TABLE}.CHILD_ACCT_KEY;;
-}
-dimension: CHILD_ACCT_ID {
- type: string
- sql: ${TABLE}.CHILD_ACCT_ID;;
-}
-dimension: CHILD_ACCT_NUM {
- type: string
- sql: ${TABLE}.CHILD_ACCT_NUM;;
-}
-dimension: VEH_KEY {
- type: string
- sql: ${TABLE}.VEH_KEY;;
-}
-dimension: DVC_KEY {
- type: string
- sql: ${TABLE}.DVC_KEY;;
-}
-dimension: dvc_id {
- type: string
- sql: ${TABLE}.dvc_id;;
-}
-dimension: EQMNT_KEY {
- type: string
- sql: ${TABLE}.EQMNT_KEY;;
-}
-dimension: EQMNT_ID {
- type: string
- sql: ${TABLE}.EQMNT_ID;;
-}
-dimension: PLAN_KEY {
- type: string
- sql: ${TABLE}.PLAN_KEY;;
-}
-dimension: PLAN_ID {
- type: string
- sql: ${TABLE}.PLAN_ID;;
-}
-dimension: OFR_ID {
- type: string
- sql: ${TABLE}.OFR_ID;;
-}
-dimension: FROM_PLAN_KEY {
- type: string
- sql: ${TABLE}.FROM_PLAN_KEY;;
-}
-dimension: FROM_PLAN_ID {
- type: string
- sql: ${TABLE}.FROM_PLAN_ID;;
-}
-dimension: FROM_OFR_ID {
- type: string
- sql: ${TABLE}.FROM_OFR_ID;;
-}
-dimension: PROD_KEY {
- type: string
- sql: ${TABLE}.PROD_KEY;;
-}
-dimension: PROD_ID {
- type: string
- sql: ${TABLE}.PROD_ID;;
-}
-dimension: FROM_PROD_KEY {
- type: string
- sql: ${TABLE}.FROM_PROD_KEY;;
-}
-dimension: FROM_PROD_ID {
- type: string
- sql: ${TABLE}.FROM_PROD_ID;;
-}
-dimension: PKG_ID {
- type: string
- sql: ${TABLE}.PKG_ID;;
-}
-dimension: FROM_PKG_ID {
- type: string
- sql: ${TABLE}.FROM_PKG_ID;;
-}
-dimension: FEAT_ID {
- type: string
- sql: ${TABLE}.FEAT_ID;;
-}
-dimension: AGN_KEY {
- type: string
- sql: ${TABLE}.AGN_KEY;;
-}
-dimension: CSR_ID {
- type: string
- sql: ${TABLE}.CSR_ID;;
-}
-dimension: PTNR_ID {
- type: string
- sql: ${TABLE}.PTNR_ID;;
-}
-dimension: LNKD_INET_FL {
- type: string
- sql: ${TABLE}.LNKD_INET_FL;;
-}
-dimension: MRD_TYPE_CD {
- type: string
- sql: ${TABLE}.MRD_TYPE_CD;;
-}
-dimension: SBSCR_LIFCYC_KEY {
- type: string
- sql: ${TABLE}.SBSCR_LIFCYC_KEY;;
-}
-dimension: CONV_REP_OWN_SEGMT_KEY {
- type: string
- sql: ${TABLE}.CONV_REP_OWN_SEGMT_KEY;;
-}
-dimension: OWNR_TYPE2_KEY {
- type: string
- sql: ${TABLE}.OWNR_TYPE2_KEY;;
-}
-dimension: DEACTIVATION_REASON_CODE {
- type: string
- sql: ${TABLE}.DEACTIVATION_REASON_CODE;;
-}
-dimension: TRIAL_ID {
- type: string
- sql: ${TABLE}.TRIAL_ID;;
-}
-dimension: SRVC_ID {
- type: string
- sql: ${TABLE}.SRVC_ID;;
-}
-dimension: RENW_ID {
- type: string
- sql: ${TABLE}.RENW_ID;;
-}
-dimension: FROM_RENW_ID {
- type: string
- sql: ${TABLE}.FROM_RENW_ID;;
-}
-dimension: COLL_SCNRO_ID {
- type: string
- sql: ${TABLE}.COLL_SCNRO_ID;;
-}
-dimension: SRVC_LVL_PMT_KEY {
- type: string
- sql: ${TABLE}.SRVC_LVL_PMT_KEY;;
-}
-dimension: NONPAY_SRVC_KEY {
- type: string
- sql: ${TABLE}.NONPAY_SRVC_KEY;;
-}
-dimension: BILLING_METHOD {
- type: string
- sql: ${TABLE}.BILLING_METHOD;;
-}
-dimension: FROM_BILLING_METHOD {
- type: string
- sql: ${TABLE}.FROM_BILLING_METHOD;;
-}
-dimension: SLFPAY_TURNOVER_RSN {
- type: string
- sql: ${TABLE}.SLFPAY_TURNOVER_RSN;;
-}
-dimension: SLFPAY_TURNOVER_DT {
- type: string
- sql: ${TABLE}.SLFPAY_TURNOVER_DT;;
-}
-dimension: FUTURE_DEACTVN_DT {
- type: string
- sql: ${TABLE}.FUTURE_DEACTVN_DT;;
-}
-dimension: SCHD_SEASONAL_SUSP_REACTVN_DT {
- type: string
- sql: ${TABLE}.SCHD_SEASONAL_SUSP_REACTVN_DT;;
-}
-dimension: Call_Reason {
- type: string
- sql: ${TABLE}.Call_Reason;;
-}
-dimension: Call_Disposition {
- type: string
- sql: ${TABLE}.Call_Disposition;;
-}
-dimension: INSE_USER_ID {
- type: string
- sql: ${TABLE}.INSE_USER_ID;;
-}
-dimension: INSE_TS {
- type: string
- sql: ${TABLE}.INSE_TS;;
-}
-dimension: UPDT_USER_ID {
- type: string
- sql: ${TABLE}.UPDT_USER_ID;;
-}
-dimension: UPDT_TS {
- type: string
- sql: ${TABLE}.UPDT_TS;;
-}
-dimension: Save_Activity {
- type: string
- sql: ${TABLE}.Save_Activity;;
-}
-dimension: Deact_Activity_By_Save_Agent {
- type: string
- sql: ${TABLE}.Deact_Activity_By_Save_Agent;;
-}
-dimension: Conversion_Activity_By_Save_Agent {
- type: string
- sql: ${TABLE}.Conversion_Activity_By_Save_Agent;;
-}
-dimension: Save_Opportunity_Activity {
- type: string
- sql: ${TABLE}.Save_Opportunity_Activity;;
+join: ACCOUNT__07c83352_65fe_41f2_a9da_a7447303d878 {
+ relationship: one_to_one
+ sql_on: ${null."sforce"."SFORCE"."ACCOUNT"."TYPE"} = ${null."sforce"."SFORCE"."ACCOUNTCONTACTROLE"."ROLE"} ;;
 }
 }
 
 
-view: DIM_AGENT__23d4c721_fea7_417d_a39c_8b46b07291eb {
-sql_table_name:oracle.RDSORACLEFORPRESTO.DIM_AGENT ;;
-dimension: AGENT_RECORD_KEY {
+view: ACCOUNTCONTACTROLE__71c4b0f0_f4e4_48d4_a09c_92bf4cff0c3c {
+sql_table_name:sforce.SFORCE.ACCOUNTCONTACTROLE ;;
+dimension: ID {
  type: string
- sql: ${TABLE}.AGENT_RECORD_KEY;;
+ sql: ${TABLE}.ID;;
 }
-dimension: AGENT_ID {
+dimension: ISDELETED {
  type: string
- sql: ${TABLE}.AGENT_ID;;
+ sql: ${TABLE}.ISDELETED;;
 }
-dimension: CSR_ID {
+dimension: CREATEDDATE {
  type: string
- sql: ${TABLE}.CSR_ID;;
+ sql: ${TABLE}.CREATEDDATE;;
 }
-dimension: AGENT_SUPERVISOR_RECORD_KEY {
+dimension: CREATEDBYID {
  type: string
- sql: ${TABLE}.AGENT_SUPERVISOR_RECORD_KEY;;
+ sql: ${TABLE}.CREATEDBYID;;
 }
-dimension: AGENT_SUPERVISOR_CSR_ID {
+dimension: LASTMODIFIEDDATE {
  type: string
- sql: ${TABLE}.AGENT_SUPERVISOR_CSR_ID;;
+ sql: ${TABLE}.LASTMODIFIEDDATE;;
 }
-dimension: AGENT_STATUS {
+dimension: LASTMODIFIEDBYID {
  type: string
- sql: ${TABLE}.AGENT_STATUS;;
+ sql: ${TABLE}.LASTMODIFIEDBYID;;
 }
-dimension: AGENT_ROLE_START_DATE {
+dimension: SYSTEMMODSTAMP {
  type: string
- sql: ${TABLE}.AGENT_ROLE_START_DATE;;
+ sql: ${TABLE}.SYSTEMMODSTAMP;;
 }
-dimension: AGENT_ROLE_END_DATE {
+dimension: ACCOUNTID {
  type: string
- sql: ${TABLE}.AGENT_ROLE_END_DATE;;
+ sql: ${TABLE}.ACCOUNTID;;
 }
-dimension: AGENT_ROLE_SMS {
+dimension: CONTACTID {
  type: string
- sql: ${TABLE}.AGENT_ROLE_SMS;;
+ sql: ${TABLE}.CONTACTID;;
 }
-dimension: AGENT_ROLE_MARKETING {
+dimension: ROLE {
  type: string
- sql: ${TABLE}.AGENT_ROLE_MARKETING;;
+ sql: ${TABLE}.ROLE;;
 }
-dimension: AGENT_LOCATION {
+dimension: ISPRIMARY {
  type: string
- sql: ${TABLE}.AGENT_LOCATION;;
+ sql: ${TABLE}.ISPRIMARY;;
 }
-dimension: AGENT_VENDOR {
- type: string
- sql: ${TABLE}.AGENT_VENDOR;;
 }
-dimension: AGENT_SITE {
+
+
+view: ACCOUNT__07c83352_65fe_41f2_a9da_a7447303d878 {
+sql_table_name:sforce.SFORCE.ACCOUNT ;;
+dimension: ID {
  type: string
- sql: ${TABLE}.AGENT_SITE;;
+ sql: ${TABLE}.ID;;
 }
-dimension: AGENT_LOB {
+dimension: ISDELETED {
  type: string
- sql: ${TABLE}.AGENT_LOB;;
+ sql: ${TABLE}.ISDELETED;;
 }
-dimension: ACTIVATION_SOURCE {
+dimension: MASTERRECORDID {
  type: string
- sql: ${TABLE}.ACTIVATION_SOURCE;;
+ sql: ${TABLE}.MASTERRECORDID;;
 }
-dimension: CURRENT_RECORD_FLAG {
+dimension: NAME {
  type: string
- sql: ${TABLE}.CURRENT_RECORD_FLAG;;
+ sql: ${TABLE}.NAME;;
 }
-dimension: DELETED_RECORD_FLAG {
+dimension: TYPE {
  type: string
- sql: ${TABLE}.DELETED_RECORD_FLAG;;
+ sql: ${TABLE}.TYPE;;
+}
+dimension: PARENTID {
+ type: string
+ sql: ${TABLE}.PARENTID;;
+}
+dimension: BILLINGSTREET {
+ type: string
+ sql: ${TABLE}.BILLINGSTREET;;
+}
+dimension: BILLINGCITY {
+ type: string
+ sql: ${TABLE}.BILLINGCITY;;
+}
+dimension: BILLINGSTATE {
+ type: string
+ sql: ${TABLE}.BILLINGSTATE;;
+}
+dimension: BILLINGPOSTALCODE {
+ type: string
+ sql: ${TABLE}.BILLINGPOSTALCODE;;
+}
+dimension: BILLINGCOUNTRY {
+ type: string
+ sql: ${TABLE}.BILLINGCOUNTRY;;
+}
+dimension: BILLINGLATITUDE {
+ type: string
+ sql: ${TABLE}.BILLINGLATITUDE;;
+}
+dimension: BILLINGLONGITUDE {
+ type: string
+ sql: ${TABLE}.BILLINGLONGITUDE;;
+}
+dimension: BILLINGGEOCODEACCURACY {
+ type: string
+ sql: ${TABLE}.BILLINGGEOCODEACCURACY;;
+}
+dimension: SHIPPINGSTREET {
+ type: string
+ sql: ${TABLE}.SHIPPINGSTREET;;
+}
+dimension: SHIPPINGCITY {
+ type: string
+ sql: ${TABLE}.SHIPPINGCITY;;
+}
+dimension: SHIPPINGSTATE {
+ type: string
+ sql: ${TABLE}.SHIPPINGSTATE;;
+}
+dimension: SHIPPINGPOSTALCODE {
+ type: string
+ sql: ${TABLE}.SHIPPINGPOSTALCODE;;
+}
+dimension: SHIPPINGCOUNTRY {
+ type: string
+ sql: ${TABLE}.SHIPPINGCOUNTRY;;
+}
+dimension: SHIPPINGLATITUDE {
+ type: string
+ sql: ${TABLE}.SHIPPINGLATITUDE;;
+}
+dimension: SHIPPINGLONGITUDE {
+ type: string
+ sql: ${TABLE}.SHIPPINGLONGITUDE;;
+}
+dimension: SHIPPINGGEOCODEACCURACY {
+ type: string
+ sql: ${TABLE}.SHIPPINGGEOCODEACCURACY;;
+}
+dimension: PHONE {
+ type: string
+ sql: ${TABLE}.PHONE;;
+}
+dimension: FAX {
+ type: string
+ sql: ${TABLE}.FAX;;
+}
+dimension: ACCOUNTNUMBER {
+ type: string
+ sql: ${TABLE}.ACCOUNTNUMBER;;
+}
+dimension: WEBSITE {
+ type: string
+ sql: ${TABLE}.WEBSITE;;
+}
+dimension: PHOTOURL {
+ type: string
+ sql: ${TABLE}.PHOTOURL;;
+}
+dimension: SIC {
+ type: string
+ sql: ${TABLE}.SIC;;
+}
+dimension: INDUSTRY {
+ type: string
+ sql: ${TABLE}.INDUSTRY;;
+}
+dimension: ANNUALREVENUE {
+ type: string
+ sql: ${TABLE}.ANNUALREVENUE;;
+}
+dimension: NUMBEROFEMPLOYEES {
+ type: string
+ sql: ${TABLE}.NUMBEROFEMPLOYEES;;
+}
+dimension: OWNERSHIP {
+ type: string
+ sql: ${TABLE}.OWNERSHIP;;
+}
+dimension: TICKERSYMBOL {
+ type: string
+ sql: ${TABLE}.TICKERSYMBOL;;
+}
+dimension: DESCRIPTION {
+ type: string
+ sql: ${TABLE}.DESCRIPTION;;
+}
+dimension: RATING {
+ type: string
+ sql: ${TABLE}.RATING;;
+}
+dimension: SITE {
+ type: string
+ sql: ${TABLE}.SITE;;
+}
+dimension: OWNERID {
+ type: string
+ sql: ${TABLE}.OWNERID;;
+}
+dimension: CREATEDDATE {
+ type: string
+ sql: ${TABLE}.CREATEDDATE;;
+}
+dimension: CREATEDBYID {
+ type: string
+ sql: ${TABLE}.CREATEDBYID;;
+}
+dimension: LASTMODIFIEDDATE {
+ type: string
+ sql: ${TABLE}.LASTMODIFIEDDATE;;
+}
+dimension: LASTMODIFIEDBYID {
+ type: string
+ sql: ${TABLE}.LASTMODIFIEDBYID;;
+}
+dimension: SYSTEMMODSTAMP {
+ type: string
+ sql: ${TABLE}.SYSTEMMODSTAMP;;
+}
+dimension: LASTACTIVITYDATE {
+ type: string
+ sql: ${TABLE}.LASTACTIVITYDATE;;
+}
+dimension: LASTVIEWEDDATE {
+ type: string
+ sql: ${TABLE}.LASTVIEWEDDATE;;
+}
+dimension: LASTREFERENCEDDATE {
+ type: string
+ sql: ${TABLE}.LASTREFERENCEDDATE;;
+}
+dimension: JIGSAW {
+ type: string
+ sql: ${TABLE}.JIGSAW;;
+}
+dimension: JIGSAWCOMPANYID {
+ type: string
+ sql: ${TABLE}.JIGSAWCOMPANYID;;
+}
+dimension: CLEANSTATUS {
+ type: string
+ sql: ${TABLE}.CLEANSTATUS;;
+}
+dimension: ACCOUNTSOURCE {
+ type: string
+ sql: ${TABLE}.ACCOUNTSOURCE;;
+}
+dimension: DUNSNUMBER {
+ type: string
+ sql: ${TABLE}.DUNSNUMBER;;
+}
+dimension: TRADESTYLE {
+ type: string
+ sql: ${TABLE}.TRADESTYLE;;
+}
+dimension: NAICSCODE {
+ type: string
+ sql: ${TABLE}.NAICSCODE;;
+}
+dimension: NAICSDESC {
+ type: string
+ sql: ${TABLE}.NAICSDESC;;
+}
+dimension: YEARSTARTED {
+ type: string
+ sql: ${TABLE}.YEARSTARTED;;
+}
+dimension: SICDESC {
+ type: string
+ sql: ${TABLE}.SICDESC;;
+}
+dimension: DANDBCOMPANYID {
+ type: string
+ sql: ${TABLE}.DANDBCOMPANYID;;
+}
+dimension: CUSTOMERPRIORITY__C {
+ type: string
+ sql: ${TABLE}.CUSTOMERPRIORITY__C;;
+}
+dimension: SLA__C {
+ type: string
+ sql: ${TABLE}.SLA__C;;
+}
+dimension: ACTIVE__C {
+ type: string
+ sql: ${TABLE}.ACTIVE__C;;
+}
+dimension: NUMBEROFLOCATIONS__C {
+ type: string
+ sql: ${TABLE}.NUMBEROFLOCATIONS__C;;
+}
+dimension: UPSELLOPPORTUNITY__C {
+ type: string
+ sql: ${TABLE}.UPSELLOPPORTUNITY__C;;
+}
+dimension: SLASERIALNUMBER__C {
+ type: string
+ sql: ${TABLE}.SLASERIALNUMBER__C;;
+}
+dimension: SLAEXPIRATIONDATE__C {
+ type: string
+ sql: ${TABLE}.SLAEXPIRATIONDATE__C;;
+}
+dimension: SEGMENT__C {
+ type: string
+ sql: ${TABLE}.SEGMENT__C;;
 }
 }
