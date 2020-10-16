@@ -2,16 +2,16 @@
 connection: "pmdevpresto"
 
 
-explore: OPPORTUNITY__dbc19e79_a6a7_488f_bd12_d2c0373a540b {
+explore: OPPORTUNITY__842f41aa_d560_48ad_a6cf_ed4f5169c18f {
 
-join: ACCOUNTSHARE__b2fef755_c443_41ff_b863_790c30d8bae1 {
+join: ACCOUNTSHARE__a2c19d16_80b4_4dd9_a93a_e5b1c9fd9c9c {
  relationship: one_to_one
- sql_on: ${OPPORTUNITY__dbc19e79_a6a7_488f_bd12_d2c0373a540b.RECORDTYPEID} <> ${ACCOUNTSHARE__b2fef755_c443_41ff_b863_790c30d8bae1.USERORGROUPID} ;;
+ sql_on: ${OPPORTUNITY__842f41aa_d560_48ad_a6cf_ed4f5169c18f.RECORDTYPEID} <> ${ACCOUNTSHARE__a2c19d16_80b4_4dd9_a93a_e5b1c9fd9c9c.USERORGROUPID} ;;
 }
 }
 
 
-view: ACCOUNTSHARE__b2fef755_c443_41ff_b863_790c30d8bae1 {
+view: ACCOUNTSHARE__a2c19d16_80b4_4dd9_a93a_e5b1c9fd9c9c {
 sql_table_name:sforce_direct.SFORCE.ACCOUNTSHARE ;;
 dimension: ID {
  type: string
@@ -60,7 +60,7 @@ dimension: ISDELETED {
 }
 
 
-view: OPPORTUNITY__dbc19e79_a6a7_488f_bd12_d2c0373a540b {
+view: OPPORTUNITY__842f41aa_d560_48ad_a6cf_ed4f5169c18f {
 sql_table_name:snowflake5.SFORCE.OPPORTUNITY ;;
 dimension: ID {
  type: string
