@@ -2,12 +2,12 @@
 connection: "pmdevpresto"
 
 
-explore: DIM_AGENT__bda1cdac_ab23_4854_b742_368c0b6a4c6c {
+explore: DIM_AGENT__f130fbad_cce9_4a2b_a4f4_454d2dfe9397 {
 
 }
 
 
-view: dim_agent__2d7f023d_dcda_4386_a71e_6f7e49d0fa0b {
+view: dim_agent__90c9431a_f5e6_4325_936d_42eaba99dd3f {
 sql_table_name:hivepublic.promethium.dim_agent ;;
 dimension: agent_record_key {
  type: number
@@ -80,7 +80,7 @@ dimension: deleted_record_flag {
 }
 
 
-view: DIM_AGENT__bda1cdac_ab23_4854_b742_368c0b6a4c6c {
+view: DIM_AGENT__f130fbad_cce9_4a2b_a4f4_454d2dfe9397 {
 sql_table_name:oracle.RDSORACLEFORPRESTO.DIM_AGENT ;;
 dimension: AGENT_RECORD_KEY {
  type: string
@@ -153,7 +153,7 @@ dimension: DELETED_RECORD_FLAG {
 }
 
 
-view: dim_agent__169c7e0f_1527_4f2b_9ac4_9bd98557b8b9 {
+view: dim_agent__8a4c0bd9_ab56_472f_934c_84069810b4ce {
 sql_table_name:hive.tests3audit.dim_agent ;;
 dimension: col0 {
  type: string
