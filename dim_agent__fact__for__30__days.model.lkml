@@ -2,85 +2,12 @@
 connection: "pmdevpresto"
 
 
-explore: DIM_AGENT__f130fbad_cce9_4a2b_a4f4_454d2dfe9397 {
+explore: DIM_AGENT__bbb0d11a_6761_4500_bc56_27abeed71ee2 {
 
 }
 
 
-view: dim_agent__90c9431a_f5e6_4325_936d_42eaba99dd3f {
-sql_table_name:hivepublic.promethium.dim_agent ;;
-dimension: agent_record_key {
- type: number
- sql: ${TABLE}.agent_record_key;;
-}
-dimension: agent_id {
- type: string
- sql: ${TABLE}.agent_id;;
-}
-dimension: csr_id {
- type: string
- sql: ${TABLE}.csr_id;;
-}
-dimension: agent_supervisor_record_key {
- type: number
- sql: ${TABLE}.agent_supervisor_record_key;;
-}
-dimension: agent_supervisor_csr_id {
- type: string
- sql: ${TABLE}.agent_supervisor_csr_id;;
-}
-dimension: agent_status {
- type: string
- sql: ${TABLE}.agent_status;;
-}
-dimension: agent_role_start_date {
- type: date
- sql: ${TABLE}.agent_role_start_date;;
-}
-dimension: agent_role_end_date {
- type: date
- sql: ${TABLE}.agent_role_end_date;;
-}
-dimension: agent_role_sms {
- type: string
- sql: ${TABLE}.agent_role_sms;;
-}
-dimension: agent_role_marketing {
- type: string
- sql: ${TABLE}.agent_role_marketing;;
-}
-dimension: agent_location {
- type: string
- sql: ${TABLE}.agent_location;;
-}
-dimension: agent_vendor {
- type: string
- sql: ${TABLE}.agent_vendor;;
-}
-dimension: agent_site {
- type: string
- sql: ${TABLE}.agent_site;;
-}
-dimension: agent_lob {
- type: string
- sql: ${TABLE}.agent_lob;;
-}
-dimension: activation_source {
- type: string
- sql: ${TABLE}.activation_source;;
-}
-dimension: current_record_flag {
- type: string
- sql: ${TABLE}.current_record_flag;;
-}
-dimension: deleted_record_flag {
- type: string
- sql: ${TABLE}.deleted_record_flag;;
-}
-}
-
-
-view: DIM_AGENT__f130fbad_cce9_4a2b_a4f4_454d2dfe9397 {
+view: DIM_AGENT__bbb0d11a_6761_4500_bc56_27abeed71ee2 {
 sql_table_name:oracle.RDSORACLEFORPRESTO.DIM_AGENT ;;
 dimension: AGENT_RECORD_KEY {
  type: string
@@ -153,7 +80,7 @@ dimension: DELETED_RECORD_FLAG {
 }
 
 
-view: dim_agent__8a4c0bd9_ab56_472f_934c_84069810b4ce {
+view: dim_agent__1d22cc4a_554c_4ffc_917a_10975513fcfc {
 sql_table_name:hive.tests3audit.dim_agent ;;
 dimension: col0 {
  type: string
@@ -226,5 +153,78 @@ dimension: col16 {
 dimension: col17 {
  type: string
  sql: ${TABLE}.col17;;
+}
+}
+
+
+view: dim_agent__2b0b95d1_edf0_493c_91ac_3cc61a7ad417 {
+sql_table_name:hivepublic.promethium.dim_agent ;;
+dimension: agent_record_key {
+ type: number
+ sql: ${TABLE}.agent_record_key;;
+}
+dimension: agent_id {
+ type: string
+ sql: ${TABLE}.agent_id;;
+}
+dimension: csr_id {
+ type: string
+ sql: ${TABLE}.csr_id;;
+}
+dimension: agent_supervisor_record_key {
+ type: number
+ sql: ${TABLE}.agent_supervisor_record_key;;
+}
+dimension: agent_supervisor_csr_id {
+ type: string
+ sql: ${TABLE}.agent_supervisor_csr_id;;
+}
+dimension: agent_status {
+ type: string
+ sql: ${TABLE}.agent_status;;
+}
+dimension: agent_role_start_date {
+ type: date
+ sql: ${TABLE}.agent_role_start_date;;
+}
+dimension: agent_role_end_date {
+ type: date
+ sql: ${TABLE}.agent_role_end_date;;
+}
+dimension: agent_role_sms {
+ type: string
+ sql: ${TABLE}.agent_role_sms;;
+}
+dimension: agent_role_marketing {
+ type: string
+ sql: ${TABLE}.agent_role_marketing;;
+}
+dimension: agent_location {
+ type: string
+ sql: ${TABLE}.agent_location;;
+}
+dimension: agent_vendor {
+ type: string
+ sql: ${TABLE}.agent_vendor;;
+}
+dimension: agent_site {
+ type: string
+ sql: ${TABLE}.agent_site;;
+}
+dimension: agent_lob {
+ type: string
+ sql: ${TABLE}.agent_lob;;
+}
+dimension: activation_source {
+ type: string
+ sql: ${TABLE}.activation_source;;
+}
+dimension: current_record_flag {
+ type: string
+ sql: ${TABLE}.current_record_flag;;
+}
+dimension: deleted_record_flag {
+ type: string
+ sql: ${TABLE}.deleted_record_flag;;
 }
 }
