@@ -2,16 +2,65 @@
 connection: "pmdevpresto"
 
 
-explore: ACCOUNTSHARE__3cb1f03c_eed0_4d14_920c_bb5985277ec3 {
+explore: OPPORTUNITY__dbc19e79_a6a7_488f_bd12_d2c0373a540b {
 
-join: OPPORTUNITY__1243fbcf_c471_499c_a94b_eb324ddd1c13 {
+join: ACCOUNTSHARE__b2fef755_c443_41ff_b863_790c30d8bae1 {
  relationship: one_to_one
- sql_on: ${ACCOUNTSHARE__3cb1f03c_eed0_4d14_920c_bb5985277ec3.ACCOUNTID} = ${OPPORTUNITY__1243fbcf_c471_499c_a94b_eb324ddd1c13.ID} ;;
+ sql_on: ${OPPORTUNITY__dbc19e79_a6a7_488f_bd12_d2c0373a540b.RECORDTYPEID} <> ${ACCOUNTSHARE__b2fef755_c443_41ff_b863_790c30d8bae1.USERORGROUPID} ;;
 }
 }
 
 
-view: OPPORTUNITY__1243fbcf_c471_499c_a94b_eb324ddd1c13 {
+view: ACCOUNTSHARE__b2fef755_c443_41ff_b863_790c30d8bae1 {
+sql_table_name:sforce_direct.SFORCE.ACCOUNTSHARE ;;
+dimension: ID {
+ type: string
+ sql: ${TABLE}.ID;;
+}
+dimension: ACCOUNTID {
+ type: string
+ sql: ${TABLE}.ACCOUNTID;;
+}
+dimension: USERORGROUPID {
+ type: string
+ sql: ${TABLE}.USERORGROUPID;;
+}
+dimension: ACCOUNTACCESSLEVEL {
+ type: string
+ sql: ${TABLE}.ACCOUNTACCESSLEVEL;;
+}
+dimension: OPPORTUNITYACCESSLEVEL {
+ type: string
+ sql: ${TABLE}.OPPORTUNITYACCESSLEVEL;;
+}
+dimension: CASEACCESSLEVEL {
+ type: string
+ sql: ${TABLE}.CASEACCESSLEVEL;;
+}
+dimension: CONTACTACCESSLEVEL {
+ type: string
+ sql: ${TABLE}.CONTACTACCESSLEVEL;;
+}
+dimension: ROWCAUSE {
+ type: string
+ sql: ${TABLE}.ROWCAUSE;;
+}
+dimension: LASTMODIFIEDDATE {
+ type: string
+ sql: ${TABLE}.LASTMODIFIEDDATE;;
+}
+dimension: LASTMODIFIEDBYID {
+ type: string
+ sql: ${TABLE}.LASTMODIFIEDBYID;;
+}
+dimension: ISDELETED {
+ type: string
+ sql: ${TABLE}.ISDELETED;;
+}
+}
+
+
+view: OPPORTUNITY__dbc19e79_a6a7_488f_bd12_d2c0373a540b {
 sql_table_name:snowflake5.SFORCE.OPPORTUNITY ;;
 dimension: ID {
  type: string
@@ -184,54 +233,5 @@ dimension: MAINCOMPETITORS__C {
 dimension: OPPORTUNITY_SOURCE__C {
  type: string
  sql: ${TABLE}.OPPORTUNITY_SOURCE__C;;
-}
-}
-
-
-view: ACCOUNTSHARE__3cb1f03c_eed0_4d14_920c_bb5985277ec3 {
-sql_table_name:sforce_direct.SFORCE.ACCOUNTSHARE ;;
-dimension: ID {
- type: string
- sql: ${TABLE}.ID;;
-}
-dimension: ACCOUNTID {
- type: string
- sql: ${TABLE}.ACCOUNTID;;
-}
-dimension: USERORGROUPID {
- type: string
- sql: ${TABLE}.USERORGROUPID;;
-}
-dimension: ACCOUNTACCESSLEVEL {
- type: string
- sql: ${TABLE}.ACCOUNTACCESSLEVEL;;
-}
-dimension: OPPORTUNITYACCESSLEVEL {
- type: string
- sql: ${TABLE}.OPPORTUNITYACCESSLEVEL;;
-}
-dimension: CASEACCESSLEVEL {
- type: string
- sql: ${TABLE}.CASEACCESSLEVEL;;
-}
-dimension: CONTACTACCESSLEVEL {
- type: string
- sql: ${TABLE}.CONTACTACCESSLEVEL;;
-}
-dimension: ROWCAUSE {
- type: string
- sql: ${TABLE}.ROWCAUSE;;
-}
-dimension: LASTMODIFIEDDATE {
- type: string
- sql: ${TABLE}.LASTMODIFIEDDATE;;
-}
-dimension: LASTMODIFIEDBYID {
- type: string
- sql: ${TABLE}.LASTMODIFIEDBYID;;
-}
-dimension: ISDELETED {
- type: string
- sql: ${TABLE}.ISDELETED;;
 }
 }
