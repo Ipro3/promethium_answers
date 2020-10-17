@@ -2,20 +2,20 @@
 connection: "pmdevpresto"
 
 
-explore: DIM_PLAN__37383b8b_c879_45c4_9e77_1810516a527e {
+explore: DIM_PLAN__47d43131_9895_48e0_9409_acb6edb4031c {
 
-join: fact_subscription_activity__73ff33cc_3f9c_4814_9059_6f1c2472ee0b {
+join: fact_subscription_activity__b99d46d6_615c_4b4b_b03b_bc305234b902 {
  relationship: one_to_one
- sql_on: ${DIM_PLAN__37383b8b_c879_45c4_9e77_1810516a527e.PLAN_ID} = ${null.PLAN_ID} ;;
+ sql_on: ${DIM_PLAN__47d43131_9895_48e0_9409_acb6edb4031c.PLAN_ID} = ${null.PLAN_ID} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__14ccc627_6529_4ea7_a038_f0d4dfd61002 {
+join: MASTER_PLAN_TABLE_WDATES__e02795fa_7fbc_4f8f_9750_6e89ead76be8 {
  relationship: one_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__14ccc627_6529_4ea7_a038_f0d4dfd61002.PLAN_ID} = ${null.PLAN_ID} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__e02795fa_7fbc_4f8f_9750_6e89ead76be8.PLAN_ID} = ${null.PLAN_ID} ;;
 }
 }
 
 
-view: DIM_PLAN__37383b8b_c879_45c4_9e77_1810516a527e {
+view: DIM_PLAN__47d43131_9895_48e0_9409_acb6edb4031c {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_PLAN ;;
 dimension: PLAN_RECORD_KEY {
  type: string
@@ -60,7 +60,7 @@ dimension: DELETED_RECORD_FLAG {
 }
 
 
-view: fact_subscription_activity__73ff33cc_3f9c_4814_9059_6f1c2472ee0b {
+view: fact_subscription_activity__b99d46d6_615c_4b4b_b03b_bc305234b902 {
 sql_table_name:hive.s3media.fact_subscription_activity ;;
 dimension: sbscrn_actvty_key {
  type: string
@@ -325,7 +325,7 @@ dimension: actvty_type_id {
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__14ccc627_6529_4ea7_a038_f0d4dfd61002 {
+view: MASTER_PLAN_TABLE_WDATES__e02795fa_7fbc_4f8f_9750_6e89ead76be8 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
 dimension: PLAN_ID {
  type: string
