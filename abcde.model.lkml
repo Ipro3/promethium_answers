@@ -2,12 +2,12 @@
 connection: "pmdevpresto"
 
 
-explore: dim_agent_csv__665283b3_daab_41a9_b2f7_1214aa070b4c {
+explore: dim_agent_csv__a9a933de_bc5f_4d93_b997_845896168e7c {
 
 }
 
 
-view: dim_agent_csv__665283b3_daab_41a9_b2f7_1214aa070b4c {
+view: dim_agent_csv__a9a933de_bc5f_4d93_b997_845896168e7c {
 sql_table_name:hive.isaktest.dim_agent_csv ;;
 dimension: col0 {
  type: string
