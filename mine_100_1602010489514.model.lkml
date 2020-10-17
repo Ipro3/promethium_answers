@@ -2,16 +2,16 @@
 connection: "pmdevpresto"
 
 
-explore: CONTRACT__93de2d1b_5df7_4f08_bf03_cf4879cbf7c5 {
+explore: CONTRACT__ba7350be_b5a3_4ef8_83fe_1680bf75fe3c {
 
-join: ORDER__429bb498_85bf_430c_8db6_3b7ab74cc4a0 {
+join: ORDER__6e585879_e166_4bfe_b3e3_5d140736239f {
  relationship: one_to_one
- sql_on: ${CONTRACT__93de2d1b_5df7_4f08_bf03_cf4879cbf7c5.ACCOUNTID} > ${ORDER__429bb498_85bf_430c_8db6_3b7ab74cc4a0.ACCOUNTID} ;;
+ sql_on: ${CONTRACT__ba7350be_b5a3_4ef8_83fe_1680bf75fe3c.ACCOUNTID} > ${ORDER__6e585879_e166_4bfe_b3e3_5d140736239f.ACCOUNTID} ;;
 }
 }
 
 
-view: ORDER__429bb498_85bf_430c_8db6_3b7ab74cc4a0 {
+view: ORDER__6e585879_e166_4bfe_b3e3_5d140736239f {
 sql_table_name:sforce.SFORCE.ORDER ;;
 dimension: ID {
  type: string
@@ -220,164 +220,7 @@ dimension: LASTREFERENCEDDATE {
 }
 
 
-view: CONTRACT__93de2d1b_5df7_4f08_bf03_cf4879cbf7c5 {
-sql_table_name:sforce.SFORCE.CONTRACT ;;
-dimension: ID {
- type: string
- sql: ${TABLE}.ID;;
-}
-dimension: ACCOUNTID {
- type: string
- sql: ${TABLE}.ACCOUNTID;;
-}
-dimension: PRICEBOOK2ID {
- type: string
- sql: ${TABLE}.PRICEBOOK2ID;;
-}
-dimension: OWNEREXPIRATIONNOTICE {
- type: string
- sql: ${TABLE}.OWNEREXPIRATIONNOTICE;;
-}
-dimension: STARTDATE {
- type: string
- sql: ${TABLE}.STARTDATE;;
-}
-dimension: ENDDATE {
- type: string
- sql: ${TABLE}.ENDDATE;;
-}
-dimension: BILLINGSTREET {
- type: string
- sql: ${TABLE}.BILLINGSTREET;;
-}
-dimension: BILLINGCITY {
- type: string
- sql: ${TABLE}.BILLINGCITY;;
-}
-dimension: BILLINGSTATE {
- type: string
- sql: ${TABLE}.BILLINGSTATE;;
-}
-dimension: BILLINGPOSTALCODE {
- type: string
- sql: ${TABLE}.BILLINGPOSTALCODE;;
-}
-dimension: BILLINGCOUNTRY {
- type: string
- sql: ${TABLE}.BILLINGCOUNTRY;;
-}
-measure: BILLINGLATITUDE {
- type: number
- sql: ${TABLE}.BILLINGLATITUDE;;
-}
-measure: BILLINGLONGITUDE {
- type: number
- sql: ${TABLE}.BILLINGLONGITUDE;;
-}
-dimension: BILLINGGEOCODEACCURACY {
- type: string
- sql: ${TABLE}.BILLINGGEOCODEACCURACY;;
-}
-measure: CONTRACTTERM {
- type: number
- sql: ${TABLE}.CONTRACTTERM;;
-}
-dimension: OWNERID {
- type: string
- sql: ${TABLE}.OWNERID;;
-}
-dimension: STATUS {
- type: string
- sql: ${TABLE}.STATUS;;
-}
-dimension: COMPANYSIGNEDID {
- type: string
- sql: ${TABLE}.COMPANYSIGNEDID;;
-}
-dimension: COMPANYSIGNEDDATE {
- type: string
- sql: ${TABLE}.COMPANYSIGNEDDATE;;
-}
-dimension: CUSTOMERSIGNEDID {
- type: string
- sql: ${TABLE}.CUSTOMERSIGNEDID;;
-}
-dimension: CUSTOMERSIGNEDTITLE {
- type: string
- sql: ${TABLE}.CUSTOMERSIGNEDTITLE;;
-}
-dimension: CUSTOMERSIGNEDDATE {
- type: string
- sql: ${TABLE}.CUSTOMERSIGNEDDATE;;
-}
-dimension: SPECIALTERMS {
- type: string
- sql: ${TABLE}.SPECIALTERMS;;
-}
-dimension: ACTIVATEDBYID {
- type: string
- sql: ${TABLE}.ACTIVATEDBYID;;
-}
-dimension: ACTIVATEDDATE {
- type: string
- sql: ${TABLE}.ACTIVATEDDATE;;
-}
-dimension: STATUSCODE {
- type: string
- sql: ${TABLE}.STATUSCODE;;
-}
-dimension: DESCRIPTION {
- type: string
- sql: ${TABLE}.DESCRIPTION;;
-}
-dimension: ISDELETED {
- type: string
- sql: ${TABLE}.ISDELETED;;
-}
-dimension: CONTRACTNUMBER {
- type: string
- sql: ${TABLE}.CONTRACTNUMBER;;
-}
-dimension: LASTAPPROVEDDATE {
- type: string
- sql: ${TABLE}.LASTAPPROVEDDATE;;
-}
-dimension: CREATEDDATE {
- type: string
- sql: ${TABLE}.CREATEDDATE;;
-}
-dimension: CREATEDBYID {
- type: string
- sql: ${TABLE}.CREATEDBYID;;
-}
-dimension: LASTMODIFIEDDATE {
- type: string
- sql: ${TABLE}.LASTMODIFIEDDATE;;
-}
-dimension: LASTMODIFIEDBYID {
- type: string
- sql: ${TABLE}.LASTMODIFIEDBYID;;
-}
-dimension: SYSTEMMODSTAMP {
- type: string
- sql: ${TABLE}.SYSTEMMODSTAMP;;
-}
-dimension: LASTACTIVITYDATE {
- type: string
- sql: ${TABLE}.LASTACTIVITYDATE;;
-}
-dimension: LASTVIEWEDDATE {
- type: string
- sql: ${TABLE}.LASTVIEWEDDATE;;
-}
-dimension: LASTREFERENCEDDATE {
- type: string
- sql: ${TABLE}.LASTREFERENCEDDATE;;
-}
-}
-
-
-view: ACCOUNT__a5d3c712_2fb9_43fd_8aaf_3b05c41a0d85 {
+view: ACCOUNT__5ef5613c_cb6a_4c5e_9b7e_2d12c3dbe3f0 {
 sql_table_name:sforce_direct.SFORCE.ACCOUNT ;;
 dimension: ID {
  type: string
@@ -634,5 +477,162 @@ dimension: SLAEXPIRATIONDATE__C {
 dimension: SEGMENT__C {
  type: string
  sql: ${TABLE}.SEGMENT__C;;
+}
+}
+
+
+view: CONTRACT__ba7350be_b5a3_4ef8_83fe_1680bf75fe3c {
+sql_table_name:sforce.SFORCE.CONTRACT ;;
+dimension: ID {
+ type: string
+ sql: ${TABLE}.ID;;
+}
+dimension: ACCOUNTID {
+ type: string
+ sql: ${TABLE}.ACCOUNTID;;
+}
+dimension: PRICEBOOK2ID {
+ type: string
+ sql: ${TABLE}.PRICEBOOK2ID;;
+}
+dimension: OWNEREXPIRATIONNOTICE {
+ type: string
+ sql: ${TABLE}.OWNEREXPIRATIONNOTICE;;
+}
+dimension: STARTDATE {
+ type: string
+ sql: ${TABLE}.STARTDATE;;
+}
+dimension: ENDDATE {
+ type: string
+ sql: ${TABLE}.ENDDATE;;
+}
+dimension: BILLINGSTREET {
+ type: string
+ sql: ${TABLE}.BILLINGSTREET;;
+}
+dimension: BILLINGCITY {
+ type: string
+ sql: ${TABLE}.BILLINGCITY;;
+}
+dimension: BILLINGSTATE {
+ type: string
+ sql: ${TABLE}.BILLINGSTATE;;
+}
+dimension: BILLINGPOSTALCODE {
+ type: string
+ sql: ${TABLE}.BILLINGPOSTALCODE;;
+}
+dimension: BILLINGCOUNTRY {
+ type: string
+ sql: ${TABLE}.BILLINGCOUNTRY;;
+}
+measure: BILLINGLATITUDE {
+ type: number
+ sql: ${TABLE}.BILLINGLATITUDE;;
+}
+measure: BILLINGLONGITUDE {
+ type: number
+ sql: ${TABLE}.BILLINGLONGITUDE;;
+}
+dimension: BILLINGGEOCODEACCURACY {
+ type: string
+ sql: ${TABLE}.BILLINGGEOCODEACCURACY;;
+}
+measure: CONTRACTTERM {
+ type: number
+ sql: ${TABLE}.CONTRACTTERM;;
+}
+dimension: OWNERID {
+ type: string
+ sql: ${TABLE}.OWNERID;;
+}
+dimension: STATUS {
+ type: string
+ sql: ${TABLE}.STATUS;;
+}
+dimension: COMPANYSIGNEDID {
+ type: string
+ sql: ${TABLE}.COMPANYSIGNEDID;;
+}
+dimension: COMPANYSIGNEDDATE {
+ type: string
+ sql: ${TABLE}.COMPANYSIGNEDDATE;;
+}
+dimension: CUSTOMERSIGNEDID {
+ type: string
+ sql: ${TABLE}.CUSTOMERSIGNEDID;;
+}
+dimension: CUSTOMERSIGNEDTITLE {
+ type: string
+ sql: ${TABLE}.CUSTOMERSIGNEDTITLE;;
+}
+dimension: CUSTOMERSIGNEDDATE {
+ type: string
+ sql: ${TABLE}.CUSTOMERSIGNEDDATE;;
+}
+dimension: SPECIALTERMS {
+ type: string
+ sql: ${TABLE}.SPECIALTERMS;;
+}
+dimension: ACTIVATEDBYID {
+ type: string
+ sql: ${TABLE}.ACTIVATEDBYID;;
+}
+dimension: ACTIVATEDDATE {
+ type: string
+ sql: ${TABLE}.ACTIVATEDDATE;;
+}
+dimension: STATUSCODE {
+ type: string
+ sql: ${TABLE}.STATUSCODE;;
+}
+dimension: DESCRIPTION {
+ type: string
+ sql: ${TABLE}.DESCRIPTION;;
+}
+dimension: ISDELETED {
+ type: string
+ sql: ${TABLE}.ISDELETED;;
+}
+dimension: CONTRACTNUMBER {
+ type: string
+ sql: ${TABLE}.CONTRACTNUMBER;;
+}
+dimension: LASTAPPROVEDDATE {
+ type: string
+ sql: ${TABLE}.LASTAPPROVEDDATE;;
+}
+dimension: CREATEDDATE {
+ type: string
+ sql: ${TABLE}.CREATEDDATE;;
+}
+dimension: CREATEDBYID {
+ type: string
+ sql: ${TABLE}.CREATEDBYID;;
+}
+dimension: LASTMODIFIEDDATE {
+ type: string
+ sql: ${TABLE}.LASTMODIFIEDDATE;;
+}
+dimension: LASTMODIFIEDBYID {
+ type: string
+ sql: ${TABLE}.LASTMODIFIEDBYID;;
+}
+dimension: SYSTEMMODSTAMP {
+ type: string
+ sql: ${TABLE}.SYSTEMMODSTAMP;;
+}
+dimension: LASTACTIVITYDATE {
+ type: string
+ sql: ${TABLE}.LASTACTIVITYDATE;;
+}
+dimension: LASTVIEWEDDATE {
+ type: string
+ sql: ${TABLE}.LASTVIEWEDDATE;;
+}
+dimension: LASTREFERENCEDDATE {
+ type: string
+ sql: ${TABLE}.LASTREFERENCEDDATE;;
 }
 }
