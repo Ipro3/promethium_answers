@@ -2,16 +2,65 @@
 connection: "pmdevpresto"
 
 
-explore: OPPORTUNITY__b45d8270_58de_4ead_85d6_56df4f299606 {
+explore: OPPORTUNITY__6c8ab4df_efb7_4295_a929_aee4bcc75b51 {
 
-join: ACCOUNTSHARE__0793847b_4700_49dd_b2bd_c54984dda4cc {
+join: ACCOUNTSHARE__bd46ceaa_dfcc_4787_984b_30b54897fac7 {
  relationship: one_to_one
- sql_on: ${OPPORTUNITY__b45d8270_58de_4ead_85d6_56df4f299606.RECORDTYPEID} <> ${ACCOUNTSHARE__0793847b_4700_49dd_b2bd_c54984dda4cc.USERORGROUPID} ;;
+ sql_on: ${OPPORTUNITY__6c8ab4df_efb7_4295_a929_aee4bcc75b51.RECORDTYPEID} <> ${ACCOUNTSHARE__bd46ceaa_dfcc_4787_984b_30b54897fac7.USERORGROUPID} ;;
 }
 }
 
 
-view: OPPORTUNITY__b45d8270_58de_4ead_85d6_56df4f299606 {
+view: ACCOUNTSHARE__bd46ceaa_dfcc_4787_984b_30b54897fac7 {
+sql_table_name:sforce_direct.SFORCE.ACCOUNTSHARE ;;
+dimension: ID {
+ type: string
+ sql: ${TABLE}.ID;;
+}
+dimension: ACCOUNTID {
+ type: string
+ sql: ${TABLE}.ACCOUNTID;;
+}
+dimension: USERORGROUPID {
+ type: string
+ sql: ${TABLE}.USERORGROUPID;;
+}
+dimension: ACCOUNTACCESSLEVEL {
+ type: string
+ sql: ${TABLE}.ACCOUNTACCESSLEVEL;;
+}
+dimension: OPPORTUNITYACCESSLEVEL {
+ type: string
+ sql: ${TABLE}.OPPORTUNITYACCESSLEVEL;;
+}
+dimension: CASEACCESSLEVEL {
+ type: string
+ sql: ${TABLE}.CASEACCESSLEVEL;;
+}
+dimension: CONTACTACCESSLEVEL {
+ type: string
+ sql: ${TABLE}.CONTACTACCESSLEVEL;;
+}
+dimension: ROWCAUSE {
+ type: string
+ sql: ${TABLE}.ROWCAUSE;;
+}
+dimension: LASTMODIFIEDDATE {
+ type: string
+ sql: ${TABLE}.LASTMODIFIEDDATE;;
+}
+dimension: LASTMODIFIEDBYID {
+ type: string
+ sql: ${TABLE}.LASTMODIFIEDBYID;;
+}
+dimension: ISDELETED {
+ type: string
+ sql: ${TABLE}.ISDELETED;;
+}
+}
+
+
+view: OPPORTUNITY__6c8ab4df_efb7_4295_a929_aee4bcc75b51 {
 sql_table_name:snowflake5.SFORCE.OPPORTUNITY ;;
 dimension: ID {
  type: string
@@ -45,19 +94,19 @@ dimension: STAGENAME {
  type: string
  sql: ${TABLE}.STAGENAME;;
 }
-measure: AMOUNT {
+dimension: AMOUNT {
  type: string
  sql: ${TABLE}.AMOUNT;;
 }
-measure: PROBABILITY {
+dimension: PROBABILITY {
  type: string
  sql: ${TABLE}.PROBABILITY;;
 }
-measure: EXPECTEDREVENUE {
+dimension: EXPECTEDREVENUE {
  type: string
  sql: ${TABLE}.EXPECTEDREVENUE;;
 }
-measure: TOTALOPPORTUNITYQUANTITY {
+dimension: TOTALOPPORTUNITYQUANTITY {
  type: string
  sql: ${TABLE}.TOTALOPPORTUNITYQUANTITY;;
 }
@@ -133,11 +182,11 @@ dimension: LASTACTIVITYDATE {
  type: string
  sql: ${TABLE}.LASTACTIVITYDATE;;
 }
-measure: FISCALQUARTER {
+dimension: FISCALQUARTER {
  type: string
  sql: ${TABLE}.FISCALQUARTER;;
 }
-measure: FISCALYEAR {
+dimension: FISCALYEAR {
  type: string
  sql: ${TABLE}.FISCALYEAR;;
 }
@@ -184,54 +233,5 @@ dimension: MAINCOMPETITORS__C {
 dimension: OPPORTUNITY_SOURCE__C {
  type: string
  sql: ${TABLE}.OPPORTUNITY_SOURCE__C;;
-}
-}
-
-
-view: ACCOUNTSHARE__0793847b_4700_49dd_b2bd_c54984dda4cc {
-sql_table_name:sforce_direct.SFORCE.ACCOUNTSHARE ;;
-dimension: ID {
- type: string
- sql: ${TABLE}.ID;;
-}
-dimension: ACCOUNTID {
- type: string
- sql: ${TABLE}.ACCOUNTID;;
-}
-dimension: USERORGROUPID {
- type: string
- sql: ${TABLE}.USERORGROUPID;;
-}
-dimension: ACCOUNTACCESSLEVEL {
- type: string
- sql: ${TABLE}.ACCOUNTACCESSLEVEL;;
-}
-dimension: OPPORTUNITYACCESSLEVEL {
- type: string
- sql: ${TABLE}.OPPORTUNITYACCESSLEVEL;;
-}
-dimension: CASEACCESSLEVEL {
- type: string
- sql: ${TABLE}.CASEACCESSLEVEL;;
-}
-dimension: CONTACTACCESSLEVEL {
- type: string
- sql: ${TABLE}.CONTACTACCESSLEVEL;;
-}
-dimension: ROWCAUSE {
- type: string
- sql: ${TABLE}.ROWCAUSE;;
-}
-dimension: LASTMODIFIEDDATE {
- type: string
- sql: ${TABLE}.LASTMODIFIEDDATE;;
-}
-dimension: LASTMODIFIEDBYID {
- type: string
- sql: ${TABLE}.LASTMODIFIEDBYID;;
-}
-dimension: ISDELETED {
- type: string
- sql: ${TABLE}.ISDELETED;;
 }
 }
