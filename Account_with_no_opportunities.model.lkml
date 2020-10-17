@@ -2,65 +2,16 @@
 connection: "pmdevpresto"
 
 
-explore: OPPORTUNITY__842f41aa_d560_48ad_a6cf_ed4f5169c18f {
+explore: OPPORTUNITY__03fdefd2_3c5f_4993_b743_cde1387ed932 {
 
-join: ACCOUNTSHARE__a2c19d16_80b4_4dd9_a93a_e5b1c9fd9c9c {
+join: ACCOUNTSHARE__134b08c1_a5d7_4a38_850e_264b856258ab {
  relationship: one_to_one
- sql_on: ${OPPORTUNITY__842f41aa_d560_48ad_a6cf_ed4f5169c18f.RECORDTYPEID} <> ${ACCOUNTSHARE__a2c19d16_80b4_4dd9_a93a_e5b1c9fd9c9c.USERORGROUPID} ;;
+ sql_on: ${OPPORTUNITY__03fdefd2_3c5f_4993_b743_cde1387ed932.RECORDTYPEID} <> ${ACCOUNTSHARE__134b08c1_a5d7_4a38_850e_264b856258ab.USERORGROUPID} ;;
 }
 }
 
 
-view: ACCOUNTSHARE__a2c19d16_80b4_4dd9_a93a_e5b1c9fd9c9c {
-sql_table_name:sforce_direct.SFORCE.ACCOUNTSHARE ;;
-dimension: ID {
- type: string
- sql: ${TABLE}.ID;;
-}
-dimension: ACCOUNTID {
- type: string
- sql: ${TABLE}.ACCOUNTID;;
-}
-dimension: USERORGROUPID {
- type: string
- sql: ${TABLE}.USERORGROUPID;;
-}
-dimension: ACCOUNTACCESSLEVEL {
- type: string
- sql: ${TABLE}.ACCOUNTACCESSLEVEL;;
-}
-dimension: OPPORTUNITYACCESSLEVEL {
- type: string
- sql: ${TABLE}.OPPORTUNITYACCESSLEVEL;;
-}
-dimension: CASEACCESSLEVEL {
- type: string
- sql: ${TABLE}.CASEACCESSLEVEL;;
-}
-dimension: CONTACTACCESSLEVEL {
- type: string
- sql: ${TABLE}.CONTACTACCESSLEVEL;;
-}
-dimension: ROWCAUSE {
- type: string
- sql: ${TABLE}.ROWCAUSE;;
-}
-dimension: LASTMODIFIEDDATE {
- type: string
- sql: ${TABLE}.LASTMODIFIEDDATE;;
-}
-dimension: LASTMODIFIEDBYID {
- type: string
- sql: ${TABLE}.LASTMODIFIEDBYID;;
-}
-dimension: ISDELETED {
- type: string
- sql: ${TABLE}.ISDELETED;;
-}
-}
-
-
-view: OPPORTUNITY__842f41aa_d560_48ad_a6cf_ed4f5169c18f {
+view: OPPORTUNITY__03fdefd2_3c5f_4993_b743_cde1387ed932 {
 sql_table_name:snowflake5.SFORCE.OPPORTUNITY ;;
 dimension: ID {
  type: string
@@ -233,5 +184,54 @@ dimension: MAINCOMPETITORS__C {
 dimension: OPPORTUNITY_SOURCE__C {
  type: string
  sql: ${TABLE}.OPPORTUNITY_SOURCE__C;;
+}
+}
+
+
+view: ACCOUNTSHARE__134b08c1_a5d7_4a38_850e_264b856258ab {
+sql_table_name:sforce_direct.SFORCE.ACCOUNTSHARE ;;
+dimension: ID {
+ type: string
+ sql: ${TABLE}.ID;;
+}
+dimension: ACCOUNTID {
+ type: string
+ sql: ${TABLE}.ACCOUNTID;;
+}
+dimension: USERORGROUPID {
+ type: string
+ sql: ${TABLE}.USERORGROUPID;;
+}
+dimension: ACCOUNTACCESSLEVEL {
+ type: string
+ sql: ${TABLE}.ACCOUNTACCESSLEVEL;;
+}
+dimension: OPPORTUNITYACCESSLEVEL {
+ type: string
+ sql: ${TABLE}.OPPORTUNITYACCESSLEVEL;;
+}
+dimension: CASEACCESSLEVEL {
+ type: string
+ sql: ${TABLE}.CASEACCESSLEVEL;;
+}
+dimension: CONTACTACCESSLEVEL {
+ type: string
+ sql: ${TABLE}.CONTACTACCESSLEVEL;;
+}
+dimension: ROWCAUSE {
+ type: string
+ sql: ${TABLE}.ROWCAUSE;;
+}
+dimension: LASTMODIFIEDDATE {
+ type: string
+ sql: ${TABLE}.LASTMODIFIEDDATE;;
+}
+dimension: LASTMODIFIEDBYID {
+ type: string
+ sql: ${TABLE}.LASTMODIFIEDBYID;;
+}
+dimension: ISDELETED {
+ type: string
+ sql: ${TABLE}.ISDELETED;;
 }
 }
