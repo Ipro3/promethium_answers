@@ -2,20 +2,22 @@
 connection: "pmdevpresto"
 
 
-explore: DIM_PLAN__e2c631bf_6250_4a7f_be30_4ce70bca1415 {
+explore: DIM_PLAN__98055ad7_7dd7_490c_9c20_47abcd26f6fb {
 
-join: fact_subscription_activity__0ba30113_41a3_46f6_8eb0_dd2e930a4a8e {
+join: fact_subscription_activity__f016c95d_4ca3_4678_a0fe_5fa6d7b04098 {
  relationship: one_to_one
- sql_on: ${DIM_PLAN__e2c631bf_6250_4a7f_be30_4ce70bca1415.PLAN_ID} = ${null.PLAN_ID} ;;
+ sql_on: ${DIM_PLAN__98055ad7_7dd7_490c_9c20_47abcd26f6fb.PLAN_ID} = ${null.PLAN_ID} 
+ and ${DIM_PLAN__98055ad7_7dd7_490c_9c20_47abcd26f6fb.PLAN_ID} = ${fact_subscription_activity__f016c95d_4ca3_4678_a0fe_5fa6d7b04098.plan_id} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__dd20d2f3_6569_4ed4_a811_f00d1be5f00f {
+join: MASTER_PLAN_TABLE_WDATES__c520c285_b201_4c73_8f80_d3ef4dc6314a {
  relationship: one_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__dd20d2f3_6569_4ed4_a811_f00d1be5f00f.PLAN_ID} = ${null.PLAN_ID} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__c520c285_b201_4c73_8f80_d3ef4dc6314a.PLAN_ID} = ${null.PLAN_ID} 
+ and ${fact_subscription_activity__f016c95d_4ca3_4678_a0fe_5fa6d7b04098.plan_id} = ${MASTER_PLAN_TABLE_WDATES__c520c285_b201_4c73_8f80_d3ef4dc6314a.PLAN_ID} ;;
 }
 }
 
 
-view: fact_subscription_activity__0ba30113_41a3_46f6_8eb0_dd2e930a4a8e {
+view: fact_subscription_activity__f016c95d_4ca3_4678_a0fe_5fa6d7b04098 {
 sql_table_name:hive.s3media.fact_subscription_activity ;;
 dimension: sbscrn_actvty_key {
  type: string
@@ -280,7 +282,7 @@ dimension: actvty_type_id {
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__dd20d2f3_6569_4ed4_a811_f00d1be5f00f {
+view: MASTER_PLAN_TABLE_WDATES__c520c285_b201_4c73_8f80_d3ef4dc6314a {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
 dimension: PLAN_ID {
  type: string
@@ -325,7 +327,7 @@ dimension: ENDDATE {
 }
 
 
-view: DIM_PLAN__e2c631bf_6250_4a7f_be30_4ce70bca1415 {
+view: DIM_PLAN__98055ad7_7dd7_490c_9c20_47abcd26f6fb {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_PLAN ;;
 dimension: PLAN_RECORD_KEY {
  type: string
