@@ -2,12 +2,12 @@
 connection: "pmdevpresto"
 
 
-explore: USERPERMISSIONACCESS__08c5a640_d2c5_4931_bbb7_ad4bda2de64f {
+explore: USERPERMISSIONACCESS__ba32e989_c6c3_472e_9aba_2e28e369ddf2 {
 
 }
 
 
-view: USERPERMISSIONACCESS__08c5a640_d2c5_4931_bbb7_ad4bda2de64f {
+view: USERPERMISSIONACCESS__ba32e989_c6c3_472e_9aba_2e28e369ddf2 {
 sql_table_name:sforce.SFORCE.USERPERMISSIONACCESS ;;
 dimension: ID {
  type: string
