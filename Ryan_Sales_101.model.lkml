@@ -2,35 +2,35 @@
 connection: "pmdevpresto"
 
 
-explore: DIM_AGENT__6238364b_c025_40e0_8da6_e0fae5a55cf2 {
+explore: DIM_AGENT__dac33de4_337e_424d_8ce3_416ae226811f {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__e781343e_97b8_4812_8ed5_e04d1c40e3b2 {
+join: FACT_SUBSCRIPTION_ACTIVITY__44f28e8c_9ee0_4bf0_b361_ad2130452e38 {
  relationship: one_to_one
- sql_on: ${DIM_AGENT__6238364b_c025_40e0_8da6_e0fae5a55cf2.AGENT_RECORD_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__e781343e_97b8_4812_8ed5_e04d1c40e3b2.AGN_KEY} ;;
+ sql_on: ${DIM_AGENT__dac33de4_337e_424d_8ce3_416ae226811f.AGENT_RECORD_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__44f28e8c_9ee0_4bf0_b361_ad2130452e38.AGN_KEY} ;;
 }
-join: DIM_DEVICE__775bc081_4c8e_46c5_a681_5e0bd0e8c953 {
+join: DIM_DEVICE__b69b72a8_39db_4c35_bf07_ec61ed37ee91 {
  relationship: one_to_one
- sql_on: ${DIM_DEVICE__775bc081_4c8e_46c5_a681_5e0bd0e8c953.SBSCRN_ACTVTY_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__e781343e_97b8_4812_8ed5_e04d1c40e3b2.SBSCRN_ACTVTY_KEY} ;;
+ sql_on: ${DIM_DEVICE__b69b72a8_39db_4c35_bf07_ec61ed37ee91.SBSCRN_ACTVTY_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__44f28e8c_9ee0_4bf0_b361_ad2130452e38.SBSCRN_ACTVTY_KEY} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__fec3ace8_6307_494c_a152_83e120300d96 {
+join: MASTER_PLAN_TABLE_WDATES__063d5033_bdff_4a27_ad38_3d7aaaea8fc8 {
  relationship: one_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__fec3ace8_6307_494c_a152_83e120300d96.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__e781343e_97b8_4812_8ed5_e04d1c40e3b2.PLAN_ID} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__063d5033_bdff_4a27_ad38_3d7aaaea8fc8.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__44f28e8c_9ee0_4bf0_b361_ad2130452e38.PLAN_ID} ;;
 }
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__fec3ace8_6307_494c_a152_83e120300d96 {
+view: MASTER_PLAN_TABLE_WDATES__063d5033_bdff_4a27_ad38_3d7aaaea8fc8 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
-measure: PLAN_ID {
- type: number
+dimension: PLAN_ID {
+ type: string
  sql: ${TABLE}.PLAN_ID;;
 }
 dimension: PLAN_NAME {
  type: string
  sql: ${TABLE}.PLAN_NAME;;
 }
-measure: MER {
- type: number
+dimension: MER {
+ type: string
  sql: ${TABLE}.MER;;
 }
 dimension: DISC {
@@ -64,115 +64,18 @@ dimension: ENDDATE {
 }
 
 
-view: DIM_DEVICE__775bc081_4c8e_46c5_a681_5e0bd0e8c953 {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_DEVICE ;;
-measure: DEVICE_RECORD_KEY {
- type: number
- sql: ${TABLE}.DEVICE_RECORD_KEY;;
-}
-dimension: DEVICE_ID {
- type: string
- sql: ${TABLE}.DEVICE_ID;;
-}
-dimension: CHANGE_DATE_START {
- type: string
- sql: ${TABLE}.CHANGE_DATE_START;;
-}
-dimension: CHANGE_DATE_END {
- type: string
- sql: ${TABLE}.CHANGE_DATE_END;;
-}
-dimension: DELIVERY_METHOD {
- type: string
- sql: ${TABLE}.DELIVERY_METHOD;;
-}
-dimension: BRAND {
- type: string
- sql: ${TABLE}.BRAND;;
-}
-dimension: PSN {
- type: string
- sql: ${TABLE}.PSN;;
-}
-measure: PARTNER_ID {
- type: number
- sql: ${TABLE}.PARTNER_ID;;
-}
-measure: SECONDARY_PARTNER_ID {
- type: number
- sql: ${TABLE}.SECONDARY_PARTNER_ID;;
-}
-dimension: VIN {
- type: string
- sql: ${TABLE}.VIN;;
-}
-measure: VEHICLE_ID {
- type: number
- sql: ${TABLE}.VEHICLE_ID;;
-}
-measure: EQUIPMENT_KEY {
- type: number
- sql: ${TABLE}.EQUIPMENT_KEY;;
-}
-measure: EQUIPMENT_ID {
- type: number
- sql: ${TABLE}.EQUIPMENT_ID;;
-}
-measure: CAPABILITY_ID {
- type: number
- sql: ${TABLE}.CAPABILITY_ID;;
-}
-dimension: PRIMARY_DEALER_ID {
- type: string
- sql: ${TABLE}.PRIMARY_DEALER_ID;;
-}
-dimension: SECONDARY_DEALER_ID {
- type: string
- sql: ${TABLE}.SECONDARY_DEALER_ID;;
-}
-dimension: X65_FLAG {
- type: string
- sql: ${TABLE}.X65_FLAG;;
-}
-dimension: VIN_ROOT {
- type: string
- sql: ${TABLE}.VIN_ROOT;;
-}
-dimension: CURRENT_RECORD_FLAG {
- type: string
- sql: ${TABLE}.CURRENT_RECORD_FLAG;;
-}
-dimension: DELETED_RECORD_FLAG {
- type: string
- sql: ${TABLE}.DELETED_RECORD_FLAG;;
-}
-dimension: ENTERTAINMENT_SYSTEM_CODE {
- type: string
- sql: ${TABLE}.ENTERTAINMENT_SYSTEM_CODE;;
-}
-measure: VEHICLE_CAPABILITY_ID {
- type: number
- sql: ${TABLE}.VEHICLE_CAPABILITY_ID;;
-}
-measure: SBSCRN_ACTVTY_KEY {
- type: number
- sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
-}
-}
-
-
-view: FACT_SUBSCRIPTION_ACTIVITY__e781343e_97b8_4812_8ed5_e04d1c40e3b2 {
+view: FACT_SUBSCRIPTION_ACTIVITY__44f28e8c_9ee0_4bf0_b361_ad2130452e38 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
-measure: SBSCRN_ACTVTY_KEY {
- type: number
+dimension: SBSCRN_ACTVTY_KEY {
+ type: string
  sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
 }
 dimension: SBSCRN_ID {
  type: string
  sql: ${TABLE}.SBSCRN_ID;;
 }
-measure: AGN_KEY {
- type: number
+dimension: AGN_KEY {
+ type: string
  sql: ${TABLE}.AGN_KEY;;
 }
 dimension: USED_ACTVTY_TYPE_ID {
@@ -199,20 +102,20 @@ dimension: PRTY_ID {
  type: string
  sql: ${TABLE}.PRTY_ID;;
 }
-measure: PARNT_ACCT_KEY {
- type: number
+dimension: PARNT_ACCT_KEY {
+ type: string
  sql: ${TABLE}.PARNT_ACCT_KEY;;
 }
-measure: PARNT_ACCT_ID {
- type: number
+dimension: PARNT_ACCT_ID {
+ type: string
  sql: ${TABLE}.PARNT_ACCT_ID;;
 }
 dimension: PARNT_ACCT_NUM {
  type: string
  sql: ${TABLE}.PARNT_ACCT_NUM;;
 }
-measure: CHILD_ACCT_KEY {
- type: number
+dimension: CHILD_ACCT_KEY {
+ type: string
  sql: ${TABLE}.CHILD_ACCT_KEY;;
 }
 dimension: CHILD_ACCT_ID {
@@ -223,36 +126,36 @@ dimension: CHILD_ACCT_NUM {
  type: string
  sql: ${TABLE}.CHILD_ACCT_NUM;;
 }
-measure: VEH_KEY {
- type: number
+dimension: VEH_KEY {
+ type: string
  sql: ${TABLE}.VEH_KEY;;
 }
-measure: DVC_KEY {
- type: number
+dimension: DVC_KEY {
+ type: string
  sql: ${TABLE}.DVC_KEY;;
 }
-measure: DVC_ID {
- type: number
+dimension: DVC_ID {
+ type: string
  sql: ${TABLE}.DVC_ID;;
 }
-measure: EQMNT_KEY {
- type: number
+dimension: EQMNT_KEY {
+ type: string
  sql: ${TABLE}.EQMNT_KEY;;
 }
-measure: EQMNT_ID {
- type: number
+dimension: EQMNT_ID {
+ type: string
  sql: ${TABLE}.EQMNT_ID;;
 }
-measure: PLAN_KEY {
- type: number
+dimension: PLAN_KEY {
+ type: string
  sql: ${TABLE}.PLAN_KEY;;
 }
-measure: PLAN_ID {
- type: number
+dimension: PLAN_ID {
+ type: string
  sql: ${TABLE}.PLAN_ID;;
 }
-measure: OFR_ID {
- type: number
+dimension: OFR_ID {
+ type: string
  sql: ${TABLE}.OFR_ID;;
 }
 dimension: FROM_PLAN_KEY {
@@ -267,8 +170,8 @@ dimension: FROM_OFR_ID {
  type: string
  sql: ${TABLE}.FROM_OFR_ID;;
 }
-measure: PROD_KEY {
- type: number
+dimension: PROD_KEY {
+ type: string
  sql: ${TABLE}.PROD_KEY;;
 }
 dimension: PROD_ID {
@@ -291,20 +194,20 @@ dimension: FROM_PKG_ID {
  type: string
  sql: ${TABLE}.FROM_PKG_ID;;
 }
-measure: FEAT_ID {
- type: number
+dimension: FEAT_ID {
+ type: string
  sql: ${TABLE}.FEAT_ID;;
 }
-measure: AGN_KEY2 {
- type: number
+dimension: AGN_KEY2 {
+ type: string
  sql: ${TABLE}.AGN_KEY2;;
 }
 dimension: CSR_ID {
  type: string
  sql: ${TABLE}.CSR_ID;;
 }
-measure: PTNR_ID {
- type: number
+dimension: PTNR_ID {
+ type: string
  sql: ${TABLE}.PTNR_ID;;
 }
 dimension: LNKD_INET_FL {
@@ -315,32 +218,32 @@ dimension: MRD_TYPE_CD {
  type: string
  sql: ${TABLE}.MRD_TYPE_CD;;
 }
-measure: SBSCR_LIFCYC_KEY {
- type: number
+dimension: SBSCR_LIFCYC_KEY {
+ type: string
  sql: ${TABLE}.SBSCR_LIFCYC_KEY;;
 }
-measure: CONV_REP_OWN_SEGMT_KEY {
- type: number
+dimension: CONV_REP_OWN_SEGMT_KEY {
+ type: string
  sql: ${TABLE}.CONV_REP_OWN_SEGMT_KEY;;
 }
-measure: OWNR_TYPE2_KEY {
- type: number
+dimension: OWNR_TYPE2_KEY {
+ type: string
  sql: ${TABLE}.OWNR_TYPE2_KEY;;
 }
 dimension: DEACTIVATION_REASON_CODE {
  type: string
  sql: ${TABLE}.DEACTIVATION_REASON_CODE;;
 }
-measure: TRIAL_ID {
- type: number
+dimension: TRIAL_ID {
+ type: string
  sql: ${TABLE}.TRIAL_ID;;
 }
 dimension: SRVC_ID {
  type: string
  sql: ${TABLE}.SRVC_ID;;
 }
-measure: RENW_ID {
- type: number
+dimension: RENW_ID {
+ type: string
  sql: ${TABLE}.RENW_ID;;
 }
 dimension: FROM_RENW_ID {
@@ -383,8 +286,8 @@ dimension: SCHD_SEASONAL_SUSP_REACTVN_DT {
  type: string
  sql: ${TABLE}.SCHD_SEASONAL_SUSP_REACTVN_DT;;
 }
-measure: CALL_REASON {
- type: number
+dimension: CALL_REASON {
+ type: string
  sql: ${TABLE}.CALL_REASON;;
 }
 dimension: CALL_DISPOSITION {
@@ -407,29 +310,29 @@ dimension: UPDT_TS {
  type: string
  sql: ${TABLE}.UPDT_TS;;
 }
-measure: SAVE_ACTIVITY {
- type: number
+dimension: SAVE_ACTIVITY {
+ type: string
  sql: ${TABLE}.SAVE_ACTIVITY;;
 }
-measure: DEACT_ACTIVITY_BY_SAVE_AGENT {
- type: number
+dimension: DEACT_ACTIVITY_BY_SAVE_AGENT {
+ type: string
  sql: ${TABLE}.DEACT_ACTIVITY_BY_SAVE_AGENT;;
 }
-measure: CONV_ACTIVITY_BY_SAVE_AGENT {
- type: number
+dimension: CONV_ACTIVITY_BY_SAVE_AGENT {
+ type: string
  sql: ${TABLE}.CONV_ACTIVITY_BY_SAVE_AGENT;;
 }
-measure: SAVE_OPPORTUNITY_ACTIVITY {
- type: number
+dimension: SAVE_OPPORTUNITY_ACTIVITY {
+ type: string
  sql: ${TABLE}.SAVE_OPPORTUNITY_ACTIVITY;;
 }
 }
 
 
-view: DIM_AGENT__6238364b_c025_40e0_8da6_e0fae5a55cf2 {
+view: DIM_AGENT__dac33de4_337e_424d_8ce3_416ae226811f {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_AGENT ;;
-measure: AGENT_RECORD_KEY {
- type: number
+dimension: AGENT_RECORD_KEY {
+ type: string
  sql: ${TABLE}.AGENT_RECORD_KEY;;
 }
 dimension: AGENT_ID {
@@ -440,8 +343,8 @@ dimension: CSR_ID {
  type: string
  sql: ${TABLE}.CSR_ID;;
 }
-measure: AGENT_SUPERVISOR_RECORD_KEY {
- type: number
+dimension: AGENT_SUPERVISOR_RECORD_KEY {
+ type: string
  sql: ${TABLE}.AGENT_SUPERVISOR_RECORD_KEY;;
 }
 dimension: AGENT_SUPERVISOR_CSR_ID {
@@ -495,5 +398,102 @@ dimension: CURRENT_RECORD_FLAG {
 dimension: DELETED_RECORD_FLAG {
  type: string
  sql: ${TABLE}.DELETED_RECORD_FLAG;;
+}
+}
+
+
+view: DIM_DEVICE__b69b72a8_39db_4c35_bf07_ec61ed37ee91 {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_DEVICE ;;
+dimension: DEVICE_RECORD_KEY {
+ type: string
+ sql: ${TABLE}.DEVICE_RECORD_KEY;;
+}
+dimension: DEVICE_ID {
+ type: string
+ sql: ${TABLE}.DEVICE_ID;;
+}
+dimension: CHANGE_DATE_START {
+ type: string
+ sql: ${TABLE}.CHANGE_DATE_START;;
+}
+dimension: CHANGE_DATE_END {
+ type: string
+ sql: ${TABLE}.CHANGE_DATE_END;;
+}
+dimension: DELIVERY_METHOD {
+ type: string
+ sql: ${TABLE}.DELIVERY_METHOD;;
+}
+dimension: BRAND {
+ type: string
+ sql: ${TABLE}.BRAND;;
+}
+dimension: PSN {
+ type: string
+ sql: ${TABLE}.PSN;;
+}
+dimension: PARTNER_ID {
+ type: string
+ sql: ${TABLE}.PARTNER_ID;;
+}
+dimension: SECONDARY_PARTNER_ID {
+ type: string
+ sql: ${TABLE}.SECONDARY_PARTNER_ID;;
+}
+dimension: VIN {
+ type: string
+ sql: ${TABLE}.VIN;;
+}
+dimension: VEHICLE_ID {
+ type: string
+ sql: ${TABLE}.VEHICLE_ID;;
+}
+dimension: EQUIPMENT_KEY {
+ type: string
+ sql: ${TABLE}.EQUIPMENT_KEY;;
+}
+dimension: EQUIPMENT_ID {
+ type: string
+ sql: ${TABLE}.EQUIPMENT_ID;;
+}
+dimension: CAPABILITY_ID {
+ type: string
+ sql: ${TABLE}.CAPABILITY_ID;;
+}
+dimension: PRIMARY_DEALER_ID {
+ type: string
+ sql: ${TABLE}.PRIMARY_DEALER_ID;;
+}
+dimension: SECONDARY_DEALER_ID {
+ type: string
+ sql: ${TABLE}.SECONDARY_DEALER_ID;;
+}
+dimension: X65_FLAG {
+ type: string
+ sql: ${TABLE}.X65_FLAG;;
+}
+dimension: VIN_ROOT {
+ type: string
+ sql: ${TABLE}.VIN_ROOT;;
+}
+dimension: CURRENT_RECORD_FLAG {
+ type: string
+ sql: ${TABLE}.CURRENT_RECORD_FLAG;;
+}
+dimension: DELETED_RECORD_FLAG {
+ type: string
+ sql: ${TABLE}.DELETED_RECORD_FLAG;;
+}
+dimension: ENTERTAINMENT_SYSTEM_CODE {
+ type: string
+ sql: ${TABLE}.ENTERTAINMENT_SYSTEM_CODE;;
+}
+dimension: VEHICLE_CAPABILITY_ID {
+ type: string
+ sql: ${TABLE}.VEHICLE_CAPABILITY_ID;;
+}
+dimension: SBSCRN_ACTVTY_KEY {
+ type: string
+ sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
 }
 }
