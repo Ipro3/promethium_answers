@@ -2,20 +2,20 @@
 connection: "pmdevpresto"
 
 
-explore: DIM_PLAN__47d43131_9895_48e0_9409_acb6edb4031c {
+explore: DIM_PLAN__24fcf923_12f7_4a32_b5e1_525590e20dcf {
 
-join: fact_subscription_activity__b99d46d6_615c_4b4b_b03b_bc305234b902 {
+join: fact_subscription_activity__b7659855_628e_46eb_a904_558082533367 {
  relationship: one_to_one
- sql_on: ${DIM_PLAN__47d43131_9895_48e0_9409_acb6edb4031c.PLAN_ID} = ${null.PLAN_ID} ;;
+ sql_on: ${DIM_PLAN__24fcf923_12f7_4a32_b5e1_525590e20dcf.PLAN_ID} = ${null.PLAN_ID} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__e02795fa_7fbc_4f8f_9750_6e89ead76be8 {
+join: MASTER_PLAN_TABLE_WDATES__166b8deb_0c3f_402c_897c_aa8c8977edf7 {
  relationship: one_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__e02795fa_7fbc_4f8f_9750_6e89ead76be8.PLAN_ID} = ${null.PLAN_ID} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__166b8deb_0c3f_402c_897c_aa8c8977edf7.PLAN_ID} = ${null.PLAN_ID} ;;
 }
 }
 
 
-view: DIM_PLAN__47d43131_9895_48e0_9409_acb6edb4031c {
+view: DIM_PLAN__24fcf923_12f7_4a32_b5e1_525590e20dcf {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_PLAN ;;
 dimension: PLAN_RECORD_KEY {
  type: string
@@ -60,7 +60,52 @@ dimension: DELETED_RECORD_FLAG {
 }
 
 
-view: fact_subscription_activity__b99d46d6_615c_4b4b_b03b_bc305234b902 {
+view: MASTER_PLAN_TABLE_WDATES__166b8deb_0c3f_402c_897c_aa8c8977edf7 {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
+dimension: PLAN_ID {
+ type: string
+ sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+ type: string
+ sql: ${TABLE}.PLAN_NAME;;
+}
+dimension: MER {
+ type: string
+ sql: ${TABLE}.MER;;
+}
+dimension: DISC {
+ type: string
+ sql: ${TABLE}.DISC;;
+}
+dimension: PACKAGE {
+ type: string
+ sql: ${TABLE}.PACKAGE;;
+}
+dimension: LEN {
+ type: string
+ sql: ${TABLE}.LEN;;
+}
+dimension: ROLLUP1 {
+ type: string
+ sql: ${TABLE}.ROLLUP1;;
+}
+dimension: ASP {
+ type: string
+ sql: ${TABLE}.ASP;;
+}
+dimension: STARTDATE {
+ type: string
+ sql: ${TABLE}.STARTDATE;;
+}
+dimension: ENDDATE {
+ type: string
+ sql: ${TABLE}.ENDDATE;;
+}
+}
+
+
+view: fact_subscription_activity__b7659855_628e_46eb_a904_558082533367 {
 sql_table_name:hive.s3media.fact_subscription_activity ;;
 dimension: sbscrn_actvty_key {
  type: string
@@ -321,50 +366,5 @@ dimension: save_opportunity_activity {
 dimension: actvty_type_id {
  type: string
  sql: ${TABLE}.actvty_type_id;;
-}
-}
-
-
-view: MASTER_PLAN_TABLE_WDATES__e02795fa_7fbc_4f8f_9750_6e89ead76be8 {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
-dimension: PLAN_ID {
- type: string
- sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
- type: string
- sql: ${TABLE}.PLAN_NAME;;
-}
-dimension: MER {
- type: string
- sql: ${TABLE}.MER;;
-}
-dimension: DISC {
- type: string
- sql: ${TABLE}.DISC;;
-}
-dimension: PACKAGE {
- type: string
- sql: ${TABLE}.PACKAGE;;
-}
-dimension: LEN {
- type: string
- sql: ${TABLE}.LEN;;
-}
-dimension: ROLLUP1 {
- type: string
- sql: ${TABLE}.ROLLUP1;;
-}
-dimension: ASP {
- type: string
- sql: ${TABLE}.ASP;;
-}
-dimension: STARTDATE {
- type: string
- sql: ${TABLE}.STARTDATE;;
-}
-dimension: ENDDATE {
- type: string
- sql: ${TABLE}.ENDDATE;;
 }
 }
