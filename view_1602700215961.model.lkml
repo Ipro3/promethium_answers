@@ -2,41 +2,16 @@
 connection: "pmdevpresto"
 
 
-explore: FACT_SUBSCRIPTION_ACTIVITY__ec97edd2_1a8c_4efd_b3c2_1c0dac998751 {
+explore: FACT_SUBSCRIPTION_ACTIVITY__dfd89181_f61e_4051_abb1_9b65d91ba33e {
 
-join: ACCOUNT__d266da22_81fd_4530_9837_366a1cae3552 {
+join: ACCOUNT__ed5c01f7_3cfd_4b53_b23e_d27d4c7aee05 {
  relationship: one_to_one
- sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__ec97edd2_1a8c_4efd_b3c2_1c0dac998751.USED_ACTVTY_TYPE_ID} = ${ACCOUNT__d266da22_81fd_4530_9837_366a1cae3552.ACCOUNT_ID} ;;
+ sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__dfd89181_f61e_4051_abb1_9b65d91ba33e.USED_ACTVTY_TYPE_ID} = ${ACCOUNT__ed5c01f7_3cfd_4b53_b23e_d27d4c7aee05.ACCOUNT_ID} ;;
 }
 }
 
 
-view: ACCOUNT__d266da22_81fd_4530_9837_366a1cae3552 {
-sql_table_name:pm61_snowflake.SCHEMA_INFO.ACCOUNT ;;
-dimension: ACCOUNT_ID {
- type: string
- sql: ${TABLE}.ACCOUNT_ID;;
-}
-dimension: ACCOUNT_NAME {
- type: string
- sql: ${TABLE}.ACCOUNT_NAME;;
-}
-dimension: DATE_OPENED {
- type: string
- sql: ${TABLE}.DATE_OPENED;;
-}
-dimension: DATE_CLOSED {
- type: string
- sql: ${TABLE}.DATE_CLOSED;;
-}
-dimension: CAUTION_TEXT {
- type: string
- sql: ${TABLE}.CAUTION_TEXT;;
-}
-}
-
-
-view: FACT_SUBSCRIPTION_ACTIVITY__ec97edd2_1a8c_4efd_b3c2_1c0dac998751 {
+view: FACT_SUBSCRIPTION_ACTIVITY__dfd89181_f61e_4051_abb1_9b65d91ba33e {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  type: string
@@ -297,5 +272,30 @@ dimension: CONV_ACTIVITY_BY_SAVE_AGENT {
 dimension: SAVE_OPPORTUNITY_ACTIVITY {
  type: string
  sql: ${TABLE}.SAVE_OPPORTUNITY_ACTIVITY;;
+}
+}
+
+
+view: ACCOUNT__ed5c01f7_3cfd_4b53_b23e_d27d4c7aee05 {
+sql_table_name:pm61_snowflake.SCHEMA_INFO.ACCOUNT ;;
+dimension: ACCOUNT_ID {
+ type: string
+ sql: ${TABLE}.ACCOUNT_ID;;
+}
+dimension: ACCOUNT_NAME {
+ type: string
+ sql: ${TABLE}.ACCOUNT_NAME;;
+}
+dimension: DATE_OPENED {
+ type: string
+ sql: ${TABLE}.DATE_OPENED;;
+}
+dimension: DATE_CLOSED {
+ type: string
+ sql: ${TABLE}.DATE_CLOSED;;
+}
+dimension: CAUTION_TEXT {
+ type: string
+ sql: ${TABLE}.CAUTION_TEXT;;
 }
 }
