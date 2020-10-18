@@ -2,20 +2,110 @@
 connection: "pmdevpresto"
 
 
-explore: MASTER_PLAN_TABLE_WDATES__aadd0a54_e5f5_443b_8c15_362a9035f390 {
+explore: MASTER_PLAN_TABLE_WDATES__c632637c_362a_4ab6_ba65_9c0a12720b0e {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__686706b0_4aca_4e78_b77c_ee8eddc0b249 {
+join: FACT_SUBSCRIPTION_ACTIVITY__f027db71_de8e_468d_b60b_638648ee8b21 {
  relationship: one_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__aadd0a54_e5f5_443b_8c15_362a9035f390.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__686706b0_4aca_4e78_b77c_ee8eddc0b249.PLAN_ID} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__c632637c_362a_4ab6_ba65_9c0a12720b0e.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__f027db71_de8e_468d_b60b_638648ee8b21.PLAN_ID} ;;
 }
-join: DIM_USERS__2670ce42_8a6c_4c47_ad15_0c45ec3c7626 {
+join: DIM_USERS__ae1c1cd3_4dec_4b3e_b273_ee68905fbfbe {
  relationship: one_to_one
- sql_on: ${DIM_USERS__2670ce42_8a6c_4c47_ad15_0c45ec3c7626.ACTIVATION_DATE} = ${FACT_SUBSCRIPTION_ACTIVITY__686706b0_4aca_4e78_b77c_ee8eddc0b249.ACTVTY_DT} ;;
+ sql_on: ${DIM_USERS__ae1c1cd3_4dec_4b3e_b273_ee68905fbfbe.ACTIVATION_DATE} = ${FACT_SUBSCRIPTION_ACTIVITY__f027db71_de8e_468d_b60b_638648ee8b21.ACTVTY_DT} ;;
 }
 }
 
 
-view: FACT_SUBSCRIPTION_ACTIVITY__686706b0_4aca_4e78_b77c_ee8eddc0b249 {
+view: DIM_USERS__ae1c1cd3_4dec_4b3e_b273_ee68905fbfbe {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_USERS ;;
+dimension: DIM_USER_ID {
+ type: string
+ sql: ${TABLE}.DIM_USER_ID;;
+}
+dimension: CUSTOMER_ID {
+ type: string
+ sql: ${TABLE}.CUSTOMER_ID;;
+}
+dimension: USER_ID {
+ type: string
+ sql: ${TABLE}.USER_ID;;
+}
+dimension: ACTIVATION_DATETIME {
+ type: string
+ sql: ${TABLE}.ACTIVATION_DATETIME;;
+}
+dimension: ACTIVATION_DATE {
+ type: string
+ sql: ${TABLE}.ACTIVATION_DATE;;
+}
+dimension: DEACTIVATION_DATE {
+ type: string
+ sql: ${TABLE}.DEACTIVATION_DATE;;
+}
+dimension: BIRTH_DATE {
+ type: string
+ sql: ${TABLE}.BIRTH_DATE;;
+}
+dimension: SYSTEM_ACCOUNT_ID {
+ type: string
+ sql: ${TABLE}.SYSTEM_ACCOUNT_ID;;
+}
+dimension: IS_LATEST {
+ type: string
+ sql: ${TABLE}.IS_LATEST;;
+}
+dimension: DIM_HIGHVALUE_CATEGORY_ID {
+ type: string
+ sql: ${TABLE}.DIM_HIGHVALUE_CATEGORY_ID;;
+}
+}
+
+
+view: MASTER_PLAN_TABLE_WDATES__c632637c_362a_4ab6_ba65_9c0a12720b0e {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
+dimension: PLAN_ID {
+ type: string
+ sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+ type: string
+ sql: ${TABLE}.PLAN_NAME;;
+}
+dimension: MER {
+ type: string
+ sql: ${TABLE}.MER;;
+}
+dimension: DISC {
+ type: string
+ sql: ${TABLE}.DISC;;
+}
+dimension: PACKAGE {
+ type: string
+ sql: ${TABLE}.PACKAGE;;
+}
+dimension: LEN {
+ type: string
+ sql: ${TABLE}.LEN;;
+}
+dimension: ROLLUP1 {
+ type: string
+ sql: ${TABLE}.ROLLUP1;;
+}
+dimension: ASP {
+ type: string
+ sql: ${TABLE}.ASP;;
+}
+dimension: STARTDATE {
+ type: string
+ sql: ${TABLE}.STARTDATE;;
+}
+dimension: ENDDATE {
+ type: string
+ sql: ${TABLE}.ENDDATE;;
+}
+}
+
+
+view: FACT_SUBSCRIPTION_ACTIVITY__f027db71_de8e_468d_b60b_638648ee8b21 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  type: string
@@ -276,95 +366,5 @@ dimension: CONV_ACTIVITY_BY_SAVE_AGENT {
 dimension: SAVE_OPPORTUNITY_ACTIVITY {
  type: string
  sql: ${TABLE}.SAVE_OPPORTUNITY_ACTIVITY;;
-}
-}
-
-
-view: MASTER_PLAN_TABLE_WDATES__aadd0a54_e5f5_443b_8c15_362a9035f390 {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
-dimension: PLAN_ID {
- type: string
- sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
- type: string
- sql: ${TABLE}.PLAN_NAME;;
-}
-dimension: MER {
- type: string
- sql: ${TABLE}.MER;;
-}
-dimension: DISC {
- type: string
- sql: ${TABLE}.DISC;;
-}
-dimension: PACKAGE {
- type: string
- sql: ${TABLE}.PACKAGE;;
-}
-dimension: LEN {
- type: string
- sql: ${TABLE}.LEN;;
-}
-dimension: ROLLUP1 {
- type: string
- sql: ${TABLE}.ROLLUP1;;
-}
-dimension: ASP {
- type: string
- sql: ${TABLE}.ASP;;
-}
-dimension: STARTDATE {
- type: string
- sql: ${TABLE}.STARTDATE;;
-}
-dimension: ENDDATE {
- type: string
- sql: ${TABLE}.ENDDATE;;
-}
-}
-
-
-view: DIM_USERS__2670ce42_8a6c_4c47_ad15_0c45ec3c7626 {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_USERS ;;
-dimension: DIM_USER_ID {
- type: string
- sql: ${TABLE}.DIM_USER_ID;;
-}
-dimension: CUSTOMER_ID {
- type: string
- sql: ${TABLE}.CUSTOMER_ID;;
-}
-dimension: USER_ID {
- type: string
- sql: ${TABLE}.USER_ID;;
-}
-dimension: ACTIVATION_DATETIME {
- type: string
- sql: ${TABLE}.ACTIVATION_DATETIME;;
-}
-dimension: ACTIVATION_DATE {
- type: string
- sql: ${TABLE}.ACTIVATION_DATE;;
-}
-dimension: DEACTIVATION_DATE {
- type: string
- sql: ${TABLE}.DEACTIVATION_DATE;;
-}
-dimension: BIRTH_DATE {
- type: string
- sql: ${TABLE}.BIRTH_DATE;;
-}
-dimension: SYSTEM_ACCOUNT_ID {
- type: string
- sql: ${TABLE}.SYSTEM_ACCOUNT_ID;;
-}
-dimension: IS_LATEST {
- type: string
- sql: ${TABLE}.IS_LATEST;;
-}
-dimension: DIM_HIGHVALUE_CATEGORY_ID {
- type: string
- sql: ${TABLE}.DIM_HIGHVALUE_CATEGORY_ID;;
 }
 }
