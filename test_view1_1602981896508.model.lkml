@@ -2,162 +2,20 @@
 connection: "pmdevpresto"
 
 
-explore: DIM_DEVICE__a81825e0_ebd3_4d6a_b19c_a3f672936154 {
+explore: DIM_DEVICE__21d701ab_1a3a_472a_8bb4_13fe045b9769 {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__960fc547_2373_47cc_922a_24db5365805c {
+join: FACT_SUBSCRIPTION_ACTIVITY__90d8014e_8abc_4352_8f9c_9042fc8fdcf1 {
  relationship: one_to_one
- sql_on: ${DIM_DEVICE__a81825e0_ebd3_4d6a_b19c_a3f672936154."RDSORACLEFORPRESTO"} = ${FACT_SUBSCRIPTION_ACTIVITY__960fc547_2373_47cc_922a_24db5365805c."RDSORACLEFORPRESTO"} ;;
+ sql_on: ${DIM_DEVICE__21d701ab_1a3a_472a_8bb4_13fe045b9769."RDSORACLEFORPRESTO"} = ${FACT_SUBSCRIPTION_ACTIVITY__90d8014e_8abc_4352_8f9c_9042fc8fdcf1."RDSORACLEFORPRESTO"} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__8d5243e4_5cb8_4530_8210_56bdc37d8a96 {
+join: MASTER_PLAN_TABLE_WDATES__ff1817be_0706_435a_8094_56734d21c0ff {
  relationship: one_to_one
- sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__960fc547_2373_47cc_922a_24db5365805c."RDSORACLEFORPRESTO"} = ${MASTER_PLAN_TABLE_WDATES__8d5243e4_5cb8_4530_8210_56bdc37d8a96."RDSORACLEFORPRESTO"} ;;
+ sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__90d8014e_8abc_4352_8f9c_9042fc8fdcf1."RDSORACLEFORPRESTO"} = ${MASTER_PLAN_TABLE_WDATES__ff1817be_0706_435a_8094_56734d21c0ff."RDSORACLEFORPRESTO"} ;;
 }
 }
 
 
-view: DIM_DEVICE__a81825e0_ebd3_4d6a_b19c_a3f672936154 {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_DEVICE ;;
-dimension: DEVICE_RECORD_KEY {
- type: string
- sql: ${TABLE}.DEVICE_RECORD_KEY;;
-}
-dimension: DEVICE_ID {
- type: string
- sql: ${TABLE}.DEVICE_ID;;
-}
-dimension: CHANGE_DATE_START {
- type: string
- sql: ${TABLE}.CHANGE_DATE_START;;
-}
-dimension: CHANGE_DATE_END {
- type: string
- sql: ${TABLE}.CHANGE_DATE_END;;
-}
-dimension: DELIVERY_METHOD {
- type: string
- sql: ${TABLE}.DELIVERY_METHOD;;
-}
-dimension: BRAND {
- type: string
- sql: ${TABLE}.BRAND;;
-}
-dimension: PSN {
- type: string
- sql: ${TABLE}.PSN;;
-}
-dimension: PARTNER_ID {
- type: string
- sql: ${TABLE}.PARTNER_ID;;
-}
-dimension: SECONDARY_PARTNER_ID {
- type: string
- sql: ${TABLE}.SECONDARY_PARTNER_ID;;
-}
-dimension: VIN {
- type: string
- sql: ${TABLE}.VIN;;
-}
-dimension: VEHICLE_ID {
- type: string
- sql: ${TABLE}.VEHICLE_ID;;
-}
-dimension: EQUIPMENT_KEY {
- type: string
- sql: ${TABLE}.EQUIPMENT_KEY;;
-}
-dimension: EQUIPMENT_ID {
- type: string
- sql: ${TABLE}.EQUIPMENT_ID;;
-}
-dimension: CAPABILITY_ID {
- type: string
- sql: ${TABLE}.CAPABILITY_ID;;
-}
-dimension: PRIMARY_DEALER_ID {
- type: string
- sql: ${TABLE}.PRIMARY_DEALER_ID;;
-}
-dimension: SECONDARY_DEALER_ID {
- type: string
- sql: ${TABLE}.SECONDARY_DEALER_ID;;
-}
-dimension: X65_FLAG {
- type: string
- sql: ${TABLE}.X65_FLAG;;
-}
-dimension: VIN_ROOT {
- type: string
- sql: ${TABLE}.VIN_ROOT;;
-}
-dimension: CURRENT_RECORD_FLAG {
- type: string
- sql: ${TABLE}.CURRENT_RECORD_FLAG;;
-}
-dimension: DELETED_RECORD_FLAG {
- type: string
- sql: ${TABLE}.DELETED_RECORD_FLAG;;
-}
-dimension: ENTERTAINMENT_SYSTEM_CODE {
- type: string
- sql: ${TABLE}.ENTERTAINMENT_SYSTEM_CODE;;
-}
-dimension: VEHICLE_CAPABILITY_ID {
- type: string
- sql: ${TABLE}.VEHICLE_CAPABILITY_ID;;
-}
-dimension: SBSCRN_ACTVTY_KEY {
- type: string
- sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
-}
-}
-
-
-view: MASTER_PLAN_TABLE_WDATES__8d5243e4_5cb8_4530_8210_56bdc37d8a96 {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
-dimension: PLAN_ID {
- type: string
- sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
- type: string
- sql: ${TABLE}.PLAN_NAME;;
-}
-dimension: MER {
- type: string
- sql: ${TABLE}.MER;;
-}
-dimension: DISC {
- type: string
- sql: ${TABLE}.DISC;;
-}
-dimension: PACKAGE {
- type: string
- sql: ${TABLE}.PACKAGE;;
-}
-dimension: LEN {
- type: string
- sql: ${TABLE}.LEN;;
-}
-dimension: ROLLUP1 {
- type: string
- sql: ${TABLE}.ROLLUP1;;
-}
-dimension: ASP {
- type: string
- sql: ${TABLE}.ASP;;
-}
-dimension: STARTDATE {
- type: string
- sql: ${TABLE}.STARTDATE;;
-}
-dimension: ENDDATE {
- type: string
- sql: ${TABLE}.ENDDATE;;
-}
-}
-
-
-view: FACT_SUBSCRIPTION_ACTIVITY__960fc547_2373_47cc_922a_24db5365805c {
+view: FACT_SUBSCRIPTION_ACTIVITY__90d8014e_8abc_4352_8f9c_9042fc8fdcf1 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  type: string
@@ -418,5 +276,147 @@ dimension: CONV_ACTIVITY_BY_SAVE_AGENT {
 dimension: SAVE_OPPORTUNITY_ACTIVITY {
  type: string
  sql: ${TABLE}.SAVE_OPPORTUNITY_ACTIVITY;;
+}
+}
+
+
+view: DIM_DEVICE__21d701ab_1a3a_472a_8bb4_13fe045b9769 {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_DEVICE ;;
+dimension: DEVICE_RECORD_KEY {
+ type: string
+ sql: ${TABLE}.DEVICE_RECORD_KEY;;
+}
+dimension: DEVICE_ID {
+ type: string
+ sql: ${TABLE}.DEVICE_ID;;
+}
+dimension: CHANGE_DATE_START {
+ type: string
+ sql: ${TABLE}.CHANGE_DATE_START;;
+}
+dimension: CHANGE_DATE_END {
+ type: string
+ sql: ${TABLE}.CHANGE_DATE_END;;
+}
+dimension: DELIVERY_METHOD {
+ type: string
+ sql: ${TABLE}.DELIVERY_METHOD;;
+}
+dimension: BRAND {
+ type: string
+ sql: ${TABLE}.BRAND;;
+}
+dimension: PSN {
+ type: string
+ sql: ${TABLE}.PSN;;
+}
+dimension: PARTNER_ID {
+ type: string
+ sql: ${TABLE}.PARTNER_ID;;
+}
+dimension: SECONDARY_PARTNER_ID {
+ type: string
+ sql: ${TABLE}.SECONDARY_PARTNER_ID;;
+}
+dimension: VIN {
+ type: string
+ sql: ${TABLE}.VIN;;
+}
+dimension: VEHICLE_ID {
+ type: string
+ sql: ${TABLE}.VEHICLE_ID;;
+}
+dimension: EQUIPMENT_KEY {
+ type: string
+ sql: ${TABLE}.EQUIPMENT_KEY;;
+}
+dimension: EQUIPMENT_ID {
+ type: string
+ sql: ${TABLE}.EQUIPMENT_ID;;
+}
+dimension: CAPABILITY_ID {
+ type: string
+ sql: ${TABLE}.CAPABILITY_ID;;
+}
+dimension: PRIMARY_DEALER_ID {
+ type: string
+ sql: ${TABLE}.PRIMARY_DEALER_ID;;
+}
+dimension: SECONDARY_DEALER_ID {
+ type: string
+ sql: ${TABLE}.SECONDARY_DEALER_ID;;
+}
+dimension: X65_FLAG {
+ type: string
+ sql: ${TABLE}.X65_FLAG;;
+}
+dimension: VIN_ROOT {
+ type: string
+ sql: ${TABLE}.VIN_ROOT;;
+}
+dimension: CURRENT_RECORD_FLAG {
+ type: string
+ sql: ${TABLE}.CURRENT_RECORD_FLAG;;
+}
+dimension: DELETED_RECORD_FLAG {
+ type: string
+ sql: ${TABLE}.DELETED_RECORD_FLAG;;
+}
+dimension: ENTERTAINMENT_SYSTEM_CODE {
+ type: string
+ sql: ${TABLE}.ENTERTAINMENT_SYSTEM_CODE;;
+}
+dimension: VEHICLE_CAPABILITY_ID {
+ type: string
+ sql: ${TABLE}.VEHICLE_CAPABILITY_ID;;
+}
+dimension: SBSCRN_ACTVTY_KEY {
+ type: string
+ sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
+}
+}
+
+
+view: MASTER_PLAN_TABLE_WDATES__ff1817be_0706_435a_8094_56734d21c0ff {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
+dimension: PLAN_ID {
+ type: string
+ sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+ type: string
+ sql: ${TABLE}.PLAN_NAME;;
+}
+dimension: MER {
+ type: string
+ sql: ${TABLE}.MER;;
+}
+dimension: DISC {
+ type: string
+ sql: ${TABLE}.DISC;;
+}
+dimension: PACKAGE {
+ type: string
+ sql: ${TABLE}.PACKAGE;;
+}
+dimension: LEN {
+ type: string
+ sql: ${TABLE}.LEN;;
+}
+dimension: ROLLUP1 {
+ type: string
+ sql: ${TABLE}.ROLLUP1;;
+}
+dimension: ASP {
+ type: string
+ sql: ${TABLE}.ASP;;
+}
+dimension: STARTDATE {
+ type: string
+ sql: ${TABLE}.STARTDATE;;
+}
+dimension: ENDDATE {
+ type: string
+ sql: ${TABLE}.ENDDATE;;
 }
 }
