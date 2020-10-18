@@ -2,65 +2,12 @@
 connection: "pmdevpresto"
 
 
-explore: DIM_PLAN__aea37b84_dabb_4ca1_b0cd_2e7781cd4ecd {
+explore: FACT_SUBSCRIPTION_ACTIVITY__2b58c709_c677_4a2c_bdcb_7438188d5a1e {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__182657e2_9cfa_43e0_ae1f_069c5607ccde {
- relationship: one_to_one
- sql_on: ${null.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__182657e2_9cfa_43e0_ae1f_069c5607ccde.PLAN_ID} ;;
-}
 }
 
 
-view: DIM_PLAN__aea37b84_dabb_4ca1_b0cd_2e7781cd4ecd {
-sql_table_name:pm61_snowflake.SCHEMA_INFO.DIM_PLAN ;;
-dimension: PLAN_RECORD_KEY {
- type: string
- sql: ${TABLE}.PLAN_RECORD_KEY;;
-}
-dimension: PLAN_ID {
- type: string
- sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
- type: string
- sql: ${TABLE}.PLAN_NAME;;
-}
-dimension: USED_FLAG {
- type: string
- sql: ${TABLE}.USED_FLAG;;
-}
-dimension: PLAN_DESCRIPTION {
- type: string
- sql: ${TABLE}.PLAN_DESCRIPTION;;
-}
-dimension: MARKET_TYPE {
- type: string
- sql: ${TABLE}.MARKET_TYPE;;
-}
-dimension: CHANGE_DATE_START {
- type: string
- sql: ${TABLE}.CHANGE_DATE_START;;
-}
-dimension: CHANGE_DATE_END {
- type: string
- sql: ${TABLE}.CHANGE_DATE_END;;
-}
-dimension: CURRENT_RECORD_FLAG {
- type: string
- sql: ${TABLE}.CURRENT_RECORD_FLAG;;
-}
-dimension: DELETED_RECORD_FLAG {
- type: string
- sql: ${TABLE}.DELETED_RECORD_FLAG;;
-}
-dimension: COLUMN10 {
- type: string
- sql: ${TABLE}.COLUMN10;;
-}
-}
-
-
-view: FACT_SUBSCRIPTION_ACTIVITY__182657e2_9cfa_43e0_ae1f_069c5607ccde {
+view: FACT_SUBSCRIPTION_ACTIVITY__2b58c709_c677_4a2c_bdcb_7438188d5a1e {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  type: string
@@ -325,7 +272,7 @@ dimension: SAVE_OPPORTUNITY_ACTIVITY {
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__ac6e6bcb_8279_463a_91b1_ec1046359e48 {
+view: MASTER_PLAN_TABLE_WDATES__1d424914_2752_49a0_99ad_ae9c785b3f6c {
 sql_table_name:pm61_snowflake.SCHEMA_INFO.MASTER_PLAN_TABLE_WDATES ;;
 dimension: PLAN_ID {
  type: string
@@ -366,5 +313,54 @@ dimension: STARTDATE {
 dimension: ENDDATE {
  type: string
  sql: ${TABLE}.ENDDATE;;
+}
+}
+
+
+view: DIM_PLAN__411534e9_5448_4fd8_b9a6_de68902197d6 {
+sql_table_name:pm61_snowflake.SCHEMA_INFO.DIM_PLAN ;;
+dimension: PLAN_RECORD_KEY {
+ type: string
+ sql: ${TABLE}.PLAN_RECORD_KEY;;
+}
+dimension: PLAN_ID {
+ type: string
+ sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+ type: string
+ sql: ${TABLE}.PLAN_NAME;;
+}
+dimension: USED_FLAG {
+ type: string
+ sql: ${TABLE}.USED_FLAG;;
+}
+dimension: PLAN_DESCRIPTION {
+ type: string
+ sql: ${TABLE}.PLAN_DESCRIPTION;;
+}
+dimension: MARKET_TYPE {
+ type: string
+ sql: ${TABLE}.MARKET_TYPE;;
+}
+dimension: CHANGE_DATE_START {
+ type: string
+ sql: ${TABLE}.CHANGE_DATE_START;;
+}
+dimension: CHANGE_DATE_END {
+ type: string
+ sql: ${TABLE}.CHANGE_DATE_END;;
+}
+dimension: CURRENT_RECORD_FLAG {
+ type: string
+ sql: ${TABLE}.CURRENT_RECORD_FLAG;;
+}
+dimension: DELETED_RECORD_FLAG {
+ type: string
+ sql: ${TABLE}.DELETED_RECORD_FLAG;;
+}
+dimension: COLUMN10 {
+ type: string
+ sql: ${TABLE}.COLUMN10;;
 }
 }
