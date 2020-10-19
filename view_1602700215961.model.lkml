@@ -2,45 +2,19 @@
 connection:"pmdevpresto"
 
 
-explore: FACT_SUBSCRIPTION_ACTIVITY__c72edfb6_8fab_4cbc_9d4b_1cabeb35c8f6 {
+explore: FACT_SUBSCRIPTION_ACTIVITY__803acff7_bd4e_47eb_abc0_69340f617e1c {
 
-join: ACCOUNT__826f51ce_af71_408a_b60f_edb4fe6033b5 {
+join: ACCOUNT__26518e4c_4a4e_4205_bc5d_e8e8aca2c957 {
  relationship: one_to_one
- sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__c72edfb6_8fab_4cbc_9d4b_1cabeb35c8f6.USED_ACTVTY_TYPE_ID} = ${ACCOUNT__826f51ce_af71_408a_b60f_edb4fe6033b5.ACCOUNT_ID} ;;
+ sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__803acff7_bd4e_47eb_abc0_69340f617e1c.USED_ACTVTY_TYPE_ID} = ${ACCOUNT__26518e4c_4a4e_4205_bc5d_e8e8aca2c957.ACCOUNT_ID} ;;
 }
 }
 
 
-view: ACCOUNT__826f51ce_af71_408a_b60f_edb4fe6033b5 {
-sql_table_name:pm61_snowflake.SCHEMA_INFO.ACCOUNT ;;
-dimension: ACCOUNT_ID {
- type: string
- sql: ${TABLE}.ACCOUNT_ID;;
-}
-dimension: ACCOUNT_NAME {
- type: string
- sql: ${TABLE}.ACCOUNT_NAME;;
-}
-dimension: DATE_OPENED {
- type: string
- sql: ${TABLE}.DATE_OPENED;;
-}
-dimension: DATE_CLOSED {
- type: string
- sql: ${TABLE}.DATE_CLOSED;;
-}
-dimension: CAUTION_TEXT {
- type: string
- sql: ${TABLE}.CAUTION_TEXT;;
-}
-}
-
-
-view: FACT_SUBSCRIPTION_ACTIVITY__c72edfb6_8fab_4cbc_9d4b_1cabeb35c8f6 {
+view: FACT_SUBSCRIPTION_ACTIVITY__803acff7_bd4e_47eb_abc0_69340f617e1c {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 measure: SBSCRN_ACTVTY_KEY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
 }
 dimension: SBSCRN_ID {
@@ -48,8 +22,7 @@ dimension: SBSCRN_ID {
  sql: ${TABLE}.SBSCRN_ID;;
 }
 measure: AGN_KEY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.AGN_KEY;;
 }
 dimension: USED_ACTVTY_TYPE_ID {
@@ -77,13 +50,11 @@ dimension: PRTY_ID {
  sql: ${TABLE}.PRTY_ID;;
 }
 measure: PARNT_ACCT_KEY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.PARNT_ACCT_KEY;;
 }
 measure: PARNT_ACCT_ID {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.PARNT_ACCT_ID;;
 }
 dimension: PARNT_ACCT_NUM {
@@ -91,8 +62,7 @@ dimension: PARNT_ACCT_NUM {
  sql: ${TABLE}.PARNT_ACCT_NUM;;
 }
 measure: CHILD_ACCT_KEY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.CHILD_ACCT_KEY;;
 }
 dimension: CHILD_ACCT_ID {
@@ -104,43 +74,35 @@ dimension: CHILD_ACCT_NUM {
  sql: ${TABLE}.CHILD_ACCT_NUM;;
 }
 measure: VEH_KEY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.VEH_KEY;;
 }
 measure: DVC_KEY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.DVC_KEY;;
 }
 measure: DVC_ID {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.DVC_ID;;
 }
 measure: EQMNT_KEY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.EQMNT_KEY;;
 }
 measure: EQMNT_ID {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.EQMNT_ID;;
 }
 measure: PLAN_KEY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.PLAN_KEY;;
 }
 measure: PLAN_ID {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.PLAN_ID;;
 }
 measure: OFR_ID {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.OFR_ID;;
 }
 dimension: FROM_PLAN_KEY {
@@ -156,8 +118,7 @@ dimension: FROM_OFR_ID {
  sql: ${TABLE}.FROM_OFR_ID;;
 }
 measure: PROD_KEY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.PROD_KEY;;
 }
 dimension: PROD_ID {
@@ -181,13 +142,11 @@ dimension: FROM_PKG_ID {
  sql: ${TABLE}.FROM_PKG_ID;;
 }
 measure: FEAT_ID {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.FEAT_ID;;
 }
 measure: AGN_KEY2 {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.AGN_KEY2;;
 }
 dimension: CSR_ID {
@@ -195,8 +154,7 @@ dimension: CSR_ID {
  sql: ${TABLE}.CSR_ID;;
 }
 measure: PTNR_ID {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.PTNR_ID;;
 }
 dimension: LNKD_INET_FL {
@@ -208,18 +166,15 @@ dimension: MRD_TYPE_CD {
  sql: ${TABLE}.MRD_TYPE_CD;;
 }
 measure: SBSCR_LIFCYC_KEY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.SBSCR_LIFCYC_KEY;;
 }
 measure: CONV_REP_OWN_SEGMT_KEY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.CONV_REP_OWN_SEGMT_KEY;;
 }
 measure: OWNR_TYPE2_KEY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.OWNR_TYPE2_KEY;;
 }
 dimension: DEACTIVATION_REASON_CODE {
@@ -227,8 +182,7 @@ dimension: DEACTIVATION_REASON_CODE {
  sql: ${TABLE}.DEACTIVATION_REASON_CODE;;
 }
 measure: TRIAL_ID {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.TRIAL_ID;;
 }
 dimension: SRVC_ID {
@@ -236,8 +190,7 @@ dimension: SRVC_ID {
  sql: ${TABLE}.SRVC_ID;;
 }
 measure: RENW_ID {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.RENW_ID;;
 }
 dimension: FROM_RENW_ID {
@@ -281,8 +234,7 @@ dimension: SCHD_SEASONAL_SUSP_REACTVN_DT {
  sql: ${TABLE}.SCHD_SEASONAL_SUSP_REACTVN_DT;;
 }
 measure: CALL_REASON {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.CALL_REASON;;
 }
 dimension: CALL_DISPOSITION {
@@ -306,23 +258,44 @@ dimension: UPDT_TS {
  sql: ${TABLE}.UPDT_TS;;
 }
 measure: SAVE_ACTIVITY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.SAVE_ACTIVITY;;
 }
 measure: DEACT_ACTIVITY_BY_SAVE_AGENT {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.DEACT_ACTIVITY_BY_SAVE_AGENT;;
 }
 measure: CONV_ACTIVITY_BY_SAVE_AGENT {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.CONV_ACTIVITY_BY_SAVE_AGENT;;
 }
 measure: SAVE_OPPORTUNITY_ACTIVITY {
- { type: count}
- type: number
+ type: count
  sql: ${TABLE}.SAVE_OPPORTUNITY_ACTIVITY;;
+}
+}
+
+
+view: ACCOUNT__26518e4c_4a4e_4205_bc5d_e8e8aca2c957 {
+sql_table_name:pm61_snowflake.SCHEMA_INFO.ACCOUNT ;;
+dimension: ACCOUNT_ID {
+ type: string
+ sql: ${TABLE}.ACCOUNT_ID;;
+}
+dimension: ACCOUNT_NAME {
+ type: string
+ sql: ${TABLE}.ACCOUNT_NAME;;
+}
+dimension: DATE_OPENED {
+ type: string
+ sql: ${TABLE}.DATE_OPENED;;
+}
+dimension: DATE_CLOSED {
+ type: string
+ sql: ${TABLE}.DATE_CLOSED;;
+}
+dimension: CAUTION_TEXT {
+ type: string
+ sql: ${TABLE}.CAUTION_TEXT;;
 }
 }
