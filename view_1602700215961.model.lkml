@@ -1,17 +1,42 @@
 
-connection: "pmdevpresto"
+connection:"pmdevpresto"
 
 
-explore: FACT_SUBSCRIPTION_ACTIVITY__31a538d6_2cb4_4a04_a646_33b3f71493f7 {
+explore: FACT_SUBSCRIPTION_ACTIVITY__4279e03a_c6c0_4afa_9595_c0ddb2174d03 {
 
-join: ACCOUNT__4f1885dd_27e6_4b33_a0c3_5093a1310f0c {
+join: ACCOUNT__b1dcf344_ce97_4fe6_98a0_a29d496be284 {
  relationship: one_to_one
- sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__31a538d6_2cb4_4a04_a646_33b3f71493f7.USED_ACTVTY_TYPE_ID} = ${ACCOUNT__4f1885dd_27e6_4b33_a0c3_5093a1310f0c.ACCOUNT_ID} ;;
+ sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__4279e03a_c6c0_4afa_9595_c0ddb2174d03.USED_ACTVTY_TYPE_ID} = ${ACCOUNT__b1dcf344_ce97_4fe6_98a0_a29d496be284.ACCOUNT_ID} ;;
 }
 }
 
 
-view: FACT_SUBSCRIPTION_ACTIVITY__31a538d6_2cb4_4a04_a646_33b3f71493f7 {
+view: ACCOUNT__b1dcf344_ce97_4fe6_98a0_a29d496be284 {
+sql_table_name:pm61_snowflake.SCHEMA_INFO.ACCOUNT ;;
+dimension: ACCOUNT_ID {
+ type: string
+ sql: ${TABLE}.ACCOUNT_ID;;
+}
+dimension: ACCOUNT_NAME {
+ type: string
+ sql: ${TABLE}.ACCOUNT_NAME;;
+}
+dimension: DATE_OPENED {
+ type: string
+ sql: ${TABLE}.DATE_OPENED;;
+}
+dimension: DATE_CLOSED {
+ type: string
+ sql: ${TABLE}.DATE_CLOSED;;
+}
+dimension: CAUTION_TEXT {
+ type: string
+ sql: ${TABLE}.CAUTION_TEXT;;
+}
+}
+
+
+view: FACT_SUBSCRIPTION_ACTIVITY__4279e03a_c6c0_4afa_9595_c0ddb2174d03 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  type: string
@@ -272,30 +297,5 @@ dimension: CONV_ACTIVITY_BY_SAVE_AGENT {
 dimension: SAVE_OPPORTUNITY_ACTIVITY {
  type: string
  sql: ${TABLE}.SAVE_OPPORTUNITY_ACTIVITY;;
-}
-}
-
-
-view: ACCOUNT__4f1885dd_27e6_4b33_a0c3_5093a1310f0c {
-sql_table_name:pm61_snowflake.SCHEMA_INFO.ACCOUNT ;;
-dimension: ACCOUNT_ID {
- type: string
- sql: ${TABLE}.ACCOUNT_ID;;
-}
-dimension: ACCOUNT_NAME {
- type: string
- sql: ${TABLE}.ACCOUNT_NAME;;
-}
-dimension: DATE_OPENED {
- type: string
- sql: ${TABLE}.DATE_OPENED;;
-}
-dimension: DATE_CLOSED {
- type: string
- sql: ${TABLE}.DATE_CLOSED;;
-}
-dimension: CAUTION_TEXT {
- type: string
- sql: ${TABLE}.CAUTION_TEXT;;
 }
 }
