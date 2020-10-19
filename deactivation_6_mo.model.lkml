@@ -17,8 +17,7 @@ join: DIM_USERS__6ad16b49_1d37_43aa_8748_5441e39a5881 {
 
 view: MASTER_PLAN_TABLE_WDATES__83bb55ed_d0a7_4133_86c7_53584b339274 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
-measure: PLAN_ID {
-type:count_distinct
+dimension: PLAN_ID {
  sql: ${TABLE}.PLAN_ID;;
 }
 dimension: PLAN_NAME {
@@ -169,8 +168,7 @@ measure: PLAN_KEY {
 type:count_distinct
  sql: ${TABLE}.PLAN_KEY;;
 }
-measure: PLAN_ID {
-type:count_distinct
+dimension: PLAN_ID {
  sql: ${TABLE}.PLAN_ID;;
 }
 measure: OFR_ID {
