@@ -1,21 +1,21 @@
 
-connection: "pmdevpresto"
+connection:"pmdevpresto"
 
 
-explore: DIM_DEVICE__3cd0867d_a017_4ac2_ab3a_7fc1983f4aa8 {
+explore: DIM_DEVICE__91accfe7_9880_4b7c_a1a9_013ead29449d {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__1884d99d_6b66_446f_ba80_a291385049e2 {
+join: FACT_SUBSCRIPTION_ACTIVITY__156402c8_0f3f_409e_8d77_c6ad7bdb7995 {
  relationship: one_to_one
- sql_on: ${DIM_DEVICE__3cd0867d_a017_4ac2_ab3a_7fc1983f4aa8.SBSCRN_ACTVTY_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__1884d99d_6b66_446f_ba80_a291385049e2.SBSCRN_ACTVTY_KEY} ;;
+ sql_on: ${DIM_DEVICE__91accfe7_9880_4b7c_a1a9_013ead29449d.SBSCRN_ACTVTY_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__156402c8_0f3f_409e_8d77_c6ad7bdb7995.SBSCRN_ACTVTY_KEY} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__1ab5e6b3_8f5c_48fd_b1db_ca7918a38695 {
+join: MASTER_PLAN_TABLE_WDATES__63750c51_ce9a_4e0f_9b83_e60d8c23cae6 {
  relationship: one_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__1ab5e6b3_8f5c_48fd_b1db_ca7918a38695.PLAN_ID} >= ${FACT_SUBSCRIPTION_ACTIVITY__1884d99d_6b66_446f_ba80_a291385049e2.PLAN_ID} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__63750c51_ce9a_4e0f_9b83_e60d8c23cae6.PLAN_ID} >= ${FACT_SUBSCRIPTION_ACTIVITY__156402c8_0f3f_409e_8d77_c6ad7bdb7995.PLAN_ID} ;;
 }
 }
 
 
-view: FACT_SUBSCRIPTION_ACTIVITY__1884d99d_6b66_446f_ba80_a291385049e2 {
+view: FACT_SUBSCRIPTION_ACTIVITY__156402c8_0f3f_409e_8d77_c6ad7bdb7995 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  type: string
@@ -280,52 +280,7 @@ dimension: SAVE_OPPORTUNITY_ACTIVITY {
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__1ab5e6b3_8f5c_48fd_b1db_ca7918a38695 {
-sql_table_name:pm61_snowflake.SCHEMA_INFO.MASTER_PLAN_TABLE_WDATES ;;
-dimension: PLAN_ID {
- type: string
- sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
- type: string
- sql: ${TABLE}.PLAN_NAME;;
-}
-dimension: MER {
- type: string
- sql: ${TABLE}.MER;;
-}
-dimension: DISC {
- type: string
- sql: ${TABLE}.DISC;;
-}
-dimension: PACKAGE {
- type: string
- sql: ${TABLE}.PACKAGE;;
-}
-dimension: LEN {
- type: string
- sql: ${TABLE}.LEN;;
-}
-dimension: ROLLUP1 {
- type: string
- sql: ${TABLE}.ROLLUP1;;
-}
-dimension: ASP {
- type: string
- sql: ${TABLE}.ASP;;
-}
-dimension: STARTDATE {
- type: string
- sql: ${TABLE}.STARTDATE;;
-}
-dimension: ENDDATE {
- type: string
- sql: ${TABLE}.ENDDATE;;
-}
-}
-
-
-view: DIM_DEVICE__3cd0867d_a017_4ac2_ab3a_7fc1983f4aa8 {
+view: DIM_DEVICE__91accfe7_9880_4b7c_a1a9_013ead29449d {
 sql_table_name:pm61_snowflake.SCHEMA_INFO.DIM_DEVICE ;;
 dimension: DEVICE_RECORD_KEY {
  type: string
@@ -418,5 +373,50 @@ dimension: VEHICLE_CAPABILITY_ID {
 dimension: SBSCRN_ACTVTY_KEY {
  type: string
  sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
+}
+}
+
+
+view: MASTER_PLAN_TABLE_WDATES__63750c51_ce9a_4e0f_9b83_e60d8c23cae6 {
+sql_table_name:pm61_snowflake.SCHEMA_INFO.MASTER_PLAN_TABLE_WDATES ;;
+dimension: PLAN_ID {
+ type: string
+ sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+ type: string
+ sql: ${TABLE}.PLAN_NAME;;
+}
+dimension: MER {
+ type: string
+ sql: ${TABLE}.MER;;
+}
+dimension: DISC {
+ type: string
+ sql: ${TABLE}.DISC;;
+}
+dimension: PACKAGE {
+ type: string
+ sql: ${TABLE}.PACKAGE;;
+}
+dimension: LEN {
+ type: string
+ sql: ${TABLE}.LEN;;
+}
+dimension: ROLLUP1 {
+ type: string
+ sql: ${TABLE}.ROLLUP1;;
+}
+dimension: ASP {
+ type: string
+ sql: ${TABLE}.ASP;;
+}
+dimension: STARTDATE {
+ type: string
+ sql: ${TABLE}.STARTDATE;;
+}
+dimension: ENDDATE {
+ type: string
+ sql: ${TABLE}.ENDDATE;;
 }
 }
