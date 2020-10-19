@@ -2,41 +2,16 @@
 connection:"pmdevpresto"
 
 
-explore: FACT_SUBSCRIPTION_ACTIVITY__a69fc8b8_31ae_446b_96ba_d495701db09a {
+explore: FACT_SUBSCRIPTION_ACTIVITY__eacbadb6_0877_499f_8e0c_fe3f85e04f1f {
 
-join: ACCOUNT__b66df304_a0d7_4f09_b547_548ac9a7810c {
+join: ACCOUNT__11b17af2_8860_4645_a2ce_7bb187e7ceea {
  relationship: one_to_one
- sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__a69fc8b8_31ae_446b_96ba_d495701db09a.USED_ACTVTY_TYPE_ID} = ${ACCOUNT__b66df304_a0d7_4f09_b547_548ac9a7810c.ACCOUNT_ID} ;;
+ sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__eacbadb6_0877_499f_8e0c_fe3f85e04f1f.USED_ACTVTY_TYPE_ID} = ${ACCOUNT__11b17af2_8860_4645_a2ce_7bb187e7ceea.ACCOUNT_ID} ;;
 }
 }
 
 
-view: ACCOUNT__b66df304_a0d7_4f09_b547_548ac9a7810c {
-sql_table_name:pm61_snowflake.SCHEMA_INFO.ACCOUNT ;;
-dimension: ACCOUNT_ID {
- type: string
- sql: ${TABLE}.ACCOUNT_ID;;
-}
-dimension: ACCOUNT_NAME {
- type: string
- sql: ${TABLE}.ACCOUNT_NAME;;
-}
-dimension: DATE_OPENED {
- type: string
- sql: ${TABLE}.DATE_OPENED;;
-}
-dimension: DATE_CLOSED {
- type: string
- sql: ${TABLE}.DATE_CLOSED;;
-}
-dimension: CAUTION_TEXT {
- type: string
- sql: ${TABLE}.CAUTION_TEXT;;
-}
-}
-
-
-view: FACT_SUBSCRIPTION_ACTIVITY__a69fc8b8_31ae_446b_96ba_d495701db09a {
+view: FACT_SUBSCRIPTION_ACTIVITY__eacbadb6_0877_499f_8e0c_fe3f85e04f1f {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  type: string
@@ -297,5 +272,30 @@ dimension: CONV_ACTIVITY_BY_SAVE_AGENT {
 dimension: SAVE_OPPORTUNITY_ACTIVITY {
  type: string
  sql: ${TABLE}.SAVE_OPPORTUNITY_ACTIVITY;;
+}
+}
+
+
+view: ACCOUNT__11b17af2_8860_4645_a2ce_7bb187e7ceea {
+sql_table_name:pm61_snowflake.SCHEMA_INFO.ACCOUNT ;;
+dimension: ACCOUNT_ID {
+ type: string
+ sql: ${TABLE}.ACCOUNT_ID;;
+}
+dimension: ACCOUNT_NAME {
+ type: string
+ sql: ${TABLE}.ACCOUNT_NAME;;
+}
+dimension: DATE_OPENED {
+ type: string
+ sql: ${TABLE}.DATE_OPENED;;
+}
+dimension: DATE_CLOSED {
+ type: string
+ sql: ${TABLE}.DATE_CLOSED;;
+}
+dimension: CAUTION_TEXT {
+ type: string
+ sql: ${TABLE}.CAUTION_TEXT;;
 }
 }
