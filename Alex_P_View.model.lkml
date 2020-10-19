@@ -2,49 +2,12 @@
 connection:"pmdevpresto"
 
 
-explore: DIM_PLAN__9505226d_4819_4bb9_a02e_8723ac50e756 {
+explore: DIM_PLAN__0beb3687_1841_4749_bdbc_ea0b0b559cf6 {
 
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__707c099f_cce4_4e14_b30c_019536610149 {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
-measure: PLAN_ID {
-type:count_distinct
- sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
- sql: ${TABLE}.PLAN_NAME;;
-}
-measure: MER {
-type:count_distinct
- sql: ${TABLE}.MER;;
-}
-dimension: DISC {
- sql: ${TABLE}.DISC;;
-}
-dimension: PACKAGE {
- sql: ${TABLE}.PACKAGE;;
-}
-dimension: LEN {
- sql: ${TABLE}.LEN;;
-}
-dimension: ROLLUP1 {
- sql: ${TABLE}.ROLLUP1;;
-}
-dimension: ASP {
- sql: ${TABLE}.ASP;;
-}
-dimension: STARTDATE {
- sql: ${TABLE}.STARTDATE;;
-}
-dimension: ENDDATE {
- sql: ${TABLE}.ENDDATE;;
-}
-}
-
-
-view: fact_subscription_activity__9ccd2736_9079_440d_8a11_6eae0403b10a {
+view: fact_subscription_activity__7f352742_6f62_4cba_a7e0_1721680f954c {
 sql_table_name:hive.s3media.fact_subscription_activity ;;
 dimension: sbscrn_actvty_key {
  sql: ${TABLE}.sbscrn_actvty_key;;
@@ -245,7 +208,44 @@ dimension: actvty_type_id {
 }
 
 
-view: DIM_PLAN__9505226d_4819_4bb9_a02e_8723ac50e756 {
+view: MASTER_PLAN_TABLE_WDATES__d42910ee_44fa_4fd3_9dde_31018d366035 {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
+measure: PLAN_ID {
+type:count_distinct
+ sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+ sql: ${TABLE}.PLAN_NAME;;
+}
+measure: MER {
+type:count_distinct
+ sql: ${TABLE}.MER;;
+}
+dimension: DISC {
+ sql: ${TABLE}.DISC;;
+}
+dimension: PACKAGE {
+ sql: ${TABLE}.PACKAGE;;
+}
+dimension: LEN {
+ sql: ${TABLE}.LEN;;
+}
+dimension: ROLLUP1 {
+ sql: ${TABLE}.ROLLUP1;;
+}
+dimension: ASP {
+ sql: ${TABLE}.ASP;;
+}
+dimension: STARTDATE {
+ sql: ${TABLE}.STARTDATE;;
+}
+dimension: ENDDATE {
+ sql: ${TABLE}.ENDDATE;;
+}
+}
+
+
+view: DIM_PLAN__0beb3687_1841_4749_bdbc_ea0b0b559cf6 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_PLAN ;;
 measure: PLAN_RECORD_KEY {
 type:count_distinct
