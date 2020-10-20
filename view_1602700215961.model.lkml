@@ -2,36 +2,16 @@
 connection:"pmdevpresto"
 
 
-explore: FACT_SUBSCRIPTION_ACTIVITY__acc4a012_1193_4e07_9a76_e70c199cb365 {
+explore: FACT_SUBSCRIPTION_ACTIVITY__99550822_9d00_4fb2_abc4_350f4f88729d {
 
-join: ACCOUNT__9aa7bbf8_0e2d_4f1e_ba51_8084303a1983 {
+join: ACCOUNT__34563f04_1a6a_4641_be15_92e89bdd01da {
  relationship: one_to_one
- sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__acc4a012_1193_4e07_9a76_e70c199cb365.USED_ACTVTY_TYPE_ID} = ${ACCOUNT__9aa7bbf8_0e2d_4f1e_ba51_8084303a1983.ACCOUNT_ID} ;;
+ sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__99550822_9d00_4fb2_abc4_350f4f88729d.USED_ACTVTY_TYPE_ID} = ${ACCOUNT__34563f04_1a6a_4641_be15_92e89bdd01da.ACCOUNT_ID} ;;
 }
 }
 
 
-view: ACCOUNT__9aa7bbf8_0e2d_4f1e_ba51_8084303a1983 {
-sql_table_name:pm61_snowflake.SCHEMA_INFO.ACCOUNT ;;
-dimension: ACCOUNT_ID {
- sql: ${TABLE}.ACCOUNT_ID;;
-}
-dimension: ACCOUNT_NAME {
- sql: ${TABLE}.ACCOUNT_NAME;;
-}
-dimension: DATE_OPENED {
- sql: ${TABLE}.DATE_OPENED;;
-}
-dimension: DATE_CLOSED {
- sql: ${TABLE}.DATE_CLOSED;;
-}
-dimension: CAUTION_TEXT {
- sql: ${TABLE}.CAUTION_TEXT;;
-}
-}
-
-
-view: FACT_SUBSCRIPTION_ACTIVITY__acc4a012_1193_4e07_9a76_e70c199cb365 {
+view: FACT_SUBSCRIPTION_ACTIVITY__99550822_9d00_4fb2_abc4_350f4f88729d {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 measure: SBSCRN_ACTVTY_KEY {
 type:count_distinct
@@ -254,5 +234,25 @@ type:count_distinct
 measure: SAVE_OPPORTUNITY_ACTIVITY {
 type:count_distinct
  sql: ${TABLE}.SAVE_OPPORTUNITY_ACTIVITY;;
+}
+}
+
+
+view: ACCOUNT__34563f04_1a6a_4641_be15_92e89bdd01da {
+sql_table_name:pm61_snowflake.SCHEMA_INFO.ACCOUNT ;;
+dimension: ACCOUNT_ID {
+ sql: ${TABLE}.ACCOUNT_ID;;
+}
+dimension: ACCOUNT_NAME {
+ sql: ${TABLE}.ACCOUNT_NAME;;
+}
+dimension: DATE_OPENED {
+ sql: ${TABLE}.DATE_OPENED;;
+}
+dimension: DATE_CLOSED {
+ sql: ${TABLE}.DATE_CLOSED;;
+}
+dimension: CAUTION_TEXT {
+ sql: ${TABLE}.CAUTION_TEXT;;
 }
 }
