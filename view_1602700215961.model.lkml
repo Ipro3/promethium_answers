@@ -2,16 +2,16 @@
 connection:"pmdevpresto"
 
 
-explore: FACT_SUBSCRIPTION_ACTIVITY__99550822_9d00_4fb2_abc4_350f4f88729d {
+explore: FACT_SUBSCRIPTION_ACTIVITY__d6273d7b_dd48_4776_a27f_8bab3b8d6ece {
 
-join: ACCOUNT__34563f04_1a6a_4641_be15_92e89bdd01da {
+join: ACCOUNT__5dc7233b_237b_4530_9241_553ecc2e35c3 {
  relationship: one_to_one
- sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__99550822_9d00_4fb2_abc4_350f4f88729d.USED_ACTVTY_TYPE_ID} = ${ACCOUNT__34563f04_1a6a_4641_be15_92e89bdd01da.ACCOUNT_ID} ;;
+ sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__d6273d7b_dd48_4776_a27f_8bab3b8d6ece.USED_ACTVTY_TYPE_ID} = ${ACCOUNT__5dc7233b_237b_4530_9241_553ecc2e35c3.ACCOUNT_ID} ;;
 }
 }
 
 
-view: FACT_SUBSCRIPTION_ACTIVITY__99550822_9d00_4fb2_abc4_350f4f88729d {
+view: FACT_SUBSCRIPTION_ACTIVITY__d6273d7b_dd48_4776_a27f_8bab3b8d6ece {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 measure: SBSCRN_ACTVTY_KEY {
 type:count_distinct
@@ -238,7 +238,7 @@ type:count_distinct
 }
 
 
-view: ACCOUNT__34563f04_1a6a_4641_be15_92e89bdd01da {
+view: ACCOUNT__5dc7233b_237b_4530_9241_553ecc2e35c3 {
 sql_table_name:pm61_snowflake.SCHEMA_INFO.ACCOUNT ;;
 dimension: ACCOUNT_ID {
  sql: ${TABLE}.ACCOUNT_ID;;
