@@ -2,36 +2,16 @@
 connection:"pmdevpresto"
 
 
-explore: ACCOUNT__ddef5d37_bec0_4f49_b9db_d1df00422781 {
+explore: ACCOUNT__01d00cf2_09ec_4bc4_99d5_9b5595d68084 {
 
-join: fact_subscription_activity__50038cff_4cca_4477_9918_c55810561391 {
+join: fact_subscription_activity__2afb1dad_2821_4dc7_8a38_73e42e569d3f {
  relationship: one_to_one
- sql_on: ${ACCOUNT__ddef5d37_bec0_4f49_b9db_d1df00422781.ACCOUNT_ID} = ${fact_subscription_activity__50038cff_4cca_4477_9918_c55810561391.sbscrn_id} ;;
+ sql_on: ${ACCOUNT__01d00cf2_09ec_4bc4_99d5_9b5595d68084.ACCOUNT_ID} = ${fact_subscription_activity__2afb1dad_2821_4dc7_8a38_73e42e569d3f.sbscrn_id} ;;
 }
 }
 
 
-view: ACCOUNT__ddef5d37_bec0_4f49_b9db_d1df00422781 {
-sql_table_name:snowflakeg3.SCHEMA_INFO.ACCOUNT ;;
-dimension: ACCOUNT_ID {
- sql: ${TABLE}.ACCOUNT_ID;;
-}
-dimension: ACCOUNT_NAME {
- sql: ${TABLE}.ACCOUNT_NAME;;
-}
-dimension: DATE_OPENED {
- sql: ${TABLE}.DATE_OPENED;;
-}
-dimension: DATE_CLOSED {
- sql: ${TABLE}.DATE_CLOSED;;
-}
-dimension: CAUTION_TEXT {
- sql: ${TABLE}.CAUTION_TEXT;;
-}
-}
-
-
-view: fact_subscription_activity__50038cff_4cca_4477_9918_c55810561391 {
+view: fact_subscription_activity__2afb1dad_2821_4dc7_8a38_73e42e569d3f {
 sql_table_name:hiveg3.promethium.fact_subscription_activity ;;
 measure: sbscrn_actvty_key {
 type:count_distinct
@@ -254,5 +234,25 @@ type:count_distinct
 measure: save_opportunity_activity {
 type:count_distinct
  sql: ${TABLE}.save_opportunity_activity;;
+}
+}
+
+
+view: ACCOUNT__01d00cf2_09ec_4bc4_99d5_9b5595d68084 {
+sql_table_name:snowflakeg3.SCHEMA_INFO.ACCOUNT ;;
+dimension: ACCOUNT_ID {
+ sql: ${TABLE}.ACCOUNT_ID;;
+}
+dimension: ACCOUNT_NAME {
+ sql: ${TABLE}.ACCOUNT_NAME;;
+}
+dimension: DATE_OPENED {
+ sql: ${TABLE}.DATE_OPENED;;
+}
+dimension: DATE_CLOSED {
+ sql: ${TABLE}.DATE_CLOSED;;
+}
+dimension: CAUTION_TEXT {
+ sql: ${TABLE}.CAUTION_TEXT;;
 }
 }
