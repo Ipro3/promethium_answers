@@ -2,19 +2,18 @@
 connection:"pmdevpresto"
 
 
-explore: FACT_SUBSCRIPTION_ACTIVITY__7010443b_a2ec_43f5_a0a5_d5a3c45c6c4e {
+explore: FACT_SUBSCRIPTION_ACTIVITY__d23ab6a1_ba26_4898_b1a8_b46aef9e37cf {
 
-join: DIM_AGENT__b34ed855_6748_40a5_a7ff_cb2ffbab9221 {
+join: DIM_AGENT__0b820426_599b_4c24_a9f9_678eda6d1c57 {
  relationship: one_to_one
- sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__7010443b_a2ec_43f5_a0a5_d5a3c45c6c4e.SBSCRN_ACTVTY_KEY} = ${DIM_AGENT__b34ed855_6748_40a5_a7ff_cb2ffbab9221.AGENT_RECORD_KEY} ;;
+ sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__d23ab6a1_ba26_4898_b1a8_b46aef9e37cf.SBSCRN_ACTVTY_KEY} = ${DIM_AGENT__0b820426_599b_4c24_a9f9_678eda6d1c57.AGENT_RECORD_KEY} ;;
 }
 }
 
 
-view: DIM_AGENT__b34ed855_6748_40a5_a7ff_cb2ffbab9221 {
+view: DIM_AGENT__0b820426_599b_4c24_a9f9_678eda6d1c57 {
 sql_table_name:oracle.RDSORACLEFORPRESTO.DIM_AGENT ;;
-measure: AGENT_RECORD_KEY {
-type:count_distinct
+dimension: AGENT_RECORD_KEY {
  sql: ${TABLE}.AGENT_RECORD_KEY;;
 }
 dimension: AGENT_ID {
@@ -69,10 +68,9 @@ dimension: DELETED_RECORD_FLAG {
 }
 
 
-view: FACT_SUBSCRIPTION_ACTIVITY__7010443b_a2ec_43f5_a0a5_d5a3c45c6c4e {
+view: FACT_SUBSCRIPTION_ACTIVITY__d23ab6a1_ba26_4898_b1a8_b46aef9e37cf {
 sql_table_name:oracle.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
-measure: SBSCRN_ACTVTY_KEY {
-type:count_distinct
+dimension: SBSCRN_ACTVTY_KEY {
  sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
 }
 dimension: SBSCRN_ID {
