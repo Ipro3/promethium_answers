@@ -2,16 +2,16 @@
 connection:"pmdevpresto"
 
 
-explore: DIM_AGENT__3d412dff_601c_46ce_b604_017434f81e33 {
+explore: DIM_AGENT__e002abb4_0c8c_4846_8b76_a777a434c9fb {
 
-join: DIM_DEVICE__401b5e8d_68a1_4361_861f_9482fc10a112 {
+join: DIM_DEVICE__9ae4a7ed_4ac2_4b4f_a408_2481dee45a38 {
  relationship: one_to_one
- sql_on: ${DIM_AGENT__3d412dff_601c_46ce_b604_017434f81e33.AGENT_RECORD_KEY} > ${DIM_DEVICE__401b5e8d_68a1_4361_861f_9482fc10a112.DEVICE_RECORD_KEY} ;;
+ sql_on: ${DIM_AGENT__e002abb4_0c8c_4846_8b76_a777a434c9fb.AGENT_RECORD_KEY} > ${DIM_DEVICE__9ae4a7ed_4ac2_4b4f_a408_2481dee45a38.DEVICE_RECORD_KEY} ;;
 }
 }
 
 
-view: DIM_DEVICE__401b5e8d_68a1_4361_861f_9482fc10a112 {
+view: DIM_DEVICE__9ae4a7ed_4ac2_4b4f_a408_2481dee45a38 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_DEVICE ;;
 dimension: DEVICE_RECORD_KEY {
  sql: ${TABLE}.DEVICE_RECORD_KEY;;
@@ -93,7 +93,7 @@ type:count_distinct
 }
 
 
-view: DIM_AGENT__3d412dff_601c_46ce_b604_017434f81e33 {
+view: DIM_AGENT__e002abb4_0c8c_4846_8b76_a777a434c9fb {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_AGENT ;;
 dimension: AGENT_RECORD_KEY {
  sql: ${TABLE}.AGENT_RECORD_KEY;;
