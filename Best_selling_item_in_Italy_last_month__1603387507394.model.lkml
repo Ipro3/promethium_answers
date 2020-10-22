@@ -2,16 +2,16 @@
 connection:"presto-qa-1"
 
 
-explore: OPPORTUNITYLINEITEM__2cc8b067_f6f5_448c_a065_1b527fe8b65b {
+explore: OPPORTUNITYLINEITEM__4c139810_118e_4b36_b425_04dcf2726ef0 {
 
-join: ORDERITEM__1d58ff66_f69e_494b_8162_9c6c61a932cf {
+join: ORDERITEM__2ec240cc_eb1b_4b5b_88e9_8cd47eb9da76 {
  relationship: one_to_one
- sql_on: ${OPPORTUNITYLINEITEM__2cc8b067_f6f5_448c_a065_1b527fe8b65b.PRODUCT2ID} = ${ORDERITEM__1d58ff66_f69e_494b_8162_9c6c61a932cf.PRODUCT2ID} ;;
+ sql_on: ${OPPORTUNITYLINEITEM__4c139810_118e_4b36_b425_04dcf2726ef0.PRODUCT2ID} = ${ORDERITEM__2ec240cc_eb1b_4b5b_88e9_8cd47eb9da76.PRODUCT2ID} ;;
 }
 }
 
 
-view: OPPORTUNITYLINEITEM__2cc8b067_f6f5_448c_a065_1b527fe8b65b {
+view: OPPORTUNITYLINEITEM__4c139810_118e_4b36_b425_04dcf2726ef0 {
 sql_table_name:sforce.SFORCE.OPPORTUNITYLINEITEM ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
@@ -78,7 +78,7 @@ dimension: ISDELETED {
 }
 
 
-view: ORDERITEM__1d58ff66_f69e_494b_8162_9c6c61a932cf {
+view: ORDERITEM__2ec240cc_eb1b_4b5b_88e9_8cd47eb9da76 {
 sql_table_name:sforce.SFORCE.ORDERITEM ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
