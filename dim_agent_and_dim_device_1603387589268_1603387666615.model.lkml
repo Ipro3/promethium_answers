@@ -2,16 +2,16 @@
 connection:"presto-qa-1"
 
 
-explore: DIM_AGENT__989c58a1_6dc0_40ed_b37c_65a23f811eee {
+explore: DIM_AGENT__209bf0a5_c89d_4818_885f_f5d0348d18f7 {
 
-join: DIM_DEVICE__5de9d651_76b7_4a48_8eaf_649f5e20b503 {
+join: DIM_DEVICE__19018027_2a77_4f2d_99ef_46890c64811e {
  relationship: one_to_one
- sql_on: ${DIM_AGENT__989c58a1_6dc0_40ed_b37c_65a23f811eee.AGENT_RECORD_KEY} = ${DIM_DEVICE__5de9d651_76b7_4a48_8eaf_649f5e20b503.DEVICE_RECORD_KEY} ;;
+ sql_on: ${DIM_AGENT__209bf0a5_c89d_4818_885f_f5d0348d18f7.AGENT_RECORD_KEY} <> ${DIM_DEVICE__19018027_2a77_4f2d_99ef_46890c64811e.DEVICE_RECORD_KEY} ;;
 }
 }
 
 
-view: DIM_DEVICE__5de9d651_76b7_4a48_8eaf_649f5e20b503 {
+view: DIM_DEVICE__19018027_2a77_4f2d_99ef_46890c64811e {
 sql_table_name:oracle.RDSORACLEFORPRESTO.DIM_DEVICE ;;
 dimension: DEVICE_RECORD_KEY {
  sql: ${TABLE}.DEVICE_RECORD_KEY;;
@@ -93,7 +93,7 @@ type:count_distinct
 }
 
 
-view: DIM_AGENT__989c58a1_6dc0_40ed_b37c_65a23f811eee {
+view: DIM_AGENT__209bf0a5_c89d_4818_885f_f5d0348d18f7 {
 sql_table_name:snowflake.SCHEMA_INFO.DIM_AGENT ;;
 dimension: AGENT_RECORD_KEY {
  sql: ${TABLE}.AGENT_RECORD_KEY;;
