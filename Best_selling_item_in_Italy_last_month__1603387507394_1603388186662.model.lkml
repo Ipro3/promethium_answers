@@ -2,16 +2,83 @@
 connection:"presto-qa-1"
 
 
-explore: OPPORTUNITYLINEITEM__98d29da8_e99e_41da_9dab_e9fb7c7e3e18 {
+explore: OPPORTUNITYLINEITEM__aeeb6351_49ce_46a6_9a2a_09bd481c0c2b {
 
-join: ORDERITEM__6590e5d9_c9a1_421a_b393_eed60ed7680d {
+join: ORDERITEM__988628cb_c0f3_4378_8f8a_e076104d3b16 {
  relationship: one_to_one
- sql_on: ${OPPORTUNITYLINEITEM__98d29da8_e99e_41da_9dab_e9fb7c7e3e18.PRODUCT2ID} = ${ORDERITEM__6590e5d9_c9a1_421a_b393_eed60ed7680d.PRODUCT2ID} ;;
+ sql_on: ${OPPORTUNITYLINEITEM__aeeb6351_49ce_46a6_9a2a_09bd481c0c2b.PRODUCT2ID} > ${ORDERITEM__988628cb_c0f3_4378_8f8a_e076104d3b16.PRODUCT2ID} ;;
 }
 }
 
 
-view: ORDERITEM__6590e5d9_c9a1_421a_b393_eed60ed7680d {
+view: OPPORTUNITYLINEITEM__aeeb6351_49ce_46a6_9a2a_09bd481c0c2b {
+sql_table_name:sforce.SFORCE.OPPORTUNITYLINEITEM ;;
+dimension: ID {
+ sql: ${TABLE}.ID;;
+}
+dimension: OPPORTUNITYID {
+ sql: ${TABLE}.OPPORTUNITYID;;
+}
+measure: SORTORDER {
+type:count_distinct
+ sql: ${TABLE}.SORTORDER;;
+}
+dimension: PRICEBOOKENTRYID {
+ sql: ${TABLE}.PRICEBOOKENTRYID;;
+}
+dimension: PRODUCT2ID {
+ sql: ${TABLE}.PRODUCT2ID;;
+}
+dimension: PRODUCTCODE {
+ sql: ${TABLE}.PRODUCTCODE;;
+}
+dimension: NAME {
+ sql: ${TABLE}.NAME;;
+}
+measure: QUANTITY {
+type:count_distinct
+ sql: ${TABLE}.QUANTITY;;
+}
+measure: TOTALPRICE {
+type:count_distinct
+ sql: ${TABLE}.TOTALPRICE;;
+}
+measure: UNITPRICE {
+type:count_distinct
+ sql: ${TABLE}.UNITPRICE;;
+}
+measure: LISTPRICE {
+type:count_distinct
+ sql: ${TABLE}.LISTPRICE;;
+}
+dimension: SERVICEDATE {
+ sql: ${TABLE}.SERVICEDATE;;
+}
+dimension: DESCRIPTION {
+ sql: ${TABLE}.DESCRIPTION;;
+}
+dimension: CREATEDDATE {
+ sql: ${TABLE}.CREATEDDATE;;
+}
+dimension: CREATEDBYID {
+ sql: ${TABLE}.CREATEDBYID;;
+}
+dimension: LASTMODIFIEDDATE {
+ sql: ${TABLE}.LASTMODIFIEDDATE;;
+}
+dimension: LASTMODIFIEDBYID {
+ sql: ${TABLE}.LASTMODIFIEDBYID;;
+}
+dimension: SYSTEMMODSTAMP {
+ sql: ${TABLE}.SYSTEMMODSTAMP;;
+}
+dimension: ISDELETED {
+ sql: ${TABLE}.ISDELETED;;
+}
+}
+
+
+view: ORDERITEM__988628cb_c0f3_4378_8f8a_e076104d3b16 {
 sql_table_name:sforce.SFORCE.ORDERITEM ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
@@ -77,72 +144,5 @@ dimension: SYSTEMMODSTAMP {
 }
 dimension: ORDERITEMNUMBER {
  sql: ${TABLE}.ORDERITEMNUMBER;;
-}
-}
-
-
-view: OPPORTUNITYLINEITEM__98d29da8_e99e_41da_9dab_e9fb7c7e3e18 {
-sql_table_name:sforce.SFORCE.OPPORTUNITYLINEITEM ;;
-dimension: ID {
- sql: ${TABLE}.ID;;
-}
-dimension: OPPORTUNITYID {
- sql: ${TABLE}.OPPORTUNITYID;;
-}
-measure: SORTORDER {
-type:count_distinct
- sql: ${TABLE}.SORTORDER;;
-}
-dimension: PRICEBOOKENTRYID {
- sql: ${TABLE}.PRICEBOOKENTRYID;;
-}
-dimension: PRODUCT2ID {
- sql: ${TABLE}.PRODUCT2ID;;
-}
-dimension: PRODUCTCODE {
- sql: ${TABLE}.PRODUCTCODE;;
-}
-dimension: NAME {
- sql: ${TABLE}.NAME;;
-}
-measure: QUANTITY {
-type:count_distinct
- sql: ${TABLE}.QUANTITY;;
-}
-measure: TOTALPRICE {
-type:count_distinct
- sql: ${TABLE}.TOTALPRICE;;
-}
-measure: UNITPRICE {
-type:count_distinct
- sql: ${TABLE}.UNITPRICE;;
-}
-measure: LISTPRICE {
-type:count_distinct
- sql: ${TABLE}.LISTPRICE;;
-}
-dimension: SERVICEDATE {
- sql: ${TABLE}.SERVICEDATE;;
-}
-dimension: DESCRIPTION {
- sql: ${TABLE}.DESCRIPTION;;
-}
-dimension: CREATEDDATE {
- sql: ${TABLE}.CREATEDDATE;;
-}
-dimension: CREATEDBYID {
- sql: ${TABLE}.CREATEDBYID;;
-}
-dimension: LASTMODIFIEDDATE {
- sql: ${TABLE}.LASTMODIFIEDDATE;;
-}
-dimension: LASTMODIFIEDBYID {
- sql: ${TABLE}.LASTMODIFIEDBYID;;
-}
-dimension: SYSTEMMODSTAMP {
- sql: ${TABLE}.SYSTEMMODSTAMP;;
-}
-dimension: ISDELETED {
- sql: ${TABLE}.ISDELETED;;
 }
 }
