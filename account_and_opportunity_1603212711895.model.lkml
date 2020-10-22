@@ -1,17 +1,17 @@
 
-connection:"pmdevpresto"
+connection:"presto-qa-1"
 
 
-explore: ACCOUNT__01d00cf2_09ec_4bc4_99d5_9b5595d68084 {
+explore: ACCOUNT__100000ca_5815_44dc_aa4c_33a172bb3a4c {
 
-join: fact_subscription_activity__2afb1dad_2821_4dc7_8a38_73e42e569d3f {
+join: fact_subscription_activity__13a74ee7_e530_4295_9717_9936a5aa6113 {
  relationship: one_to_one
- sql_on: ${ACCOUNT__01d00cf2_09ec_4bc4_99d5_9b5595d68084.ACCOUNT_ID} = ${fact_subscription_activity__2afb1dad_2821_4dc7_8a38_73e42e569d3f.sbscrn_id} ;;
+ sql_on: ${ACCOUNT__100000ca_5815_44dc_aa4c_33a172bb3a4c.ACCOUNT_ID} = ${fact_subscription_activity__13a74ee7_e530_4295_9717_9936a5aa6113.sbscrn_id} ;;
 }
 }
 
 
-view: fact_subscription_activity__2afb1dad_2821_4dc7_8a38_73e42e569d3f {
+view: fact_subscription_activity__13a74ee7_e530_4295_9717_9936a5aa6113 {
 sql_table_name:hiveg3.promethium.fact_subscription_activity ;;
 measure: sbscrn_actvty_key {
 type:count_distinct
@@ -238,7 +238,7 @@ type:count_distinct
 }
 
 
-view: ACCOUNT__01d00cf2_09ec_4bc4_99d5_9b5595d68084 {
+view: ACCOUNT__100000ca_5815_44dc_aa4c_33a172bb3a4c {
 sql_table_name:snowflakeg3.SCHEMA_INFO.ACCOUNT ;;
 dimension: ACCOUNT_ID {
  sql: ${TABLE}.ACCOUNT_ID;;
