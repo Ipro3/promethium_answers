@@ -2,16 +2,16 @@
 connection:"presto-qa-1"
 
 
-explore: DIM_AGENT__5358d0ff_0a17_408b_a5df_21a145b0720c {
+explore: DIM_AGENT__5cd98e8b_fa18_4f31_93c0_3639bd71cd1d {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__e408c619_9577_4396_9ac5_1be3bb35e91a {
+join: FACT_SUBSCRIPTION_ACTIVITY__8cc88ffa_e18a_4dba_bde1_03b4c40b241c {
  relationship: one_to_one
- sql_on: ${DIM_AGENT__5358d0ff_0a17_408b_a5df_21a145b0720c.AGENT_RECORD_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__e408c619_9577_4396_9ac5_1be3bb35e91a.AGN_KEY} ;;
+ sql_on: ${DIM_AGENT__5cd98e8b_fa18_4f31_93c0_3639bd71cd1d.AGENT_RECORD_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__8cc88ffa_e18a_4dba_bde1_03b4c40b241c.AGN_KEY} ;;
 }
 }
 
 
-view: DIM_AGENT__5358d0ff_0a17_408b_a5df_21a145b0720c {
+view: DIM_AGENT__5cd98e8b_fa18_4f31_93c0_3639bd71cd1d {
 sql_table_name:oracle.RDSORACLEFORPRESTO.DIM_AGENT ;;
 dimension: AGENT_RECORD_KEY {
  sql: ${TABLE}.AGENT_RECORD_KEY;;
@@ -68,7 +68,7 @@ dimension: DELETED_RECORD_FLAG {
 }
 
 
-view: FACT_SUBSCRIPTION_ACTIVITY__e408c619_9577_4396_9ac5_1be3bb35e91a {
+view: FACT_SUBSCRIPTION_ACTIVITY__8cc88ffa_e18a_4dba_bde1_03b4c40b241c {
 sql_table_name:oracle.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 measure: SBSCRN_ACTVTY_KEY {
 type:count_distinct
