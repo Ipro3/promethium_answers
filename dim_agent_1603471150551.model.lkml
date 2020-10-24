@@ -2,12 +2,12 @@
 connection:"pmdevpresto"
 
 
-explore: dim_agent__dd21ef28_c576_47af_9286_f2be8c685174 {
+explore: dim_agent__7412c541_02c2_4c5c_a94c_c8c2f2b15eab {
 
 }
 
 
-view: dim_agent__dd21ef28_c576_47af_9286_f2be8c685174 {
+view: dim_agent__7412c541_02c2_4c5c_a94c_c8c2f2b15eab {
 sql_table_name:hive.s3media.dim_agent ;;
 dimension: col0 {
  sql: ${TABLE}.col0;;
