@@ -2,20 +2,56 @@
 connection:"pmdevpresto"
 
 
-explore: DIM_DEVICE__744b644e_6a7f_488c_8328_093f8734ad2d {
+explore: DIM_DEVICE__21d0bf81_a4df_423d_a96f_750d1a220c93 {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__52894bc7_8d44_4629_acda_8b41ff665f3e {
+join: FACT_SUBSCRIPTION_ACTIVITY__6e29897e_a40f_43e3_812d_08d9dfeddcb0 {
  type: left_outer
- sql_on: ${DIM_DEVICE__744b644e_6a7f_488c_8328_093f8734ad2d.SBSCRN_ACTVTY_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__52894bc7_8d44_4629_acda_8b41ff665f3e.SBSCRN_ACTVTY_KEY} ;;
+ sql_on: ${DIM_DEVICE__21d0bf81_a4df_423d_a96f_750d1a220c93.SBSCRN_ACTVTY_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__6e29897e_a40f_43e3_812d_08d9dfeddcb0.SBSCRN_ACTVTY_KEY} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__4c37294e_61c1_402a_b3ec_4630fedf42ac {
+join: MASTER_PLAN_TABLE_WDATES__35f8144d_6908_469c_9a29_52ac4aa1d059 {
  type: left_outer
- sql_on: ${MASTER_PLAN_TABLE_WDATES__4c37294e_61c1_402a_b3ec_4630fedf42ac.PLAN_ID} >= ${FACT_SUBSCRIPTION_ACTIVITY__52894bc7_8d44_4629_acda_8b41ff665f3e.PLAN_ID} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__35f8144d_6908_469c_9a29_52ac4aa1d059.PLAN_ID} >= ${FACT_SUBSCRIPTION_ACTIVITY__6e29897e_a40f_43e3_812d_08d9dfeddcb0.PLAN_ID} ;;
 }
 }
 
 
-view: FACT_SUBSCRIPTION_ACTIVITY__52894bc7_8d44_4629_acda_8b41ff665f3e {
+view: MASTER_PLAN_TABLE_WDATES__35f8144d_6908_469c_9a29_52ac4aa1d059 {
+sql_table_name:pm61_snowflake.SCHEMA_INFO.MASTER_PLAN_TABLE_WDATES ;;
+dimension: PLAN_ID {
+ sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+ sql: ${TABLE}.PLAN_NAME;;
+}
+measure: MER {
+type:count_distinct
+ sql: ${TABLE}.MER;;
+}
+dimension: DISC {
+ sql: ${TABLE}.DISC;;
+}
+dimension: PACKAGE {
+ sql: ${TABLE}.PACKAGE;;
+}
+dimension: LEN {
+ sql: ${TABLE}.LEN;;
+}
+dimension: ROLLUP1 {
+ sql: ${TABLE}.ROLLUP1;;
+}
+dimension: ASP {
+ sql: ${TABLE}.ASP;;
+}
+dimension: STARTDATE {
+ sql: ${TABLE}.STARTDATE;;
+}
+dimension: ENDDATE {
+ sql: ${TABLE}.ENDDATE;;
+}
+}
+
+
+view: FACT_SUBSCRIPTION_ACTIVITY__6e29897e_a40f_43e3_812d_08d9dfeddcb0 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
@@ -240,43 +276,7 @@ type:count_distinct
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__4c37294e_61c1_402a_b3ec_4630fedf42ac {
-sql_table_name:pm61_snowflake.SCHEMA_INFO.MASTER_PLAN_TABLE_WDATES ;;
-dimension: PLAN_ID {
- sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
- sql: ${TABLE}.PLAN_NAME;;
-}
-measure: MER {
-type:count_distinct
- sql: ${TABLE}.MER;;
-}
-dimension: DISC {
- sql: ${TABLE}.DISC;;
-}
-dimension: PACKAGE {
- sql: ${TABLE}.PACKAGE;;
-}
-dimension: LEN {
- sql: ${TABLE}.LEN;;
-}
-dimension: ROLLUP1 {
- sql: ${TABLE}.ROLLUP1;;
-}
-dimension: ASP {
- sql: ${TABLE}.ASP;;
-}
-dimension: STARTDATE {
- sql: ${TABLE}.STARTDATE;;
-}
-dimension: ENDDATE {
- sql: ${TABLE}.ENDDATE;;
-}
-}
-
-
-view: DIM_DEVICE__744b644e_6a7f_488c_8328_093f8734ad2d {
+view: DIM_DEVICE__21d0bf81_a4df_423d_a96f_750d1a220c93 {
 sql_table_name:pm61_snowflake.SCHEMA_INFO.DIM_DEVICE ;;
 measure: DEVICE_RECORD_KEY {
 type:count_distinct
