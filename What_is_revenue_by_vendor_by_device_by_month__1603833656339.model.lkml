@@ -2,27 +2,27 @@
 connection:"pmdevpresto"
 
 
-explore: DIM_AGENT__ad2859ba_cefd_4d28_ba57_71a82be9eaea {
+explore: DIM_AGENT__94785774_db59_4ccc_b291_29341a2c2b04 {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__56327542_945c_48cd_bb2d_6fad3eb2ffb1 {
+join: FACT_SUBSCRIPTION_ACTIVITY__4a3a82fc_2df9_4fe1_ad77_7b365cb067f9 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${DIM_AGENT__ad2859ba_cefd_4d28_ba57_71a82be9eaea.AGENT_RECORD_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__56327542_945c_48cd_bb2d_6fad3eb2ffb1.AGN_KEY} ;;
+ sql_on: ${DIM_AGENT__94785774_db59_4ccc_b291_29341a2c2b04.AGENT_RECORD_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__4a3a82fc_2df9_4fe1_ad77_7b365cb067f9.AGN_KEY} ;;
 }
-join: DIM_DEVICE__2fd5a87e_0330_4cad_9fde_d0c6c7b0d4a7 {
+join: DIM_DEVICE__208c0a43_d072_4d06_8401_636075ee02b0 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${DIM_DEVICE__2fd5a87e_0330_4cad_9fde_d0c6c7b0d4a7.SBSCRN_ACTVTY_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__56327542_945c_48cd_bb2d_6fad3eb2ffb1.SBSCRN_ACTVTY_KEY} ;;
+ sql_on: ${DIM_DEVICE__208c0a43_d072_4d06_8401_636075ee02b0.SBSCRN_ACTVTY_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__4a3a82fc_2df9_4fe1_ad77_7b365cb067f9.SBSCRN_ACTVTY_KEY} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__e13ddd9b_16b5_47e1_8cef_a4517725efaf {
+join: MASTER_PLAN_TABLE_WDATES__ded5a18b_a37f_4fb2_880a_350bd2796e4a {
  type: left_outer
  relationship: many_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__e13ddd9b_16b5_47e1_8cef_a4517725efaf.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__56327542_945c_48cd_bb2d_6fad3eb2ffb1.PLAN_ID} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__ded5a18b_a37f_4fb2_880a_350bd2796e4a.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__4a3a82fc_2df9_4fe1_ad77_7b365cb067f9.PLAN_ID} ;;
 }
 }
 
 
-view: FACT_SUBSCRIPTION_ACTIVITY__56327542_945c_48cd_bb2d_6fad3eb2ffb1 {
+view: FACT_SUBSCRIPTION_ACTIVITY__4a3a82fc_2df9_4fe1_ad77_7b365cb067f9 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
@@ -441,75 +441,54 @@ fields: [SBSCRN_ID, USED_ACTVTY_TYPE_ID, ACTVTY_TS, HHLD_ID, PRTY_KEY, PRTY_ID, 
 }
 
 
-view: DIM_AGENT__ad2859ba_cefd_4d28_ba57_71a82be9eaea {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_AGENT ;;
-dimension: AGENT_RECORD_KEY {
- sql: ${TABLE}.AGENT_RECORD_KEY;;
+view: MASTER_PLAN_TABLE_WDATES__ded5a18b_a37f_4fb2_880a_350bd2796e4a {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
+dimension: PLAN_ID {
+ sql: ${TABLE}.PLAN_ID;;
 }
-dimension: AGENT_ID {
- sql: ${TABLE}.AGENT_ID;;
+dimension: PLAN_NAME {
+ sql: ${TABLE}.PLAN_NAME;;
 }
-dimension: CSR_ID {
- sql: ${TABLE}.CSR_ID;;
+dimension: MER {
+ sql: ${TABLE}.MER;;
 }
-dimension: AGENT_SUPERVISOR_RECORD_KEY {
- sql: ${TABLE}.AGENT_SUPERVISOR_RECORD_KEY;;
+dimension: DISC {
+ sql: ${TABLE}.DISC;;
 }
-dimension: AGENT_SUPERVISOR_CSR_ID {
- sql: ${TABLE}.AGENT_SUPERVISOR_CSR_ID;;
+dimension: PACKAGE {
+ sql: ${TABLE}.PACKAGE;;
 }
-dimension: AGENT_STATUS {
- sql: ${TABLE}.AGENT_STATUS;;
+dimension: LEN {
+ sql: ${TABLE}.LEN;;
 }
-dimension: AGENT_ROLE_START_DATE {
- sql: ${TABLE}.AGENT_ROLE_START_DATE;;
+dimension: ROLLUP1 {
+ sql: ${TABLE}.ROLLUP1;;
 }
-dimension: AGENT_ROLE_END_DATE {
- sql: ${TABLE}.AGENT_ROLE_END_DATE;;
+dimension: ASP {
+ sql: ${TABLE}.ASP;;
 }
-dimension: AGENT_ROLE_SMS {
- sql: ${TABLE}.AGENT_ROLE_SMS;;
+dimension: STARTDATE {
+ sql: ${TABLE}.STARTDATE;;
 }
-dimension: AGENT_ROLE_MARKETING {
- sql: ${TABLE}.AGENT_ROLE_MARKETING;;
+dimension: ENDDATE {
+ sql: ${TABLE}.ENDDATE;;
 }
-dimension: AGENT_LOCATION {
- sql: ${TABLE}.AGENT_LOCATION;;
-}
-dimension: AGENT_VENDOR {
- sql: ${TABLE}.AGENT_VENDOR;;
-}
-dimension: AGENT_SITE {
- sql: ${TABLE}.AGENT_SITE;;
-}
-dimension: AGENT_LOB {
- sql: ${TABLE}.AGENT_LOB;;
-}
-dimension: ACTIVATION_SOURCE {
- sql: ${TABLE}.ACTIVATION_SOURCE;;
-}
-dimension: CURRENT_RECORD_FLAG {
- sql: ${TABLE}.CURRENT_RECORD_FLAG;;
-}
-dimension: DELETED_RECORD_FLAG {
- sql: ${TABLE}.DELETED_RECORD_FLAG;;
-}
-measure: AGENT_SUPERVISOR_RECORD_KEY_count {
+measure: MER_count {
 type:count
  drill_fields: [detail*]
 }
-measure: AGENT_SUPERVISOR_RECORD_KEY_sum {
+measure: MER_sum {
 type:sum
-sql: ${AGENT_SUPERVISOR_RECORD_KEY} ;;
+sql: ${MER} ;;
  drill_fields: [detail*]
 }
 set: detail {
-fields: [AGENT_ID, CSR_ID, AGENT_SUPERVISOR_RECORD_KEY, AGENT_SUPERVISOR_CSR_ID, AGENT_STATUS, AGENT_ROLE_SMS, AGENT_ROLE_MARKETING, AGENT_LOCATION, AGENT_VENDOR, AGENT_SITE, AGENT_LOB, ACTIVATION_SOURCE, CURRENT_RECORD_FLAG, DELETED_RECORD_FLAG]
+fields: [PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP]
 }
 }
 
 
-view: DIM_DEVICE__2fd5a87e_0330_4cad_9fde_d0c6c7b0d4a7 {
+view: DIM_DEVICE__208c0a43_d072_4d06_8401_636075ee02b0 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_DEVICE ;;
 dimension: DEVICE_RECORD_KEY {
  sql: ${TABLE}.DEVICE_RECORD_KEY;;
@@ -658,48 +637,69 @@ fields: [DEVICE_RECORD_KEY, DEVICE_ID, DELIVERY_METHOD, BRAND, PSN, PARTNER_ID, 
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__e13ddd9b_16b5_47e1_8cef_a4517725efaf {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
-dimension: PLAN_ID {
- sql: ${TABLE}.PLAN_ID;;
+view: DIM_AGENT__94785774_db59_4ccc_b291_29341a2c2b04 {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_AGENT ;;
+dimension: AGENT_RECORD_KEY {
+ sql: ${TABLE}.AGENT_RECORD_KEY;;
 }
-dimension: PLAN_NAME {
- sql: ${TABLE}.PLAN_NAME;;
+dimension: AGENT_ID {
+ sql: ${TABLE}.AGENT_ID;;
 }
-dimension: MER {
- sql: ${TABLE}.MER;;
+dimension: CSR_ID {
+ sql: ${TABLE}.CSR_ID;;
 }
-dimension: DISC {
- sql: ${TABLE}.DISC;;
+dimension: AGENT_SUPERVISOR_RECORD_KEY {
+ sql: ${TABLE}.AGENT_SUPERVISOR_RECORD_KEY;;
 }
-dimension: PACKAGE {
- sql: ${TABLE}.PACKAGE;;
+dimension: AGENT_SUPERVISOR_CSR_ID {
+ sql: ${TABLE}.AGENT_SUPERVISOR_CSR_ID;;
 }
-dimension: LEN {
- sql: ${TABLE}.LEN;;
+dimension: AGENT_STATUS {
+ sql: ${TABLE}.AGENT_STATUS;;
 }
-dimension: ROLLUP1 {
- sql: ${TABLE}.ROLLUP1;;
+dimension: AGENT_ROLE_START_DATE {
+ sql: ${TABLE}.AGENT_ROLE_START_DATE;;
 }
-dimension: ASP {
- sql: ${TABLE}.ASP;;
+dimension: AGENT_ROLE_END_DATE {
+ sql: ${TABLE}.AGENT_ROLE_END_DATE;;
 }
-dimension: STARTDATE {
- sql: ${TABLE}.STARTDATE;;
+dimension: AGENT_ROLE_SMS {
+ sql: ${TABLE}.AGENT_ROLE_SMS;;
 }
-dimension: ENDDATE {
- sql: ${TABLE}.ENDDATE;;
+dimension: AGENT_ROLE_MARKETING {
+ sql: ${TABLE}.AGENT_ROLE_MARKETING;;
 }
-measure: MER_count {
+dimension: AGENT_LOCATION {
+ sql: ${TABLE}.AGENT_LOCATION;;
+}
+dimension: AGENT_VENDOR {
+ sql: ${TABLE}.AGENT_VENDOR;;
+}
+dimension: AGENT_SITE {
+ sql: ${TABLE}.AGENT_SITE;;
+}
+dimension: AGENT_LOB {
+ sql: ${TABLE}.AGENT_LOB;;
+}
+dimension: ACTIVATION_SOURCE {
+ sql: ${TABLE}.ACTIVATION_SOURCE;;
+}
+dimension: CURRENT_RECORD_FLAG {
+ sql: ${TABLE}.CURRENT_RECORD_FLAG;;
+}
+dimension: DELETED_RECORD_FLAG {
+ sql: ${TABLE}.DELETED_RECORD_FLAG;;
+}
+measure: AGENT_SUPERVISOR_RECORD_KEY_count {
 type:count
  drill_fields: [detail*]
 }
-measure: MER_sum {
+measure: AGENT_SUPERVISOR_RECORD_KEY_sum {
 type:sum
-sql: ${MER} ;;
+sql: ${AGENT_SUPERVISOR_RECORD_KEY} ;;
  drill_fields: [detail*]
 }
 set: detail {
-fields: [PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP]
+fields: [AGENT_ID, CSR_ID, AGENT_SUPERVISOR_RECORD_KEY, AGENT_SUPERVISOR_CSR_ID, AGENT_STATUS, AGENT_ROLE_SMS, AGENT_ROLE_MARKETING, AGENT_LOCATION, AGENT_VENDOR, AGENT_SITE, AGENT_LOB, ACTIVATION_SOURCE, CURRENT_RECORD_FLAG, DELETED_RECORD_FLAG]
 }
 }
