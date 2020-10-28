@@ -2,23 +2,23 @@
 connection:"pmdevpresto"
 
 
-explore: dim_agent_bak__628a6c74_2184_4548_a00e_ca583b42147f {
+explore: dim_agent_bak__1995882d_f7cb_4d3c_a07f_536c537104ef {
 
-join: dim_agent__af5208f3_e835_4800_b052_a9c34fe0c5f4 {
+join: dim_agent__5d2f9798_1dab_4385_b335_d819b7139776 {
  type: inner
  relationship: many_to_one
- sql_on: ${dim_agent_bak__628a6c74_2184_4548_a00e_ca583b42147f.csr_id} >= ${dim_agent__af5208f3_e835_4800_b052_a9c34fe0c5f4.col1} 
- and ${dim_agent__af5208f3_e835_4800_b052_a9c34fe0c5f4.col12} > ${dim_agent_bak__628a6c74_2184_4548_a00e_ca583b42147f.agent_supervisor_csr_id} ;;
+ sql_on: ${dim_agent_bak__1995882d_f7cb_4d3c_a07f_536c537104ef.csr_id} >= ${dim_agent__5d2f9798_1dab_4385_b335_d819b7139776.col1} 
+ and ${dim_agent__5d2f9798_1dab_4385_b335_d819b7139776.col12} > ${dim_agent_bak__1995882d_f7cb_4d3c_a07f_536c537104ef.agent_supervisor_csr_id} ;;
 }
-join: DIM_AGENT__49ba4794_49cc_4534_9a13_7f2685a620cb {
+join: DIM_AGENT__6f702757_0984_4e85_bcc9_0952abcf930b {
  type: inner
  relationship: many_to_one
- sql_on: ${DIM_AGENT__49ba4794_49cc_4534_9a13_7f2685a620cb.AGENT_SUPERVISOR_CSR_ID} = ${dim_agent_bak__628a6c74_2184_4548_a00e_ca583b42147f.agent_first_name} ;;
+ sql_on: ${DIM_AGENT__6f702757_0984_4e85_bcc9_0952abcf930b.AGENT_SUPERVISOR_CSR_ID} = ${dim_agent_bak__1995882d_f7cb_4d3c_a07f_536c537104ef.agent_first_name} ;;
 }
 }
 
 
-view: dim_agent__af5208f3_e835_4800_b052_a9c34fe0c5f4 {
+view: dim_agent__5d2f9798_1dab_4385_b335_d819b7139776 {
 sql_table_name:hive.s3media.dim_agent ;;
 dimension: col0 {
  sql: ${TABLE}.col0;;
@@ -77,75 +77,7 @@ dimension: col17 {
 }
 
 
-view: dim_agent_bak__628a6c74_2184_4548_a00e_ca583b42147f {
-sql_table_name:hive.s3media.dim_agent_bak ;;
-dimension: agent_record_key {
- sql: ${TABLE}.agent_record_key;;
-}
-dimension: agent_id {
- sql: ${TABLE}.agent_id;;
-}
-dimension: csr_id {
- sql: ${TABLE}.csr_id;;
-}
-dimension: agent_supervisor_record_key {
- sql: ${TABLE}.agent_supervisor_record_key;;
-}
-dimension: agent_supervisor_csr_id {
- sql: ${TABLE}.agent_supervisor_csr_id;;
-}
-dimension: agent_first_name {
- sql: ${TABLE}.agent_first_name;;
-}
-dimension: agent_last_name {
- sql: ${TABLE}.agent_last_name;;
-}
-dimension: agent_email_address {
- sql: ${TABLE}.agent_email_address;;
-}
-dimension: agent_status {
- sql: ${TABLE}.agent_status;;
-}
-dimension: agent_role_start_date {
- sql: ${TABLE}.agent_role_start_date;;
-}
-dimension: agent_role_end_date {
- sql: ${TABLE}.agent_role_end_date;;
-}
-dimension: agent_role_sms {
- sql: ${TABLE}.agent_role_sms;;
-}
-dimension: agent_role_marketing {
- sql: ${TABLE}.agent_role_marketing;;
-}
-dimension: agent_location {
- sql: ${TABLE}.agent_location;;
-}
-dimension: agent_vendor {
- sql: ${TABLE}.agent_vendor;;
-}
-dimension: agent_site {
- sql: ${TABLE}.agent_site;;
-}
-dimension: agent_lob {
- sql: ${TABLE}.agent_lob;;
-}
-dimension: activation_source {
- sql: ${TABLE}.activation_source;;
-}
-dimension: current_record_flag {
- sql: ${TABLE}.current_record_flag;;
-}
-dimension: deleted_record_flag {
- sql: ${TABLE}.deleted_record_flag;;
-}
-dimension: col20 {
- sql: ${TABLE}.col20;;
-}
-}
-
-
-view: DIM_AGENT__49ba4794_49cc_4534_9a13_7f2685a620cb {
+view: DIM_AGENT__6f702757_0984_4e85_bcc9_0952abcf930b {
 sql_table_name:pm61_snowflake.SCHEMA_INFO.DIM_AGENT ;;
 dimension: AGENT_RECORD_KEY {
  sql: ${TABLE}.AGENT_RECORD_KEY;;
@@ -230,5 +162,73 @@ sql: ${AGENT_SUPERVISOR_RECORD_KEY} ;;
 }
 set: detail {
 fields: [AGENT_RECORD_KEY, AGENT_ID, CSR_ID, AGENT_SUPERVISOR_RECORD_KEY, AGENT_SUPERVISOR_CSR_ID, AGENT_STATUS, AGENT_ROLE_START_DATE, AGENT_ROLE_END_DATE, AGENT_ROLE_SMS, AGENT_ROLE_MARKETING, AGENT_LOCATION, AGENT_VENDOR, AGENT_SITE, AGENT_LOB, ACTIVATION_SOURCE, CURRENT_RECORD_FLAG, DELETED_RECORD_FLAG, COLUMN17]
+}
+}
+
+
+view: dim_agent_bak__1995882d_f7cb_4d3c_a07f_536c537104ef {
+sql_table_name:hive.s3media.dim_agent_bak ;;
+dimension: agent_record_key {
+ sql: ${TABLE}.agent_record_key;;
+}
+dimension: agent_id {
+ sql: ${TABLE}.agent_id;;
+}
+dimension: csr_id {
+ sql: ${TABLE}.csr_id;;
+}
+dimension: agent_supervisor_record_key {
+ sql: ${TABLE}.agent_supervisor_record_key;;
+}
+dimension: agent_supervisor_csr_id {
+ sql: ${TABLE}.agent_supervisor_csr_id;;
+}
+dimension: agent_first_name {
+ sql: ${TABLE}.agent_first_name;;
+}
+dimension: agent_last_name {
+ sql: ${TABLE}.agent_last_name;;
+}
+dimension: agent_email_address {
+ sql: ${TABLE}.agent_email_address;;
+}
+dimension: agent_status {
+ sql: ${TABLE}.agent_status;;
+}
+dimension: agent_role_start_date {
+ sql: ${TABLE}.agent_role_start_date;;
+}
+dimension: agent_role_end_date {
+ sql: ${TABLE}.agent_role_end_date;;
+}
+dimension: agent_role_sms {
+ sql: ${TABLE}.agent_role_sms;;
+}
+dimension: agent_role_marketing {
+ sql: ${TABLE}.agent_role_marketing;;
+}
+dimension: agent_location {
+ sql: ${TABLE}.agent_location;;
+}
+dimension: agent_vendor {
+ sql: ${TABLE}.agent_vendor;;
+}
+dimension: agent_site {
+ sql: ${TABLE}.agent_site;;
+}
+dimension: agent_lob {
+ sql: ${TABLE}.agent_lob;;
+}
+dimension: activation_source {
+ sql: ${TABLE}.activation_source;;
+}
+dimension: current_record_flag {
+ sql: ${TABLE}.current_record_flag;;
+}
+dimension: deleted_record_flag {
+ sql: ${TABLE}.deleted_record_flag;;
+}
+dimension: col20 {
+ sql: ${TABLE}.col20;;
 }
 }
