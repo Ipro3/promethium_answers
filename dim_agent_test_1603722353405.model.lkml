@@ -2,23 +2,150 @@
 connection:"pmdevpresto"
 
 
-explore: dim_agent_bak__d78f3e99_d32c_4d31_90d2_66eb33a27efd {
+explore: dim_agent_bak__f741a103_6363_441d_9bac_36b36bfa20d3 {
 
-join: dim_agent__af0164bb_64aa_488a_8b90_823ab6392e7a {
+join: dim_agent__f601a86b_bde9_43bc_b4d5_91299c7902fd {
  type: inner
  relationship: many_to_one
- sql_on: ${dim_agent_bak__d78f3e99_d32c_4d31_90d2_66eb33a27efd.csr_id} >= ${dim_agent__af0164bb_64aa_488a_8b90_823ab6392e7a.col1} 
- and ${dim_agent__af0164bb_64aa_488a_8b90_823ab6392e7a.col12} < ${dim_agent_bak__d78f3e99_d32c_4d31_90d2_66eb33a27efd.agent_supervisor_csr_id} ;;
+ sql_on: ${dim_agent_bak__f741a103_6363_441d_9bac_36b36bfa20d3.csr_id} >= ${dim_agent__f601a86b_bde9_43bc_b4d5_91299c7902fd.col1} 
+ and ${dim_agent__f601a86b_bde9_43bc_b4d5_91299c7902fd.col12} > ${dim_agent_bak__f741a103_6363_441d_9bac_36b36bfa20d3.agent_supervisor_csr_id} ;;
 }
-join: DIM_AGENT__b9b5c64e_c916_4dde_b062_5734546f4752 {
+join: DIM_AGENT__4b752b81_93ee_4c7a_a00f_06e78ad97cb7 {
  type: inner
  relationship: many_to_one
- sql_on: ${DIM_AGENT__b9b5c64e_c916_4dde_b062_5734546f4752.AGENT_SUPERVISOR_CSR_ID} = ${dim_agent_bak__d78f3e99_d32c_4d31_90d2_66eb33a27efd.agent_first_name} ;;
+ sql_on: ${DIM_AGENT__4b752b81_93ee_4c7a_a00f_06e78ad97cb7.AGENT_SUPERVISOR_CSR_ID} = ${dim_agent_bak__f741a103_6363_441d_9bac_36b36bfa20d3.agent_first_name} ;;
 }
 }
 
 
-view: DIM_AGENT__b9b5c64e_c916_4dde_b062_5734546f4752 {
+view: dim_agent_bak__f741a103_6363_441d_9bac_36b36bfa20d3 {
+sql_table_name:hive.s3media.dim_agent_bak ;;
+dimension: agent_record_key {
+ sql: ${TABLE}.agent_record_key;;
+}
+dimension: agent_id {
+ sql: ${TABLE}.agent_id;;
+}
+dimension: csr_id {
+ sql: ${TABLE}.csr_id;;
+}
+dimension: agent_supervisor_record_key {
+ sql: ${TABLE}.agent_supervisor_record_key;;
+}
+dimension: agent_supervisor_csr_id {
+ sql: ${TABLE}.agent_supervisor_csr_id;;
+}
+dimension: agent_first_name {
+ sql: ${TABLE}.agent_first_name;;
+}
+dimension: agent_last_name {
+ sql: ${TABLE}.agent_last_name;;
+}
+dimension: agent_email_address {
+ sql: ${TABLE}.agent_email_address;;
+}
+dimension: agent_status {
+ sql: ${TABLE}.agent_status;;
+}
+dimension: agent_role_start_date {
+ sql: ${TABLE}.agent_role_start_date;;
+}
+dimension: agent_role_end_date {
+ sql: ${TABLE}.agent_role_end_date;;
+}
+dimension: agent_role_sms {
+ sql: ${TABLE}.agent_role_sms;;
+}
+dimension: agent_role_marketing {
+ sql: ${TABLE}.agent_role_marketing;;
+}
+dimension: agent_location {
+ sql: ${TABLE}.agent_location;;
+}
+dimension: agent_vendor {
+ sql: ${TABLE}.agent_vendor;;
+}
+dimension: agent_site {
+ sql: ${TABLE}.agent_site;;
+}
+dimension: agent_lob {
+ sql: ${TABLE}.agent_lob;;
+}
+dimension: activation_source {
+ sql: ${TABLE}.activation_source;;
+}
+dimension: current_record_flag {
+ sql: ${TABLE}.current_record_flag;;
+}
+dimension: deleted_record_flag {
+ sql: ${TABLE}.deleted_record_flag;;
+}
+dimension: col20 {
+ sql: ${TABLE}.col20;;
+}
+}
+
+
+view: dim_agent__f601a86b_bde9_43bc_b4d5_91299c7902fd {
+sql_table_name:hive.s3media.dim_agent ;;
+dimension: col0 {
+ sql: ${TABLE}.col0;;
+}
+dimension: col1 {
+ sql: ${TABLE}.col1;;
+}
+dimension: col2 {
+ sql: ${TABLE}.col2;;
+}
+dimension: col3 {
+ sql: ${TABLE}.col3;;
+}
+dimension: col4 {
+ sql: ${TABLE}.col4;;
+}
+dimension: col5 {
+ sql: ${TABLE}.col5;;
+}
+dimension: col6 {
+ sql: ${TABLE}.col6;;
+}
+dimension: col7 {
+ sql: ${TABLE}.col7;;
+}
+dimension: col8 {
+ sql: ${TABLE}.col8;;
+}
+dimension: col9 {
+ sql: ${TABLE}.col9;;
+}
+dimension: col10 {
+ sql: ${TABLE}.col10;;
+}
+dimension: col11 {
+ sql: ${TABLE}.col11;;
+}
+dimension: col12 {
+ sql: ${TABLE}.col12;;
+}
+dimension: col13 {
+ sql: ${TABLE}.col13;;
+}
+dimension: col14 {
+ sql: ${TABLE}.col14;;
+}
+dimension: col15 {
+ sql: ${TABLE}.col15;;
+}
+dimension: col16 {
+ sql: ${TABLE}.col16;;
+}
+dimension: col17 {
+ sql: ${TABLE}.col17;;
+}
+}
+
+
+view: DIM_AGENT__4b752b81_93ee_4c7a_a00f_06e78ad97cb7 {
 sql_table_name:pm61_snowflake.SCHEMA_INFO.DIM_AGENT ;;
 dimension: AGENT_RECORD_KEY {
  sql: ${TABLE}.AGENT_RECORD_KEY;;
@@ -103,132 +230,5 @@ sql: ${AGENT_SUPERVISOR_RECORD_KEY} ;;
 }
 set: detail {
 fields: [AGENT_RECORD_KEY, AGENT_ID, CSR_ID, AGENT_SUPERVISOR_RECORD_KEY, AGENT_SUPERVISOR_CSR_ID, AGENT_STATUS, AGENT_ROLE_START_DATE, AGENT_ROLE_END_DATE, AGENT_ROLE_SMS, AGENT_ROLE_MARKETING, AGENT_LOCATION, AGENT_VENDOR, AGENT_SITE, AGENT_LOB, ACTIVATION_SOURCE, CURRENT_RECORD_FLAG, DELETED_RECORD_FLAG, COLUMN17]
-}
-}
-
-
-view: dim_agent_bak__d78f3e99_d32c_4d31_90d2_66eb33a27efd {
-sql_table_name:hive.s3media.dim_agent_bak ;;
-dimension: agent_record_key {
- sql: ${TABLE}.agent_record_key;;
-}
-dimension: agent_id {
- sql: ${TABLE}.agent_id;;
-}
-dimension: csr_id {
- sql: ${TABLE}.csr_id;;
-}
-dimension: agent_supervisor_record_key {
- sql: ${TABLE}.agent_supervisor_record_key;;
-}
-dimension: agent_supervisor_csr_id {
- sql: ${TABLE}.agent_supervisor_csr_id;;
-}
-dimension: agent_first_name {
- sql: ${TABLE}.agent_first_name;;
-}
-dimension: agent_last_name {
- sql: ${TABLE}.agent_last_name;;
-}
-dimension: agent_email_address {
- sql: ${TABLE}.agent_email_address;;
-}
-dimension: agent_status {
- sql: ${TABLE}.agent_status;;
-}
-dimension: agent_role_start_date {
- sql: ${TABLE}.agent_role_start_date;;
-}
-dimension: agent_role_end_date {
- sql: ${TABLE}.agent_role_end_date;;
-}
-dimension: agent_role_sms {
- sql: ${TABLE}.agent_role_sms;;
-}
-dimension: agent_role_marketing {
- sql: ${TABLE}.agent_role_marketing;;
-}
-dimension: agent_location {
- sql: ${TABLE}.agent_location;;
-}
-dimension: agent_vendor {
- sql: ${TABLE}.agent_vendor;;
-}
-dimension: agent_site {
- sql: ${TABLE}.agent_site;;
-}
-dimension: agent_lob {
- sql: ${TABLE}.agent_lob;;
-}
-dimension: activation_source {
- sql: ${TABLE}.activation_source;;
-}
-dimension: current_record_flag {
- sql: ${TABLE}.current_record_flag;;
-}
-dimension: deleted_record_flag {
- sql: ${TABLE}.deleted_record_flag;;
-}
-dimension: col20 {
- sql: ${TABLE}.col20;;
-}
-}
-
-
-view: dim_agent__af0164bb_64aa_488a_8b90_823ab6392e7a {
-sql_table_name:hive.s3media.dim_agent ;;
-dimension: col0 {
- sql: ${TABLE}.col0;;
-}
-dimension: col1 {
- sql: ${TABLE}.col1;;
-}
-dimension: col2 {
- sql: ${TABLE}.col2;;
-}
-dimension: col3 {
- sql: ${TABLE}.col3;;
-}
-dimension: col4 {
- sql: ${TABLE}.col4;;
-}
-dimension: col5 {
- sql: ${TABLE}.col5;;
-}
-dimension: col6 {
- sql: ${TABLE}.col6;;
-}
-dimension: col7 {
- sql: ${TABLE}.col7;;
-}
-dimension: col8 {
- sql: ${TABLE}.col8;;
-}
-dimension: col9 {
- sql: ${TABLE}.col9;;
-}
-dimension: col10 {
- sql: ${TABLE}.col10;;
-}
-dimension: col11 {
- sql: ${TABLE}.col11;;
-}
-dimension: col12 {
- sql: ${TABLE}.col12;;
-}
-dimension: col13 {
- sql: ${TABLE}.col13;;
-}
-dimension: col14 {
- sql: ${TABLE}.col14;;
-}
-dimension: col15 {
- sql: ${TABLE}.col15;;
-}
-dimension: col16 {
- sql: ${TABLE}.col16;;
-}
-dimension: col17 {
- sql: ${TABLE}.col17;;
 }
 }
