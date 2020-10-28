@@ -1,64 +1,26 @@
 
-connection:"promethium"
+connection:"pmdevpresto"
 
 
-explore: MASTER_PLAN_TABLE_WDATES__feb8345c_eaa0_4650_898c_9c115a2f7746 {
+explore: MASTER_PLAN_TABLE_WDATES__80ff7c2f_d7ee_4aaf_b72d_4aee301c7cff {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__fdcdd288_9c2f_4568_a256_7bac1614bec8 {
- relationship: one_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__feb8345c_eaa0_4650_898c_9c115a2f7746.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__fdcdd288_9c2f_4568_a256_7bac1614bec8.PLAN_ID} ;;
-}
-}
-
-
-view: MASTER_PLAN_TABLE_WDATES__feb8345c_eaa0_4650_898c_9c115a2f7746 {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
-dimension: PLAN_ID {
- sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
- sql: ${TABLE}.PLAN_NAME;;
-}
-measure: MER {
-type:count_distinct
- sql: ${TABLE}.MER;;
-}
-dimension: DISC {
- sql: ${TABLE}.DISC;;
-}
-dimension: PACKAGE {
- sql: ${TABLE}.PACKAGE;;
-}
-dimension: LEN {
- sql: ${TABLE}.LEN;;
-}
-dimension: ROLLUP1 {
- sql: ${TABLE}.ROLLUP1;;
-}
-dimension: ASP {
- sql: ${TABLE}.ASP;;
-}
-dimension: STARTDATE {
- sql: ${TABLE}.STARTDATE;;
-}
-dimension: ENDDATE {
- sql: ${TABLE}.ENDDATE;;
+join: FACT_SUBSCRIPTION_ACTIVITY__ffce40f7_5084_4237_bcc9_f01d5a4713e8 {
+ type: inner
+ relationship: many_to_one
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__80ff7c2f_d7ee_4aaf_b72d_4aee301c7cff.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__ffce40f7_5084_4237_bcc9_f01d5a4713e8.PLAN_ID} ;;
 }
 }
 
 
-view: FACT_SUBSCRIPTION_ACTIVITY__fdcdd288_9c2f_4568_a256_7bac1614bec8 {
+view: FACT_SUBSCRIPTION_ACTIVITY__ffce40f7_5084_4237_bcc9_f01d5a4713e8 {
 sql_table_name:pm61_snowflake.SCHEMA_INFO.FACT_SUBSCRIPTION_ACTIVITY ;;
-measure: SBSCRN_ACTVTY_KEY {
-type:count_distinct
+dimension: SBSCRN_ACTVTY_KEY {
  sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
 }
-measure: SBSCRN_ID {
-type:count_distinct
+dimension: SBSCRN_ID {
  sql: ${TABLE}.SBSCRN_ID;;
 }
-measure: ACTVTY_TYPE_ID {
-type:count_distinct
+dimension: ACTVTY_TYPE_ID {
  sql: ${TABLE}.ACTVTY_TYPE_ID;;
 }
 dimension: USED_ACTVTY_TYPE_ID {
@@ -70,69 +32,55 @@ dimension: ACTVTY_DT {
 dimension: ACTVTY_TS {
  sql: ${TABLE}.ACTVTY_TS;;
 }
-measure: HHLD_ID {
-type:count_distinct
+dimension: HHLD_ID {
  sql: ${TABLE}.HHLD_ID;;
 }
-measure: PRTY_KEY {
-type:count_distinct
+dimension: PRTY_KEY {
  sql: ${TABLE}.PRTY_KEY;;
 }
-measure: PRTY_ID {
-type:count_distinct
+dimension: PRTY_ID {
  sql: ${TABLE}.PRTY_ID;;
 }
-measure: PARNT_ACCT_KEY {
-type:count_distinct
+dimension: PARNT_ACCT_KEY {
  sql: ${TABLE}.PARNT_ACCT_KEY;;
 }
-measure: PARNT_ACCT_ID {
-type:count_distinct
+dimension: PARNT_ACCT_ID {
  sql: ${TABLE}.PARNT_ACCT_ID;;
 }
 dimension: PARNT_ACCT_NUM {
  sql: ${TABLE}.PARNT_ACCT_NUM;;
 }
-measure: CHILD_ACCT_KEY {
-type:count_distinct
+dimension: CHILD_ACCT_KEY {
  sql: ${TABLE}.CHILD_ACCT_KEY;;
 }
-measure: CHILD_ACCT_ID {
-type:count_distinct
+dimension: CHILD_ACCT_ID {
  sql: ${TABLE}.CHILD_ACCT_ID;;
 }
 dimension: CHILD_ACCT_NUM {
  sql: ${TABLE}.CHILD_ACCT_NUM;;
 }
-measure: VEH_KEY {
-type:count_distinct
+dimension: VEH_KEY {
  sql: ${TABLE}.VEH_KEY;;
 }
-measure: DVC_KEY {
-type:count_distinct
+dimension: DVC_KEY {
  sql: ${TABLE}.DVC_KEY;;
 }
-measure: DVC_ID {
-type:count_distinct
+dimension: DVC_ID {
  sql: ${TABLE}.DVC_ID;;
 }
-measure: EQMNT_KEY {
-type:count_distinct
+dimension: EQMNT_KEY {
  sql: ${TABLE}.EQMNT_KEY;;
 }
-measure: EQMNT_ID {
-type:count_distinct
+dimension: EQMNT_ID {
  sql: ${TABLE}.EQMNT_ID;;
 }
-measure: PLAN_KEY {
-type:count_distinct
+dimension: PLAN_KEY {
  sql: ${TABLE}.PLAN_KEY;;
 }
 dimension: PLAN_ID {
  sql: ${TABLE}.PLAN_ID;;
 }
-measure: OFR_ID {
-type:count_distinct
+dimension: OFR_ID {
  sql: ${TABLE}.OFR_ID;;
 }
 dimension: FROM_PLAN_KEY {
@@ -144,12 +92,10 @@ dimension: FROM_PLAN_ID {
 dimension: FROM_OFR_ID {
  sql: ${TABLE}.FROM_OFR_ID;;
 }
-measure: PROD_KEY {
-type:count_distinct
+dimension: PROD_KEY {
  sql: ${TABLE}.PROD_KEY;;
 }
-measure: PROD_ID {
-type:count_distinct
+dimension: PROD_ID {
  sql: ${TABLE}.PROD_ID;;
 }
 dimension: FROM_PROD_KEY {
@@ -164,19 +110,16 @@ dimension: PKG_ID {
 dimension: FROM_PKG_ID {
  sql: ${TABLE}.FROM_PKG_ID;;
 }
-measure: FEAT_ID {
-type:count_distinct
+dimension: FEAT_ID {
  sql: ${TABLE}.FEAT_ID;;
 }
-measure: AGN_KEY {
-type:count_distinct
+dimension: AGN_KEY {
  sql: ${TABLE}.AGN_KEY;;
 }
 dimension: CSR_ID {
  sql: ${TABLE}.CSR_ID;;
 }
-measure: PTNR_ID {
-type:count_distinct
+dimension: PTNR_ID {
  sql: ${TABLE}.PTNR_ID;;
 }
 dimension: LNKD_INET_FL {
@@ -185,31 +128,25 @@ dimension: LNKD_INET_FL {
 dimension: MRD_TYPE_CD {
  sql: ${TABLE}.MRD_TYPE_CD;;
 }
-measure: SBSCR_LIFCYC_KEY {
-type:count_distinct
+dimension: SBSCR_LIFCYC_KEY {
  sql: ${TABLE}.SBSCR_LIFCYC_KEY;;
 }
-measure: CONV_REP_OWN_SEGMT_KEY {
-type:count_distinct
+dimension: CONV_REP_OWN_SEGMT_KEY {
  sql: ${TABLE}.CONV_REP_OWN_SEGMT_KEY;;
 }
-measure: OWNR_TYPE2_KEY {
-type:count_distinct
+dimension: OWNR_TYPE2_KEY {
  sql: ${TABLE}.OWNR_TYPE2_KEY;;
 }
 dimension: DEACTIVATION_REASON_CODE {
  sql: ${TABLE}.DEACTIVATION_REASON_CODE;;
 }
-measure: TRIAL_ID {
-type:count_distinct
+dimension: TRIAL_ID {
  sql: ${TABLE}.TRIAL_ID;;
 }
-measure: SRVC_ID {
-type:count_distinct
+dimension: SRVC_ID {
  sql: ${TABLE}.SRVC_ID;;
 }
-measure: RENW_ID {
-type:count_distinct
+dimension: RENW_ID {
  sql: ${TABLE}.RENW_ID;;
 }
 dimension: FROM_RENW_ID {
@@ -242,8 +179,7 @@ dimension: FUTURE_DEACTVN_DT {
 dimension: SCHD_SEASONAL_SUSP_REACTVN_DT {
  sql: ${TABLE}.SCHD_SEASONAL_SUSP_REACTVN_DT;;
 }
-measure: CALL_REASON {
-type:count_distinct
+dimension: CALL_REASON {
  sql: ${TABLE}.CALL_REASON;;
 }
 dimension: CALL_DISPOSITION {
@@ -272,5 +208,316 @@ dimension: CONVERSION_ACTIVITY_BY_SAVE_AGENT {
 }
 dimension: SAVE_OPPORTUNITY_ACTIVITY {
  sql: ${TABLE}.SAVE_OPPORTUNITY_ACTIVITY;;
+}
+measure: SBSCRN_ACTVTY_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: SBSCRN_ACTVTY_KEY_sum {
+type:sum
+sql: ${SBSCRN_ACTVTY_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: SBSCRN_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: SBSCRN_ID_sum {
+type:sum
+sql: ${SBSCRN_ID} ;;
+ drill_fields: [detail*]
+}
+measure: ACTVTY_TYPE_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: ACTVTY_TYPE_ID_sum {
+type:sum
+sql: ${ACTVTY_TYPE_ID} ;;
+ drill_fields: [detail*]
+}
+measure: HHLD_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: HHLD_ID_sum {
+type:sum
+sql: ${HHLD_ID} ;;
+ drill_fields: [detail*]
+}
+measure: PRTY_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: PRTY_KEY_sum {
+type:sum
+sql: ${PRTY_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: PRTY_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: PRTY_ID_sum {
+type:sum
+sql: ${PRTY_ID} ;;
+ drill_fields: [detail*]
+}
+measure: PARNT_ACCT_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: PARNT_ACCT_KEY_sum {
+type:sum
+sql: ${PARNT_ACCT_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: PARNT_ACCT_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: PARNT_ACCT_ID_sum {
+type:sum
+sql: ${PARNT_ACCT_ID} ;;
+ drill_fields: [detail*]
+}
+measure: CHILD_ACCT_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: CHILD_ACCT_KEY_sum {
+type:sum
+sql: ${CHILD_ACCT_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: CHILD_ACCT_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: CHILD_ACCT_ID_sum {
+type:sum
+sql: ${CHILD_ACCT_ID} ;;
+ drill_fields: [detail*]
+}
+measure: VEH_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: VEH_KEY_sum {
+type:sum
+sql: ${VEH_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: DVC_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: DVC_KEY_sum {
+type:sum
+sql: ${DVC_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: DVC_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: DVC_ID_sum {
+type:sum
+sql: ${DVC_ID} ;;
+ drill_fields: [detail*]
+}
+measure: EQMNT_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: EQMNT_KEY_sum {
+type:sum
+sql: ${EQMNT_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: EQMNT_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: EQMNT_ID_sum {
+type:sum
+sql: ${EQMNT_ID} ;;
+ drill_fields: [detail*]
+}
+measure: PLAN_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: PLAN_KEY_sum {
+type:sum
+sql: ${PLAN_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: OFR_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: OFR_ID_sum {
+type:sum
+sql: ${OFR_ID} ;;
+ drill_fields: [detail*]
+}
+measure: PROD_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: PROD_KEY_sum {
+type:sum
+sql: ${PROD_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: PROD_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: PROD_ID_sum {
+type:sum
+sql: ${PROD_ID} ;;
+ drill_fields: [detail*]
+}
+measure: FEAT_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: FEAT_ID_sum {
+type:sum
+sql: ${FEAT_ID} ;;
+ drill_fields: [detail*]
+}
+measure: AGN_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: AGN_KEY_sum {
+type:sum
+sql: ${AGN_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: PTNR_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: PTNR_ID_sum {
+type:sum
+sql: ${PTNR_ID} ;;
+ drill_fields: [detail*]
+}
+measure: SBSCR_LIFCYC_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: SBSCR_LIFCYC_KEY_sum {
+type:sum
+sql: ${SBSCR_LIFCYC_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: CONV_REP_OWN_SEGMT_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: CONV_REP_OWN_SEGMT_KEY_sum {
+type:sum
+sql: ${CONV_REP_OWN_SEGMT_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: OWNR_TYPE2_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: OWNR_TYPE2_KEY_sum {
+type:sum
+sql: ${OWNR_TYPE2_KEY} ;;
+ drill_fields: [detail*]
+}
+measure: TRIAL_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: TRIAL_ID_sum {
+type:sum
+sql: ${TRIAL_ID} ;;
+ drill_fields: [detail*]
+}
+measure: SRVC_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: SRVC_ID_sum {
+type:sum
+sql: ${SRVC_ID} ;;
+ drill_fields: [detail*]
+}
+measure: RENW_ID_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: RENW_ID_sum {
+type:sum
+sql: ${RENW_ID} ;;
+ drill_fields: [detail*]
+}
+measure: CALL_REASON_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: CALL_REASON_sum {
+type:sum
+sql: ${CALL_REASON} ;;
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [SBSCRN_ACTVTY_KEY, SBSCRN_ID, ACTVTY_TYPE_ID, USED_ACTVTY_TYPE_ID, ACTVTY_DT, ACTVTY_TS, HHLD_ID, PRTY_KEY, PRTY_ID, PARNT_ACCT_KEY, PARNT_ACCT_ID, PARNT_ACCT_NUM, CHILD_ACCT_KEY, CHILD_ACCT_ID, CHILD_ACCT_NUM, VEH_KEY, DVC_KEY, DVC_ID, EQMNT_KEY, EQMNT_ID, PLAN_KEY, OFR_ID, FROM_PLAN_KEY, FROM_PLAN_ID, FROM_OFR_ID, PROD_KEY, PROD_ID, FROM_PROD_KEY, FROM_PROD_ID, PKG_ID, FROM_PKG_ID, FEAT_ID, AGN_KEY, CSR_ID, PTNR_ID, LNKD_INET_FL, MRD_TYPE_CD, SBSCR_LIFCYC_KEY, CONV_REP_OWN_SEGMT_KEY, OWNR_TYPE2_KEY, DEACTIVATION_REASON_CODE, TRIAL_ID, SRVC_ID, RENW_ID, FROM_RENW_ID, COLL_SCNRO_ID, SRVC_LVL_PMT_KEY, NONPAY_SRVC_KEY, BILLING_METHOD, FROM_BILLING_METHOD, SLFPAY_TURNOVER_RSN, SLFPAY_TURNOVER_DT, FUTURE_DEACTVN_DT, SCHD_SEASONAL_SUSP_REACTVN_DT, CALL_REASON, CALL_DISPOSITION, INSE_USER_ID, INSE_TS, UPDT_USER_ID, UPDT_TS]
+}
+}
+
+
+view: MASTER_PLAN_TABLE_WDATES__80ff7c2f_d7ee_4aaf_b72d_4aee301c7cff {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
+dimension: PLAN_ID {
+ sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+ sql: ${TABLE}.PLAN_NAME;;
+}
+dimension: MER {
+ sql: ${TABLE}.MER;;
+}
+dimension: DISC {
+ sql: ${TABLE}.DISC;;
+}
+dimension: PACKAGE {
+ sql: ${TABLE}.PACKAGE;;
+}
+dimension: LEN {
+ sql: ${TABLE}.LEN;;
+}
+dimension: ROLLUP1 {
+ sql: ${TABLE}.ROLLUP1;;
+}
+dimension: ASP {
+ sql: ${TABLE}.ASP;;
+}
+dimension: STARTDATE {
+ sql: ${TABLE}.STARTDATE;;
+}
+dimension: ENDDATE {
+ sql: ${TABLE}.ENDDATE;;
+}
+measure: MER_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: MER_sum {
+type:sum
+sql: ${MER} ;;
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP]
 }
 }
