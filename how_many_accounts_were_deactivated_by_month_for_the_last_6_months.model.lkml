@@ -2,22 +2,22 @@
 connection:"pmdevpresto"
 
 
-explore: fact_subscription_activity__0fc37ff6_2c51_4ffc_9143_c1141fecf163 {
+explore: fact_subscription_activity__1faeddd2_a1f5_4abe_90e5_7ecbb2cf5459 {
 
-join: MASTER_PLAN_TABLE_WDATES__d56abb16_58d0_4a38_94ee_7f8d93667424 {
+join: MASTER_PLAN_TABLE_WDATES__b0318a46_7908_4a5b_9bc6_212014290d37 {
  type: right_outer
  relationship: many_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__d56abb16_58d0_4a38_94ee_7f8d93667424.PLAN_ID} = ${fact_subscription_activity__0fc37ff6_2c51_4ffc_9143_c1141fecf163.plan_id} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__b0318a46_7908_4a5b_9bc6_212014290d37.PLAN_ID} = ${fact_subscription_activity__1faeddd2_a1f5_4abe_90e5_7ecbb2cf5459.plan_id} ;;
 }
-join: DIM_PLAN__d50685c6_3b8f_472a_9433_0d0e8f6d9f13 {
+join: DIM_PLAN__9ec593fa_1986_4730_a6d6_5cc17ce25098 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${fact_subscription_activity__0fc37ff6_2c51_4ffc_9143_c1141fecf163.plan_id} = ${DIM_PLAN__d50685c6_3b8f_472a_9433_0d0e8f6d9f13.PLAN_ID} ;;
+ sql_on: ${fact_subscription_activity__1faeddd2_a1f5_4abe_90e5_7ecbb2cf5459.plan_id} = ${DIM_PLAN__9ec593fa_1986_4730_a6d6_5cc17ce25098.PLAN_ID} ;;
 }
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__d56abb16_58d0_4a38_94ee_7f8d93667424 {
+view: MASTER_PLAN_TABLE_WDATES__b0318a46_7908_4a5b_9bc6_212014290d37 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
 dimension: PLAN_ID {
  sql: ${TABLE}.PLAN_ID;;
@@ -64,7 +64,7 @@ fields: [PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP]
 }
 
 
-view: DIM_PLAN__d50685c6_3b8f_472a_9433_0d0e8f6d9f13 {
+view: DIM_PLAN__9ec593fa_1986_4730_a6d6_5cc17ce25098 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_PLAN ;;
 dimension: PLAN_RECORD_KEY {
  sql: ${TABLE}.PLAN_RECORD_KEY;;
@@ -111,7 +111,7 @@ fields: [PLAN_RECORD_KEY, PLAN_NAME, USED_FLAG, PLAN_DESCRIPTION, MARKET_TYPE, C
 }
 
 
-view: fact_subscription_activity__0fc37ff6_2c51_4ffc_9143_c1141fecf163 {
+view: fact_subscription_activity__1faeddd2_a1f5_4abe_90e5_7ecbb2cf5459 {
 sql_table_name:hive.s3media.fact_subscription_activity ;;
 dimension: sbscrn_actvty_key {
  sql: ${TABLE}.sbscrn_actvty_key;;
