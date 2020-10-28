@@ -1,157 +1,18 @@
 
-connection:"promethium"
+connection:"pmdevpresto"
 
 
-explore: ACCOUNT__81c08ae5_7e57_475d_9fa8_6d19299de55a {
+explore: ACCOUNT__561cafd0_2886_4049_b0da_572af641866b {
 
-join: OPPORTUNITY__7a3bed35_2994_437e_967f_b507ccfa2115 {
- relationship: one_to_one
- sql_on: ${ACCOUNT__81c08ae5_7e57_475d_9fa8_6d19299de55a.ID} = ${OPPORTUNITY__7a3bed35_2994_437e_967f_b507ccfa2115.ACCOUNTID} ;;
-}
-}
-
-
-view: OPPORTUNITY__7a3bed35_2994_437e_967f_b507ccfa2115 {
-sql_table_name:sforce.SFORCE.OPPORTUNITY ;;
-dimension: ID {
- sql: ${TABLE}.ID;;
-}
-dimension: ISDELETED {
- sql: ${TABLE}.ISDELETED;;
-}
-dimension: ACCOUNTID {
- sql: ${TABLE}.ACCOUNTID;;
-}
-dimension: RECORDTYPEID {
- sql: ${TABLE}.RECORDTYPEID;;
-}
-dimension: ISPRIVATE {
- sql: ${TABLE}.ISPRIVATE;;
-}
-dimension: NAME {
- sql: ${TABLE}.NAME;;
-}
-dimension: DESCRIPTION {
- sql: ${TABLE}.DESCRIPTION;;
-}
-dimension: STAGENAME {
- sql: ${TABLE}.STAGENAME;;
-}
-measure: AMOUNT {
-type:count_distinct
- sql: ${TABLE}.AMOUNT;;
-}
-measure: PROBABILITY {
-type:count_distinct
- sql: ${TABLE}.PROBABILITY;;
-}
-measure: EXPECTEDREVENUE {
-type:count_distinct
- sql: ${TABLE}.EXPECTEDREVENUE;;
-}
-measure: TOTALOPPORTUNITYQUANTITY {
-type:count_distinct
- sql: ${TABLE}.TOTALOPPORTUNITYQUANTITY;;
-}
-dimension: CLOSEDATE {
- sql: ${TABLE}.CLOSEDATE;;
-}
-dimension: TYPE {
- sql: ${TABLE}.TYPE;;
-}
-dimension: NEXTSTEP {
- sql: ${TABLE}.NEXTSTEP;;
-}
-dimension: LEADSOURCE {
- sql: ${TABLE}.LEADSOURCE;;
-}
-dimension: ISCLOSED {
- sql: ${TABLE}.ISCLOSED;;
-}
-dimension: ISWON {
- sql: ${TABLE}.ISWON;;
-}
-dimension: FORECASTCATEGORY {
- sql: ${TABLE}.FORECASTCATEGORY;;
-}
-dimension: FORECASTCATEGORYNAME {
- sql: ${TABLE}.FORECASTCATEGORYNAME;;
-}
-dimension: CAMPAIGNID {
- sql: ${TABLE}.CAMPAIGNID;;
-}
-dimension: HASOPPORTUNITYLINEITEM {
- sql: ${TABLE}.HASOPPORTUNITYLINEITEM;;
-}
-dimension: PRICEBOOK2ID {
- sql: ${TABLE}.PRICEBOOK2ID;;
-}
-dimension: OWNERID {
- sql: ${TABLE}.OWNERID;;
-}
-dimension: CREATEDDATE {
- sql: ${TABLE}.CREATEDDATE;;
-}
-dimension: CREATEDBYID {
- sql: ${TABLE}.CREATEDBYID;;
-}
-dimension: LASTMODIFIEDDATE {
- sql: ${TABLE}.LASTMODIFIEDDATE;;
-}
-dimension: LASTMODIFIEDBYID {
- sql: ${TABLE}.LASTMODIFIEDBYID;;
-}
-dimension: SYSTEMMODSTAMP {
- sql: ${TABLE}.SYSTEMMODSTAMP;;
-}
-dimension: LASTACTIVITYDATE {
- sql: ${TABLE}.LASTACTIVITYDATE;;
-}
-measure: FISCALQUARTER {
-type:count_distinct
- sql: ${TABLE}.FISCALQUARTER;;
-}
-measure: FISCALYEAR {
-type:count_distinct
- sql: ${TABLE}.FISCALYEAR;;
-}
-dimension: FISCAL {
- sql: ${TABLE}.FISCAL;;
-}
-dimension: LASTVIEWEDDATE {
- sql: ${TABLE}.LASTVIEWEDDATE;;
-}
-dimension: LASTREFERENCEDDATE {
- sql: ${TABLE}.LASTREFERENCEDDATE;;
-}
-dimension: HASOPENACTIVITY {
- sql: ${TABLE}.HASOPENACTIVITY;;
-}
-dimension: HASOVERDUETASK {
- sql: ${TABLE}.HASOVERDUETASK;;
-}
-dimension: DELIVERYINSTALLATIONSTATUS__C {
- sql: ${TABLE}.DELIVERYINSTALLATIONSTATUS__C;;
-}
-dimension: TRACKINGNUMBER__C {
- sql: ${TABLE}.TRACKINGNUMBER__C;;
-}
-dimension: ORDERNUMBER__C {
- sql: ${TABLE}.ORDERNUMBER__C;;
-}
-dimension: CURRENTGENERATORS__C {
- sql: ${TABLE}.CURRENTGENERATORS__C;;
-}
-dimension: MAINCOMPETITORS__C {
- sql: ${TABLE}.MAINCOMPETITORS__C;;
-}
-dimension: OPPORTUNITY_SOURCE__C {
- sql: ${TABLE}.OPPORTUNITY_SOURCE__C;;
+join: OPPORTUNITY__88183a3d_ef6d_452d_b6f5_0f28591a26cc {
+ type: left_outer
+ relationship: many_to_one
+ sql_on: ${ACCOUNT__561cafd0_2886_4049_b0da_572af641866b.ID} = ${OPPORTUNITY__88183a3d_ef6d_452d_b6f5_0f28591a26cc.ACCOUNTID} ;;
 }
 }
 
 
-view: ACCOUNT__81c08ae5_7e57_475d_9fa8_6d19299de55a {
+view: ACCOUNT__561cafd0_2886_4049_b0da_572af641866b {
 sql_table_name:sforce.SFORCE.ACCOUNT ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
@@ -186,12 +47,10 @@ dimension: BILLINGPOSTALCODE {
 dimension: BILLINGCOUNTRY {
  sql: ${TABLE}.BILLINGCOUNTRY;;
 }
-measure: BILLINGLATITUDE {
-type:count_distinct
+dimension: BILLINGLATITUDE {
  sql: ${TABLE}.BILLINGLATITUDE;;
 }
-measure: BILLINGLONGITUDE {
-type:count_distinct
+dimension: BILLINGLONGITUDE {
  sql: ${TABLE}.BILLINGLONGITUDE;;
 }
 dimension: BILLINGGEOCODEACCURACY {
@@ -212,12 +71,10 @@ dimension: SHIPPINGPOSTALCODE {
 dimension: SHIPPINGCOUNTRY {
  sql: ${TABLE}.SHIPPINGCOUNTRY;;
 }
-measure: SHIPPINGLATITUDE {
-type:count_distinct
+dimension: SHIPPINGLATITUDE {
  sql: ${TABLE}.SHIPPINGLATITUDE;;
 }
-measure: SHIPPINGLONGITUDE {
-type:count_distinct
+dimension: SHIPPINGLONGITUDE {
  sql: ${TABLE}.SHIPPINGLONGITUDE;;
 }
 dimension: SHIPPINGGEOCODEACCURACY {
@@ -244,12 +101,10 @@ dimension: SIC {
 dimension: INDUSTRY {
  sql: ${TABLE}.INDUSTRY;;
 }
-measure: ANNUALREVENUE {
-type:count_distinct
+dimension: ANNUALREVENUE {
  sql: ${TABLE}.ANNUALREVENUE;;
 }
-measure: NUMBEROFEMPLOYEES {
-type:count_distinct
+dimension: NUMBEROFEMPLOYEES {
  sql: ${TABLE}.NUMBEROFEMPLOYEES;;
 }
 dimension: OWNERSHIP {
@@ -336,8 +191,7 @@ dimension: SLA__C {
 dimension: ACTIVE__C {
  sql: ${TABLE}.ACTIVE__C;;
 }
-measure: NUMBEROFLOCATIONS__C {
-type:count_distinct
+dimension: NUMBEROFLOCATIONS__C {
  sql: ${TABLE}.NUMBEROFLOCATIONS__C;;
 }
 dimension: UPSELLOPPORTUNITY__C {
@@ -351,5 +205,262 @@ dimension: SLAEXPIRATIONDATE__C {
 }
 dimension: SEGMENT__C {
  sql: ${TABLE}.SEGMENT__C;;
+}
+measure: BILLINGLATITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: BILLINGLATITUDE_sum {
+type:sum
+sql: ${BILLINGLATITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: BILLINGLONGITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: BILLINGLONGITUDE_sum {
+type:sum
+sql: ${BILLINGLONGITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLATITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLATITUDE_sum {
+type:sum
+sql: ${SHIPPINGLATITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLONGITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLONGITUDE_sum {
+type:sum
+sql: ${SHIPPINGLONGITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: ANNUALREVENUE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: ANNUALREVENUE_sum {
+type:sum
+sql: ${ANNUALREVENUE} ;;
+ drill_fields: [detail*]
+}
+measure: NUMBEROFEMPLOYEES_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: NUMBEROFEMPLOYEES_sum {
+type:sum
+sql: ${NUMBEROFEMPLOYEES} ;;
+ drill_fields: [detail*]
+}
+measure: NUMBEROFLOCATIONS__C_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: NUMBEROFLOCATIONS__C_sum {
+type:sum
+sql: ${NUMBEROFLOCATIONS__C} ;;
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [ID, MASTERRECORDID, NAME, TYPE, PARENTID, BILLINGSTREET, BILLINGCITY, BILLINGSTATE, BILLINGPOSTALCODE, BILLINGCOUNTRY, BILLINGLATITUDE, BILLINGLONGITUDE, BILLINGGEOCODEACCURACY, SHIPPINGSTREET, SHIPPINGCITY, SHIPPINGSTATE, SHIPPINGPOSTALCODE, SHIPPINGCOUNTRY, SHIPPINGLATITUDE, SHIPPINGLONGITUDE, SHIPPINGGEOCODEACCURACY, PHONE, FAX, ACCOUNTNUMBER, WEBSITE, PHOTOURL, SIC, INDUSTRY, ANNUALREVENUE, NUMBEROFEMPLOYEES, OWNERSHIP, TICKERSYMBOL, DESCRIPTION, RATING, SITE, OWNERID, CREATEDBYID, LASTMODIFIEDBYID, JIGSAW, JIGSAWCOMPANYID, CLEANSTATUS, ACCOUNTSOURCE, DUNSNUMBER, TRADESTYLE, NAICSCODE, NAICSDESC, YEARSTARTED, SICDESC, DANDBCOMPANYID, CUSTOMERPRIORITY__C, SLA__C, ACTIVE__C, NUMBEROFLOCATIONS__C, UPSELLOPPORTUNITY__C, SLASERIALNUMBER__C, SEGMENT__C]
+}
+}
+
+
+view: OPPORTUNITY__88183a3d_ef6d_452d_b6f5_0f28591a26cc {
+sql_table_name:sforce.SFORCE.OPPORTUNITY ;;
+dimension: ID {
+ sql: ${TABLE}.ID;;
+}
+dimension: ISDELETED {
+ sql: ${TABLE}.ISDELETED;;
+}
+dimension: ACCOUNTID {
+ sql: ${TABLE}.ACCOUNTID;;
+}
+dimension: RECORDTYPEID {
+ sql: ${TABLE}.RECORDTYPEID;;
+}
+dimension: ISPRIVATE {
+ sql: ${TABLE}.ISPRIVATE;;
+}
+dimension: NAME {
+ sql: ${TABLE}.NAME;;
+}
+dimension: DESCRIPTION {
+ sql: ${TABLE}.DESCRIPTION;;
+}
+dimension: STAGENAME {
+ sql: ${TABLE}.STAGENAME;;
+}
+dimension: AMOUNT {
+ sql: ${TABLE}.AMOUNT;;
+}
+dimension: PROBABILITY {
+ sql: ${TABLE}.PROBABILITY;;
+}
+dimension: EXPECTEDREVENUE {
+ sql: ${TABLE}.EXPECTEDREVENUE;;
+}
+dimension: TOTALOPPORTUNITYQUANTITY {
+ sql: ${TABLE}.TOTALOPPORTUNITYQUANTITY;;
+}
+dimension: CLOSEDATE {
+ sql: ${TABLE}.CLOSEDATE;;
+}
+dimension: TYPE {
+ sql: ${TABLE}.TYPE;;
+}
+dimension: NEXTSTEP {
+ sql: ${TABLE}.NEXTSTEP;;
+}
+dimension: LEADSOURCE {
+ sql: ${TABLE}.LEADSOURCE;;
+}
+dimension: ISCLOSED {
+ sql: ${TABLE}.ISCLOSED;;
+}
+dimension: ISWON {
+ sql: ${TABLE}.ISWON;;
+}
+dimension: FORECASTCATEGORY {
+ sql: ${TABLE}.FORECASTCATEGORY;;
+}
+dimension: FORECASTCATEGORYNAME {
+ sql: ${TABLE}.FORECASTCATEGORYNAME;;
+}
+dimension: CAMPAIGNID {
+ sql: ${TABLE}.CAMPAIGNID;;
+}
+dimension: HASOPPORTUNITYLINEITEM {
+ sql: ${TABLE}.HASOPPORTUNITYLINEITEM;;
+}
+dimension: PRICEBOOK2ID {
+ sql: ${TABLE}.PRICEBOOK2ID;;
+}
+dimension: OWNERID {
+ sql: ${TABLE}.OWNERID;;
+}
+dimension: CREATEDDATE {
+ sql: ${TABLE}.CREATEDDATE;;
+}
+dimension: CREATEDBYID {
+ sql: ${TABLE}.CREATEDBYID;;
+}
+dimension: LASTMODIFIEDDATE {
+ sql: ${TABLE}.LASTMODIFIEDDATE;;
+}
+dimension: LASTMODIFIEDBYID {
+ sql: ${TABLE}.LASTMODIFIEDBYID;;
+}
+dimension: SYSTEMMODSTAMP {
+ sql: ${TABLE}.SYSTEMMODSTAMP;;
+}
+dimension: LASTACTIVITYDATE {
+ sql: ${TABLE}.LASTACTIVITYDATE;;
+}
+dimension: FISCALQUARTER {
+ sql: ${TABLE}.FISCALQUARTER;;
+}
+dimension: FISCALYEAR {
+ sql: ${TABLE}.FISCALYEAR;;
+}
+dimension: FISCAL {
+ sql: ${TABLE}.FISCAL;;
+}
+dimension: LASTVIEWEDDATE {
+ sql: ${TABLE}.LASTVIEWEDDATE;;
+}
+dimension: LASTREFERENCEDDATE {
+ sql: ${TABLE}.LASTREFERENCEDDATE;;
+}
+dimension: HASOPENACTIVITY {
+ sql: ${TABLE}.HASOPENACTIVITY;;
+}
+dimension: HASOVERDUETASK {
+ sql: ${TABLE}.HASOVERDUETASK;;
+}
+dimension: DELIVERYINSTALLATIONSTATUS__C {
+ sql: ${TABLE}.DELIVERYINSTALLATIONSTATUS__C;;
+}
+dimension: TRACKINGNUMBER__C {
+ sql: ${TABLE}.TRACKINGNUMBER__C;;
+}
+dimension: ORDERNUMBER__C {
+ sql: ${TABLE}.ORDERNUMBER__C;;
+}
+dimension: CURRENTGENERATORS__C {
+ sql: ${TABLE}.CURRENTGENERATORS__C;;
+}
+dimension: MAINCOMPETITORS__C {
+ sql: ${TABLE}.MAINCOMPETITORS__C;;
+}
+dimension: OPPORTUNITY_SOURCE__C {
+ sql: ${TABLE}.OPPORTUNITY_SOURCE__C;;
+}
+measure: AMOUNT_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: AMOUNT_sum {
+type:sum
+sql: ${AMOUNT} ;;
+ drill_fields: [detail*]
+}
+measure: PROBABILITY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: PROBABILITY_sum {
+type:sum
+sql: ${PROBABILITY} ;;
+ drill_fields: [detail*]
+}
+measure: EXPECTEDREVENUE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: EXPECTEDREVENUE_sum {
+type:sum
+sql: ${EXPECTEDREVENUE} ;;
+ drill_fields: [detail*]
+}
+measure: TOTALOPPORTUNITYQUANTITY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: TOTALOPPORTUNITYQUANTITY_sum {
+type:sum
+sql: ${TOTALOPPORTUNITYQUANTITY} ;;
+ drill_fields: [detail*]
+}
+measure: FISCALQUARTER_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: FISCALQUARTER_sum {
+type:sum
+sql: ${FISCALQUARTER} ;;
+ drill_fields: [detail*]
+}
+measure: FISCALYEAR_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: FISCALYEAR_sum {
+type:sum
+sql: ${FISCALYEAR} ;;
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [ID, ACCOUNTID, RECORDTYPEID, NAME, DESCRIPTION, STAGENAME, AMOUNT, PROBABILITY, EXPECTEDREVENUE, TOTALOPPORTUNITYQUANTITY, TYPE, NEXTSTEP, LEADSOURCE, FORECASTCATEGORY, FORECASTCATEGORYNAME, CAMPAIGNID, PRICEBOOK2ID, OWNERID, CREATEDBYID, LASTMODIFIEDBYID, FISCALQUARTER, FISCALYEAR, FISCAL, DELIVERYINSTALLATIONSTATUS__C, TRACKINGNUMBER__C, ORDERNUMBER__C, CURRENTGENERATORS__C, MAINCOMPETITORS__C, OPPORTUNITY_SOURCE__C]
 }
 }
