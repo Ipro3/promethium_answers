@@ -2,22 +2,22 @@
 connection:"pmdevpresto"
 
 
-explore: FACT_SUBSCRIPTION_ACTIVITY__5809634d_f6f5_4793_bf0f_4fc461b41747 {
+explore: FACT_SUBSCRIPTION_ACTIVITY__b537fd58_9b0c_496e_a810_b536fe87593b {
 
-join: dim_agent_bak__75786d07_b9dc_40c1_8403_9f6435672081 {
+join: dim_agent_bak__c0b1c649_4549_41c0_abef_51236973a6d4 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__5809634d_f6f5_4793_bf0f_4fc461b41747.AGN_KEY} = ${dim_agent_bak__75786d07_b9dc_40c1_8403_9f6435672081.agent_record_key} ;;
+ sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__b537fd58_9b0c_496e_a810_b536fe87593b.AGN_KEY} = ${dim_agent_bak__c0b1c649_4549_41c0_abef_51236973a6d4.agent_record_key} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__446ba54c_8885_4d5d_940b_7d2dc20707f1 {
+join: MASTER_PLAN_TABLE_WDATES__932f910d_febf_4579_b6c5_16c0ea4f00c4 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__5809634d_f6f5_4793_bf0f_4fc461b41747.PLAN_ID} = ${MASTER_PLAN_TABLE_WDATES__446ba54c_8885_4d5d_940b_7d2dc20707f1.PLAN_ID} ;;
+ sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__b537fd58_9b0c_496e_a810_b536fe87593b.PLAN_ID} = ${MASTER_PLAN_TABLE_WDATES__932f910d_febf_4579_b6c5_16c0ea4f00c4.PLAN_ID} ;;
 }
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__446ba54c_8885_4d5d_940b_7d2dc20707f1 {
+view: MASTER_PLAN_TABLE_WDATES__932f910d_febf_4579_b6c5_16c0ea4f00c4 {
 sql_table_name:pm61_snowflake.SCHEMA_INFO.MASTER_PLAN_TABLE_WDATES ;;
 dimension: PLAN_ID {
  sql: ${TABLE}.PLAN_ID;;
@@ -64,75 +64,7 @@ fields: [PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP, STARTDATE, ENDDATE]
 }
 
 
-view: dim_agent_bak__75786d07_b9dc_40c1_8403_9f6435672081 {
-sql_table_name:hive.s3media.dim_agent_bak ;;
-dimension: agent_record_key {
- sql: ${TABLE}.agent_record_key;;
-}
-dimension: agent_id {
- sql: ${TABLE}.agent_id;;
-}
-dimension: csr_id {
- sql: ${TABLE}.csr_id;;
-}
-dimension: agent_supervisor_record_key {
- sql: ${TABLE}.agent_supervisor_record_key;;
-}
-dimension: agent_supervisor_csr_id {
- sql: ${TABLE}.agent_supervisor_csr_id;;
-}
-dimension: agent_first_name {
- sql: ${TABLE}.agent_first_name;;
-}
-dimension: agent_last_name {
- sql: ${TABLE}.agent_last_name;;
-}
-dimension: agent_email_address {
- sql: ${TABLE}.agent_email_address;;
-}
-dimension: agent_status {
- sql: ${TABLE}.agent_status;;
-}
-dimension: agent_role_start_date {
- sql: ${TABLE}.agent_role_start_date;;
-}
-dimension: agent_role_end_date {
- sql: ${TABLE}.agent_role_end_date;;
-}
-dimension: agent_role_sms {
- sql: ${TABLE}.agent_role_sms;;
-}
-dimension: agent_role_marketing {
- sql: ${TABLE}.agent_role_marketing;;
-}
-dimension: agent_location {
- sql: ${TABLE}.agent_location;;
-}
-dimension: agent_vendor {
- sql: ${TABLE}.agent_vendor;;
-}
-dimension: agent_site {
- sql: ${TABLE}.agent_site;;
-}
-dimension: agent_lob {
- sql: ${TABLE}.agent_lob;;
-}
-dimension: activation_source {
- sql: ${TABLE}.activation_source;;
-}
-dimension: current_record_flag {
- sql: ${TABLE}.current_record_flag;;
-}
-dimension: deleted_record_flag {
- sql: ${TABLE}.deleted_record_flag;;
-}
-dimension: col20 {
- sql: ${TABLE}.col20;;
-}
-}
-
-
-view: FACT_SUBSCRIPTION_ACTIVITY__5809634d_f6f5_4793_bf0f_4fc461b41747 {
+view: FACT_SUBSCRIPTION_ACTIVITY__b537fd58_9b0c_496e_a810_b536fe87593b {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
@@ -556,5 +488,73 @@ sql: ${SAVE_OPPORTUNITY_ACTIVITY} ;;
 }
 set: detail {
 fields: [SBSCRN_ACTVTY_KEY, SBSCRN_ID, USED_ACTVTY_TYPE_ID, ACTVTY_TS, HHLD_ID, PRTY_KEY, PRTY_ID, PARNT_ACCT_KEY, PARNT_ACCT_ID, PARNT_ACCT_NUM, CHILD_ACCT_KEY, CHILD_ACCT_ID, CHILD_ACCT_NUM, VEH_KEY, DVC_KEY, DVC_ID, EQMNT_KEY, EQMNT_ID, PLAN_KEY, OFR_ID, FROM_PLAN_KEY, FROM_PLAN_ID, FROM_OFR_ID, PROD_KEY, PROD_ID, FROM_PROD_KEY, FROM_PROD_ID, PKG_ID, FROM_PKG_ID, FEAT_ID, AGN_KEY2, CSR_ID, PTNR_ID, LNKD_INET_FL, MRD_TYPE_CD, SBSCR_LIFCYC_KEY, CONV_REP_OWN_SEGMT_KEY, OWNR_TYPE2_KEY, DEACTIVATION_REASON_CODE, TRIAL_ID, SRVC_ID, RENW_ID, FROM_RENW_ID, COLL_SCNRO_ID, SRVC_LVL_PMT_KEY, NONPAY_SRVC_KEY, BILLING_METHOD, FROM_BILLING_METHOD, SLFPAY_TURNOVER_RSN, SLFPAY_TURNOVER_DT, FUTURE_DEACTVN_DT, SCHD_SEASONAL_SUSP_REACTVN_DT, CALL_REASON, CALL_DISPOSITION, INSE_USER_ID, INSE_TS, UPDT_USER_ID, UPDT_TS, SAVE_ACTIVITY, DEACT_ACTIVITY_BY_SAVE_AGENT, CONV_ACTIVITY_BY_SAVE_AGENT, SAVE_OPPORTUNITY_ACTIVITY]
+}
+}
+
+
+view: dim_agent_bak__c0b1c649_4549_41c0_abef_51236973a6d4 {
+sql_table_name:hive.s3media.dim_agent_bak ;;
+dimension: agent_record_key {
+ sql: ${TABLE}.agent_record_key;;
+}
+dimension: agent_id {
+ sql: ${TABLE}.agent_id;;
+}
+dimension: csr_id {
+ sql: ${TABLE}.csr_id;;
+}
+dimension: agent_supervisor_record_key {
+ sql: ${TABLE}.agent_supervisor_record_key;;
+}
+dimension: agent_supervisor_csr_id {
+ sql: ${TABLE}.agent_supervisor_csr_id;;
+}
+dimension: agent_first_name {
+ sql: ${TABLE}.agent_first_name;;
+}
+dimension: agent_last_name {
+ sql: ${TABLE}.agent_last_name;;
+}
+dimension: agent_email_address {
+ sql: ${TABLE}.agent_email_address;;
+}
+dimension: agent_status {
+ sql: ${TABLE}.agent_status;;
+}
+dimension: agent_role_start_date {
+ sql: ${TABLE}.agent_role_start_date;;
+}
+dimension: agent_role_end_date {
+ sql: ${TABLE}.agent_role_end_date;;
+}
+dimension: agent_role_sms {
+ sql: ${TABLE}.agent_role_sms;;
+}
+dimension: agent_role_marketing {
+ sql: ${TABLE}.agent_role_marketing;;
+}
+dimension: agent_location {
+ sql: ${TABLE}.agent_location;;
+}
+dimension: agent_vendor {
+ sql: ${TABLE}.agent_vendor;;
+}
+dimension: agent_site {
+ sql: ${TABLE}.agent_site;;
+}
+dimension: agent_lob {
+ sql: ${TABLE}.agent_lob;;
+}
+dimension: activation_source {
+ sql: ${TABLE}.activation_source;;
+}
+dimension: current_record_flag {
+ sql: ${TABLE}.current_record_flag;;
+}
+dimension: deleted_record_flag {
+ sql: ${TABLE}.deleted_record_flag;;
+}
+dimension: col20 {
+ sql: ${TABLE}.col20;;
 }
 }
