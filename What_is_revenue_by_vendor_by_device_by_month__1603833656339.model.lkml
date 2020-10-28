@@ -2,71 +2,27 @@
 connection:"pmdevpresto"
 
 
-explore: DIM_AGENT__a653bb5e_887f_4974_a4f2_01715dcdb68a {
+explore: DIM_AGENT__ad2859ba_cefd_4d28_ba57_71a82be9eaea {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__b8dc30b4_9394_4d25_9166_988001842f39 {
+join: FACT_SUBSCRIPTION_ACTIVITY__56327542_945c_48cd_bb2d_6fad3eb2ffb1 {
  type: left_outer
- sql_on: ${DIM_AGENT__a653bb5e_887f_4974_a4f2_01715dcdb68a.AGENT_RECORD_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__b8dc30b4_9394_4d25_9166_988001842f39.AGN_KEY} ;;
+ relationship: many_to_one
+ sql_on: ${DIM_AGENT__ad2859ba_cefd_4d28_ba57_71a82be9eaea.AGENT_RECORD_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__56327542_945c_48cd_bb2d_6fad3eb2ffb1.AGN_KEY} ;;
 }
-join: DIM_DEVICE__5481ac59_174f_479a_9a69_7dfb9eb94210 {
+join: DIM_DEVICE__2fd5a87e_0330_4cad_9fde_d0c6c7b0d4a7 {
  type: left_outer
- sql_on: ${DIM_DEVICE__5481ac59_174f_479a_9a69_7dfb9eb94210.SBSCRN_ACTVTY_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__b8dc30b4_9394_4d25_9166_988001842f39.SBSCRN_ACTVTY_KEY} ;;
+ relationship: many_to_one
+ sql_on: ${DIM_DEVICE__2fd5a87e_0330_4cad_9fde_d0c6c7b0d4a7.SBSCRN_ACTVTY_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__56327542_945c_48cd_bb2d_6fad3eb2ffb1.SBSCRN_ACTVTY_KEY} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__990b1196_42ff_4282_9262_2386800246c3 {
+join: MASTER_PLAN_TABLE_WDATES__e13ddd9b_16b5_47e1_8cef_a4517725efaf {
  type: left_outer
- sql_on: ${MASTER_PLAN_TABLE_WDATES__990b1196_42ff_4282_9262_2386800246c3.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__b8dc30b4_9394_4d25_9166_988001842f39.PLAN_ID} ;;
+ relationship: many_to_one
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__e13ddd9b_16b5_47e1_8cef_a4517725efaf.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__56327542_945c_48cd_bb2d_6fad3eb2ffb1.PLAN_ID} ;;
 }
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__990b1196_42ff_4282_9262_2386800246c3 {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
-dimension: PLAN_ID {
- sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
- sql: ${TABLE}.PLAN_NAME;;
-}
-dimension: MER {
- sql: ${TABLE}.MER;;
-}
-dimension: DISC {
- sql: ${TABLE}.DISC;;
-}
-dimension: PACKAGE {
- sql: ${TABLE}.PACKAGE;;
-}
-dimension: LEN {
- sql: ${TABLE}.LEN;;
-}
-dimension: ROLLUP1 {
- sql: ${TABLE}.ROLLUP1;;
-}
-dimension: ASP {
- sql: ${TABLE}.ASP;;
-}
-dimension: STARTDATE {
- sql: ${TABLE}.STARTDATE;;
-}
-dimension: ENDDATE {
- sql: ${TABLE}.ENDDATE;;
-}
-measure: MER_count {
-type:count
- drill_fields: [detail*]
-}
-measure: MER_sum {
-type:sum
-sql: ${MER} ;;
- drill_fields: [detail*]
-}
-set: detail {
-fields: [PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP]
-}
-}
-
-
-view: FACT_SUBSCRIPTION_ACTIVITY__b8dc30b4_9394_4d25_9166_988001842f39 {
+view: FACT_SUBSCRIPTION_ACTIVITY__56327542_945c_48cd_bb2d_6fad3eb2ffb1 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
  sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
@@ -485,7 +441,7 @@ fields: [SBSCRN_ID, USED_ACTVTY_TYPE_ID, ACTVTY_TS, HHLD_ID, PRTY_KEY, PRTY_ID, 
 }
 
 
-view: DIM_AGENT__a653bb5e_887f_4974_a4f2_01715dcdb68a {
+view: DIM_AGENT__ad2859ba_cefd_4d28_ba57_71a82be9eaea {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_AGENT ;;
 dimension: AGENT_RECORD_KEY {
  sql: ${TABLE}.AGENT_RECORD_KEY;;
@@ -553,7 +509,7 @@ fields: [AGENT_ID, CSR_ID, AGENT_SUPERVISOR_RECORD_KEY, AGENT_SUPERVISOR_CSR_ID,
 }
 
 
-view: DIM_DEVICE__5481ac59_174f_479a_9a69_7dfb9eb94210 {
+view: DIM_DEVICE__2fd5a87e_0330_4cad_9fde_d0c6c7b0d4a7 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_DEVICE ;;
 dimension: DEVICE_RECORD_KEY {
  sql: ${TABLE}.DEVICE_RECORD_KEY;;
@@ -698,5 +654,52 @@ sql: ${VEHICLE_CAPABILITY_ID} ;;
 }
 set: detail {
 fields: [DEVICE_RECORD_KEY, DEVICE_ID, DELIVERY_METHOD, BRAND, PSN, PARTNER_ID, SECONDARY_PARTNER_ID, VIN, VEHICLE_ID, EQUIPMENT_KEY, EQUIPMENT_ID, CAPABILITY_ID, PRIMARY_DEALER_ID, SECONDARY_DEALER_ID, X65_FLAG, VIN_ROOT, CURRENT_RECORD_FLAG, DELETED_RECORD_FLAG, ENTERTAINMENT_SYSTEM_CODE, VEHICLE_CAPABILITY_ID]
+}
+}
+
+
+view: MASTER_PLAN_TABLE_WDATES__e13ddd9b_16b5_47e1_8cef_a4517725efaf {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
+dimension: PLAN_ID {
+ sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+ sql: ${TABLE}.PLAN_NAME;;
+}
+dimension: MER {
+ sql: ${TABLE}.MER;;
+}
+dimension: DISC {
+ sql: ${TABLE}.DISC;;
+}
+dimension: PACKAGE {
+ sql: ${TABLE}.PACKAGE;;
+}
+dimension: LEN {
+ sql: ${TABLE}.LEN;;
+}
+dimension: ROLLUP1 {
+ sql: ${TABLE}.ROLLUP1;;
+}
+dimension: ASP {
+ sql: ${TABLE}.ASP;;
+}
+dimension: STARTDATE {
+ sql: ${TABLE}.STARTDATE;;
+}
+dimension: ENDDATE {
+ sql: ${TABLE}.ENDDATE;;
+}
+measure: MER_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: MER_sum {
+type:sum
+sql: ${MER} ;;
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP]
 }
 }
