@@ -2,23 +2,82 @@
 connection:"pmdevpresto"
 
 
-explore: dim_agent_bak__a1aa4014_67c5_48c1_b351_fb7d4b9ceef0 {
+explore: dim_agent_bak__ecdee780_f26d_431d_95e0_fd69e6bd3cdf {
 
-join: dim_agent__86f6a00f_c29c_434f_b536_513743c9a149 {
+join: dim_agent__ec028d96_992a_4890_8ed7_268d9c2e272d {
  type: inner
  relationship: many_to_one
- sql_on: ${dim_agent_bak__a1aa4014_67c5_48c1_b351_fb7d4b9ceef0.csr_id} >= ${dim_agent__86f6a00f_c29c_434f_b536_513743c9a149.col1} 
- and ${dim_agent__86f6a00f_c29c_434f_b536_513743c9a149.col12} > ${dim_agent_bak__a1aa4014_67c5_48c1_b351_fb7d4b9ceef0.agent_supervisor_csr_id} ;;
+ sql_on: ${dim_agent_bak__ecdee780_f26d_431d_95e0_fd69e6bd3cdf.csr_id} >= ${dim_agent__ec028d96_992a_4890_8ed7_268d9c2e272d.col1} 
+ and ${dim_agent__ec028d96_992a_4890_8ed7_268d9c2e272d.col12} > ${dim_agent_bak__ecdee780_f26d_431d_95e0_fd69e6bd3cdf.agent_supervisor_csr_id} ;;
 }
-join: DIM_AGENT__10d70d16_62e9_45a8_acb7_fd6a5d198af1 {
+join: DIM_AGENT__46b23f97_5216_40d3_9dca_81480a682219 {
  type: inner
  relationship: many_to_one
- sql_on: ${DIM_AGENT__10d70d16_62e9_45a8_acb7_fd6a5d198af1.AGENT_SUPERVISOR_CSR_ID} = ${dim_agent_bak__a1aa4014_67c5_48c1_b351_fb7d4b9ceef0.agent_first_name} ;;
+ sql_on: ${DIM_AGENT__46b23f97_5216_40d3_9dca_81480a682219.AGENT_SUPERVISOR_CSR_ID} = ${dim_agent_bak__ecdee780_f26d_431d_95e0_fd69e6bd3cdf.agent_first_name} ;;
 }
 }
 
 
-view: dim_agent_bak__a1aa4014_67c5_48c1_b351_fb7d4b9ceef0 {
+view: dim_agent__ec028d96_992a_4890_8ed7_268d9c2e272d {
+sql_table_name:hive.s3media.dim_agent ;;
+dimension: col0 {
+ sql: ${TABLE}.col0;;
+}
+dimension: col1 {
+ sql: ${TABLE}.col1;;
+}
+dimension: col2 {
+ sql: ${TABLE}.col2;;
+}
+dimension: col3 {
+ sql: ${TABLE}.col3;;
+}
+dimension: col4 {
+ sql: ${TABLE}.col4;;
+}
+dimension: col5 {
+ sql: ${TABLE}.col5;;
+}
+dimension: col6 {
+ sql: ${TABLE}.col6;;
+}
+dimension: col7 {
+ sql: ${TABLE}.col7;;
+}
+dimension: col8 {
+ sql: ${TABLE}.col8;;
+}
+dimension: col9 {
+ sql: ${TABLE}.col9;;
+}
+dimension: col10 {
+ sql: ${TABLE}.col10;;
+}
+dimension: col11 {
+ sql: ${TABLE}.col11;;
+}
+dimension: col12 {
+ sql: ${TABLE}.col12;;
+}
+dimension: col13 {
+ sql: ${TABLE}.col13;;
+}
+dimension: col14 {
+ sql: ${TABLE}.col14;;
+}
+dimension: col15 {
+ sql: ${TABLE}.col15;;
+}
+dimension: col16 {
+ sql: ${TABLE}.col16;;
+}
+dimension: col17 {
+ sql: ${TABLE}.col17;;
+}
+}
+
+
+view: dim_agent_bak__ecdee780_f26d_431d_95e0_fd69e6bd3cdf {
 sql_table_name:hive.s3media.dim_agent_bak ;;
 dimension: agent_record_key {
  sql: ${TABLE}.agent_record_key;;
@@ -86,66 +145,7 @@ dimension: col20 {
 }
 
 
-view: dim_agent__86f6a00f_c29c_434f_b536_513743c9a149 {
-sql_table_name:hive.s3media.dim_agent ;;
-dimension: col0 {
- sql: ${TABLE}.col0;;
-}
-dimension: col1 {
- sql: ${TABLE}.col1;;
-}
-dimension: col2 {
- sql: ${TABLE}.col2;;
-}
-dimension: col3 {
- sql: ${TABLE}.col3;;
-}
-dimension: col4 {
- sql: ${TABLE}.col4;;
-}
-dimension: col5 {
- sql: ${TABLE}.col5;;
-}
-dimension: col6 {
- sql: ${TABLE}.col6;;
-}
-dimension: col7 {
- sql: ${TABLE}.col7;;
-}
-dimension: col8 {
- sql: ${TABLE}.col8;;
-}
-dimension: col9 {
- sql: ${TABLE}.col9;;
-}
-dimension: col10 {
- sql: ${TABLE}.col10;;
-}
-dimension: col11 {
- sql: ${TABLE}.col11;;
-}
-dimension: col12 {
- sql: ${TABLE}.col12;;
-}
-dimension: col13 {
- sql: ${TABLE}.col13;;
-}
-dimension: col14 {
- sql: ${TABLE}.col14;;
-}
-dimension: col15 {
- sql: ${TABLE}.col15;;
-}
-dimension: col16 {
- sql: ${TABLE}.col16;;
-}
-dimension: col17 {
- sql: ${TABLE}.col17;;
-}
-}
-
-
-view: DIM_AGENT__10d70d16_62e9_45a8_acb7_fd6a5d198af1 {
+view: DIM_AGENT__46b23f97_5216_40d3_9dca_81480a682219 {
 sql_table_name:pm61_snowflake.SCHEMA_INFO.DIM_AGENT ;;
 dimension: AGENT_RECORD_KEY {
  sql: ${TABLE}.AGENT_RECORD_KEY;;
