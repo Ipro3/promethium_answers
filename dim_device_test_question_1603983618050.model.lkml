@@ -2,12 +2,12 @@
 connection:"pmdevpresto"
 
 
-explore: DIM_DEVICE__016ea000_d378_4cb6_b49f_3392c5c9f5cb {
+explore: DIM_DEVICE__15fc2e8c_3654_4252_b773_2abec9ace842 {
 
 }
 
 
-view: DIM_DEVICE__016ea000_d378_4cb6_b49f_3392c5c9f5cb {
+view: DIM_DEVICE__15fc2e8c_3654_4252_b773_2abec9ace842 {
 sql_table_name:pm61_snowflake.SCHEMA_INFO.DIM_DEVICE ;;
 dimension: DEVICE_RECORD_KEY {
  sql: ${TABLE}.DEVICE_RECORD_KEY;;
