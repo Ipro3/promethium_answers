@@ -2,16 +2,16 @@
 connection:"presto-qa-1"
 
 
-explore: OPPORTUNITY__e39429f4_8bc7_4785_bd86_c4953b9f3df5 {
+explore: OPPORTUNITY__d6f1972c_bc8e_459e_af9a_6cb817468f40 {
 
-join: ACCOUNT__bf5b3946_825b_40c3_9347_c1367296ed32 {
+join: ACCOUNT__09b416cf_c3e7_452c_9c1d_db6fa20a9892 {
  relationship: one_to_one
- sql_on: ${OPPORTUNITY__e39429f4_8bc7_4785_bd86_c4953b9f3df5.ACCOUNTID} = ${ACCOUNT__bf5b3946_825b_40c3_9347_c1367296ed32.ID} ;;
+ sql_on: ${OPPORTUNITY__d6f1972c_bc8e_459e_af9a_6cb817468f40.ACCOUNTID} = ${ACCOUNT__09b416cf_c3e7_452c_9c1d_db6fa20a9892.ID} ;;
 }
 }
 
 
-view: OPPORTUNITY__e39429f4_8bc7_4785_bd86_c4953b9f3df5 {
+view: OPPORTUNITY__d6f1972c_bc8e_459e_af9a_6cb817468f40 {
 sql_table_name:sforce2.SFORCE.OPPORTUNITY ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
@@ -151,7 +151,7 @@ dimension: OPPORTUNITY_SOURCE__C {
 }
 
 
-view: ACCOUNT__bf5b3946_825b_40c3_9347_c1367296ed32 {
+view: ACCOUNT__09b416cf_c3e7_452c_9c1d_db6fa20a9892 {
 sql_table_name:sforce.SFORCE.ACCOUNT ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
