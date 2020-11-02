@@ -2,16 +2,156 @@
 connection:"presto-qa-1"
 
 
-explore: OPPORTUNITY__8dd124d2_457e_405d_bf6f_80e28b832134 {
+explore: OPPORTUNITY__cfa1cef6_2bf8_4f3e_ba33_54cb5c1014d9 {
 
-join: ACCOUNT__f8b40579_aaca_4875_b485_78b970b23ed1 {
+join: ACCOUNT__fd7b738f_6ce6_47f4_bb7f_c2cdecc8f377 {
  relationship: one_to_one
- sql_on: ${OPPORTUNITY__8dd124d2_457e_405d_bf6f_80e28b832134.ACCOUNTID} = ${ACCOUNT__f8b40579_aaca_4875_b485_78b970b23ed1.ID} ;;
+ sql_on: ${OPPORTUNITY__cfa1cef6_2bf8_4f3e_ba33_54cb5c1014d9.ACCOUNTID} = ${ACCOUNT__fd7b738f_6ce6_47f4_bb7f_c2cdecc8f377.ID} ;;
 }
 }
 
 
-view: ACCOUNT__f8b40579_aaca_4875_b485_78b970b23ed1 {
+view: OPPORTUNITY__cfa1cef6_2bf8_4f3e_ba33_54cb5c1014d9 {
+sql_table_name:sforce2.SFORCE.OPPORTUNITY ;;
+dimension: ID {
+ sql: ${TABLE}.ID;;
+}
+dimension: ISDELETED {
+ sql: ${TABLE}.ISDELETED;;
+}
+dimension: ACCOUNTID {
+ sql: ${TABLE}.ACCOUNTID;;
+}
+dimension: RECORDTYPEID {
+ sql: ${TABLE}.RECORDTYPEID;;
+}
+dimension: ISPRIVATE {
+ sql: ${TABLE}.ISPRIVATE;;
+}
+dimension: NAME {
+ sql: ${TABLE}.NAME;;
+}
+dimension: DESCRIPTION {
+ sql: ${TABLE}.DESCRIPTION;;
+}
+dimension: STAGENAME {
+ sql: ${TABLE}.STAGENAME;;
+}
+measure: AMOUNT {
+type:count_distinct
+ sql: ${TABLE}.AMOUNT;;
+}
+measure: PROBABILITY {
+type:count_distinct
+ sql: ${TABLE}.PROBABILITY;;
+}
+measure: EXPECTEDREVENUE {
+type:count_distinct
+ sql: ${TABLE}.EXPECTEDREVENUE;;
+}
+measure: TOTALOPPORTUNITYQUANTITY {
+type:count_distinct
+ sql: ${TABLE}.TOTALOPPORTUNITYQUANTITY;;
+}
+dimension: CLOSEDATE {
+ sql: ${TABLE}.CLOSEDATE;;
+}
+dimension: TYPE {
+ sql: ${TABLE}.TYPE;;
+}
+dimension: NEXTSTEP {
+ sql: ${TABLE}.NEXTSTEP;;
+}
+dimension: LEADSOURCE {
+ sql: ${TABLE}.LEADSOURCE;;
+}
+dimension: ISCLOSED {
+ sql: ${TABLE}.ISCLOSED;;
+}
+dimension: ISWON {
+ sql: ${TABLE}.ISWON;;
+}
+dimension: FORECASTCATEGORY {
+ sql: ${TABLE}.FORECASTCATEGORY;;
+}
+dimension: FORECASTCATEGORYNAME {
+ sql: ${TABLE}.FORECASTCATEGORYNAME;;
+}
+dimension: CAMPAIGNID {
+ sql: ${TABLE}.CAMPAIGNID;;
+}
+dimension: HASOPPORTUNITYLINEITEM {
+ sql: ${TABLE}.HASOPPORTUNITYLINEITEM;;
+}
+dimension: PRICEBOOK2ID {
+ sql: ${TABLE}.PRICEBOOK2ID;;
+}
+dimension: OWNERID {
+ sql: ${TABLE}.OWNERID;;
+}
+dimension: CREATEDDATE {
+ sql: ${TABLE}.CREATEDDATE;;
+}
+dimension: CREATEDBYID {
+ sql: ${TABLE}.CREATEDBYID;;
+}
+dimension: LASTMODIFIEDDATE {
+ sql: ${TABLE}.LASTMODIFIEDDATE;;
+}
+dimension: LASTMODIFIEDBYID {
+ sql: ${TABLE}.LASTMODIFIEDBYID;;
+}
+dimension: SYSTEMMODSTAMP {
+ sql: ${TABLE}.SYSTEMMODSTAMP;;
+}
+dimension: LASTACTIVITYDATE {
+ sql: ${TABLE}.LASTACTIVITYDATE;;
+}
+measure: FISCALQUARTER {
+type:count_distinct
+ sql: ${TABLE}.FISCALQUARTER;;
+}
+measure: FISCALYEAR {
+type:count_distinct
+ sql: ${TABLE}.FISCALYEAR;;
+}
+dimension: FISCAL {
+ sql: ${TABLE}.FISCAL;;
+}
+dimension: LASTVIEWEDDATE {
+ sql: ${TABLE}.LASTVIEWEDDATE;;
+}
+dimension: LASTREFERENCEDDATE {
+ sql: ${TABLE}.LASTREFERENCEDDATE;;
+}
+dimension: HASOPENACTIVITY {
+ sql: ${TABLE}.HASOPENACTIVITY;;
+}
+dimension: HASOVERDUETASK {
+ sql: ${TABLE}.HASOVERDUETASK;;
+}
+dimension: DELIVERYINSTALLATIONSTATUS__C {
+ sql: ${TABLE}.DELIVERYINSTALLATIONSTATUS__C;;
+}
+dimension: TRACKINGNUMBER__C {
+ sql: ${TABLE}.TRACKINGNUMBER__C;;
+}
+dimension: ORDERNUMBER__C {
+ sql: ${TABLE}.ORDERNUMBER__C;;
+}
+dimension: CURRENTGENERATORS__C {
+ sql: ${TABLE}.CURRENTGENERATORS__C;;
+}
+dimension: MAINCOMPETITORS__C {
+ sql: ${TABLE}.MAINCOMPETITORS__C;;
+}
+dimension: OPPORTUNITY_SOURCE__C {
+ sql: ${TABLE}.OPPORTUNITY_SOURCE__C;;
+}
+}
+
+
+view: ACCOUNT__fd7b738f_6ce6_47f4_bb7f_c2cdecc8f377 {
 sql_table_name:sforce.SFORCE.ACCOUNT ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
@@ -211,145 +351,5 @@ dimension: SLAEXPIRATIONDATE__C {
 }
 dimension: SEGMENT__C {
  sql: ${TABLE}.SEGMENT__C;;
-}
-}
-
-
-view: OPPORTUNITY__8dd124d2_457e_405d_bf6f_80e28b832134 {
-sql_table_name:sforce2.SFORCE.OPPORTUNITY ;;
-dimension: ID {
- sql: ${TABLE}.ID;;
-}
-dimension: ISDELETED {
- sql: ${TABLE}.ISDELETED;;
-}
-dimension: ACCOUNTID {
- sql: ${TABLE}.ACCOUNTID;;
-}
-dimension: RECORDTYPEID {
- sql: ${TABLE}.RECORDTYPEID;;
-}
-dimension: ISPRIVATE {
- sql: ${TABLE}.ISPRIVATE;;
-}
-dimension: NAME {
- sql: ${TABLE}.NAME;;
-}
-dimension: DESCRIPTION {
- sql: ${TABLE}.DESCRIPTION;;
-}
-dimension: STAGENAME {
- sql: ${TABLE}.STAGENAME;;
-}
-measure: AMOUNT {
-type:count_distinct
- sql: ${TABLE}.AMOUNT;;
-}
-measure: PROBABILITY {
-type:count_distinct
- sql: ${TABLE}.PROBABILITY;;
-}
-measure: EXPECTEDREVENUE {
-type:count_distinct
- sql: ${TABLE}.EXPECTEDREVENUE;;
-}
-measure: TOTALOPPORTUNITYQUANTITY {
-type:count_distinct
- sql: ${TABLE}.TOTALOPPORTUNITYQUANTITY;;
-}
-dimension: CLOSEDATE {
- sql: ${TABLE}.CLOSEDATE;;
-}
-dimension: TYPE {
- sql: ${TABLE}.TYPE;;
-}
-dimension: NEXTSTEP {
- sql: ${TABLE}.NEXTSTEP;;
-}
-dimension: LEADSOURCE {
- sql: ${TABLE}.LEADSOURCE;;
-}
-dimension: ISCLOSED {
- sql: ${TABLE}.ISCLOSED;;
-}
-dimension: ISWON {
- sql: ${TABLE}.ISWON;;
-}
-dimension: FORECASTCATEGORY {
- sql: ${TABLE}.FORECASTCATEGORY;;
-}
-dimension: FORECASTCATEGORYNAME {
- sql: ${TABLE}.FORECASTCATEGORYNAME;;
-}
-dimension: CAMPAIGNID {
- sql: ${TABLE}.CAMPAIGNID;;
-}
-dimension: HASOPPORTUNITYLINEITEM {
- sql: ${TABLE}.HASOPPORTUNITYLINEITEM;;
-}
-dimension: PRICEBOOK2ID {
- sql: ${TABLE}.PRICEBOOK2ID;;
-}
-dimension: OWNERID {
- sql: ${TABLE}.OWNERID;;
-}
-dimension: CREATEDDATE {
- sql: ${TABLE}.CREATEDDATE;;
-}
-dimension: CREATEDBYID {
- sql: ${TABLE}.CREATEDBYID;;
-}
-dimension: LASTMODIFIEDDATE {
- sql: ${TABLE}.LASTMODIFIEDDATE;;
-}
-dimension: LASTMODIFIEDBYID {
- sql: ${TABLE}.LASTMODIFIEDBYID;;
-}
-dimension: SYSTEMMODSTAMP {
- sql: ${TABLE}.SYSTEMMODSTAMP;;
-}
-dimension: LASTACTIVITYDATE {
- sql: ${TABLE}.LASTACTIVITYDATE;;
-}
-measure: FISCALQUARTER {
-type:count_distinct
- sql: ${TABLE}.FISCALQUARTER;;
-}
-measure: FISCALYEAR {
-type:count_distinct
- sql: ${TABLE}.FISCALYEAR;;
-}
-dimension: FISCAL {
- sql: ${TABLE}.FISCAL;;
-}
-dimension: LASTVIEWEDDATE {
- sql: ${TABLE}.LASTVIEWEDDATE;;
-}
-dimension: LASTREFERENCEDDATE {
- sql: ${TABLE}.LASTREFERENCEDDATE;;
-}
-dimension: HASOPENACTIVITY {
- sql: ${TABLE}.HASOPENACTIVITY;;
-}
-dimension: HASOVERDUETASK {
- sql: ${TABLE}.HASOVERDUETASK;;
-}
-dimension: DELIVERYINSTALLATIONSTATUS__C {
- sql: ${TABLE}.DELIVERYINSTALLATIONSTATUS__C;;
-}
-dimension: TRACKINGNUMBER__C {
- sql: ${TABLE}.TRACKINGNUMBER__C;;
-}
-dimension: ORDERNUMBER__C {
- sql: ${TABLE}.ORDERNUMBER__C;;
-}
-dimension: CURRENTGENERATORS__C {
- sql: ${TABLE}.CURRENTGENERATORS__C;;
-}
-dimension: MAINCOMPETITORS__C {
- sql: ${TABLE}.MAINCOMPETITORS__C;;
-}
-dimension: OPPORTUNITY_SOURCE__C {
- sql: ${TABLE}.OPPORTUNITY_SOURCE__C;;
 }
 }
