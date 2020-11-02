@@ -2,31 +2,17 @@
 connection:"pmdevpresto"
 
 
-explore: US_REGIONS__3b20755a_2132_4aae_ac3a_05aa33579155 {
+explore: US_REGIONS__5d5fd2d4_e3f8_4c28_86a5_19d834cbad28 {
 
-join: COMBINED_CRIME_INCIDENTS__4fc339fc_a3e5_4cc2_865e_3ad5d239337a {
+join: COMBINED_CRIME_INCIDENTS__3c26e2aa_0af5_46b4_a8c0_56cfbe4ff92b {
  type: inner
  relationship: many_to_one
- sql_on: ${US_REGIONS__3b20755a_2132_4aae_ac3a_05aa33579155.REGION_CODE} > ${COMBINED_CRIME_INCIDENTS__4fc339fc_a3e5_4cc2_865e_3ad5d239337a.REGION_CODE} ;;
+ sql_on: ${US_REGIONS__5d5fd2d4_e3f8_4c28_86a5_19d834cbad28.REGION_CODE} > ${COMBINED_CRIME_INCIDENTS__3c26e2aa_0af5_46b4_a8c0_56cfbe4ff92b.REGION_CODE} ;;
 }
 }
 
 
-view: US_REGIONS__3b20755a_2132_4aae_ac3a_05aa33579155 {
-sql_table_name:mysql_v3.promethium.US_REGIONS ;;
-dimension: REGION_CODE {
- sql: ${TABLE}.REGION_CODE;;
-}
-dimension: REGION_NAME {
- sql: ${TABLE}.REGION_NAME;;
-}
-dimension: US_STATE {
- sql: ${TABLE}.US_STATE;;
-}
-}
-
-
-view: COMBINED_CRIME_INCIDENTS__4fc339fc_a3e5_4cc2_865e_3ad5d239337a {
+view: COMBINED_CRIME_INCIDENTS__3c26e2aa_0af5_46b4_a8c0_56cfbe4ff92b {
 sql_table_name:mysql_v3.promethium.COMBINED_CRIME_INCIDENTS ;;
 dimension: SERIES_ID {
  sql: ${TABLE}.SERIES_ID;;
@@ -51,5 +37,19 @@ sql: ${COMBINED_CRIME_INCIDENTS} ;;
 }
 set: detail {
 fields: [SERIES_ID, COMBINED_CRIME_INCIDENTS]
+}
+}
+
+
+view: US_REGIONS__5d5fd2d4_e3f8_4c28_86a5_19d834cbad28 {
+sql_table_name:mysql_v3.promethium.US_REGIONS ;;
+dimension: REGION_CODE {
+ sql: ${TABLE}.REGION_CODE;;
+}
+dimension: REGION_NAME {
+ sql: ${TABLE}.REGION_NAME;;
+}
+dimension: US_STATE {
+ sql: ${TABLE}.US_STATE;;
 }
 }
