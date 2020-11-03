@@ -2,22 +2,22 @@
 connection:"pmdevpresto"
 
 
-explore: fact_subscription_activity__774d60b3_a5bf_4c45_9799_5a4d2bd17535 {
+explore: fact_subscription_activity__1d23397f_7059_4460_a8e5_82983352c1e3 {
 
-join: DIM_PLAN__dc04edfe_a205_4c87_8b5b_448268bcf7be {
+join: DIM_PLAN__c020d085_3194_4422_9d84_1cc145f6974b {
  type: left_outer
  relationship: many_to_one
- sql_on: ${fact_subscription_activity__774d60b3_a5bf_4c45_9799_5a4d2bd17535.plan_id} = ${DIM_PLAN__dc04edfe_a205_4c87_8b5b_448268bcf7be.PLAN_ID} ;;
+ sql_on: ${fact_subscription_activity__1d23397f_7059_4460_a8e5_82983352c1e3.plan_id} >= ${DIM_PLAN__c020d085_3194_4422_9d84_1cc145f6974b.PLAN_ID} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__82c06e91_c9b6_41d5_a170_96d278518204 {
+join: MASTER_PLAN_TABLE_WDATES__f858b21a_bf3a_4d8c_b440_a5b275f26754 {
  type: right_outer
  relationship: many_to_one
- sql_on: ${fact_subscription_activity__774d60b3_a5bf_4c45_9799_5a4d2bd17535.plan_id} = ${MASTER_PLAN_TABLE_WDATES__82c06e91_c9b6_41d5_a170_96d278518204.PLAN_ID} ;;
+ sql_on: ${fact_subscription_activity__1d23397f_7059_4460_a8e5_82983352c1e3.plan_id} = ${MASTER_PLAN_TABLE_WDATES__f858b21a_bf3a_4d8c_b440_a5b275f26754.PLAN_ID} ;;
 }
 }
 
 
-view: fact_subscription_activity__774d60b3_a5bf_4c45_9799_5a4d2bd17535 {
+view: fact_subscription_activity__1d23397f_7059_4460_a8e5_82983352c1e3 {
 sql_table_name:hive.s3media.fact_subscription_activity ;;
 dimension: sbscrn_actvty_key {
  sql: ${TABLE}.sbscrn_actvty_key;;
@@ -229,54 +229,7 @@ fields: [sbscrn_id, used_actvty_type_id, actvty_dt, actvty_ts, hhld_id, prty_key
 }
 
 
-view: DIM_PLAN__dc04edfe_a205_4c87_8b5b_448268bcf7be {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_PLAN ;;
-dimension: PLAN_RECORD_KEY {
- sql: ${TABLE}.PLAN_RECORD_KEY;;
-}
-dimension: PLAN_ID {
- sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
- sql: ${TABLE}.PLAN_NAME;;
-}
-dimension: USED_FLAG {
- sql: ${TABLE}.USED_FLAG;;
-}
-dimension: PLAN_DESCRIPTION {
- sql: ${TABLE}.PLAN_DESCRIPTION;;
-}
-dimension: MARKET_TYPE {
- sql: ${TABLE}.MARKET_TYPE;;
-}
-dimension: CHANGE_DATE_START {
- sql: ${TABLE}.CHANGE_DATE_START;;
-}
-dimension: CHANGE_DATE_END {
- sql: ${TABLE}.CHANGE_DATE_END;;
-}
-dimension: CURRENT_RECORD_FLAG {
- sql: ${TABLE}.CURRENT_RECORD_FLAG;;
-}
-dimension: DELETED_RECORD_FLAG {
- sql: ${TABLE}.DELETED_RECORD_FLAG;;
-}
-measure: PLAN_RECORD_KEY_count {
-type:count
- drill_fields: [detail*]
-}
-measure: PLAN_RECORD_KEY_sum {
-type:sum
-sql: ${PLAN_RECORD_KEY} ;;
- drill_fields: [detail*]
-}
-set: detail {
-fields: [PLAN_RECORD_KEY, PLAN_NAME, USED_FLAG, PLAN_DESCRIPTION, MARKET_TYPE, CURRENT_RECORD_FLAG, DELETED_RECORD_FLAG]
-}
-}
-
-
-view: MASTER_PLAN_TABLE_WDATES__82c06e91_c9b6_41d5_a170_96d278518204 {
+view: MASTER_PLAN_TABLE_WDATES__f858b21a_bf3a_4d8c_b440_a5b275f26754 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
 dimension: PLAN_ID {
  sql: ${TABLE}.PLAN_ID;;
@@ -319,5 +272,52 @@ sql: ${MER} ;;
 }
 set: detail {
 fields: [PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP]
+}
+}
+
+
+view: DIM_PLAN__c020d085_3194_4422_9d84_1cc145f6974b {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.DIM_PLAN ;;
+dimension: PLAN_RECORD_KEY {
+ sql: ${TABLE}.PLAN_RECORD_KEY;;
+}
+dimension: PLAN_ID {
+ sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+ sql: ${TABLE}.PLAN_NAME;;
+}
+dimension: USED_FLAG {
+ sql: ${TABLE}.USED_FLAG;;
+}
+dimension: PLAN_DESCRIPTION {
+ sql: ${TABLE}.PLAN_DESCRIPTION;;
+}
+dimension: MARKET_TYPE {
+ sql: ${TABLE}.MARKET_TYPE;;
+}
+dimension: CHANGE_DATE_START {
+ sql: ${TABLE}.CHANGE_DATE_START;;
+}
+dimension: CHANGE_DATE_END {
+ sql: ${TABLE}.CHANGE_DATE_END;;
+}
+dimension: CURRENT_RECORD_FLAG {
+ sql: ${TABLE}.CURRENT_RECORD_FLAG;;
+}
+dimension: DELETED_RECORD_FLAG {
+ sql: ${TABLE}.DELETED_RECORD_FLAG;;
+}
+measure: PLAN_RECORD_KEY_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: PLAN_RECORD_KEY_sum {
+type:sum
+sql: ${PLAN_RECORD_KEY} ;;
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [PLAN_RECORD_KEY, PLAN_NAME, USED_FLAG, PLAN_DESCRIPTION, MARKET_TYPE, CURRENT_RECORD_FLAG, DELETED_RECORD_FLAG]
 }
 }
