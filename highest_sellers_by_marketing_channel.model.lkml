@@ -2,39 +2,22 @@
 connection:"pmdevpresto"
 
 
-explore: CLOSED_DEALS__17d36ce3_dda0_4b54_89fc_f41f270e7827 {
+explore: CLOSED_DEALS__e68e7fe2_0abe_45b6_90f5_ba7a18b534b6 {
 
-join: olist_marketing_qualified_leads_dataset__b2e3f10b_d092_43d2_a13d_ffa928693a9d {
+join: olist_marketing_qualified_leads_dataset__7b0b00df_5572_4bc4_9ba8_7e1e900f88d2 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${olist_marketing_qualified_leads_dataset__b2e3f10b_d092_43d2_a13d_ffa928693a9d.col0} >= ${CLOSED_DEALS__17d36ce3_dda0_4b54_89fc_f41f270e7827.MQL_ID} ;;
+ sql_on: ${olist_marketing_qualified_leads_dataset__7b0b00df_5572_4bc4_9ba8_7e1e900f88d2.col0} >= ${CLOSED_DEALS__e68e7fe2_0abe_45b6_90f5_ba7a18b534b6.MQL_ID} ;;
 }
-join: OLIST_ORDER_ITEMS_DATASET__740b640b_4ac3_44ac_b21d_0e4936ab752f {
+join: OLIST_ORDER_ITEMS_DATASET__35585b0d_3125_4d8c_9bcf_afa8f27b75d3 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${CLOSED_DEALS__17d36ce3_dda0_4b54_89fc_f41f270e7827.SELLER_ID} <= ${OLIST_ORDER_ITEMS_DATASET__740b640b_4ac3_44ac_b21d_0e4936ab752f.SELLER_ID} ;;
+ sql_on: ${CLOSED_DEALS__e68e7fe2_0abe_45b6_90f5_ba7a18b534b6.SELLER_ID} <= ${OLIST_ORDER_ITEMS_DATASET__35585b0d_3125_4d8c_9bcf_afa8f27b75d3.SELLER_ID} ;;
 }
 }
 
 
-view: olist_marketing_qualified_leads_dataset__b2e3f10b_d092_43d2_a13d_ffa928693a9d {
-sql_table_name:hive.launch_s3.olist_marketing_qualified_leads_dataset ;;
-dimension: col0 {
- sql: ${TABLE}.col0;;
-}
-dimension: col1 {
- sql: ${TABLE}.col1;;
-}
-dimension: col2 {
- sql: ${TABLE}.col2;;
-}
-dimension: col3 {
- sql: ${TABLE}.col3;;
-}
-}
-
-
-view: OLIST_ORDER_ITEMS_DATASET__740b640b_4ac3_44ac_b21d_0e4936ab752f {
+view: OLIST_ORDER_ITEMS_DATASET__35585b0d_3125_4d8c_9bcf_afa8f27b75d3 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.OLIST_ORDER_ITEMS_DATASET ;;
 dimension: ORDER_ID {
  sql: ${TABLE}.ORDER_ID;;
@@ -90,7 +73,7 @@ fields: [ORDER_ID, ORDER_ITEM_ID, PRODUCT_ID, SELLER_ID, PRICE, FREIGHT_VALUE]
 }
 
 
-view: CLOSED_DEALS__17d36ce3_dda0_4b54_89fc_f41f270e7827 {
+view: CLOSED_DEALS__e68e7fe2_0abe_45b6_90f5_ba7a18b534b6 {
 sql_table_name:snowflake.PUBLIC.CLOSED_DEALS ;;
 dimension: MQL_ID {
  sql: ${TABLE}.MQL_ID;;
@@ -142,5 +125,22 @@ dimension: CITY {
 }
 dimension: STATE {
  sql: ${TABLE}.STATE;;
+}
+}
+
+
+view: olist_marketing_qualified_leads_dataset__7b0b00df_5572_4bc4_9ba8_7e1e900f88d2 {
+sql_table_name:hive.launch_s3.olist_marketing_qualified_leads_dataset ;;
+dimension: col0 {
+ sql: ${TABLE}.col0;;
+}
+dimension: col1 {
+ sql: ${TABLE}.col1;;
+}
+dimension: col2 {
+ sql: ${TABLE}.col2;;
+}
+dimension: col3 {
+ sql: ${TABLE}.col3;;
 }
 }
