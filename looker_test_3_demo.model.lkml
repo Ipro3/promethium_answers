@@ -214,76 +214,10 @@ dimension: CONV_ACTIVITY_BY_SAVE_AGENT {
 dimension: SAVE_OPPORTUNITY_ACTIVITY {
  sql: ${TABLE}.SAVE_OPPORTUNITY_ACTIVITY;;
 }
-measure: SBSCRN_ACTVTY_KEY_sum {
-type:sum
-sql: ${SBSCRN_ACTVTY_KEY} ;;
- drill_fields: [detail*]
-}
-measure: AGN_KEY_sum {
-type:sum
-sql: ${AGN_KEY} ;;
- drill_fields: [detail*]
-}
-measure: PARNT_ACCT_KEY_sum {
-type:sum
-sql: ${PARNT_ACCT_KEY} ;;
- drill_fields: [detail*]
-}
-measure: PARNT_ACCT_ID_sum {
-type:sum
-sql: ${PARNT_ACCT_ID} ;;
- drill_fields: [detail*]
-}
-measure: CHILD_ACCT_KEY_sum {
-type:sum
-sql: ${CHILD_ACCT_KEY} ;;
- drill_fields: [detail*]
-}
-measure: VEH_KEY_sum {
-type:sum
-sql: ${VEH_KEY} ;;
- drill_fields: [detail*]
-}
-measure: DVC_KEY_sum {
-type:sum
-sql: ${DVC_KEY} ;;
- drill_fields: [detail*]
-}
-measure: DVC_ID_sum {
-type:sum
-sql: ${DVC_ID} ;;
- drill_fields: [detail*]
-}
-measure: EQMNT_KEY_sum {
-type:sum
-sql: ${EQMNT_KEY} ;;
- drill_fields: [detail*]
-}
-measure: EQMNT_ID_sum {
-type:sum
-sql: ${EQMNT_ID} ;;
- drill_fields: [detail*]
-}
-measure: PLAN_KEY_sum {
-type:sum
-sql: ${PLAN_KEY} ;;
- drill_fields: [detail*]
-}
-measure: PLAN_ID_sum {
-type:sum
-sql: ${PLAN_ID} ;;
- drill_fields: [detail*]
-}
-measure: OFR_ID_sum {
-type:sum
-sql: ${OFR_ID} ;;
- drill_fields: [detail*]
-}
-measure: PROD_KEY_sum {
-type:sum
-sql: ${PROD_KEY} ;;
- drill_fields: [detail*]
-}
+
+
+
+
 measure: FEAT_ID_sum {
 type:sum
 sql: ${FEAT_ID} ;;
@@ -294,56 +228,7 @@ type:sum
 sql: ${AGN_KEY2} ;;
  drill_fields: [detail*]
 }
-measure: PTNR_ID_sum {
-type:sum
-sql: ${PTNR_ID} ;;
- drill_fields: [detail*]
-}
-measure: SBSCR_LIFCYC_KEY_sum {
-type:sum
-sql: ${SBSCR_LIFCYC_KEY} ;;
- drill_fields: [detail*]
-}
-measure: CONV_REP_OWN_SEGMT_KEY_sum {
-type:sum
-sql: ${CONV_REP_OWN_SEGMT_KEY} ;;
- drill_fields: [detail*]
-}
-measure: OWNR_TYPE2_KEY_sum {
-type:sum
-sql: ${OWNR_TYPE2_KEY} ;;
- drill_fields: [detail*]
-}
-measure: TRIAL_ID_sum {
-type:sum
-sql: ${TRIAL_ID} ;;
- drill_fields: [detail*]
-}
-measure: RENW_ID_sum {
-type:sum
-sql: ${RENW_ID} ;;
- drill_fields: [detail*]
-}
-measure: CALL_REASON_sum {
-type:sum
-sql: ${CALL_REASON} ;;
- drill_fields: [detail*]
-}
-measure: SAVE_ACTIVITY_sum {
-type:sum
-sql: ${SAVE_ACTIVITY} ;;
- drill_fields: [detail*]
-}
-measure: DEACT_ACTIVITY_BY_SAVE_AGENT_sum {
-type:sum
-sql: ${DEACT_ACTIVITY_BY_SAVE_AGENT} ;;
- drill_fields: [detail*]
-}
-measure: CONV_ACTIVITY_BY_SAVE_AGENT_sum {
-type:sum
-sql: ${CONV_ACTIVITY_BY_SAVE_AGENT} ;;
- drill_fields: [detail*]
-}
+
 measure: SAVE_OPPORTUNITY_ACTIVITY_sum {
 type:sum
 sql: ${SAVE_OPPORTUNITY_ACTIVITY} ;;
