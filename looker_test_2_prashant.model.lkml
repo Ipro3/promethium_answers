@@ -6,6 +6,7 @@ explore: ACCOUNT__9d660915_367c_4190_b796_f59991aa99ac {
 
 join: OPPORTUNITY__cbeff913_292f_457a_87c9_54746f9987fe {
  type: inner
+relationship: one_to_many
  sql_on: ${ACCOUNT__9d660915_367c_4190_b796_f59991aa99ac.ID} = ${OPPORTUNITY__cbeff913_292f_457a_87c9_54746f9987fe.ACCOUNTID} ;;
 }
 }
