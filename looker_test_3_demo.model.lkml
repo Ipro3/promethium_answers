@@ -5,12 +5,10 @@ connection:"pmdevpresto"
 explore: MASTER_PLAN_TABLE_WDATES__7a4c0770_68db_43aa_8b30_ce64a00c842b {
 
 join: FACT_SUBSCRIPTION_ACTIVITY__30a77929_3dd1_412b_8dee_c97ee028eef9 {
- type: inner
  relationship: many_to_one
  sql_on: ${MASTER_PLAN_TABLE_WDATES__7a4c0770_68db_43aa_8b30_ce64a00c842b.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__30a77929_3dd1_412b_8dee_c97ee028eef9.PLAN_ID} ;;
 }
 join: DIM_DEVICE__2a46a766_9bae_4ea7_8a17_53978254d0d0 {
- type: inner
  relationship: many_to_one
  sql_on: ${DIM_DEVICE__2a46a766_9bae_4ea7_8a17_53978254d0d0.SBSCRN_ACTVTY_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__30a77929_3dd1_412b_8dee_c97ee028eef9.SBSCRN_ACTVTY_KEY} ;;
 }
