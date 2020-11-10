@@ -10,7 +10,7 @@ join: FACT_SUBSCRIPTION_ACTIVITY__4e5189b9_a7f9_4bd0_8713_a9a84a0efb43 {
  sql_on: ${MASTER_PLAN_TABLE_WDATES__5cce60aa_97ea_4e80_9be2_08dc5cbe8835.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__4e5189b9_a7f9_4bd0_8713_a9a84a0efb43.PLAN_ID} ;;
 }
 join: DIM_PLAN__503707af_c3d4_4a1a_8305_b0065cad84e7 {
- type: right_outer
+ type: left_outer
  relationship: many_to_one
  sql_on: ${DIM_PLAN__503707af_c3d4_4a1a_8305_b0065cad84e7.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__4e5189b9_a7f9_4bd0_8713_a9a84a0efb43.PLAN_ID} ;;
 }
