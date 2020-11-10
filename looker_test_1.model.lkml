@@ -278,13 +278,17 @@ fields: [ID, MASTERRECORDID, NAME, TYPE, PARENTID, BILLINGSTREET, BILLINGCITY, B
 view: OPPORTUNITY__603aabce_9808_4d89_a70d_1e14d9f22c33 {
 sql_table_name:sforce.SFORCE.OPPORTUNITY ;;
 dimension: ID {
+  primary_key: yes
+  type: string
  sql: ${TABLE}.ID;;
 }
 dimension: ISDELETED {
  sql: ${TABLE}.ISDELETED;;
 }
 dimension: ACCOUNTID {
+  type: string
  sql: ${TABLE}.ACCOUNTID;;
+
 }
 dimension: RECORDTYPEID {
  sql: ${TABLE}.RECORDTYPEID;;
