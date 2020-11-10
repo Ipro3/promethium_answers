@@ -2,17 +2,17 @@
 connection:"pmdevpresto"
 
 
-explore: ACCOUNT__4ded606d_c12d_4701_981d_74f04b51d589 {
+explore: ACCOUNT__86d6b120_824c_4568_a526_d9c52977a1c4 {
 
-join: OPPORTUNITY__883bb726_8ffa_41d5_89c0_8352a93faba5 {
+join: OPPORTUNITY__603aabce_9808_4d89_a70d_1e14d9f22c33 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${ACCOUNT__4ded606d_c12d_4701_981d_74f04b51d589.ID} = ${OPPORTUNITY__883bb726_8ffa_41d5_89c0_8352a93faba5.ACCOUNTID} ;;
+ sql_on: ${ACCOUNT__86d6b120_824c_4568_a526_d9c52977a1c4.ID} = ${OPPORTUNITY__603aabce_9808_4d89_a70d_1e14d9f22c33.ACCOUNTID} ;;
 }
 }
 
 
-view: ACCOUNT__4ded606d_c12d_4701_981d_74f04b51d589 {
+view: ACCOUNT__86d6b120_824c_4568_a526_d9c52977a1c4 {
 sql_table_name:sforce.SFORCE.ACCOUNT ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
@@ -206,9 +206,17 @@ dimension: SLAEXPIRATIONDATE__C {
 dimension: SEGMENT__C {
  sql: ${TABLE}.SEGMENT__C;;
 }
+measure: BILLINGLATITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
 measure: BILLINGLATITUDE_sum {
 type:sum
 sql: ${BILLINGLATITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: BILLINGLONGITUDE_count {
+type:count
  drill_fields: [detail*]
 }
 measure: BILLINGLONGITUDE_sum {
@@ -216,9 +224,17 @@ type:sum
 sql: ${BILLINGLONGITUDE} ;;
  drill_fields: [detail*]
 }
+measure: SHIPPINGLATITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
 measure: SHIPPINGLATITUDE_sum {
 type:sum
 sql: ${SHIPPINGLATITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLONGITUDE_count {
+type:count
  drill_fields: [detail*]
 }
 measure: SHIPPINGLONGITUDE_sum {
@@ -226,9 +242,17 @@ type:sum
 sql: ${SHIPPINGLONGITUDE} ;;
  drill_fields: [detail*]
 }
+measure: ANNUALREVENUE_count {
+type:count
+ drill_fields: [detail*]
+}
 measure: ANNUALREVENUE_sum {
 type:sum
 sql: ${ANNUALREVENUE} ;;
+ drill_fields: [detail*]
+}
+measure: NUMBEROFEMPLOYEES_count {
+type:count
  drill_fields: [detail*]
 }
 measure: NUMBEROFEMPLOYEES_sum {
@@ -236,13 +260,13 @@ type:sum
 sql: ${NUMBEROFEMPLOYEES} ;;
  drill_fields: [detail*]
 }
+measure: NUMBEROFLOCATIONS__C_count {
+type:count
+ drill_fields: [detail*]
+}
 measure: NUMBEROFLOCATIONS__C_sum {
 type:sum
 sql: ${NUMBEROFLOCATIONS__C} ;;
- drill_fields: [detail*]
-}
-measure: all_count {
-type:count
  drill_fields: [detail*]
 }
 set: detail {
@@ -251,7 +275,7 @@ fields: [ID, MASTERRECORDID, NAME, TYPE, PARENTID, BILLINGSTREET, BILLINGCITY, B
 }
 
 
-view: OPPORTUNITY__883bb726_8ffa_41d5_89c0_8352a93faba5 {
+view: OPPORTUNITY__603aabce_9808_4d89_a70d_1e14d9f22c33 {
 sql_table_name:sforce.SFORCE.OPPORTUNITY ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
@@ -382,9 +406,17 @@ dimension: MAINCOMPETITORS__C {
 dimension: OPPORTUNITY_SOURCE__C {
  sql: ${TABLE}.OPPORTUNITY_SOURCE__C;;
 }
+measure: AMOUNT_count {
+type:count
+ drill_fields: [detail*]
+}
 measure: AMOUNT_sum {
 type:sum
 sql: ${AMOUNT} ;;
+ drill_fields: [detail*]
+}
+measure: PROBABILITY_count {
+type:count
  drill_fields: [detail*]
 }
 measure: PROBABILITY_sum {
@@ -392,9 +424,17 @@ type:sum
 sql: ${PROBABILITY} ;;
  drill_fields: [detail*]
 }
+measure: EXPECTEDREVENUE_count {
+type:count
+ drill_fields: [detail*]
+}
 measure: EXPECTEDREVENUE_sum {
 type:sum
 sql: ${EXPECTEDREVENUE} ;;
+ drill_fields: [detail*]
+}
+measure: TOTALOPPORTUNITYQUANTITY_count {
+type:count
  drill_fields: [detail*]
 }
 measure: TOTALOPPORTUNITYQUANTITY_sum {
@@ -402,18 +442,22 @@ type:sum
 sql: ${TOTALOPPORTUNITYQUANTITY} ;;
  drill_fields: [detail*]
 }
+measure: FISCALQUARTER_count {
+type:count
+ drill_fields: [detail*]
+}
 measure: FISCALQUARTER_sum {
 type:sum
 sql: ${FISCALQUARTER} ;;
  drill_fields: [detail*]
 }
+measure: FISCALYEAR_count {
+type:count
+ drill_fields: [detail*]
+}
 measure: FISCALYEAR_sum {
 type:sum
 sql: ${FISCALYEAR} ;;
- drill_fields: [detail*]
-}
-measure: all_count {
-type:count
  drill_fields: [detail*]
 }
 set: detail {
