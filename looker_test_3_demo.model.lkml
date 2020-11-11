@@ -19,6 +19,11 @@ join: DIM_DEVICE__b3ce9030_31b3_497e_831f_ed77a59deecb {
 
 view: FACT_SUBSCRIPTION_ACTIVITY__0c4375ae_9216_4c04_8f9a_1e85efdd3823 {
 sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
+  dimension: primary_key {
+    primary_key: yes
+    hidden: yes
+    sql: CONCAT(${AGN_KEY},'-',${PLAN_KEY}}) ;;
+  }
 dimension: SBSCRN_ACTVTY_KEY {
  sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
 }
