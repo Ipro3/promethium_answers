@@ -6,7 +6,7 @@ explore: ACCOUNT__b598bea7_8527_4304_8d38_31f33b1a4297 {
 
 join: OPPORTUNITY__e5a3103c_7e47_451d_ab42_69c4e1a804c1 {
  type: left_outer
- relationship: many_to_one
+ relationship: one_to_many
  sql_on: ${ACCOUNT__b598bea7_8527_4304_8d38_31f33b1a4297.ID} = ${OPPORTUNITY__e5a3103c_7e47_451d_ab42_69c4e1a804c1.ACCOUNTID} ;;
 }
 }
