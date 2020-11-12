@@ -16,6 +16,7 @@ view: OPPORTUNITY__367f1048_a1ea_4c65_9a8c_969c8f347f92 {
 sql_table_name:sforce.SFORCE.OPPORTUNITY ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
+ primary_key: yes
 }
 dimension: ISDELETED {
  sql: ${TABLE}.ISDELETED;;
