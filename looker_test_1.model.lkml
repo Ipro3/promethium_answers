@@ -2,17 +2,188 @@
 connection:"pmdevpresto"
 
 
-explore: ACCOUNT__86d6b120_824c_4568_a526_d9c52977a1c4 {
+explore: ACCOUNT__b598bea7_8527_4304_8d38_31f33b1a4297 {
 
-join: OPPORTUNITY__603aabce_9808_4d89_a70d_1e14d9f22c33 {
+join: OPPORTUNITY__e5a3103c_7e47_451d_ab42_69c4e1a804c1 {
  type: left_outer
- relationship: one_to_one
- sql_on: ${ACCOUNT__86d6b120_824c_4568_a526_d9c52977a1c4.ID} = ${OPPORTUNITY__603aabce_9808_4d89_a70d_1e14d9f22c33.ACCOUNTID} ;;
+ relationship: many_to_one
+ sql_on: ${ACCOUNT__b598bea7_8527_4304_8d38_31f33b1a4297.ID} = ${OPPORTUNITY__e5a3103c_7e47_451d_ab42_69c4e1a804c1.ACCOUNTID} ;;
 }
 }
 
 
-view: ACCOUNT__86d6b120_824c_4568_a526_d9c52977a1c4 {
+view: OPPORTUNITY__e5a3103c_7e47_451d_ab42_69c4e1a804c1 {
+sql_table_name:sforce.SFORCE.OPPORTUNITY ;;
+dimension: ID {
+ sql: ${TABLE}.ID;;
+}
+dimension: ISDELETED {
+ sql: ${TABLE}.ISDELETED;;
+}
+dimension: ACCOUNTID {
+ sql: ${TABLE}.ACCOUNTID;;
+}
+dimension: RECORDTYPEID {
+ sql: ${TABLE}.RECORDTYPEID;;
+}
+dimension: ISPRIVATE {
+ sql: ${TABLE}.ISPRIVATE;;
+}
+dimension: NAME {
+ sql: ${TABLE}.NAME;;
+}
+dimension: DESCRIPTION {
+ sql: ${TABLE}.DESCRIPTION;;
+}
+dimension: STAGENAME {
+ sql: ${TABLE}.STAGENAME;;
+}
+dimension: AMOUNT {
+ sql: ${TABLE}.AMOUNT;;
+}
+dimension: PROBABILITY {
+ sql: ${TABLE}.PROBABILITY;;
+}
+dimension: EXPECTEDREVENUE {
+ sql: ${TABLE}.EXPECTEDREVENUE;;
+}
+dimension: TOTALOPPORTUNITYQUANTITY {
+ sql: ${TABLE}.TOTALOPPORTUNITYQUANTITY;;
+}
+dimension: CLOSEDATE {
+ sql: ${TABLE}.CLOSEDATE;;
+}
+dimension: TYPE {
+ sql: ${TABLE}.TYPE;;
+}
+dimension: NEXTSTEP {
+ sql: ${TABLE}.NEXTSTEP;;
+}
+dimension: LEADSOURCE {
+ sql: ${TABLE}.LEADSOURCE;;
+}
+dimension: ISCLOSED {
+ sql: ${TABLE}.ISCLOSED;;
+}
+dimension: ISWON {
+ sql: ${TABLE}.ISWON;;
+}
+dimension: FORECASTCATEGORY {
+ sql: ${TABLE}.FORECASTCATEGORY;;
+}
+dimension: FORECASTCATEGORYNAME {
+ sql: ${TABLE}.FORECASTCATEGORYNAME;;
+}
+dimension: CAMPAIGNID {
+ sql: ${TABLE}.CAMPAIGNID;;
+}
+dimension: HASOPPORTUNITYLINEITEM {
+ sql: ${TABLE}.HASOPPORTUNITYLINEITEM;;
+}
+dimension: PRICEBOOK2ID {
+ sql: ${TABLE}.PRICEBOOK2ID;;
+}
+dimension: OWNERID {
+ sql: ${TABLE}.OWNERID;;
+}
+dimension: CREATEDDATE {
+ sql: ${TABLE}.CREATEDDATE;;
+}
+dimension: CREATEDBYID {
+ sql: ${TABLE}.CREATEDBYID;;
+}
+dimension: LASTMODIFIEDDATE {
+ sql: ${TABLE}.LASTMODIFIEDDATE;;
+}
+dimension: LASTMODIFIEDBYID {
+ sql: ${TABLE}.LASTMODIFIEDBYID;;
+}
+dimension: SYSTEMMODSTAMP {
+ sql: ${TABLE}.SYSTEMMODSTAMP;;
+}
+dimension: LASTACTIVITYDATE {
+ sql: ${TABLE}.LASTACTIVITYDATE;;
+}
+dimension: FISCALQUARTER {
+ sql: ${TABLE}.FISCALQUARTER;;
+}
+dimension: FISCALYEAR {
+ sql: ${TABLE}.FISCALYEAR;;
+}
+dimension: FISCAL {
+ sql: ${TABLE}.FISCAL;;
+}
+dimension: LASTVIEWEDDATE {
+ sql: ${TABLE}.LASTVIEWEDDATE;;
+}
+dimension: LASTREFERENCEDDATE {
+ sql: ${TABLE}.LASTREFERENCEDDATE;;
+}
+dimension: HASOPENACTIVITY {
+ sql: ${TABLE}.HASOPENACTIVITY;;
+}
+dimension: HASOVERDUETASK {
+ sql: ${TABLE}.HASOVERDUETASK;;
+}
+dimension: DELIVERYINSTALLATIONSTATUS__C {
+ sql: ${TABLE}.DELIVERYINSTALLATIONSTATUS__C;;
+}
+dimension: TRACKINGNUMBER__C {
+ sql: ${TABLE}.TRACKINGNUMBER__C;;
+}
+dimension: ORDERNUMBER__C {
+ sql: ${TABLE}.ORDERNUMBER__C;;
+}
+dimension: CURRENTGENERATORS__C {
+ sql: ${TABLE}.CURRENTGENERATORS__C;;
+}
+dimension: MAINCOMPETITORS__C {
+ sql: ${TABLE}.MAINCOMPETITORS__C;;
+}
+dimension: OPPORTUNITY_SOURCE__C {
+ sql: ${TABLE}.OPPORTUNITY_SOURCE__C;;
+}
+measure: AMOUNT_sum {
+type:sum
+sql: ${AMOUNT} ;;
+ drill_fields: [detail*]
+}
+measure: PROBABILITY_sum {
+type:sum
+sql: ${PROBABILITY} ;;
+ drill_fields: [detail*]
+}
+measure: EXPECTEDREVENUE_sum {
+type:sum
+sql: ${EXPECTEDREVENUE} ;;
+ drill_fields: [detail*]
+}
+measure: TOTALOPPORTUNITYQUANTITY_sum {
+type:sum
+sql: ${TOTALOPPORTUNITYQUANTITY} ;;
+ drill_fields: [detail*]
+}
+measure: FISCALQUARTER_sum {
+type:sum
+sql: ${FISCALQUARTER} ;;
+ drill_fields: [detail*]
+}
+measure: FISCALYEAR_sum {
+type:sum
+sql: ${FISCALYEAR} ;;
+ drill_fields: [detail*]
+}
+measure: count {
+type:count
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [ID, ISDELETED, ACCOUNTID, RECORDTYPEID, ISPRIVATE, NAME, DESCRIPTION, STAGENAME, AMOUNT, PROBABILITY, EXPECTEDREVENUE, TOTALOPPORTUNITYQUANTITY, CLOSEDATE, TYPE, NEXTSTEP, LEADSOURCE, ISCLOSED, ISWON, FORECASTCATEGORY, FORECASTCATEGORYNAME, CAMPAIGNID, HASOPPORTUNITYLINEITEM, PRICEBOOK2ID, OWNERID, CREATEDDATE, CREATEDBYID, LASTMODIFIEDDATE, LASTMODIFIEDBYID, SYSTEMMODSTAMP, LASTACTIVITYDATE, FISCALQUARTER, FISCALYEAR, FISCAL, LASTVIEWEDDATE, LASTREFERENCEDDATE, HASOPENACTIVITY, HASOVERDUETASK, DELIVERYINSTALLATIONSTATUS__C, TRACKINGNUMBER__C, ORDERNUMBER__C, CURRENTGENERATORS__C, MAINCOMPETITORS__C, OPPORTUNITY_SOURCE__C]
+}
+}
+
+
+view: ACCOUNT__b598bea7_8527_4304_8d38_31f33b1a4297 {
 sql_table_name:sforce.SFORCE.ACCOUNT ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
@@ -206,17 +377,9 @@ dimension: SLAEXPIRATIONDATE__C {
 dimension: SEGMENT__C {
  sql: ${TABLE}.SEGMENT__C;;
 }
-measure: BILLINGLATITUDE_count {
-type:count
- drill_fields: [detail*]
-}
 measure: BILLINGLATITUDE_sum {
 type:sum
 sql: ${BILLINGLATITUDE} ;;
- drill_fields: [detail*]
-}
-measure: BILLINGLONGITUDE_count {
-type:count
  drill_fields: [detail*]
 }
 measure: BILLINGLONGITUDE_sum {
@@ -224,17 +387,9 @@ type:sum
 sql: ${BILLINGLONGITUDE} ;;
  drill_fields: [detail*]
 }
-measure: SHIPPINGLATITUDE_count {
-type:count
- drill_fields: [detail*]
-}
 measure: SHIPPINGLATITUDE_sum {
 type:sum
 sql: ${SHIPPINGLATITUDE} ;;
- drill_fields: [detail*]
-}
-measure: SHIPPINGLONGITUDE_count {
-type:count
  drill_fields: [detail*]
 }
 measure: SHIPPINGLONGITUDE_sum {
@@ -242,17 +397,9 @@ type:sum
 sql: ${SHIPPINGLONGITUDE} ;;
  drill_fields: [detail*]
 }
-measure: ANNUALREVENUE_count {
-type:count
- drill_fields: [detail*]
-}
 measure: ANNUALREVENUE_sum {
 type:sum
 sql: ${ANNUALREVENUE} ;;
- drill_fields: [detail*]
-}
-measure: NUMBEROFEMPLOYEES_count {
-type:count
  drill_fields: [detail*]
 }
 measure: NUMBEROFEMPLOYEES_sum {
@@ -260,211 +407,16 @@ type:sum
 sql: ${NUMBEROFEMPLOYEES} ;;
  drill_fields: [detail*]
 }
-measure: NUMBEROFLOCATIONS__C_count {
-type:count
- drill_fields: [detail*]
-}
 measure: NUMBEROFLOCATIONS__C_sum {
 type:sum
 sql: ${NUMBEROFLOCATIONS__C} ;;
  drill_fields: [detail*]
 }
-set: detail {
-fields: [ID, MASTERRECORDID, NAME, TYPE, PARENTID, BILLINGSTREET, BILLINGCITY, BILLINGSTATE, BILLINGPOSTALCODE, BILLINGCOUNTRY, BILLINGLATITUDE, BILLINGLONGITUDE, BILLINGGEOCODEACCURACY, SHIPPINGSTREET, SHIPPINGCITY, SHIPPINGSTATE, SHIPPINGPOSTALCODE, SHIPPINGCOUNTRY, SHIPPINGLATITUDE, SHIPPINGLONGITUDE, SHIPPINGGEOCODEACCURACY, PHONE, FAX, ACCOUNTNUMBER, WEBSITE, PHOTOURL, SIC, INDUSTRY, ANNUALREVENUE, NUMBEROFEMPLOYEES, OWNERSHIP, TICKERSYMBOL, DESCRIPTION, RATING, SITE, OWNERID, CREATEDBYID, LASTMODIFIEDBYID, JIGSAW, JIGSAWCOMPANYID, CLEANSTATUS, ACCOUNTSOURCE, DUNSNUMBER, TRADESTYLE, NAICSCODE, NAICSDESC, YEARSTARTED, SICDESC, DANDBCOMPANYID, CUSTOMERPRIORITY__C, SLA__C, ACTIVE__C, NUMBEROFLOCATIONS__C, UPSELLOPPORTUNITY__C, SLASERIALNUMBER__C, SEGMENT__C]
-}
-}
-
-
-view: OPPORTUNITY__603aabce_9808_4d89_a70d_1e14d9f22c33 {
-sql_table_name:sforce.SFORCE.OPPORTUNITY ;;
-dimension: ID {
-  primary_key: yes
-  type: string
- sql: ${TABLE}.ID;;
-}
-dimension: ISDELETED {
- sql: ${TABLE}.ISDELETED;;
-}
-dimension: ACCOUNTID {
-  type: string
- sql: ${TABLE}.ACCOUNTID;;
-
-}
-dimension: RECORDTYPEID {
- sql: ${TABLE}.RECORDTYPEID;;
-}
-dimension: ISPRIVATE {
- sql: ${TABLE}.ISPRIVATE;;
-}
-dimension: NAME {
- sql: ${TABLE}.NAME;;
-}
-dimension: DESCRIPTION {
- sql: ${TABLE}.DESCRIPTION;;
-}
-dimension: STAGENAME {
- sql: ${TABLE}.STAGENAME;;
-}
-dimension: AMOUNT {
- sql: ${TABLE}.AMOUNT;;
-}
-dimension: PROBABILITY {
- sql: ${TABLE}.PROBABILITY;;
-}
-dimension: EXPECTEDREVENUE {
- sql: ${TABLE}.EXPECTEDREVENUE;;
-}
-dimension: TOTALOPPORTUNITYQUANTITY {
- sql: ${TABLE}.TOTALOPPORTUNITYQUANTITY;;
-}
-dimension: CLOSEDATE {
- sql: ${TABLE}.CLOSEDATE;;
-}
-dimension: TYPE {
- sql: ${TABLE}.TYPE;;
-}
-dimension: NEXTSTEP {
- sql: ${TABLE}.NEXTSTEP;;
-}
-dimension: LEADSOURCE {
- sql: ${TABLE}.LEADSOURCE;;
-}
-dimension: ISCLOSED {
- sql: ${TABLE}.ISCLOSED;;
-}
-dimension: ISWON {
- sql: ${TABLE}.ISWON;;
-}
-dimension: FORECASTCATEGORY {
- sql: ${TABLE}.FORECASTCATEGORY;;
-}
-dimension: FORECASTCATEGORYNAME {
- sql: ${TABLE}.FORECASTCATEGORYNAME;;
-}
-dimension: CAMPAIGNID {
- sql: ${TABLE}.CAMPAIGNID;;
-}
-dimension: HASOPPORTUNITYLINEITEM {
- sql: ${TABLE}.HASOPPORTUNITYLINEITEM;;
-}
-dimension: PRICEBOOK2ID {
- sql: ${TABLE}.PRICEBOOK2ID;;
-}
-dimension: OWNERID {
- sql: ${TABLE}.OWNERID;;
-}
-dimension: CREATEDDATE {
- sql: ${TABLE}.CREATEDDATE;;
-}
-dimension: CREATEDBYID {
- sql: ${TABLE}.CREATEDBYID;;
-}
-dimension: LASTMODIFIEDDATE {
- sql: ${TABLE}.LASTMODIFIEDDATE;;
-}
-dimension: LASTMODIFIEDBYID {
- sql: ${TABLE}.LASTMODIFIEDBYID;;
-}
-dimension: SYSTEMMODSTAMP {
- sql: ${TABLE}.SYSTEMMODSTAMP;;
-}
-dimension: LASTACTIVITYDATE {
- sql: ${TABLE}.LASTACTIVITYDATE;;
-}
-dimension: FISCALQUARTER {
- sql: ${TABLE}.FISCALQUARTER;;
-}
-dimension: FISCALYEAR {
- sql: ${TABLE}.FISCALYEAR;;
-}
-dimension: FISCAL {
- sql: ${TABLE}.FISCAL;;
-}
-dimension: LASTVIEWEDDATE {
- sql: ${TABLE}.LASTVIEWEDDATE;;
-}
-dimension: LASTREFERENCEDDATE {
- sql: ${TABLE}.LASTREFERENCEDDATE;;
-}
-dimension: HASOPENACTIVITY {
- sql: ${TABLE}.HASOPENACTIVITY;;
-}
-dimension: HASOVERDUETASK {
- sql: ${TABLE}.HASOVERDUETASK;;
-}
-dimension: DELIVERYINSTALLATIONSTATUS__C {
- sql: ${TABLE}.DELIVERYINSTALLATIONSTATUS__C;;
-}
-dimension: TRACKINGNUMBER__C {
- sql: ${TABLE}.TRACKINGNUMBER__C;;
-}
-dimension: ORDERNUMBER__C {
- sql: ${TABLE}.ORDERNUMBER__C;;
-}
-dimension: CURRENTGENERATORS__C {
- sql: ${TABLE}.CURRENTGENERATORS__C;;
-}
-dimension: MAINCOMPETITORS__C {
- sql: ${TABLE}.MAINCOMPETITORS__C;;
-}
-dimension: OPPORTUNITY_SOURCE__C {
- sql: ${TABLE}.OPPORTUNITY_SOURCE__C;;
-}
-measure: AMOUNT_count {
+measure: count {
 type:count
- drill_fields: [detail*]
-}
-measure: AMOUNT_sum {
-type:sum
-sql: ${AMOUNT} ;;
- drill_fields: [detail*]
-}
-measure: PROBABILITY_count {
-type:count
- drill_fields: [detail*]
-}
-measure: PROBABILITY_sum {
-type:sum
-sql: ${PROBABILITY} ;;
- drill_fields: [detail*]
-}
-measure: EXPECTEDREVENUE_count {
-type:count
- drill_fields: [detail*]
-}
-measure: EXPECTEDREVENUE_sum {
-type:sum
-sql: ${EXPECTEDREVENUE} ;;
- drill_fields: [detail*]
-}
-measure: TOTALOPPORTUNITYQUANTITY_count {
-type:count
- drill_fields: [detail*]
-}
-measure: TOTALOPPORTUNITYQUANTITY_sum {
-type:sum
-sql: ${TOTALOPPORTUNITYQUANTITY} ;;
- drill_fields: [detail*]
-}
-measure: FISCALQUARTER_count {
-type:count
- drill_fields: [detail*]
-}
-measure: FISCALQUARTER_sum {
-type:sum
-sql: ${FISCALQUARTER} ;;
- drill_fields: [detail*]
-}
-measure: FISCALYEAR_count {
-type:count
- drill_fields: [detail*]
-}
-measure: FISCALYEAR_sum {
-type:sum
-sql: ${FISCALYEAR} ;;
  drill_fields: [detail*]
 }
 set: detail {
-fields: [ID, ACCOUNTID, RECORDTYPEID, NAME, DESCRIPTION, STAGENAME, AMOUNT, PROBABILITY, EXPECTEDREVENUE, TOTALOPPORTUNITYQUANTITY, TYPE, NEXTSTEP, LEADSOURCE, FORECASTCATEGORY, FORECASTCATEGORYNAME, CAMPAIGNID, PRICEBOOK2ID, OWNERID, CREATEDBYID, LASTMODIFIEDBYID, FISCALQUARTER, FISCALYEAR, FISCAL, DELIVERYINSTALLATIONSTATUS__C, TRACKINGNUMBER__C, ORDERNUMBER__C, CURRENTGENERATORS__C, MAINCOMPETITORS__C, OPPORTUNITY_SOURCE__C]
+fields: [ID, ISDELETED, MASTERRECORDID, NAME, TYPE, PARENTID, BILLINGSTREET, BILLINGCITY, BILLINGSTATE, BILLINGPOSTALCODE, BILLINGCOUNTRY, BILLINGLATITUDE, BILLINGLONGITUDE, BILLINGGEOCODEACCURACY, SHIPPINGSTREET, SHIPPINGCITY, SHIPPINGSTATE, SHIPPINGPOSTALCODE, SHIPPINGCOUNTRY, SHIPPINGLATITUDE, SHIPPINGLONGITUDE, SHIPPINGGEOCODEACCURACY, PHONE, FAX, ACCOUNTNUMBER, WEBSITE, PHOTOURL, SIC, INDUSTRY, ANNUALREVENUE, NUMBEROFEMPLOYEES, OWNERSHIP, TICKERSYMBOL, DESCRIPTION, RATING, SITE, OWNERID, CREATEDDATE, CREATEDBYID, LASTMODIFIEDDATE, LASTMODIFIEDBYID, SYSTEMMODSTAMP, LASTACTIVITYDATE, LASTVIEWEDDATE, LASTREFERENCEDDATE, JIGSAW, JIGSAWCOMPANYID, CLEANSTATUS, ACCOUNTSOURCE, DUNSNUMBER, TRADESTYLE, NAICSCODE, NAICSDESC, YEARSTARTED, SICDESC, DANDBCOMPANYID, CUSTOMERPRIORITY__C, SLA__C, ACTIVE__C, NUMBEROFLOCATIONS__C, UPSELLOPPORTUNITY__C, SLASERIALNUMBER__C, SLAEXPIRATIONDATE__C, SEGMENT__C]
 }
 }
