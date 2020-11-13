@@ -51,7 +51,8 @@ fields: [REGION_CODE, REGION_NAME, US_STATE]
 
 view: COMBINED_CRIME_INCIDENTS__ebd70f8b_6df4_4d02_af2e_7c65118bed45 {
 sql_table_name:fred.FRED.COMBINED_CRIME_INCIDENTS ;;dimension: primary_key {
-  primary_key: yessql: CONCAT(${TABLE}.SERIES_ID, ${TABLE}.YEAR, ${TABLE}.SERIES_ID, ${TABLE}.YEAR) ;;
+  primary_key: yes
+  sql: CONCAT(${TABLE}.SERIES_ID, ${TABLE}.YEAR, ${TABLE}.SERIES_ID, ${TABLE}.YEAR) ;;
 dimension: SERIES_ID {
   sql: ${TABLE}.SERIES_ID;;
 }
