@@ -84,6 +84,7 @@ type:count
 set: detail {
 fields: [SERIES_ID, REGION_CODE, SERIES_VALUE, YEAR]
 }
+}
 
 
 
@@ -122,7 +123,7 @@ type:count
 set: detail {
 fields: [SERIES_ID, REGION_CODE, SERIES_VALUE, YEAR]
 }
-
+}
 
 
 view: CIVILIAN_LABOR_FORCE__7fef6b3b_c4a2_43a2_a05a_bf8ccf19925b {
