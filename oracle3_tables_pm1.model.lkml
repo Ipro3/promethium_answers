@@ -26,6 +26,7 @@ dimension: SBSCRN_ID {
  sql: ${TABLE}.SBSCRN_ID;;
 }
 dimension: AGN_KEY {
+  primary_key: yes
  sql: ${TABLE}.AGN_KEY;;
 }
 dimension: USED_ACTVTY_TYPE_ID {
