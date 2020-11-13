@@ -50,9 +50,11 @@ fields: [REGION_CODE, REGION_NAME, US_STATE]
 
 
 view: COMBINED_CRIME_INCIDENTS__ebd70f8b_6df4_4d02_af2e_7c65118bed45 {
-sql_table_name:fred.FRED.COMBINED_CRIME_INCIDENTS ;;dimension: primary_key {
+sql_table_name:fred.FRED.COMBINED_CRIME_INCIDENTS ;;
+dimension: primary_key {
   primary_key: yes
   sql: CONCAT(${TABLE}.SERIES_ID, ${TABLE}.YEAR, ${TABLE}.SERIES_ID, ${TABLE}.YEAR) ;;
+  }
 dimension: SERIES_ID {
   sql: ${TABLE}.SERIES_ID;;
 }
@@ -82,13 +84,15 @@ type:count
 set: detail {
 fields: [SERIES_ID, REGION_CODE, SERIES_VALUE, YEAR]
 }
-}
+
 
 
 view: BACHELOR_DEGREE_OR_HIGHER__9e7e5d83_79b9_4bce_b42f_669edd85ae0b {
-sql_table_name:fred.FRED.BACHELOR_DEGREE_OR_HIGHER ;;dimension: primary_key {
+sql_table_name:fred.FRED.BACHELOR_DEGREE_OR_HIGHER ;;
+dimension: primary_key {
   primary_key: yes
   sql: CONCAT(${TABLE}.SERIES_ID, ${TABLE}.YEAR, ${TABLE}.SERIES_ID, ${TABLE}.YEAR) ;;
+  }
 dimension: SERIES_ID {
   sql: ${TABLE}.SERIES_ID;;
 }
@@ -118,13 +122,16 @@ type:count
 set: detail {
 fields: [SERIES_ID, REGION_CODE, SERIES_VALUE, YEAR]
 }
-}
+
 
 
 view: CIVILIAN_LABOR_FORCE__7fef6b3b_c4a2_43a2_a05a_bf8ccf19925b {
-sql_table_name:fred.FRED.CIVILIAN_LABOR_FORCE ;;dimension: primary_key {
+sql_table_name:fred.FRED.CIVILIAN_LABOR_FORCE ;;
+
+dimension: primary_key {
   primary_key: yes
   sql: CONCAT(${TABLE}.SERIES_ID, ${TABLE}.YEAR, ${TABLE}.SERIES_ID, ${TABLE}.YEAR) ;;
+  }
 dimension: SERIES_ID {
   sql: ${TABLE}.SERIES_ID;;
 }
