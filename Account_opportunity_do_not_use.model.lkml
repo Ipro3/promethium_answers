@@ -2,17 +2,17 @@
 connection:"pmdevpresto"
 
 
-explore: ACCOUNT__2408cc62_1706_42ea_a2e3_45f1deee69fc {
+explore: ACCOUNT__1f17d087_87da_440d_8017_4cb8c29973da {
 
-join: OPPORTUNITY__f625d85d_18af_413f_b6a1_c94e3d4c617e {
+join: OPPORTUNITY__61546cd5_0812_4d57_ba11_1bcf0c72f898 {
  type: inner
  relationship: many_to_one
- sql_on: ${ACCOUNT__2408cc62_1706_42ea_a2e3_45f1deee69fc.ID} = ${OPPORTUNITY__f625d85d_18af_413f_b6a1_c94e3d4c617e.ACCOUNTID} ;;
+ sql_on: ${ACCOUNT__1f17d087_87da_440d_8017_4cb8c29973da.ID} = ${OPPORTUNITY__61546cd5_0812_4d57_ba11_1bcf0c72f898.ACCOUNTID} ;;
 }
 }
 
 
-view: ACCOUNT__2408cc62_1706_42ea_a2e3_45f1deee69fc {
+view: ACCOUNT__1f17d087_87da_440d_8017_4cb8c29973da {
 sql_table_name:sforce.SFORCE.ACCOUNT ;;
 dimension: ID {
   sql: ${TABLE}.ID;;
@@ -251,7 +251,7 @@ fields: [ID, ISDELETED, MASTERRECORDID, NAME, TYPE, PARENTID, BILLINGSTREET, BIL
 }
 
 
-view: OPPORTUNITY__f625d85d_18af_413f_b6a1_c94e3d4c617e {
+view: OPPORTUNITY__61546cd5_0812_4d57_ba11_1bcf0c72f898 {
 sql_table_name:sforce.SFORCE.OPPORTUNITY ;;
 dimension: ID {
   sql: ${TABLE}.ID;;
