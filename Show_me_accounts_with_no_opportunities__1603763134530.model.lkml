@@ -2,146 +2,146 @@
 connection:"pmdevpresto"
 
 
-explore: ACCOUNT__97549416_2aa7_4439_b1f5_0e23278e3642 {
+explore: ACCOUNT__da62ef3e_1b58_46f5_bbd8_16c324b23f76 {
 
-join: OPPORTUNITY__cc70bebd_27c5_46aa_b9f1_828e70f0a5ff {
+join: OPPORTUNITY__af7bd8f5_2353_4a88_b28b_9e67f1627430 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${ACCOUNT__97549416_2aa7_4439_b1f5_0e23278e3642.ID} = ${OPPORTUNITY__cc70bebd_27c5_46aa_b9f1_828e70f0a5ff.ACCOUNTID} ;;
+ sql_on: ${ACCOUNT__da62ef3e_1b58_46f5_bbd8_16c324b23f76.ID} = ${OPPORTUNITY__af7bd8f5_2353_4a88_b28b_9e67f1627430.ACCOUNTID} ;;
 }
 }
 
 
-view: OPPORTUNITY__cc70bebd_27c5_46aa_b9f1_828e70f0a5ff {
+view: OPPORTUNITY__af7bd8f5_2353_4a88_b28b_9e67f1627430 {
 sql_table_name:sforce.SFORCE.OPPORTUNITY ;;
 dimension: ID {
- sql: ${TABLE}.ID;;
+  sql: ${TABLE}.ID;;
 }
 dimension: ISDELETED {
- sql: ${TABLE}.ISDELETED;;
+  sql: ${TABLE}.ISDELETED;;
 }
 dimension: ACCOUNTID {
- sql: ${TABLE}.ACCOUNTID;;
+  sql: ${TABLE}.ACCOUNTID;;
 }
 dimension: RECORDTYPEID {
- sql: ${TABLE}.RECORDTYPEID;;
+  sql: ${TABLE}.RECORDTYPEID;;
 }
 dimension: ISPRIVATE {
- sql: ${TABLE}.ISPRIVATE;;
+  sql: ${TABLE}.ISPRIVATE;;
 }
 dimension: NAME {
- sql: ${TABLE}.NAME;;
+  sql: ${TABLE}.NAME;;
 }
 dimension: DESCRIPTION {
- sql: ${TABLE}.DESCRIPTION;;
+  sql: ${TABLE}.DESCRIPTION;;
 }
 dimension: STAGENAME {
- sql: ${TABLE}.STAGENAME;;
+  sql: ${TABLE}.STAGENAME;;
 }
 dimension: AMOUNT {
- sql: ${TABLE}.AMOUNT;;
+  sql: ${TABLE}.AMOUNT;;
 }
 dimension: PROBABILITY {
- sql: ${TABLE}.PROBABILITY;;
+  sql: ${TABLE}.PROBABILITY;;
 }
 dimension: EXPECTEDREVENUE {
- sql: ${TABLE}.EXPECTEDREVENUE;;
+  sql: ${TABLE}.EXPECTEDREVENUE;;
 }
 dimension: TOTALOPPORTUNITYQUANTITY {
- sql: ${TABLE}.TOTALOPPORTUNITYQUANTITY;;
+  sql: ${TABLE}.TOTALOPPORTUNITYQUANTITY;;
 }
 dimension: CLOSEDATE {
- sql: ${TABLE}.CLOSEDATE;;
+  sql: ${TABLE}.CLOSEDATE;;
 }
 dimension: TYPE {
- sql: ${TABLE}.TYPE;;
+  sql: ${TABLE}.TYPE;;
 }
 dimension: NEXTSTEP {
- sql: ${TABLE}.NEXTSTEP;;
+  sql: ${TABLE}.NEXTSTEP;;
 }
 dimension: LEADSOURCE {
- sql: ${TABLE}.LEADSOURCE;;
+  sql: ${TABLE}.LEADSOURCE;;
 }
 dimension: ISCLOSED {
- sql: ${TABLE}.ISCLOSED;;
+  sql: ${TABLE}.ISCLOSED;;
 }
 dimension: ISWON {
- sql: ${TABLE}.ISWON;;
+  sql: ${TABLE}.ISWON;;
 }
 dimension: FORECASTCATEGORY {
- sql: ${TABLE}.FORECASTCATEGORY;;
+  sql: ${TABLE}.FORECASTCATEGORY;;
 }
 dimension: FORECASTCATEGORYNAME {
- sql: ${TABLE}.FORECASTCATEGORYNAME;;
+  sql: ${TABLE}.FORECASTCATEGORYNAME;;
 }
 dimension: CAMPAIGNID {
- sql: ${TABLE}.CAMPAIGNID;;
+  sql: ${TABLE}.CAMPAIGNID;;
 }
 dimension: HASOPPORTUNITYLINEITEM {
- sql: ${TABLE}.HASOPPORTUNITYLINEITEM;;
+  sql: ${TABLE}.HASOPPORTUNITYLINEITEM;;
 }
 dimension: PRICEBOOK2ID {
- sql: ${TABLE}.PRICEBOOK2ID;;
+  sql: ${TABLE}.PRICEBOOK2ID;;
 }
 dimension: OWNERID {
- sql: ${TABLE}.OWNERID;;
+  sql: ${TABLE}.OWNERID;;
 }
 dimension: CREATEDDATE {
- sql: ${TABLE}.CREATEDDATE;;
+  sql: ${TABLE}.CREATEDDATE;;
 }
 dimension: CREATEDBYID {
- sql: ${TABLE}.CREATEDBYID;;
+  sql: ${TABLE}.CREATEDBYID;;
 }
 dimension: LASTMODIFIEDDATE {
- sql: ${TABLE}.LASTMODIFIEDDATE;;
+  sql: ${TABLE}.LASTMODIFIEDDATE;;
 }
 dimension: LASTMODIFIEDBYID {
- sql: ${TABLE}.LASTMODIFIEDBYID;;
+  sql: ${TABLE}.LASTMODIFIEDBYID;;
 }
 dimension: SYSTEMMODSTAMP {
- sql: ${TABLE}.SYSTEMMODSTAMP;;
+  sql: ${TABLE}.SYSTEMMODSTAMP;;
 }
 dimension: LASTACTIVITYDATE {
- sql: ${TABLE}.LASTACTIVITYDATE;;
+  sql: ${TABLE}.LASTACTIVITYDATE;;
 }
 dimension: FISCALQUARTER {
- sql: ${TABLE}.FISCALQUARTER;;
+  sql: ${TABLE}.FISCALQUARTER;;
 }
 dimension: FISCALYEAR {
- sql: ${TABLE}.FISCALYEAR;;
+  sql: ${TABLE}.FISCALYEAR;;
 }
 dimension: FISCAL {
- sql: ${TABLE}.FISCAL;;
+  sql: ${TABLE}.FISCAL;;
 }
 dimension: LASTVIEWEDDATE {
- sql: ${TABLE}.LASTVIEWEDDATE;;
+  sql: ${TABLE}.LASTVIEWEDDATE;;
 }
 dimension: LASTREFERENCEDDATE {
- sql: ${TABLE}.LASTREFERENCEDDATE;;
+  sql: ${TABLE}.LASTREFERENCEDDATE;;
 }
 dimension: HASOPENACTIVITY {
- sql: ${TABLE}.HASOPENACTIVITY;;
+  sql: ${TABLE}.HASOPENACTIVITY;;
 }
 dimension: HASOVERDUETASK {
- sql: ${TABLE}.HASOVERDUETASK;;
+  sql: ${TABLE}.HASOVERDUETASK;;
 }
 dimension: DELIVERYINSTALLATIONSTATUS__C {
- sql: ${TABLE}.DELIVERYINSTALLATIONSTATUS__C;;
+  sql: ${TABLE}.DELIVERYINSTALLATIONSTATUS__C;;
 }
 dimension: TRACKINGNUMBER__C {
- sql: ${TABLE}.TRACKINGNUMBER__C;;
+  sql: ${TABLE}.TRACKINGNUMBER__C;;
 }
 dimension: ORDERNUMBER__C {
- sql: ${TABLE}.ORDERNUMBER__C;;
+  sql: ${TABLE}.ORDERNUMBER__C;;
 }
 dimension: CURRENTGENERATORS__C {
- sql: ${TABLE}.CURRENTGENERATORS__C;;
+  sql: ${TABLE}.CURRENTGENERATORS__C;;
 }
 dimension: MAINCOMPETITORS__C {
- sql: ${TABLE}.MAINCOMPETITORS__C;;
+  sql: ${TABLE}.MAINCOMPETITORS__C;;
 }
 dimension: OPPORTUNITY_SOURCE__C {
- sql: ${TABLE}.OPPORTUNITY_SOURCE__C;;
+  sql: ${TABLE}.OPPORTUNITY_SOURCE__C;;
 }
 measure: AMOUNT_sum {
 type:sum
@@ -183,199 +183,199 @@ fields: [ID, ISDELETED, ACCOUNTID, RECORDTYPEID, ISPRIVATE, NAME, DESCRIPTION, S
 }
 
 
-view: ACCOUNT__97549416_2aa7_4439_b1f5_0e23278e3642 {
+view: ACCOUNT__da62ef3e_1b58_46f5_bbd8_16c324b23f76 {
 sql_table_name:sforce.SFORCE.ACCOUNT ;;
 dimension: ID {
- sql: ${TABLE}.ID;;
+  sql: ${TABLE}.ID;;
 }
 dimension: ISDELETED {
- sql: ${TABLE}.ISDELETED;;
+  sql: ${TABLE}.ISDELETED;;
 }
 dimension: MASTERRECORDID {
- sql: ${TABLE}.MASTERRECORDID;;
+  sql: ${TABLE}.MASTERRECORDID;;
 }
 dimension: NAME {
- sql: ${TABLE}.NAME;;
+  sql: ${TABLE}.NAME;;
 }
 dimension: TYPE {
- sql: ${TABLE}.TYPE;;
+  sql: ${TABLE}.TYPE;;
 }
 dimension: PARENTID {
- sql: ${TABLE}.PARENTID;;
+  sql: ${TABLE}.PARENTID;;
 }
 dimension: BILLINGSTREET {
- sql: ${TABLE}.BILLINGSTREET;;
+  sql: ${TABLE}.BILLINGSTREET;;
 }
 dimension: BILLINGCITY {
- sql: ${TABLE}.BILLINGCITY;;
+  sql: ${TABLE}.BILLINGCITY;;
 }
 dimension: BILLINGSTATE {
- sql: ${TABLE}.BILLINGSTATE;;
+  sql: ${TABLE}.BILLINGSTATE;;
 }
 dimension: BILLINGPOSTALCODE {
- sql: ${TABLE}.BILLINGPOSTALCODE;;
+  sql: ${TABLE}.BILLINGPOSTALCODE;;
 }
 dimension: BILLINGCOUNTRY {
- sql: ${TABLE}.BILLINGCOUNTRY;;
+  sql: ${TABLE}.BILLINGCOUNTRY;;
 }
 dimension: BILLINGLATITUDE {
- sql: ${TABLE}.BILLINGLATITUDE;;
+  sql: ${TABLE}.BILLINGLATITUDE;;
 }
 dimension: BILLINGLONGITUDE {
- sql: ${TABLE}.BILLINGLONGITUDE;;
+  sql: ${TABLE}.BILLINGLONGITUDE;;
 }
 dimension: BILLINGGEOCODEACCURACY {
- sql: ${TABLE}.BILLINGGEOCODEACCURACY;;
+  sql: ${TABLE}.BILLINGGEOCODEACCURACY;;
 }
 dimension: SHIPPINGSTREET {
- sql: ${TABLE}.SHIPPINGSTREET;;
+  sql: ${TABLE}.SHIPPINGSTREET;;
 }
 dimension: SHIPPINGCITY {
- sql: ${TABLE}.SHIPPINGCITY;;
+  sql: ${TABLE}.SHIPPINGCITY;;
 }
 dimension: SHIPPINGSTATE {
- sql: ${TABLE}.SHIPPINGSTATE;;
+  sql: ${TABLE}.SHIPPINGSTATE;;
 }
 dimension: SHIPPINGPOSTALCODE {
- sql: ${TABLE}.SHIPPINGPOSTALCODE;;
+  sql: ${TABLE}.SHIPPINGPOSTALCODE;;
 }
 dimension: SHIPPINGCOUNTRY {
- sql: ${TABLE}.SHIPPINGCOUNTRY;;
+  sql: ${TABLE}.SHIPPINGCOUNTRY;;
 }
 dimension: SHIPPINGLATITUDE {
- sql: ${TABLE}.SHIPPINGLATITUDE;;
+  sql: ${TABLE}.SHIPPINGLATITUDE;;
 }
 dimension: SHIPPINGLONGITUDE {
- sql: ${TABLE}.SHIPPINGLONGITUDE;;
+  sql: ${TABLE}.SHIPPINGLONGITUDE;;
 }
 dimension: SHIPPINGGEOCODEACCURACY {
- sql: ${TABLE}.SHIPPINGGEOCODEACCURACY;;
+  sql: ${TABLE}.SHIPPINGGEOCODEACCURACY;;
 }
 dimension: PHONE {
- sql: ${TABLE}.PHONE;;
+  sql: ${TABLE}.PHONE;;
 }
 dimension: FAX {
- sql: ${TABLE}.FAX;;
+  sql: ${TABLE}.FAX;;
 }
 dimension: ACCOUNTNUMBER {
- sql: ${TABLE}.ACCOUNTNUMBER;;
+  sql: ${TABLE}.ACCOUNTNUMBER;;
 }
 dimension: WEBSITE {
- sql: ${TABLE}.WEBSITE;;
+  sql: ${TABLE}.WEBSITE;;
 }
 dimension: PHOTOURL {
- sql: ${TABLE}.PHOTOURL;;
+  sql: ${TABLE}.PHOTOURL;;
 }
 dimension: SIC {
- sql: ${TABLE}.SIC;;
+  sql: ${TABLE}.SIC;;
 }
 dimension: INDUSTRY {
- sql: ${TABLE}.INDUSTRY;;
+  sql: ${TABLE}.INDUSTRY;;
 }
 dimension: ANNUALREVENUE {
- sql: ${TABLE}.ANNUALREVENUE;;
+  sql: ${TABLE}.ANNUALREVENUE;;
 }
 dimension: NUMBEROFEMPLOYEES {
- sql: ${TABLE}.NUMBEROFEMPLOYEES;;
+  sql: ${TABLE}.NUMBEROFEMPLOYEES;;
 }
 dimension: OWNERSHIP {
- sql: ${TABLE}.OWNERSHIP;;
+  sql: ${TABLE}.OWNERSHIP;;
 }
 dimension: TICKERSYMBOL {
- sql: ${TABLE}.TICKERSYMBOL;;
+  sql: ${TABLE}.TICKERSYMBOL;;
 }
 dimension: DESCRIPTION {
- sql: ${TABLE}.DESCRIPTION;;
+  sql: ${TABLE}.DESCRIPTION;;
 }
 dimension: RATING {
- sql: ${TABLE}.RATING;;
+  sql: ${TABLE}.RATING;;
 }
 dimension: SITE {
- sql: ${TABLE}.SITE;;
+  sql: ${TABLE}.SITE;;
 }
 dimension: OWNERID {
- sql: ${TABLE}.OWNERID;;
+  sql: ${TABLE}.OWNERID;;
 }
 dimension: CREATEDDATE {
- sql: ${TABLE}.CREATEDDATE;;
+  sql: ${TABLE}.CREATEDDATE;;
 }
 dimension: CREATEDBYID {
- sql: ${TABLE}.CREATEDBYID;;
+  sql: ${TABLE}.CREATEDBYID;;
 }
 dimension: LASTMODIFIEDDATE {
- sql: ${TABLE}.LASTMODIFIEDDATE;;
+  sql: ${TABLE}.LASTMODIFIEDDATE;;
 }
 dimension: LASTMODIFIEDBYID {
- sql: ${TABLE}.LASTMODIFIEDBYID;;
+  sql: ${TABLE}.LASTMODIFIEDBYID;;
 }
 dimension: SYSTEMMODSTAMP {
- sql: ${TABLE}.SYSTEMMODSTAMP;;
+  sql: ${TABLE}.SYSTEMMODSTAMP;;
 }
 dimension: LASTACTIVITYDATE {
- sql: ${TABLE}.LASTACTIVITYDATE;;
+  sql: ${TABLE}.LASTACTIVITYDATE;;
 }
 dimension: LASTVIEWEDDATE {
- sql: ${TABLE}.LASTVIEWEDDATE;;
+  sql: ${TABLE}.LASTVIEWEDDATE;;
 }
 dimension: LASTREFERENCEDDATE {
- sql: ${TABLE}.LASTREFERENCEDDATE;;
+  sql: ${TABLE}.LASTREFERENCEDDATE;;
 }
 dimension: JIGSAW {
- sql: ${TABLE}.JIGSAW;;
+  sql: ${TABLE}.JIGSAW;;
 }
 dimension: JIGSAWCOMPANYID {
- sql: ${TABLE}.JIGSAWCOMPANYID;;
+  sql: ${TABLE}.JIGSAWCOMPANYID;;
 }
 dimension: CLEANSTATUS {
- sql: ${TABLE}.CLEANSTATUS;;
+  sql: ${TABLE}.CLEANSTATUS;;
 }
 dimension: ACCOUNTSOURCE {
- sql: ${TABLE}.ACCOUNTSOURCE;;
+  sql: ${TABLE}.ACCOUNTSOURCE;;
 }
 dimension: DUNSNUMBER {
- sql: ${TABLE}.DUNSNUMBER;;
+  sql: ${TABLE}.DUNSNUMBER;;
 }
 dimension: TRADESTYLE {
- sql: ${TABLE}.TRADESTYLE;;
+  sql: ${TABLE}.TRADESTYLE;;
 }
 dimension: NAICSCODE {
- sql: ${TABLE}.NAICSCODE;;
+  sql: ${TABLE}.NAICSCODE;;
 }
 dimension: NAICSDESC {
- sql: ${TABLE}.NAICSDESC;;
+  sql: ${TABLE}.NAICSDESC;;
 }
 dimension: YEARSTARTED {
- sql: ${TABLE}.YEARSTARTED;;
+  sql: ${TABLE}.YEARSTARTED;;
 }
 dimension: SICDESC {
- sql: ${TABLE}.SICDESC;;
+  sql: ${TABLE}.SICDESC;;
 }
 dimension: DANDBCOMPANYID {
- sql: ${TABLE}.DANDBCOMPANYID;;
+  sql: ${TABLE}.DANDBCOMPANYID;;
 }
 dimension: CUSTOMERPRIORITY__C {
- sql: ${TABLE}.CUSTOMERPRIORITY__C;;
+  sql: ${TABLE}.CUSTOMERPRIORITY__C;;
 }
 dimension: SLA__C {
- sql: ${TABLE}.SLA__C;;
+  sql: ${TABLE}.SLA__C;;
 }
 dimension: ACTIVE__C {
- sql: ${TABLE}.ACTIVE__C;;
+  sql: ${TABLE}.ACTIVE__C;;
 }
 dimension: NUMBEROFLOCATIONS__C {
- sql: ${TABLE}.NUMBEROFLOCATIONS__C;;
+  sql: ${TABLE}.NUMBEROFLOCATIONS__C;;
 }
 dimension: UPSELLOPPORTUNITY__C {
- sql: ${TABLE}.UPSELLOPPORTUNITY__C;;
+  sql: ${TABLE}.UPSELLOPPORTUNITY__C;;
 }
 dimension: SLASERIALNUMBER__C {
- sql: ${TABLE}.SLASERIALNUMBER__C;;
+  sql: ${TABLE}.SLASERIALNUMBER__C;;
 }
 dimension: SLAEXPIRATIONDATE__C {
- sql: ${TABLE}.SLAEXPIRATIONDATE__C;;
+  sql: ${TABLE}.SLAEXPIRATIONDATE__C;;
 }
 dimension: SEGMENT__C {
- sql: ${TABLE}.SEGMENT__C;;
+  sql: ${TABLE}.SEGMENT__C;;
 }
 measure: BILLINGLATITUDE_sum {
 type:sum
