@@ -2,26 +2,26 @@
 connection:"pmdevpresto"
 
 
-explore: table1__c8ef6d2e_0eba_44bf_b98c_bb342af2c65c {
+explore: table1__b9456dfe_c899_49a1_a757_933bd2ecbb5d {
 
-join: table2__aa74231e_2db8_421f_ad75_c1b0251e4c33 {
+join: table2__16251487_4774_4b45_8e85_52ecd3cc0ad7 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${table1__c8ef6d2e_0eba_44bf_b98c_bb342af2c65c.f1} = ${table2__aa74231e_2db8_421f_ad75_c1b0251e4c33.f2} ;;
+ sql_on: ${table1__b9456dfe_c899_49a1_a757_933bd2ecbb5d.f1} = ${table2__16251487_4774_4b45_8e85_52ecd3cc0ad7.f2} ;;
 }
 }
 
 
-view: table2__aa74231e_2db8_421f_ad75_c1b0251e4c33 {
+view: table2__16251487_4774_4b45_8e85_52ecd3cc0ad7 {
 sql_table_name:catalog1.db1.table2 ;;
 dimension: f0 {
- sql: ${TABLE}.f0;;
+  sql: ${TABLE}.f0;;
 }
 dimension: f1 {
- sql: ${TABLE}.f1;;
+  sql: ${TABLE}.f1;;
 }
 dimension: f2 {
- sql: ${TABLE}.f2;;
+  sql: ${TABLE}.f2;;
 }
 measure: count {
 type:count
@@ -33,16 +33,17 @@ fields: [f0, f1, f2]
 }
 
 
-view: table1__c8ef6d2e_0eba_44bf_b98c_bb342af2c65c {
-sql_table_name:catalog1.db1.table1 ;;
+view: table1__b9456dfe_c899_49a1_a757_933bd2ecbb5d {
+sql_table_name:catalog1.db1.table1 ;;dimension: primary_key {
+  primary_key: yessql: CONCAT(${TABLE}.f1, ${TABLE}.f2, ${TABLE}.f3) ;;
 dimension: f0 {
- sql: ${TABLE}.f0;;
+  sql: ${TABLE}.f0;;
 }
 dimension: f1 {
- sql: ${TABLE}.f1;;
+  sql: ${TABLE}.f1;;
 }
 dimension: f2 {
- sql: ${TABLE}.f2;;
+  sql: ${TABLE}.f2;;
 }
 measure: count {
 type:count
