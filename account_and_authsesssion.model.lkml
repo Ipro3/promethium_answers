@@ -2,17 +2,17 @@
 connection:"presto-qa-1"
 
 
-explore: ACCOUNT__81ab8494_a3fb_46cd_bf9f_bcff0b9722a2 {
+explore: ACCOUNT__236f659c_6474_4139_b1c3_57e99745f1c4 {
 
-join: AUTHSESSION__d0ea5613_94e1_4471_8b91_3fa8d4f0f7e7 {
+join: AUTHSESSION__1ea2deb3_c289_4225_8e02_211f70c5cef1 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${ACCOUNT__81ab8494_a3fb_46cd_bf9f_bcff0b9722a2.MASTERRECORDID} > ${AUTHSESSION__d0ea5613_94e1_4471_8b91_3fa8d4f0f7e7.USERSID} ;;
+ sql_on: ${ACCOUNT__236f659c_6474_4139_b1c3_57e99745f1c4.MASTERRECORDID} > ${AUTHSESSION__1ea2deb3_c289_4225_8e02_211f70c5cef1.USERSID} ;;
 }
 }
 
 
-view: ACCOUNT__81ab8494_a3fb_46cd_bf9f_bcff0b9722a2 {
+view: ACCOUNT__236f659c_6474_4139_b1c3_57e99745f1c4 {
 sql_table_name:sforce.SFORCE.ACCOUNT ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
@@ -275,7 +275,7 @@ fields: [ID, MASTERRECORDID, NAME, TYPE, PARENTID, BILLINGSTREET, BILLINGCITY, B
 }
 
 
-view: AUTHSESSION__d0ea5613_94e1_4471_8b91_3fa8d4f0f7e7 {
+view: AUTHSESSION__1ea2deb3_c289_4225_8e02_211f70c5cef1 {
 sql_table_name:sforce.SFORCE.AUTHSESSION ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
