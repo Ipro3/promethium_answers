@@ -2,17 +2,17 @@
 connection:"presto-qa-1"
 
 
-explore: ORDER__39c2c45d_b483_4ed2_9be8_76f3b9caff9f {
+explore: ORDER__63e7bf41_75de_4467_8a4b_4ef8fd996cc8 {
 
-join: ORDER__f3633698_de0f_4f64_8595_974aca807fd6 {
+join: ORDER__6346dd5a_9503_43d4_bff8_ad9e63b00d96 {
  type: inner
  relationship: many_to_one
- sql_on: ${ORDER__39c2c45d_b483_4ed2_9be8_76f3b9caff9f.ID} > ${ORDER__f3633698_de0f_4f64_8595_974aca807fd6.ID} ;;
+ sql_on: ${ORDER__63e7bf41_75de_4467_8a4b_4ef8fd996cc8.OWNERID} = ${ORDER__6346dd5a_9503_43d4_bff8_ad9e63b00d96.CONTRACTID} ;;
 }
 }
 
 
-view: ORDER__f3633698_de0f_4f64_8595_974aca807fd6 {
+view: ORDER__63e7bf41_75de_4467_8a4b_4ef8fd996cc8 {
 sql_table_name:sforce.SFORCE.ORDER ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
@@ -218,7 +218,7 @@ fields: [ID, OWNERID, CONTRACTID, ACCOUNTID, PRICEBOOK2ID, ORIGINALORDERID, STAT
 }
 
 
-view: ORDER__39c2c45d_b483_4ed2_9be8_76f3b9caff9f {
+view: ORDER__6346dd5a_9503_43d4_bff8_ad9e63b00d96 {
 sql_table_name:sforce2.SFORCE.ORDER ;;
 dimension: ID {
  sql: ${TABLE}.ID;;
