@@ -1,0 +1,424 @@
+
+connection:"presto-qa-1"
+
+
+explore: ORDER__13d1cb6a_926e_4b59_bd7d_3093ff8cf5a3 {
+
+join: ORDER__6fd0390b_dbc9_4af6_bd8d_f924d55c8d83 {
+ type: inner
+ relationship: many_to_one
+ sql_on: ${ORDER__13d1cb6a_926e_4b59_bd7d_3093ff8cf5a3.ID} > ${ORDER__6fd0390b_dbc9_4af6_bd8d_f924d55c8d83.ID} ;;
+}
+}
+
+
+view: ORDER__6fd0390b_dbc9_4af6_bd8d_f924d55c8d83 {
+sql_table_name:sforce.SFORCE.ORDER ;;
+dimension: ID {
+ sql: ${TABLE}.ID;;
+}
+dimension: OWNERID {
+ sql: ${TABLE}.OWNERID;;
+}
+dimension: CONTRACTID {
+ sql: ${TABLE}.CONTRACTID;;
+}
+dimension: ACCOUNTID {
+ sql: ${TABLE}.ACCOUNTID;;
+}
+dimension: PRICEBOOK2ID {
+ sql: ${TABLE}.PRICEBOOK2ID;;
+}
+dimension: ORIGINALORDERID {
+ sql: ${TABLE}.ORIGINALORDERID;;
+}
+dimension: EFFECTIVEDATE {
+ sql: ${TABLE}.EFFECTIVEDATE;;
+}
+dimension: ENDDATE {
+ sql: ${TABLE}.ENDDATE;;
+}
+dimension: ISREDUCTIONORDER {
+ sql: ${TABLE}.ISREDUCTIONORDER;;
+}
+dimension: STATUS {
+ sql: ${TABLE}.STATUS;;
+}
+dimension: DESCRIPTION {
+ sql: ${TABLE}.DESCRIPTION;;
+}
+dimension: CUSTOMERAUTHORIZEDBYID {
+ sql: ${TABLE}.CUSTOMERAUTHORIZEDBYID;;
+}
+dimension: CUSTOMERAUTHORIZEDDATE {
+ sql: ${TABLE}.CUSTOMERAUTHORIZEDDATE;;
+}
+dimension: COMPANYAUTHORIZEDBYID {
+ sql: ${TABLE}.COMPANYAUTHORIZEDBYID;;
+}
+dimension: COMPANYAUTHORIZEDDATE {
+ sql: ${TABLE}.COMPANYAUTHORIZEDDATE;;
+}
+dimension: TYPE {
+ sql: ${TABLE}.TYPE;;
+}
+dimension: BILLINGSTREET {
+ sql: ${TABLE}.BILLINGSTREET;;
+}
+dimension: BILLINGCITY {
+ sql: ${TABLE}.BILLINGCITY;;
+}
+dimension: BILLINGSTATE {
+ sql: ${TABLE}.BILLINGSTATE;;
+}
+dimension: BILLINGPOSTALCODE {
+ sql: ${TABLE}.BILLINGPOSTALCODE;;
+}
+dimension: BILLINGCOUNTRY {
+ sql: ${TABLE}.BILLINGCOUNTRY;;
+}
+dimension: BILLINGLATITUDE {
+ sql: ${TABLE}.BILLINGLATITUDE;;
+}
+dimension: BILLINGLONGITUDE {
+ sql: ${TABLE}.BILLINGLONGITUDE;;
+}
+dimension: BILLINGGEOCODEACCURACY {
+ sql: ${TABLE}.BILLINGGEOCODEACCURACY;;
+}
+dimension: SHIPPINGSTREET {
+ sql: ${TABLE}.SHIPPINGSTREET;;
+}
+dimension: SHIPPINGCITY {
+ sql: ${TABLE}.SHIPPINGCITY;;
+}
+dimension: SHIPPINGSTATE {
+ sql: ${TABLE}.SHIPPINGSTATE;;
+}
+dimension: SHIPPINGPOSTALCODE {
+ sql: ${TABLE}.SHIPPINGPOSTALCODE;;
+}
+dimension: SHIPPINGCOUNTRY {
+ sql: ${TABLE}.SHIPPINGCOUNTRY;;
+}
+dimension: SHIPPINGLATITUDE {
+ sql: ${TABLE}.SHIPPINGLATITUDE;;
+}
+dimension: SHIPPINGLONGITUDE {
+ sql: ${TABLE}.SHIPPINGLONGITUDE;;
+}
+dimension: SHIPPINGGEOCODEACCURACY {
+ sql: ${TABLE}.SHIPPINGGEOCODEACCURACY;;
+}
+dimension: NAME {
+ sql: ${TABLE}.NAME;;
+}
+dimension: PODATE {
+ sql: ${TABLE}.PODATE;;
+}
+dimension: PONUMBER {
+ sql: ${TABLE}.PONUMBER;;
+}
+dimension: ORDERREFERENCENUMBER {
+ sql: ${TABLE}.ORDERREFERENCENUMBER;;
+}
+dimension: BILLTOCONTACTID {
+ sql: ${TABLE}.BILLTOCONTACTID;;
+}
+dimension: SHIPTOCONTACTID {
+ sql: ${TABLE}.SHIPTOCONTACTID;;
+}
+dimension: ACTIVATEDDATE {
+ sql: ${TABLE}.ACTIVATEDDATE;;
+}
+dimension: ACTIVATEDBYID {
+ sql: ${TABLE}.ACTIVATEDBYID;;
+}
+dimension: STATUSCODE {
+ sql: ${TABLE}.STATUSCODE;;
+}
+dimension: ORDERNUMBER {
+ sql: ${TABLE}.ORDERNUMBER;;
+}
+dimension: TOTALAMOUNT {
+ sql: ${TABLE}.TOTALAMOUNT;;
+}
+dimension: CREATEDDATE {
+ sql: ${TABLE}.CREATEDDATE;;
+}
+dimension: CREATEDBYID {
+ sql: ${TABLE}.CREATEDBYID;;
+}
+dimension: LASTMODIFIEDDATE {
+ sql: ${TABLE}.LASTMODIFIEDDATE;;
+}
+dimension: LASTMODIFIEDBYID {
+ sql: ${TABLE}.LASTMODIFIEDBYID;;
+}
+dimension: ISDELETED {
+ sql: ${TABLE}.ISDELETED;;
+}
+dimension: SYSTEMMODSTAMP {
+ sql: ${TABLE}.SYSTEMMODSTAMP;;
+}
+dimension: LASTVIEWEDDATE {
+ sql: ${TABLE}.LASTVIEWEDDATE;;
+}
+dimension: LASTREFERENCEDDATE {
+ sql: ${TABLE}.LASTREFERENCEDDATE;;
+}
+measure: BILLINGLATITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: BILLINGLATITUDE_sum {
+type:sum
+sql: ${BILLINGLATITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: BILLINGLONGITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: BILLINGLONGITUDE_sum {
+type:sum
+sql: ${BILLINGLONGITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLATITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLATITUDE_sum {
+type:sum
+sql: ${SHIPPINGLATITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLONGITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLONGITUDE_sum {
+type:sum
+sql: ${SHIPPINGLONGITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: TOTALAMOUNT_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: TOTALAMOUNT_sum {
+type:sum
+sql: ${TOTALAMOUNT} ;;
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [ID, OWNERID, CONTRACTID, ACCOUNTID, PRICEBOOK2ID, ORIGINALORDERID, STATUS, DESCRIPTION, CUSTOMERAUTHORIZEDBYID, COMPANYAUTHORIZEDBYID, TYPE, BILLINGSTREET, BILLINGCITY, BILLINGSTATE, BILLINGPOSTALCODE, BILLINGCOUNTRY, BILLINGLATITUDE, BILLINGLONGITUDE, BILLINGGEOCODEACCURACY, SHIPPINGSTREET, SHIPPINGCITY, SHIPPINGSTATE, SHIPPINGPOSTALCODE, SHIPPINGCOUNTRY, SHIPPINGLATITUDE, SHIPPINGLONGITUDE, SHIPPINGGEOCODEACCURACY, NAME, PONUMBER, ORDERREFERENCENUMBER, BILLTOCONTACTID, SHIPTOCONTACTID, ACTIVATEDBYID, STATUSCODE, ORDERNUMBER, TOTALAMOUNT, CREATEDBYID, LASTMODIFIEDBYID]
+}
+}
+
+
+view: ORDER__13d1cb6a_926e_4b59_bd7d_3093ff8cf5a3 {
+sql_table_name:sforce2.SFORCE.ORDER ;;
+dimension: ID {
+ sql: ${TABLE}.ID;;
+}
+dimension: OWNERID {
+ sql: ${TABLE}.OWNERID;;
+}
+dimension: CONTRACTID {
+ sql: ${TABLE}.CONTRACTID;;
+}
+dimension: ACCOUNTID {
+ sql: ${TABLE}.ACCOUNTID;;
+}
+dimension: PRICEBOOK2ID {
+ sql: ${TABLE}.PRICEBOOK2ID;;
+}
+dimension: ORIGINALORDERID {
+ sql: ${TABLE}.ORIGINALORDERID;;
+}
+dimension: EFFECTIVEDATE {
+ sql: ${TABLE}.EFFECTIVEDATE;;
+}
+dimension: ENDDATE {
+ sql: ${TABLE}.ENDDATE;;
+}
+dimension: ISREDUCTIONORDER {
+ sql: ${TABLE}.ISREDUCTIONORDER;;
+}
+dimension: STATUS {
+ sql: ${TABLE}.STATUS;;
+}
+dimension: DESCRIPTION {
+ sql: ${TABLE}.DESCRIPTION;;
+}
+dimension: CUSTOMERAUTHORIZEDBYID {
+ sql: ${TABLE}.CUSTOMERAUTHORIZEDBYID;;
+}
+dimension: CUSTOMERAUTHORIZEDDATE {
+ sql: ${TABLE}.CUSTOMERAUTHORIZEDDATE;;
+}
+dimension: COMPANYAUTHORIZEDBYID {
+ sql: ${TABLE}.COMPANYAUTHORIZEDBYID;;
+}
+dimension: COMPANYAUTHORIZEDDATE {
+ sql: ${TABLE}.COMPANYAUTHORIZEDDATE;;
+}
+dimension: TYPE {
+ sql: ${TABLE}.TYPE;;
+}
+dimension: BILLINGSTREET {
+ sql: ${TABLE}.BILLINGSTREET;;
+}
+dimension: BILLINGCITY {
+ sql: ${TABLE}.BILLINGCITY;;
+}
+dimension: BILLINGSTATE {
+ sql: ${TABLE}.BILLINGSTATE;;
+}
+dimension: BILLINGPOSTALCODE {
+ sql: ${TABLE}.BILLINGPOSTALCODE;;
+}
+dimension: BILLINGCOUNTRY {
+ sql: ${TABLE}.BILLINGCOUNTRY;;
+}
+dimension: BILLINGLATITUDE {
+ sql: ${TABLE}.BILLINGLATITUDE;;
+}
+dimension: BILLINGLONGITUDE {
+ sql: ${TABLE}.BILLINGLONGITUDE;;
+}
+dimension: BILLINGGEOCODEACCURACY {
+ sql: ${TABLE}.BILLINGGEOCODEACCURACY;;
+}
+dimension: SHIPPINGSTREET {
+ sql: ${TABLE}.SHIPPINGSTREET;;
+}
+dimension: SHIPPINGCITY {
+ sql: ${TABLE}.SHIPPINGCITY;;
+}
+dimension: SHIPPINGSTATE {
+ sql: ${TABLE}.SHIPPINGSTATE;;
+}
+dimension: SHIPPINGPOSTALCODE {
+ sql: ${TABLE}.SHIPPINGPOSTALCODE;;
+}
+dimension: SHIPPINGCOUNTRY {
+ sql: ${TABLE}.SHIPPINGCOUNTRY;;
+}
+dimension: SHIPPINGLATITUDE {
+ sql: ${TABLE}.SHIPPINGLATITUDE;;
+}
+dimension: SHIPPINGLONGITUDE {
+ sql: ${TABLE}.SHIPPINGLONGITUDE;;
+}
+dimension: SHIPPINGGEOCODEACCURACY {
+ sql: ${TABLE}.SHIPPINGGEOCODEACCURACY;;
+}
+dimension: NAME {
+ sql: ${TABLE}.NAME;;
+}
+dimension: PODATE {
+ sql: ${TABLE}.PODATE;;
+}
+dimension: PONUMBER {
+ sql: ${TABLE}.PONUMBER;;
+}
+dimension: ORDERREFERENCENUMBER {
+ sql: ${TABLE}.ORDERREFERENCENUMBER;;
+}
+dimension: BILLTOCONTACTID {
+ sql: ${TABLE}.BILLTOCONTACTID;;
+}
+dimension: SHIPTOCONTACTID {
+ sql: ${TABLE}.SHIPTOCONTACTID;;
+}
+dimension: ACTIVATEDDATE {
+ sql: ${TABLE}.ACTIVATEDDATE;;
+}
+dimension: ACTIVATEDBYID {
+ sql: ${TABLE}.ACTIVATEDBYID;;
+}
+dimension: STATUSCODE {
+ sql: ${TABLE}.STATUSCODE;;
+}
+dimension: ORDERNUMBER {
+ sql: ${TABLE}.ORDERNUMBER;;
+}
+dimension: TOTALAMOUNT {
+ sql: ${TABLE}.TOTALAMOUNT;;
+}
+dimension: CREATEDDATE {
+ sql: ${TABLE}.CREATEDDATE;;
+}
+dimension: CREATEDBYID {
+ sql: ${TABLE}.CREATEDBYID;;
+}
+dimension: LASTMODIFIEDDATE {
+ sql: ${TABLE}.LASTMODIFIEDDATE;;
+}
+dimension: LASTMODIFIEDBYID {
+ sql: ${TABLE}.LASTMODIFIEDBYID;;
+}
+dimension: ISDELETED {
+ sql: ${TABLE}.ISDELETED;;
+}
+dimension: SYSTEMMODSTAMP {
+ sql: ${TABLE}.SYSTEMMODSTAMP;;
+}
+dimension: LASTVIEWEDDATE {
+ sql: ${TABLE}.LASTVIEWEDDATE;;
+}
+dimension: LASTREFERENCEDDATE {
+ sql: ${TABLE}.LASTREFERENCEDDATE;;
+}
+measure: BILLINGLATITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: BILLINGLATITUDE_sum {
+type:sum
+sql: ${BILLINGLATITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: BILLINGLONGITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: BILLINGLONGITUDE_sum {
+type:sum
+sql: ${BILLINGLONGITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLATITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLATITUDE_sum {
+type:sum
+sql: ${SHIPPINGLATITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLONGITUDE_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: SHIPPINGLONGITUDE_sum {
+type:sum
+sql: ${SHIPPINGLONGITUDE} ;;
+ drill_fields: [detail*]
+}
+measure: TOTALAMOUNT_count {
+type:count
+ drill_fields: [detail*]
+}
+measure: TOTALAMOUNT_sum {
+type:sum
+sql: ${TOTALAMOUNT} ;;
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [ID, OWNERID, CONTRACTID, ACCOUNTID, PRICEBOOK2ID, ORIGINALORDERID, STATUS, DESCRIPTION, CUSTOMERAUTHORIZEDBYID, COMPANYAUTHORIZEDBYID, TYPE, BILLINGSTREET, BILLINGCITY, BILLINGSTATE, BILLINGPOSTALCODE, BILLINGCOUNTRY, BILLINGLATITUDE, BILLINGLONGITUDE, BILLINGGEOCODEACCURACY, SHIPPINGSTREET, SHIPPINGCITY, SHIPPINGSTATE, SHIPPINGPOSTALCODE, SHIPPINGCOUNTRY, SHIPPINGLATITUDE, SHIPPINGLONGITUDE, SHIPPINGGEOCODEACCURACY, NAME, PONUMBER, ORDERREFERENCENUMBER, BILLTOCONTACTID, SHIPTOCONTACTID, ACTIVATEDBYID, STATUSCODE, ORDERNUMBER, TOTALAMOUNT, CREATEDBYID, LASTMODIFIEDBYID]
+}
+}
