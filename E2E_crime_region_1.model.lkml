@@ -2,17 +2,17 @@
 connection:"pmdevpresto"
 
 
-explore: US_REGIONS__666608a0_3b97_4ba3_9621_cc6c0cc76906 {
+explore: US_REGIONS__059b3dd2_d4eb_4e30_994f_f413fbf715b0 {
 
-join: COMBINED_CRIME_INCIDENTS__196cc03b_9d87_4fb8_b28a_d5f99c59daab {
+join: COMBINED_CRIME_INCIDENTS__f3d080d9_f76a_4121_a798_ca3c4768ce30 {
  type: inner
  relationship: many_to_one
- sql_on: ${US_REGIONS__666608a0_3b97_4ba3_9621_cc6c0cc76906.REGION_CODE} = ${COMBINED_CRIME_INCIDENTS__196cc03b_9d87_4fb8_b28a_d5f99c59daab.REGION_CODE} ;;
+ sql_on: ${US_REGIONS__059b3dd2_d4eb_4e30_994f_f413fbf715b0.REGION_CODE} = ${COMBINED_CRIME_INCIDENTS__f3d080d9_f76a_4121_a798_ca3c4768ce30.REGION_CODE} ;;
 }
 }
 
 
-view: COMBINED_CRIME_INCIDENTS__196cc03b_9d87_4fb8_b28a_d5f99c59daab {
+view: COMBINED_CRIME_INCIDENTS__f3d080d9_f76a_4121_a798_ca3c4768ce30 {
 sql_table_name:fred.FRED.COMBINED_CRIME_INCIDENTS ;;
   dimension: primary_key {
   primary_key: yes
@@ -50,7 +50,7 @@ fields: [SERIES_ID, REGION_CODE, SERIES_VALUE, YEAR]
 }
 
 
-view: US_REGIONS__666608a0_3b97_4ba3_9621_cc6c0cc76906 {
+view: US_REGIONS__059b3dd2_d4eb_4e30_994f_f413fbf715b0 {
 sql_table_name:fred.FRED.US_REGIONS ;;
 dimension: REGION_CODE {
   primary_key: yes
