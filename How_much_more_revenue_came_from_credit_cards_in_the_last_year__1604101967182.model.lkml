@@ -2,16 +2,52 @@
 connection:"testprod-2"
 
 
-explore: MASTER_PLAN_TABLE_WDATES__d0c63057_43fe_433c_a76e_e18cec67af70 {
+explore: MASTER_PLAN_TABLE_WDATES__904df22f_e1be_4cbd_9ad0_8137f9ed5397 {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__3b466893_6970_4c51_93ed_1464e405ccdd {
+join: FACT_SUBSCRIPTION_ACTIVITY__10cd6ccf_3017_4b97_a2f8_05cd9baf7ea0 {
  relationship: one_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__d0c63057_43fe_433c_a76e_e18cec67af70.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__3b466893_6970_4c51_93ed_1464e405ccdd.PLAN_ID} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__904df22f_e1be_4cbd_9ad0_8137f9ed5397.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__10cd6ccf_3017_4b97_a2f8_05cd9baf7ea0.PLAN_ID} ;;
 }
 }
 
 
-view: FACT_SUBSCRIPTION_ACTIVITY__3b466893_6970_4c51_93ed_1464e405ccdd {
+view: MASTER_PLAN_TABLE_WDATES__904df22f_e1be_4cbd_9ad0_8137f9ed5397 {
+sql_table_name:oracle.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
+dimension: PLAN_ID {
+ sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+ sql: ${TABLE}.PLAN_NAME;;
+}
+measure: MER {
+type:count_distinct
+ sql: ${TABLE}.MER;;
+}
+dimension: DISC {
+ sql: ${TABLE}.DISC;;
+}
+dimension: PACKAGE {
+ sql: ${TABLE}.PACKAGE;;
+}
+dimension: LEN {
+ sql: ${TABLE}.LEN;;
+}
+dimension: ROLLUP1 {
+ sql: ${TABLE}.ROLLUP1;;
+}
+dimension: ASP {
+ sql: ${TABLE}.ASP;;
+}
+dimension: STARTDATE {
+ sql: ${TABLE}.STARTDATE;;
+}
+dimension: ENDDATE {
+ sql: ${TABLE}.ENDDATE;;
+}
+}
+
+
+view: FACT_SUBSCRIPTION_ACTIVITY__10cd6ccf_3017_4b97_a2f8_05cd9baf7ea0 {
 sql_table_name:oracle.RDSORACLEFORPRESTO.FACT_SUBSCRIPTION_ACTIVITY ;;
 measure: SBSCRN_ACTVTY_KEY {
 type:count_distinct
@@ -233,41 +269,5 @@ type:count_distinct
 measure: SAVE_OPPORTUNITY_ACTIVITY {
 type:count_distinct
  sql: ${TABLE}.SAVE_OPPORTUNITY_ACTIVITY;;
-}
-}
-
-
-view: MASTER_PLAN_TABLE_WDATES__d0c63057_43fe_433c_a76e_e18cec67af70 {
-sql_table_name:oracle.RDSORACLEFORPRESTO.MASTER_PLAN_TABLE_WDATES ;;
-dimension: PLAN_ID {
- sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
- sql: ${TABLE}.PLAN_NAME;;
-}
-measure: MER {
-type:count_distinct
- sql: ${TABLE}.MER;;
-}
-dimension: DISC {
- sql: ${TABLE}.DISC;;
-}
-dimension: PACKAGE {
- sql: ${TABLE}.PACKAGE;;
-}
-dimension: LEN {
- sql: ${TABLE}.LEN;;
-}
-dimension: ROLLUP1 {
- sql: ${TABLE}.ROLLUP1;;
-}
-dimension: ASP {
- sql: ${TABLE}.ASP;;
-}
-dimension: STARTDATE {
- sql: ${TABLE}.STARTDATE;;
-}
-dimension: ENDDATE {
- sql: ${TABLE}.ENDDATE;;
 }
 }
