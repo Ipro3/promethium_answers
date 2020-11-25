@@ -2,22 +2,22 @@
 connection:"pmdevpresto"
 
 
-explore: FACT_SUBSCRIPTION_ACTIVITY__f449ccdb_78ac_4578_9e41_92b0992703c2 {
+explore: FACT_SUBSCRIPTION_ACTIVITY__28524e4d_10dd_4a64_8288_d8f1ff4118ee {
 
-join: DIM_DEVICE__b34e4a93_5156_4a52_9c29_34460ce009b9 {
- type: right_outer
+join: DIM_DEVICE__0476a83a_481c_4d37_9d16_9e8e7986132e {
+ type: inner
  relationship: many_to_one
- sql_on: ${DIM_DEVICE__b34e4a93_5156_4a52_9c29_34460ce009b9.DEVICE_RECORD_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__f449ccdb_78ac_4578_9e41_92b0992703c2.DVC_KEY} ;;
+ sql_on: ${DIM_DEVICE__0476a83a_481c_4d37_9d16_9e8e7986132e.DEVICE_RECORD_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__28524e4d_10dd_4a64_8288_d8f1ff4118ee.DVC_KEY} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__3a5e9391_c5b8_4270_848f_c3556427cf13 {
- type: right_outer
+join: MASTER_PLAN_TABLE_WDATES__3644e44c_72c3_4a0d_b93a_0bad092677ba {
+ type: inner
  relationship: many_to_one
- sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__f449ccdb_78ac_4578_9e41_92b0992703c2.PLAN_ID} = ${MASTER_PLAN_TABLE_WDATES__3a5e9391_c5b8_4270_848f_c3556427cf13.PLAN_ID} ;;
+ sql_on: ${FACT_SUBSCRIPTION_ACTIVITY__28524e4d_10dd_4a64_8288_d8f1ff4118ee.PLAN_ID} = ${MASTER_PLAN_TABLE_WDATES__3644e44c_72c3_4a0d_b93a_0bad092677ba.PLAN_ID} ;;
 }
 }
 
 
-view: FACT_SUBSCRIPTION_ACTIVITY__f449ccdb_78ac_4578_9e41_92b0992703c2 {
+view: FACT_SUBSCRIPTION_ACTIVITY__28524e4d_10dd_4a64_8288_d8f1ff4118ee {
 sql_table_name:snowflake.SCHEMA_INFO.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
   sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
@@ -374,7 +374,59 @@ fields: [SBSCRN_ACTVTY_KEY, SBSCRN_ID, ACTVTY_TYPE_ID, USED_ACTVTY_TYPE_ID, ACTV
 }
 
 
-view: DIM_DEVICE__b34e4a93_5156_4a52_9c29_34460ce009b9 {
+view: MASTER_PLAN_TABLE_WDATES__3644e44c_72c3_4a0d_b93a_0bad092677ba {
+sql_table_name:snowflake.SCHEMA_INFO.MASTER_PLAN_TABLE_WDATES ;;
+dimension: PLAN_ID {
+  sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+  sql: ${TABLE}.PLAN_NAME;;
+}
+dimension: MER {
+  sql: ${TABLE}.MER;;
+}
+dimension: DISC {
+  sql: ${TABLE}.DISC;;
+}
+dimension: PACKAGE {
+  sql: ${TABLE}.PACKAGE;;
+}
+dimension: LEN {
+  sql: ${TABLE}.LEN;;
+}
+dimension: ROLLUP1 {
+  sql: ${TABLE}.ROLLUP1;;
+}
+dimension: ASP {
+  sql: ${TABLE}.ASP;;
+}
+dimension: STARTDATE {
+  sql: ${TABLE}.STARTDATE;;
+}
+dimension: ENDDATE {
+  sql: ${TABLE}.ENDDATE;;
+}
+measure: PLAN_ID_sum {
+type:sum
+sql: ${PLAN_ID} ;;
+ drill_fields: [detail*]
+}
+measure: MER_sum {
+type:sum
+sql: ${MER} ;;
+ drill_fields: [detail*]
+}
+measure: count {
+type:count
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [PLAN_ID, PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP, STARTDATE, ENDDATE]
+}
+}
+
+
+view: DIM_DEVICE__0476a83a_481c_4d37_9d16_9e8e7986132e {
 sql_table_name:snowflake.SCHEMA_INFO.DIM_DEVICE ;;
 dimension: DEVICE_RECORD_KEY {
   sql: ${TABLE}.DEVICE_RECORD_KEY;;
@@ -496,57 +548,5 @@ type:count
 }
 set: detail {
 fields: [DEVICE_RECORD_KEY, DEVICE_ID, CHANGE_DATE_START, CHANGE_DATE_END, DELIVERY_METHOD, BRAND, PSN, PARTNER_ID, SECONDARY_PARTNER_ID, VIN, VEHICLE_ID, EQUIPMENT_KEY, EQUIPMENT_ID, CAPABILITY_ID, PRIMARY_DEALER_ID, SECONDARY_DEALER_ID, X65_FLAG, VIN_ROOT, CURRENT_RECORD_FLAG, DELETED_RECORD_FLAG, ENTERTAINMENT_SYSTEM_CODE, VEHICLE_CAPABILITY_ID, SBSCRN_ACTVTY_KEY]
-}
-}
-
-
-view: MASTER_PLAN_TABLE_WDATES__3a5e9391_c5b8_4270_848f_c3556427cf13 {
-sql_table_name:snowflake.SCHEMA_INFO.MASTER_PLAN_TABLE_WDATES ;;
-dimension: PLAN_ID {
-  sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
-  sql: ${TABLE}.PLAN_NAME;;
-}
-dimension: MER {
-  sql: ${TABLE}.MER;;
-}
-dimension: DISC {
-  sql: ${TABLE}.DISC;;
-}
-dimension: PACKAGE {
-  sql: ${TABLE}.PACKAGE;;
-}
-dimension: LEN {
-  sql: ${TABLE}.LEN;;
-}
-dimension: ROLLUP1 {
-  sql: ${TABLE}.ROLLUP1;;
-}
-dimension: ASP {
-  sql: ${TABLE}.ASP;;
-}
-dimension: STARTDATE {
-  sql: ${TABLE}.STARTDATE;;
-}
-dimension: ENDDATE {
-  sql: ${TABLE}.ENDDATE;;
-}
-measure: PLAN_ID_sum {
-type:sum
-sql: ${PLAN_ID} ;;
- drill_fields: [detail*]
-}
-measure: MER_sum {
-type:sum
-sql: ${MER} ;;
- drill_fields: [detail*]
-}
-measure: count {
-type:count
- drill_fields: [detail*]
-}
-set: detail {
-fields: [PLAN_ID, PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP, STARTDATE, ENDDATE]
 }
 }
