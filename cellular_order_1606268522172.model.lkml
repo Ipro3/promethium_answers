@@ -1,0 +1,151 @@
+
+connection:"testprod-2"
+
+
+explore: OLIST_ORDERS_DATASET__a60e04bd_3d0d_4f15_b58c_fe00762bc15a {
+
+join: OLIST_ORDER_REVIEWS_DATASET__1425f7f0_2dbd_4606_b8d8_d2c5398419f6 {
+ relationship: one_to_one
+ sql_on: ${OLIST_ORDERS_DATASET__a60e04bd_3d0d_4f15_b58c_fe00762bc15a.ORDER_ID} = ${OLIST_ORDER_REVIEWS_DATASET__1425f7f0_2dbd_4606_b8d8_d2c5398419f6.ORDER_ID} ;;
+}
+join: OLIST_CUSTOMERS_DATASET__87e87480_eb08_429d_a21c_69dd88c33e22 {
+ relationship: one_to_one
+ sql_on: ${OLIST_ORDERS_DATASET__a60e04bd_3d0d_4f15_b58c_fe00762bc15a.CUSTOMER_ID} = ${OLIST_CUSTOMERS_DATASET__87e87480_eb08_429d_a21c_69dd88c33e22.CUSTOMER_ID} ;;
+}
+join: OLIST_ORDER_PAYMENTS_DATASET__2e9746eb_395b_4388_825c_47e355a575bc {
+ relationship: one_to_one
+ sql_on: ${OLIST_ORDERS_DATASET__a60e04bd_3d0d_4f15_b58c_fe00762bc15a.ORDER_ID} = ${OLIST_ORDER_PAYMENTS_DATASET__2e9746eb_395b_4388_825c_47e355a575bc.ORDER_ID} ;;
+}
+join: OLIST_ORDER_ITEMS_DATASET__9ec018ec_42f5_42c5_8367_a58d254496b1 {
+ relationship: one_to_one
+ sql_on: ${OLIST_ORDERS_DATASET__a60e04bd_3d0d_4f15_b58c_fe00762bc15a.ORDER_ID} = ${OLIST_ORDER_ITEMS_DATASET__9ec018ec_42f5_42c5_8367_a58d254496b1.ORDER_ID} ;;
+}
+}
+
+
+view: OLIST_ORDER_ITEMS_DATASET__9ec018ec_42f5_42c5_8367_a58d254496b1 {
+sql_table_name:oracle.RDSORACLEFORPRESTO.OLIST_ORDER_ITEMS_DATASET ;;
+dimension: ORDER_ID {
+ sql: ${TABLE}.ORDER_ID;;
+}
+measure: ORDER_ITEM_ID {
+type:count_distinct
+ sql: ${TABLE}.ORDER_ITEM_ID;;
+}
+dimension: PRODUCT_ID {
+ sql: ${TABLE}.PRODUCT_ID;;
+}
+dimension: SELLER_ID {
+ sql: ${TABLE}.SELLER_ID;;
+}
+dimension: SHIPPING_LIMIT_DATE {
+ sql: ${TABLE}.SHIPPING_LIMIT_DATE;;
+}
+measure: PRICE {
+type:count_distinct
+ sql: ${TABLE}.PRICE;;
+}
+measure: FREIGHT_VALUE {
+type:count_distinct
+ sql: ${TABLE}.FREIGHT_VALUE;;
+}
+}
+
+
+view: OLIST_ORDERS_DATASET__a60e04bd_3d0d_4f15_b58c_fe00762bc15a {
+sql_table_name:oracle.RDSORACLEFORPRESTO.OLIST_ORDERS_DATASET ;;
+dimension: ORDER_ID {
+ sql: ${TABLE}.ORDER_ID;;
+}
+dimension: CUSTOMER_ID {
+ sql: ${TABLE}.CUSTOMER_ID;;
+}
+dimension: ORDER_STATUS {
+ sql: ${TABLE}.ORDER_STATUS;;
+}
+dimension: ORDER_PURCHASE_TIMESTAMP {
+ sql: ${TABLE}.ORDER_PURCHASE_TIMESTAMP;;
+}
+dimension: ORDER_APPROVED_AT {
+ sql: ${TABLE}.ORDER_APPROVED_AT;;
+}
+dimension: ORDER_DELIVERED_CARRIER_DATE {
+ sql: ${TABLE}.ORDER_DELIVERED_CARRIER_DATE;;
+}
+dimension: ORDER_DELIVERED_CUSTOMER_DATE {
+ sql: ${TABLE}.ORDER_DELIVERED_CUSTOMER_DATE;;
+}
+dimension: ORDER_ESTIMATED_DELIVERY_DATE {
+ sql: ${TABLE}.ORDER_ESTIMATED_DELIVERY_DATE;;
+}
+}
+
+
+view: OLIST_ORDER_PAYMENTS_DATASET__2e9746eb_395b_4388_825c_47e355a575bc {
+sql_table_name:oracle.RDSORACLEFORPRESTO.OLIST_ORDER_PAYMENTS_DATASET ;;
+dimension: ORDER_ID {
+ sql: ${TABLE}.ORDER_ID;;
+}
+measure: PAYMENT_SEQUENTIAL {
+type:count_distinct
+ sql: ${TABLE}.PAYMENT_SEQUENTIAL;;
+}
+dimension: PAYMENT_TYPE {
+ sql: ${TABLE}.PAYMENT_TYPE;;
+}
+measure: PAYMENT_INSTALLMENTS {
+type:count_distinct
+ sql: ${TABLE}.PAYMENT_INSTALLMENTS;;
+}
+measure: PAYMENT_VALUE {
+type:count_distinct
+ sql: ${TABLE}.PAYMENT_VALUE;;
+}
+}
+
+
+view: OLIST_CUSTOMERS_DATASET__87e87480_eb08_429d_a21c_69dd88c33e22 {
+sql_table_name:oracle.RDSORACLEFORPRESTO.OLIST_CUSTOMERS_DATASET ;;
+dimension: CUSTOMER_ID {
+ sql: ${TABLE}.CUSTOMER_ID;;
+}
+dimension: CUSTOMER_UNIQUE_ID {
+ sql: ${TABLE}.CUSTOMER_UNIQUE_ID;;
+}
+dimension: CUSTOMER_ZIP_CODE_PREFIX {
+ sql: ${TABLE}.CUSTOMER_ZIP_CODE_PREFIX;;
+}
+dimension: CUSTOMER_CITY {
+ sql: ${TABLE}.CUSTOMER_CITY;;
+}
+dimension: CUSTOMER_STATE {
+ sql: ${TABLE}.CUSTOMER_STATE;;
+}
+}
+
+
+view: OLIST_ORDER_REVIEWS_DATASET__1425f7f0_2dbd_4606_b8d8_d2c5398419f6 {
+sql_table_name:oracle.RDSORACLEFORPRESTO.OLIST_ORDER_REVIEWS_DATASET ;;
+dimension: REVIEW_ID {
+ sql: ${TABLE}.REVIEW_ID;;
+}
+dimension: ORDER_ID {
+ sql: ${TABLE}.ORDER_ID;;
+}
+measure: REVIEW_SCORE {
+type:count_distinct
+ sql: ${TABLE}.REVIEW_SCORE;;
+}
+dimension: REVIEW_COMMENT_TITLE {
+ sql: ${TABLE}.REVIEW_COMMENT_TITLE;;
+}
+dimension: REVIEW_COMMENT_MESSAGE {
+ sql: ${TABLE}.REVIEW_COMMENT_MESSAGE;;
+}
+dimension: REVIEW_CREATION_DATE {
+ sql: ${TABLE}.REVIEW_CREATION_DATE;;
+}
+dimension: REVIEW_ANSWER_TIMESTAMP {
+ sql: ${TABLE}.REVIEW_ANSWER_TIMESTAMP;;
+}
+}
