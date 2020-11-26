@@ -2,16 +2,33 @@
 connection:"testprod-2"
 
 
-explore: SUBS_RECHARGE__3f3247a7_974b_4033_b9d5_313292d894ec {
+explore: SUBS_RECHARGE__364f80fc_584d_4e44_883f_621ae70e75ad {
 
-join: CAT_REGION__177b6cc1_7a79_4256_92ba_bac4732ad521 {
+join: CAT_REGION__972d97da_b855_43a8_aa73_ef71bf5bf79b {
  relationship: one_to_one
- sql_on: ${SUBS_RECHARGE__3f3247a7_974b_4033_b9d5_313292d894ec.SUBS_REGION} = ${CAT_REGION__177b6cc1_7a79_4256_92ba_bac4732ad521.REGION_ID} ;;
+ sql_on: ${SUBS_RECHARGE__364f80fc_584d_4e44_883f_621ae70e75ad.SUBS_REGION} = ${CAT_REGION__972d97da_b855_43a8_aa73_ef71bf5bf79b.REGION_ID} ;;
 }
 }
 
 
-view: SUBS_RECHARGE__3f3247a7_974b_4033_b9d5_313292d894ec {
+view: CAT_REGION__972d97da_b855_43a8_aa73_ef71bf5bf79b {
+sql_table_name:snowflake.SCHEMA_INFO.CAT_REGION ;;
+dimension: REGION_ID {
+ sql: ${TABLE}.REGION_ID;;
+}
+dimension: REGION_CD {
+ sql: ${TABLE}.REGION_CD;;
+}
+dimension: REGION_DESC {
+ sql: ${TABLE}.REGION_DESC;;
+}
+dimension: STATE_ID {
+ sql: ${TABLE}.STATE_ID;;
+}
+}
+
+
+view: SUBS_RECHARGE__364f80fc_584d_4e44_883f_621ae70e75ad {
 sql_table_name:oracle.RDSORACLEFORPRESTO.SUBS_RECHARGE ;;
 measure: SUBS_ACCOUNT {
 type:count_distinct
@@ -52,22 +69,5 @@ type:count_distinct
 }
 dimension: SUBS_USER_ID {
  sql: ${TABLE}.SUBS_USER_ID;;
-}
-}
-
-
-view: CAT_REGION__177b6cc1_7a79_4256_92ba_bac4732ad521 {
-sql_table_name:snowflake.SCHEMA_INFO.CAT_REGION ;;
-dimension: REGION_ID {
- sql: ${TABLE}.REGION_ID;;
-}
-dimension: REGION_CD {
- sql: ${TABLE}.REGION_CD;;
-}
-dimension: REGION_DESC {
- sql: ${TABLE}.REGION_DESC;;
-}
-dimension: STATE_ID {
- sql: ${TABLE}.STATE_ID;;
 }
 }
