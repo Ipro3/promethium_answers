@@ -1,23 +1,23 @@
 
-connection:"pmdevpresto"
+connection:"presto-qa-1"
 
 
-explore: DIM_AGENT__028a161f_bb6e_42b6_80b0_b1c0a7bd0eaa {
+explore: DIM_AGENT__89c07b20_74a6_4137_9e87_971ce0cae911 {
 
-join: FACT_SUBSCRIPTION_ACTIVITY__3ffc5c2a_b67f_4bd8_a8ec_5856903ac81a {
+join: FACT_SUBSCRIPTION_ACTIVITY__e679a611_7a1f_49d2_bf48_ebf3316b15ec {
  type: inner
  relationship: many_to_one
- sql_on: ${DIM_AGENT__028a161f_bb6e_42b6_80b0_b1c0a7bd0eaa.AGENT_RECORD_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__3ffc5c2a_b67f_4bd8_a8ec_5856903ac81a.AGN_KEY} ;;
+ sql_on: ${DIM_AGENT__89c07b20_74a6_4137_9e87_971ce0cae911.AGENT_RECORD_KEY} = ${FACT_SUBSCRIPTION_ACTIVITY__e679a611_7a1f_49d2_bf48_ebf3316b15ec.AGN_KEY} ;;
 }
-join: MASTER_PLAN_TABLE_WDATES__b47f3669_5b5c_46e6_a26e_1aafe4651e4f {
+join: MASTER_PLAN_TABLE_WDATES__904e5c86_9724_4b67_9034_3b79a363eca9 {
  type: inner
  relationship: many_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__b47f3669_5b5c_46e6_a26e_1aafe4651e4f.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__3ffc5c2a_b67f_4bd8_a8ec_5856903ac81a.PLAN_ID} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__904e5c86_9724_4b67_9034_3b79a363eca9.PLAN_ID} = ${FACT_SUBSCRIPTION_ACTIVITY__e679a611_7a1f_49d2_bf48_ebf3316b15ec.PLAN_ID} ;;
 }
 }
 
 
-view: DIM_AGENT__028a161f_bb6e_42b6_80b0_b1c0a7bd0eaa {
+view: DIM_AGENT__89c07b20_74a6_4137_9e87_971ce0cae911 {
 sql_table_name:oracle.RDSOracleForPresto.DIM_AGENT ;;
 dimension: AGENT_RECORD_KEY {
   primary_key: yes
@@ -91,60 +91,7 @@ fields: [AGENT_RECORD_KEY, AGENT_ID, CSR_ID, AGENT_SUPERVISOR_RECORD_KEY, AGENT_
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__b47f3669_5b5c_46e6_a26e_1aafe4651e4f {
-sql_table_name:oracle.RDSOracleForPresto.MASTER_PLAN_TABLE_WDATES ;;
-dimension: PLAN_ID {
-  primary_key: yes
-  sql: ${TABLE}.PLAN_ID;;
-}
-dimension: PLAN_NAME {
-  sql: ${TABLE}.PLAN_NAME;;
-}
-dimension: MER {
-  sql: ${TABLE}.MER;;
-}
-dimension: DISC {
-  sql: ${TABLE}.DISC;;
-}
-dimension: PACKAGE {
-  sql: ${TABLE}.PACKAGE;;
-}
-dimension: LEN {
-  sql: ${TABLE}.LEN;;
-}
-dimension: ROLLUP1 {
-  sql: ${TABLE}.ROLLUP1;;
-}
-dimension: ASP {
-  sql: ${TABLE}.ASP;;
-}
-dimension: STARTDATE {
-  sql: ${TABLE}.STARTDATE;;
-}
-dimension: ENDDATE {
-  sql: ${TABLE}.ENDDATE;;
-}
-measure: PLAN_ID_sum {
-type:sum
-sql: ${PLAN_ID} ;;
- drill_fields: [detail*]
-}
-measure: MER_sum {
-type:sum
-sql: ${MER} ;;
- drill_fields: [detail*]
-}
-measure: count {
-type:count
- drill_fields: [detail*]
-}
-set: detail {
-fields: [PLAN_ID, PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP, STARTDATE, ENDDATE]
-}
-}
-
-
-view: FACT_SUBSCRIPTION_ACTIVITY__3ffc5c2a_b67f_4bd8_a8ec_5856903ac81a {
+view: FACT_SUBSCRIPTION_ACTIVITY__e679a611_7a1f_49d2_bf48_ebf3316b15ec {
 sql_table_name:oracle.RDSOracleForPresto.FACT_SUBSCRIPTION_ACTIVITY ;;
 dimension: SBSCRN_ACTVTY_KEY {
   sql: ${TABLE}.SBSCRN_ACTVTY_KEY;;
@@ -482,5 +429,58 @@ type:count
 }
 set: detail {
 fields: [SBSCRN_ACTVTY_KEY, SBSCRN_ID, AGN_KEY, USED_ACTVTY_TYPE_ID, ACTVTY_DT, ACTVTY_TS, HHLD_ID, PRTY_KEY, PRTY_ID, PARNT_ACCT_KEY, PARNT_ACCT_ID, PARNT_ACCT_NUM, CHILD_ACCT_KEY, CHILD_ACCT_ID, CHILD_ACCT_NUM, VEH_KEY, DVC_KEY, DVC_ID, EQMNT_KEY, EQMNT_ID, PLAN_KEY, PLAN_ID, OFR_ID, FROM_PLAN_KEY, FROM_PLAN_ID, FROM_OFR_ID, PROD_KEY, PROD_ID, FROM_PROD_KEY, FROM_PROD_ID, PKG_ID, FROM_PKG_ID, FEAT_ID, AGN_KEY2, CSR_ID, PTNR_ID, LNKD_INET_FL, MRD_TYPE_CD, SBSCR_LIFCYC_KEY, CONV_REP_OWN_SEGMT_KEY, OWNR_TYPE2_KEY, DEACTIVATION_REASON_CODE, TRIAL_ID, SRVC_ID, RENW_ID, FROM_RENW_ID, COLL_SCNRO_ID, SRVC_LVL_PMT_KEY, NONPAY_SRVC_KEY, BILLING_METHOD, FROM_BILLING_METHOD, SLFPAY_TURNOVER_RSN, SLFPAY_TURNOVER_DT, FUTURE_DEACTVN_DT, SCHD_SEASONAL_SUSP_REACTVN_DT, CALL_REASON, CALL_DISPOSITION, INSE_USER_ID, INSE_TS, UPDT_USER_ID, UPDT_TS, SAVE_ACTIVITY, DEACT_ACTIVITY_BY_SAVE_AGENT, CONV_ACTIVITY_BY_SAVE_AGENT, SAVE_OPPORTUNITY_ACTIVITY]
+}
+}
+
+
+view: MASTER_PLAN_TABLE_WDATES__904e5c86_9724_4b67_9034_3b79a363eca9 {
+sql_table_name:oracle.RDSOracleForPresto.MASTER_PLAN_TABLE_WDATES ;;
+dimension: PLAN_ID {
+  primary_key: yes
+  sql: ${TABLE}.PLAN_ID;;
+}
+dimension: PLAN_NAME {
+  sql: ${TABLE}.PLAN_NAME;;
+}
+dimension: MER {
+  sql: ${TABLE}.MER;;
+}
+dimension: DISC {
+  sql: ${TABLE}.DISC;;
+}
+dimension: PACKAGE {
+  sql: ${TABLE}.PACKAGE;;
+}
+dimension: LEN {
+  sql: ${TABLE}.LEN;;
+}
+dimension: ROLLUP1 {
+  sql: ${TABLE}.ROLLUP1;;
+}
+dimension: ASP {
+  sql: ${TABLE}.ASP;;
+}
+dimension: STARTDATE {
+  sql: ${TABLE}.STARTDATE;;
+}
+dimension: ENDDATE {
+  sql: ${TABLE}.ENDDATE;;
+}
+measure: PLAN_ID_sum {
+type:sum
+sql: ${PLAN_ID} ;;
+ drill_fields: [detail*]
+}
+measure: MER_sum {
+type:sum
+sql: ${MER} ;;
+ drill_fields: [detail*]
+}
+measure: count {
+type:count
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [PLAN_ID, PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP, STARTDATE, ENDDATE]
 }
 }
