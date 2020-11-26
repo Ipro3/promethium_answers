@@ -2,24 +2,49 @@
 connection:"testprod-2"
 
 
-explore: SUB_STATUS_HIST__baf88710_004b_4e4f_8dc5_1e80502b1e15 {
+explore: SUB_STATUS_HIST__8f1c4ef7_6ae9_4558_9a4c_0f59a100d9ed {
 
-join: SUBS_RECHARGE__6e3d9d97_07f1_436f_9a7e_c2c0cba30c18 {
+join: SUBS_RECHARGE__73f1d546_4633_4484_81d3_3fadd0a9191f {
  relationship: one_to_one
- sql_on: ${SUBS_RECHARGE__6e3d9d97_07f1_436f_9a7e_c2c0cba30c18.SUBS_ACCOUNT} = ${SUB_STATUS_HIST__baf88710_004b_4e4f_8dc5_1e80502b1e15.SUBS_ACCOUNT} ;;
+ sql_on: ${SUBS_RECHARGE__73f1d546_4633_4484_81d3_3fadd0a9191f.SUBS_ACCOUNT} = ${SUB_STATUS_HIST__8f1c4ef7_6ae9_4558_9a4c_0f59a100d9ed.SUBS_ACCOUNT} 
+ and ${SUBS_RECHARGE__73f1d546_4633_4484_81d3_3fadd0a9191f.SUBS_RECHARGE_EFF_DT} = ${SUB_STATUS_HIST__8f1c4ef7_6ae9_4558_9a4c_0f59a100d9ed.SUBS_STATUS_EFF_DT} ;;
 }
-join: CAT_REGION__6418adae_334f_4285_bc0e_15f101a935fa {
+join: CAT_REGION__8dab2ff9_8d44_4dbf_a37e_f7c0578e0821 {
  relationship: one_to_one
- sql_on: ${SUB_STATUS_HIST__baf88710_004b_4e4f_8dc5_1e80502b1e15.SUBS_REGION_ID} = ${CAT_REGION__6418adae_334f_4285_bc0e_15f101a935fa.REGION_ID} ;;
+ sql_on: ${SUB_STATUS_HIST__8f1c4ef7_6ae9_4558_9a4c_0f59a100d9ed.SUBS_REGION_ID} = ${CAT_REGION__8dab2ff9_8d44_4dbf_a37e_f7c0578e0821.REGION_ID} ;;
 }
-join: CAT_POST_PHONE_STATUS__06b2cc3c_6b43_4130_90bb_361f70b54fbd {
+join: CAT_POST_PHONE_STATUS__c59b5a0b_d8dd_4462_9643_b9c31ed45178 {
  relationship: one_to_one
- sql_on: ${SUB_STATUS_HIST__baf88710_004b_4e4f_8dc5_1e80502b1e15.SUBS_STATUS_CD} = ${CAT_POST_PHONE_STATUS__06b2cc3c_6b43_4130_90bb_361f70b54fbd.PHONE_STATUS_ID} ;;
+ sql_on: ${SUB_STATUS_HIST__8f1c4ef7_6ae9_4558_9a4c_0f59a100d9ed.SUBS_STATUS_CD} = ${CAT_POST_PHONE_STATUS__c59b5a0b_d8dd_4462_9643_b9c31ed45178.PHONE_STATUS_ID} ;;
 }
 }
 
 
-view: CAT_POST_PHONE_STATUS__06b2cc3c_6b43_4130_90bb_361f70b54fbd {
+view: SUB_STATUS_HIST__8f1c4ef7_6ae9_4558_9a4c_0f59a100d9ed {
+sql_table_name:oracle.RDSORACLEFORPRESTO.SUB_STATUS_HIST ;;
+measure: ACCESS_METHOD_NUMBER {
+type:count_distinct
+ sql: ${TABLE}.ACCESS_METHOD_NUMBER;;
+}
+dimension: SUBS_ACCOUNT {
+ sql: ${TABLE}.SUBS_ACCOUNT;;
+}
+dimension: SUBS_REGION_ID {
+ sql: ${TABLE}.SUBS_REGION_ID;;
+}
+dimension: SUBS_STATUS_CD {
+ sql: ${TABLE}.SUBS_STATUS_CD;;
+}
+dimension: SUBS_STATUS_EFF_DT {
+ sql: ${TABLE}.SUBS_STATUS_EFF_DT;;
+}
+dimension: LOAD_DT {
+ sql: ${TABLE}.LOAD_DT;;
+}
+}
+
+
+view: CAT_POST_PHONE_STATUS__c59b5a0b_d8dd_4462_9643_b9c31ed45178 {
 sql_table_name:oracle.RDSORACLEFORPRESTO.CAT_POST_PHONE_STATUS ;;
 dimension: PHONE_STATUS_ID {
  sql: ${TABLE}.PHONE_STATUS_ID;;
@@ -33,7 +58,24 @@ dimension: PHONE_STATUS_DESC {
 }
 
 
-view: SUBS_RECHARGE__6e3d9d97_07f1_436f_9a7e_c2c0cba30c18 {
+view: CAT_REGION__8dab2ff9_8d44_4dbf_a37e_f7c0578e0821 {
+sql_table_name:snowflake.SCHEMA_INFO.CAT_REGION ;;
+dimension: REGION_ID {
+ sql: ${TABLE}.REGION_ID;;
+}
+dimension: REGION_CD {
+ sql: ${TABLE}.REGION_CD;;
+}
+dimension: REGION_DESC {
+ sql: ${TABLE}.REGION_DESC;;
+}
+dimension: STATE_ID {
+ sql: ${TABLE}.STATE_ID;;
+}
+}
+
+
+view: SUBS_RECHARGE__73f1d546_4633_4484_81d3_3fadd0a9191f {
 sql_table_name:oracle.RDSORACLEFORPRESTO.SUBS_RECHARGE ;;
 dimension: SUBS_ACCOUNT {
  sql: ${TABLE}.SUBS_ACCOUNT;;
@@ -74,46 +116,5 @@ type:count_distinct
 }
 dimension: SUBS_USER_ID {
  sql: ${TABLE}.SUBS_USER_ID;;
-}
-}
-
-
-view: CAT_REGION__6418adae_334f_4285_bc0e_15f101a935fa {
-sql_table_name:snowflake.SCHEMA_INFO.CAT_REGION ;;
-dimension: REGION_ID {
- sql: ${TABLE}.REGION_ID;;
-}
-dimension: REGION_CD {
- sql: ${TABLE}.REGION_CD;;
-}
-dimension: REGION_DESC {
- sql: ${TABLE}.REGION_DESC;;
-}
-dimension: STATE_ID {
- sql: ${TABLE}.STATE_ID;;
-}
-}
-
-
-view: SUB_STATUS_HIST__baf88710_004b_4e4f_8dc5_1e80502b1e15 {
-sql_table_name:oracle.RDSORACLEFORPRESTO.SUB_STATUS_HIST ;;
-measure: ACCESS_METHOD_NUMBER {
-type:count_distinct
- sql: ${TABLE}.ACCESS_METHOD_NUMBER;;
-}
-dimension: SUBS_ACCOUNT {
- sql: ${TABLE}.SUBS_ACCOUNT;;
-}
-dimension: SUBS_REGION_ID {
- sql: ${TABLE}.SUBS_REGION_ID;;
-}
-dimension: SUBS_STATUS_CD {
- sql: ${TABLE}.SUBS_STATUS_CD;;
-}
-dimension: SUBS_STATUS_EFF_DT {
- sql: ${TABLE}.SUBS_STATUS_EFF_DT;;
-}
-dimension: LOAD_DT {
- sql: ${TABLE}.LOAD_DT;;
 }
 }
