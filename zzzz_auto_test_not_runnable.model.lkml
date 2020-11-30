@@ -2,18 +2,22 @@
 connection:"pmdevpresto"
 
 
-explore: table1__185ae586_ff43_4fdf_aeb0_9373a2f65e9b {
+explore: table1__4ce68f3a_e47a_46de_a0ba_9280cfc44b69 {
 
-join: table2__55adcefa_e5f5_41e5_badb_b81d8a783c27 {
+join: table2__303fa392_4f64_446e_ac43_c786fea16a89 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${table1__185ae586_ff43_4fdf_aeb0_9373a2f65e9b.f1} = ${table2__55adcefa_e5f5_41e5_badb_b81d8a783c27.f2} ;;
+ sql_on: ${table1__4ce68f3a_e47a_46de_a0ba_9280cfc44b69.f1} = ${table2__303fa392_4f64_446e_ac43_c786fea16a89.f2} ;;
 }
 }
 
 
-view: table2__55adcefa_e5f5_41e5_badb_b81d8a783c27 {
-sql_table_name:catalog1.db1.table2 ;;
+view: table1__4ce68f3a_e47a_46de_a0ba_9280cfc44b69 {
+sql_table_name:catalog1.db1.table1 ;;
+  dimension: primary_key {
+  primary_key: yes
+  sql: CONCAT(${TABLE}.f1, ${TABLE}.f2, ${TABLE}.f3) ;;
+}
 dimension: f0 {
   sql: ${TABLE}.f0;;
 }
@@ -33,12 +37,8 @@ fields: [f0, f1, f2]
 }
 
 
-view: table1__185ae586_ff43_4fdf_aeb0_9373a2f65e9b {
-sql_table_name:catalog1.db1.table1 ;;
-  dimension: primary_key {
-  primary_key: yes
-  sql: CONCAT(${TABLE}.f1, ${TABLE}.f2, ${TABLE}.f3) ;;
-}
+view: table2__303fa392_4f64_446e_ac43_c786fea16a89 {
+sql_table_name:catalog1.db1.table2 ;;
 dimension: f0 {
   sql: ${TABLE}.f0;;
 }
