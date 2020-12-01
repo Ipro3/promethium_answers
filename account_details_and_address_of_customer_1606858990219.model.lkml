@@ -2,21 +2,38 @@
 connection:"pmdevpresto"
 
 
-explore: ADDRESS__d3567d66_7ac4_424c_83c7_c7301410fd88 {
+explore: ADDRESS__14657c18_6205_4bd4_8fe1_52bff2783d74 {
 
-join: customer_dimension__20c57c5b_377e_4f9d_af46_7d384352449a {
+join: customer_dimension__ff15d9d4_fd8b_4707_ac7d_a38f6d424ae9 {
  relationship: one_to_one
- sql_on: ${ADDRESS__d3567d66_7ac4_424c_83c7_c7301410fd88.NUMBER_BUILDING} = ${customer_dimension__20c57c5b_377e_4f9d_af46_7d384352449a.customer_id} ;;
+ sql_on: ${ADDRESS__14657c18_6205_4bd4_8fe1_52bff2783d74.NUMBER_BUILDING} = ${customer_dimension__ff15d9d4_fd8b_4707_ac7d_a38f6d424ae9.customer_id} ;;
 }
-join: ACCOUNT__218016c2_095e_474d_9585_6826e0054c4a {
+join: ACCOUNT__0a161b94_f6ba_4220_8cf7_4fd83bc97d54 {
  relationship: one_to_one
- sql_on: ${customer_dimension__20c57c5b_377e_4f9d_af46_7d384352449a.customer_name} = ${ACCOUNT__218016c2_095e_474d_9585_6826e0054c4a.ACCOUNT_ID} 
- and ${ADDRESS__d3567d66_7ac4_424c_83c7_c7301410fd88.NUMBER_STREET} = ${ACCOUNT__218016c2_095e_474d_9585_6826e0054c4a.ACCOUNT_ID} ;;
+ sql_on: ${customer_dimension__ff15d9d4_fd8b_4707_ac7d_a38f6d424ae9.customer_name} = ${ACCOUNT__0a161b94_f6ba_4220_8cf7_4fd83bc97d54.ACCOUNT_ID} 
+ and ${ADDRESS__14657c18_6205_4bd4_8fe1_52bff2783d74.NUMBER_STREET} = ${ACCOUNT__0a161b94_f6ba_4220_8cf7_4fd83bc97d54.ACCOUNT_ID} ;;
 }
 }
 
 
-view: ADDRESS__d3567d66_7ac4_424c_83c7_c7301410fd88 {
+view: customer_dimension__ff15d9d4_fd8b_4707_ac7d_a38f6d424ae9 {
+sql_table_name:test_mysql.promethium.customer_dimension ;;
+dimension: customer_id {
+ sql: ${TABLE}.customer_id;;
+}
+dimension: customer_name {
+ sql: ${TABLE}.customer_name;;
+}
+dimension: customer_address {
+ sql: ${TABLE}.customer_address;;
+}
+dimension: other_details {
+ sql: ${TABLE}.other_details;;
+}
+}
+
+
+view: ADDRESS__14657c18_6205_4bd4_8fe1_52bff2783d74 {
 sql_table_name:snowflake_media.SCHEMA_INFO.ADDRESS ;;
 dimension: NUMBER_BUILDING {
  sql: ${TABLE}.NUMBER_BUILDING;;
@@ -47,24 +64,7 @@ dimension: OTHER_ADDRESS_DETAILS {
 }
 
 
-view: customer_dimension__20c57c5b_377e_4f9d_af46_7d384352449a {
-sql_table_name:test_mysql.promethium.customer_dimension ;;
-dimension: customer_id {
- sql: ${TABLE}.customer_id;;
-}
-dimension: customer_name {
- sql: ${TABLE}.customer_name;;
-}
-dimension: customer_address {
- sql: ${TABLE}.customer_address;;
-}
-dimension: other_details {
- sql: ${TABLE}.other_details;;
-}
-}
-
-
-view: ACCOUNT__218016c2_095e_474d_9585_6826e0054c4a {
+view: ACCOUNT__0a161b94_f6ba_4220_8cf7_4fd83bc97d54 {
 sql_table_name:snowflake_media.SCHEMA_INFO.ACCOUNT ;;
 dimension: ACCOUNT_ID {
  sql: ${TABLE}.ACCOUNT_ID;;
