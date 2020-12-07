@@ -2,17 +2,36 @@
 connection:"pmdevpresto"
 
 
-explore: CATEGORY_NAME_TRANSLATION__68a447b1_b49c_438f_9980_22b29409b5f6 {
+explore: CATEGORY_NAME_TRANSLATION__3f3998d2_a03e_49ef_be34_2f7bbf4aa0e6 {
 
-join: BACHELOR_DEGREE_OR_HIGHER__85cd889d_f2f2_45c4_9f85_5b050883e0de {
- type: inner
+join: BACHELOR_DEGREE_OR_HIGHER__fd9c262c_1aa3_40d0_a018_5951b9e83a28 {
+ type: full_outer
  relationship: many_to_one
- sql_on: ${CATEGORY_NAME_TRANSLATION__68a447b1_b49c_438f_9980_22b29409b5f6.PROD_CATEGORY_NAME} = ${BACHELOR_DEGREE_OR_HIGHER__85cd889d_f2f2_45c4_9f85_5b050883e0de.SERIES_ID} ;;
+ sql_on: ${CATEGORY_NAME_TRANSLATION__3f3998d2_a03e_49ef_be34_2f7bbf4aa0e6.PROD_CATEGORY_NAME} = ${BACHELOR_DEGREE_OR_HIGHER__fd9c262c_1aa3_40d0_a018_5951b9e83a28.SERIES_ID} 
+ and ${CATEGORY_NAME_TRANSLATION__3f3998d2_a03e_49ef_be34_2f7bbf4aa0e6.PRODUCT_CATEGORY_NAME_ENGLISH} <> ${BACHELOR_DEGREE_OR_HIGHER__fd9c262c_1aa3_40d0_a018_5951b9e83a28.SERIES_ID} ;;
 }
 }
 
 
-view: BACHELOR_DEGREE_OR_HIGHER__85cd889d_f2f2_45c4_9f85_5b050883e0de {
+view: CATEGORY_NAME_TRANSLATION__3f3998d2_a03e_49ef_be34_2f7bbf4aa0e6 {
+sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.CATEGORY_NAME_TRANSLATION ;;
+dimension: PROD_CATEGORY_NAME {
+  sql: ${TABLE}.PROD_CATEGORY_NAME;;
+}
+dimension: PRODUCT_CATEGORY_NAME_ENGLISH {
+  sql: ${TABLE}.PRODUCT_CATEGORY_NAME_ENGLISH;;
+}
+measure: count {
+type:count
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [PROD_CATEGORY_NAME, PRODUCT_CATEGORY_NAME_ENGLISH]
+}
+}
+
+
+view: BACHELOR_DEGREE_OR_HIGHER__fd9c262c_1aa3_40d0_a018_5951b9e83a28 {
 sql_table_name:mysql_v1.promethium.BACHELOR_DEGREE_OR_HIGHER ;;
   dimension: primary_key {
   primary_key: yes
@@ -46,23 +65,5 @@ type:count
 }
 set: detail {
 fields: [SERIES_ID, REGION_CODE, BACHELOR_DEGREE_OR_HIGHER, YEAR]
-}
-}
-
-
-view: CATEGORY_NAME_TRANSLATION__68a447b1_b49c_438f_9980_22b29409b5f6 {
-sql_table_name:pm61oracle_media.RDSORACLEFORPRESTO.CATEGORY_NAME_TRANSLATION ;;
-dimension: PROD_CATEGORY_NAME {
-  sql: ${TABLE}.PROD_CATEGORY_NAME;;
-}
-dimension: PRODUCT_CATEGORY_NAME_ENGLISH {
-  sql: ${TABLE}.PRODUCT_CATEGORY_NAME_ENGLISH;;
-}
-measure: count {
-type:count
- drill_fields: [detail*]
-}
-set: detail {
-fields: [PROD_CATEGORY_NAME, PRODUCT_CATEGORY_NAME_ENGLISH]
 }
 }
