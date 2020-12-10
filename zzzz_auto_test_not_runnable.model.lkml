@@ -2,17 +2,17 @@
 connection:"pmdevpresto"
 
 
-explore: table1__82c5b7f5_f14e_487a_a02c_81e4e4a2db14 {
+explore: table1__9efd21f8_4fab_4cce_8312_17cafa158f7d {
 
-join: table2__d6d8021c_a127_4109_8229_a8f756ad1412 {
+join: table2__a2eec38c_64ad_4e11_ae9e_67474bce0ad6 {
  type: left_outer
  relationship: many_to_one
- sql_on: ${table1__82c5b7f5_f14e_487a_a02c_81e4e4a2db14.f1} = ${table2__d6d8021c_a127_4109_8229_a8f756ad1412.f2} ;;
+ sql_on: ${table1__9efd21f8_4fab_4cce_8312_17cafa158f7d.f1} = ${table2__a2eec38c_64ad_4e11_ae9e_67474bce0ad6.f2} ;;
 }
 }
 
 
-view: table2__d6d8021c_a127_4109_8229_a8f756ad1412 {
+view: table2__a2eec38c_64ad_4e11_ae9e_67474bce0ad6 {
 sql_table_name:catalog1.db1.table2 ;;
 dimension: f0 {
   sql: ${TABLE}.f0;;
@@ -33,7 +33,7 @@ fields: [f0, f1, f2]
 }
 
 
-view: table1__82c5b7f5_f14e_487a_a02c_81e4e4a2db14 {
+view: table1__9efd21f8_4fab_4cce_8312_17cafa158f7d {
 sql_table_name:catalog1.db1.table1 ;;
   dimension: primary_key {
   primary_key: yes
