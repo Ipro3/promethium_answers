@@ -2,28 +2,23 @@
 connection:"presto-qa-1"
 
 
-explore: MASTER_PLAN_TABLE_WDATES__eaa034f1_f80d_43fa_a3ee_605c30b122eb {
+explore: MASTER_PLAN_TABLE_WDATES__38a16f7e_cd74_44d5_bb1c_4d870ef15125 {
 
-join: COMMUNITY__7c005891_0a8a_4fd8_9c74_ee35ff4316d7 {
+join: COMMUNITY__10bf79b0_98c2_4d3c_881d_90a9bdeb4e54 {
  type: inner
  relationship: many_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__eaa034f1_f80d_43fa_a3ee_605c30b122eb.PLAN_NAME} = ${COMMUNITY__7c005891_0a8a_4fd8_9c74_ee35ff4316d7.LASTMODIFIEDBYID} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__38a16f7e_cd74_44d5_bb1c_4d870ef15125.PLAN_NAME} = ${COMMUNITY__10bf79b0_98c2_4d3c_881d_90a9bdeb4e54.LASTMODIFIEDBYID} ;;
 }
-join: HIGH_SCHOOL_GRADUATE_OR_HIGHER__4750a867_0651_47fd_a927_83fb2f9f1ef9 {
+join: BACHELOR_DEGREE_OR_HIGHER__c0eeb590_e6e1_46f5_a014_0c7ec795a39d {
  type: inner
  relationship: many_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__eaa034f1_f80d_43fa_a3ee_605c30b122eb.PLAN_ID} = ${HIGH_SCHOOL_GRADUATE_OR_HIGHER__4750a867_0651_47fd_a927_83fb2f9f1ef9.REGION_CODE} ;;
-}
-join: BACHELOR_DEGREE_OR_HIGHER__bcbca36c_6e8e_4642_be57_febee1916479 {
- type: inner
- relationship: many_to_one
- sql_on: ${MASTER_PLAN_TABLE_WDATES__eaa034f1_f80d_43fa_a3ee_605c30b122eb.PACKAGE} = ${BACHELOR_DEGREE_OR_HIGHER__bcbca36c_6e8e_4642_be57_febee1916479.SERIES_ID} ;;
+ sql_on: ${MASTER_PLAN_TABLE_WDATES__38a16f7e_cd74_44d5_bb1c_4d870ef15125.PACKAGE} = ${BACHELOR_DEGREE_OR_HIGHER__c0eeb590_e6e1_46f5_a014_0c7ec795a39d.SERIES_ID} ;;
 }
 }
 
 
-view: HIGH_SCHOOL_GRADUATE_OR_HIGHER__4750a867_0651_47fd_a927_83fb2f9f1ef9 {
-sql_table_name:oracle.RDSOracleForPresto.HIGH_SCHOOL_GRADUATE_OR_HIGHER ;;
+view: BACHELOR_DEGREE_OR_HIGHER__c0eeb590_e6e1_46f5_a014_0c7ec795a39d {
+sql_table_name:oracle.RDSOracleForPresto.BACHELOR_DEGREE_OR_HIGHER ;;
   dimension: primary_key {
   primary_key: yes
   sql: CONCAT(${TABLE}.SERIES_ID, ${TABLE}.YEAR) ;;
@@ -60,7 +55,49 @@ fields: [SERIES_ID, REGION_CODE, SERIES_VALUE, YEAR]
 }
 
 
-view: MASTER_PLAN_TABLE_WDATES__eaa034f1_f80d_43fa_a3ee_605c30b122eb {
+view: COMMUNITY__10bf79b0_98c2_4d3c_881d_90a9bdeb4e54 {
+sql_table_name:sforce.SFORCE.COMMUNITY ;;
+dimension: ID {
+  sql: ${TABLE}.ID;;
+}
+dimension: SYSTEMMODSTAMP {
+  sql: ${TABLE}.SYSTEMMODSTAMP;;
+}
+dimension: CREATEDDATE {
+  sql: ${TABLE}.CREATEDDATE;;
+}
+dimension: CREATEDBYID {
+  sql: ${TABLE}.CREATEDBYID;;
+}
+dimension: LASTMODIFIEDDATE {
+  sql: ${TABLE}.LASTMODIFIEDDATE;;
+}
+dimension: LASTMODIFIEDBYID {
+  sql: ${TABLE}.LASTMODIFIEDBYID;;
+}
+dimension: NAME {
+  sql: ${TABLE}.NAME;;
+}
+dimension: DESCRIPTION {
+  sql: ${TABLE}.DESCRIPTION;;
+}
+dimension: ISACTIVE {
+  sql: ${TABLE}.ISACTIVE;;
+}
+dimension: ISPUBLISHED {
+  sql: ${TABLE}.ISPUBLISHED;;
+}
+measure: count {
+type:count
+ drill_fields: [detail*]
+}
+set: detail {
+fields: [ID, SYSTEMMODSTAMP, CREATEDDATE, CREATEDBYID, LASTMODIFIEDDATE, LASTMODIFIEDBYID, NAME, DESCRIPTION, ISACTIVE, ISPUBLISHED]
+}
+}
+
+
+view: MASTER_PLAN_TABLE_WDATES__38a16f7e_cd74_44d5_bb1c_4d870ef15125 {
 sql_table_name:snowflake.SCHEMA_INFO.MASTER_PLAN_TABLE_WDATES ;;
 dimension: PLAN_ID {
   sql: ${TABLE}.PLAN_ID;;
@@ -108,85 +145,5 @@ type:count
 }
 set: detail {
 fields: [PLAN_ID, PLAN_NAME, MER, DISC, PACKAGE, LEN, ROLLUP1, ASP, STARTDATE, ENDDATE]
-}
-}
-
-
-view: COMMUNITY__7c005891_0a8a_4fd8_9c74_ee35ff4316d7 {
-sql_table_name:sforce.SFORCE.COMMUNITY ;;
-dimension: ID {
-  sql: ${TABLE}.ID;;
-}
-dimension: SYSTEMMODSTAMP {
-  sql: ${TABLE}.SYSTEMMODSTAMP;;
-}
-dimension: CREATEDDATE {
-  sql: ${TABLE}.CREATEDDATE;;
-}
-dimension: CREATEDBYID {
-  sql: ${TABLE}.CREATEDBYID;;
-}
-dimension: LASTMODIFIEDDATE {
-  sql: ${TABLE}.LASTMODIFIEDDATE;;
-}
-dimension: LASTMODIFIEDBYID {
-  sql: ${TABLE}.LASTMODIFIEDBYID;;
-}
-dimension: NAME {
-  sql: ${TABLE}.NAME;;
-}
-dimension: DESCRIPTION {
-  sql: ${TABLE}.DESCRIPTION;;
-}
-dimension: ISACTIVE {
-  sql: ${TABLE}.ISACTIVE;;
-}
-dimension: ISPUBLISHED {
-  sql: ${TABLE}.ISPUBLISHED;;
-}
-measure: count {
-type:count
- drill_fields: [detail*]
-}
-set: detail {
-fields: [ID, SYSTEMMODSTAMP, CREATEDDATE, CREATEDBYID, LASTMODIFIEDDATE, LASTMODIFIEDBYID, NAME, DESCRIPTION, ISACTIVE, ISPUBLISHED]
-}
-}
-
-
-view: BACHELOR_DEGREE_OR_HIGHER__bcbca36c_6e8e_4642_be57_febee1916479 {
-sql_table_name:oracle.RDSOracleForPresto.BACHELOR_DEGREE_OR_HIGHER ;;
-  dimension: primary_key {
-  primary_key: yes
-  sql: CONCAT(${TABLE}.SERIES_ID, ${TABLE}.YEAR) ;;
-}
-dimension: SERIES_ID {
-  sql: ${TABLE}.SERIES_ID;;
-}
-dimension: REGION_CODE {
-  sql: ${TABLE}.REGION_CODE;;
-}
-dimension: SERIES_VALUE {
-  sql: ${TABLE}.SERIES_VALUE;;
-}
-dimension: YEAR {
-  sql: ${TABLE}.YEAR;;
-}
-measure: REGION_CODE_sum {
-type:sum
-sql: ${REGION_CODE} ;;
- drill_fields: [detail*]
-}
-measure: SERIES_VALUE_sum {
-type:sum
-sql: ${SERIES_VALUE} ;;
- drill_fields: [detail*]
-}
-measure: count {
-type:count
- drill_fields: [detail*]
-}
-set: detail {
-fields: [SERIES_ID, REGION_CODE, SERIES_VALUE, YEAR]
 }
 }
